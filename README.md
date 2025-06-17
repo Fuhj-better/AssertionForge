@@ -157,6 +157,7 @@ If you build on AssertionForge, please cite our LAD 2025 paper:
 
 *Accepted at LAD 2025, Stanford (June 26‑27, 2025).*
 
+📄 **Paper:** [arXiv:2503.19174](https://arxiv.org/abs/2503.19174)
 
 
 ##  Acknowledgements

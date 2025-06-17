@@ -137,7 +137,11 @@ python main.py
 This is the recommended workflow for reliable operation of AssertionForge with new designs.
 
 
+## Knowledge Graph Example
 
+![OpenMSP430 Knowledge Graph](src/KG_vis.png)
+
+*Visualization of the KGs from **OpenMSP430** using Gephi. Node colors represent different entity types—modules, signals, etc.  Left: KG generated with the vanilla GraphRAG prompt.  Middle: KG produced by our domain‑customized prompt.  Right: two zoomed‑in views highlighting key entities and their labels.*
 
 
 

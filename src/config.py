@@ -315,7 +315,7 @@ elif task == 'use_KG':
 else:
     assert False
 
-graphrag_local_dir = '/<path>/<to>/graphrag'  # must use local version with our own modifications
+graphrag_local_dir = '/<path>/<to>/graphrag'  # point to your local GraphRAG repo
 
 
 user = get_user()

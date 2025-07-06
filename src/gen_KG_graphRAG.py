@@ -74,21 +74,21 @@ def build_KG():
         copy_entity_extraction_prompt(graph_rag_dir)
         timer.time_and_clear(f'Copying entity extraction prompt')
 
-        # Step 6: Run GraphRAG indexing
-        print("Step 6: Running GraphRAG indexing")
-        return_code = run_graphrag_index(graph_rag_dir)
-        if return_code != 0:
-            timer.time_and_clear("error")
-            timer.print_durations_log(print_func=print)
-            raise RuntimeError("GraphRAG indexing failed")
+        # # Step 6: Run GraphRAG indexing
+        # print("Step 6: Running GraphRAG indexing")
+        # return_code = run_graphrag_index(graph_rag_dir)
+        # if return_code != 0:
+        #     timer.time_and_clear("error")
+        #     timer.print_durations_log(print_func=print)
+        #     raise RuntimeError("GraphRAG indexing failed")
 
-        # New Step: Detect and report log folder
-        print("Step 7: Detecting GraphRAG log folder")
-        log_folder = detect_graphrag_log_folder(graph_rag_dir)
-        if log_folder:
-            print(f"GraphRAG log folder detected: {log_folder}")
-        else:
-            print("No new GraphRAG log folder detected")
+        # # New Step: Detect and report log folder
+        # print("Step 7: Detecting GraphRAG log folder")
+        # log_folder = detect_graphrag_log_folder(graph_rag_dir)
+        # if log_folder:
+        #     print(f"GraphRAG log folder detected: {log_folder}")
+        # else:
+        #     print("No new GraphRAG log folder detected")
 
         print("Process completed successfully")
 
@@ -220,7 +220,7 @@ def get_pdf_stats(pdf_path):
 
 
 def get_jsonl_stats(jsonl_path):
-    with open(jsonl_path, 'r') as file:
+    with open(jsonl_path, 'r',encoding='utf-8') as file:
         lines = file.readlines()
         num_pages = sum(1 for line in lines if json.loads(line).get('page') is not None)
         file_size = os.path.getsize(jsonl_path) / (1024 * 1024)  # Convert to MB
@@ -274,7 +274,7 @@ def parse_jsonl_to_text(jsonl_path, output_dir):
     design_name = os.path.splitext(os.path.basename(jsonl_path))[0]
     output_path = os.path.join(output_dir, f"{design_name}_processed.txt")
 
-    with open(jsonl_path, 'r') as jsonl_file, open(
+    with open(jsonl_path, 'r',encoding='utf-8') as jsonl_file, open(
         output_path, 'w', encoding='utf-8'
     ) as txt_file:
         for line in jsonl_file:
@@ -320,7 +320,9 @@ def create_directory_structure(base_dir):
 
 
 def initialize_graphrag(graph_rag_dir):
-    command = f"export PYTHONPATH='{FLAGS.graphrag_local_dir}' && python -m graphrag.index --init --root {graph_rag_dir}"
+    # command = f"export PYTHONPATH='{FLAGS.graphrag_local_dir}' && python -m graphrag.index --init --root {graph_rag_dir}"
+
+    command = f"graphrag init --root {graph_rag_dir}"
     print(command)
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
 
@@ -354,8 +356,14 @@ def copy_entity_extraction_prompt(graph_rag_dir):
 
 
 def run_graphrag_index(graph_rag_dir):
-    command = f"export PYTHONPATH='{FLAGS.graphrag_local_dir}:$PYTHONPATH' && python -m graphrag.index --root {graph_rag_dir}"
+    # command = f"export PYTHONPATH='{FLAGS.graphrag_local_dir}:$PYTHONPATH' && python -m graphrag.index --root {graph_rag_dir}"
+    command = f"graphrag index --root {graph_rag_dir}"
     print(command)
+
+    env = os.environ.copy()
+    # 在传递给子进程的环境变量中设置 PYTHONIOENCODING 为 utf-8
+    env['PYTHONIOENCODING'] = 'utf-8'
+
     process = subprocess.Popen(
         command,
         shell=True,
@@ -364,6 +372,7 @@ def run_graphrag_index(graph_rag_dir):
         text=True,
         bufsize=1,
         universal_newlines=True,
+        env=env
     )
 
     print(f"GraphRAG Indexing Output:")

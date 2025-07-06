@@ -1,0 +1,363 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="GLADCI" />
+    <node id="FELIPE FERNANDES DA COSTA" />
+    <node id="RONAL DARIO CELAYA" />
+    <node id="FRANCISMAR MARIANO DE OLIVEIRA" />
+    <node id="INTRODUCTION" />
+    <node id="SUB-BLOCKS" />
+    <node id="DESCRIPTION" />
+    <node id="APB CORE" />
+    <node id="FIFO RX/TX" />
+    <node id="I&#178;C MODULE" />
+    <node id="FELIPE F. DA COSTA" />
+    <node id="I&#178;C TOP BLOCK OPERATION" />
+    <node id="CLOCK RANGE WORK" />
+    <node id="FINAL CONSIDERATIONS" />
+    <node id="REFERENCES" />
+    <node id="OPEN SOURCE RTLGLADCI" />
+    <node id="PINOUT DESCRIPTION" />
+    <node id="PROTOCOL DESCRIPTION" />
+    <node id="REGISTER CONFIGURATION DESCRIPTION" />
+    <node id="I&#178;C" />
+    <node id="APB" />
+    <node id="SDA" />
+    <node id="SCL" />
+    <node id="FIGURE 1" />
+    <node id="TABLE 1" />
+    <node id="PORT" />
+    <node id="PCLK" />
+    <node id="PRESETN" />
+    <node id="PWRITE" />
+    <node id="PENABLE" />
+    <node id="CLOCK" />
+    <node id="RESET" />
+    <node id="OPERATION" />
+    <node id="PREADY" />
+    <node id="PSELX" />
+    <node id="INT_RX" />
+    <node id="FIFO" />
+    <node id="INT_TX" />
+    <node id="PSLVERR" />
+    <node id="PADDR" />
+    <node id="ADDRESS" />
+    <node id="PWDATA" />
+    <node id="PRDATA" />
+    <node id="TX" />
+    <node id="RX" />
+    <node id="AMBA 3" />
+    <node id="FIGURE 2" />
+    <node id="FIGURE 3" />
+    <node id="FIGURE 4" />
+    <node id="FIGURE 5" />
+    <node id="TX FIFO" />
+    <node id="RX FIFO" />
+    <node id="LOGGER CONFIGURATION" />
+    <node id="CONFIGURATION REGISTER" />
+    <node id="I&#178;C SPECIFICATION" />
+    <node id="TABLE 2" />
+    <node id="START BIT" />
+    <node id="CONTROL" />
+    <node id="DATA" />
+    <node id="ACK" />
+    <node id="NACK" />
+    <node id="R" />
+    <node id="FIGURE 6" />
+    <node id="FIGURE 7" />
+    <node id="S" />
+    <node id="I&#178;C TOP BLOCK" />
+    <node id="FIGURE 8" />
+    <node id="MODULE" />
+    <node id="TABLE 3" />
+    <node id="CLOCK REGISTER" />
+    <node id="UM10204 I2C-BUS SPECIFICATION AND USER MANUAL - REV. 5 &#8212; 9 OCTOBER 2012" />
+    <node id="DIGITAL BLOCKS DB-I2C-M-APB" />
+    <node id="C-BUS SPECIFICATION AND USER MANUAL" />
+    <node id="DB-I2C-M-APB" />
+    <node id="I2C MASTER MODE" />
+    <node id="OPEN SOURCE RTL" />
+    <edge source="GLADCI" target="FELIPE FERNANDES DA COSTA">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="GLADCI" target="RONAL DARIO CELAYA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="GLADCI" target="FRANCISMAR MARIANO DE OLIVEIRA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="GLADCI" target="INTRODUCTION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="GLADCI" target="SUB-BLOCKS">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="GLADCI" target="FELIPE F. DA COSTA">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="GLADCI" target="I&#178;C MODULE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="GLADCI" target="I&#178;C TOP BLOCK OPERATION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="GLADCI" target="CLOCK RANGE WORK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="GLADCI" target="FINAL CONSIDERATIONS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="GLADCI" target="REFERENCES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="INTRODUCTION" target="DESCRIPTION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SUB-BLOCKS" target="APB CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SUB-BLOCKS" target="FIFO RX/TX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SUB-BLOCKS" target="I&#178;C MODULE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="APB CORE" target="AMBA 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FIFO RX/TX" target="I&#178;C">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I&#178;C MODULE" target="FIFO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I&#178;C MODULE" target="CONFIGURATION REGISTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I&#178;C MODULE" target="CLOCK RANGE WORK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I&#178;C MODULE" target="UM10204 I2C-BUS SPECIFICATION AND USER MANUAL - REV. 5 &#8212; 9 OCTOBER 2012">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I&#178;C MODULE" target="DIGITAL BLOCKS DB-I2C-M-APB">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FELIPE F. DA COSTA" target="OPEN SOURCE RTLGLADCI">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="CLOCK RANGE WORK" target="CLOCK REGISTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPEN SOURCE RTLGLADCI" target="PINOUT DESCRIPTION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPEN SOURCE RTLGLADCI" target="PROTOCOL DESCRIPTION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPEN SOURCE RTLGLADCI" target="REGISTER CONFIGURATION DESCRIPTION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPEN SOURCE RTLGLADCI" target="FIGURE 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPEN SOURCE RTLGLADCI" target="TABLE 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I&#178;C" target="APB">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="I&#178;C" target="SDA">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I&#178;C" target="SCL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I&#178;C" target="FIGURE 1">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="I&#178;C" target="PSELX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="APB" target="FIGURE 1">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="APB" target="PENABLE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="APB" target="PREADY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="APB" target="FIGURE 2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="APB" target="FIGURE 3">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="APB" target="FIGURE 4">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="APB" target="FIGURE 5">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SDA" target="SCL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 1" target="PORT">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="TABLE 1" target="PCLK">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TABLE 1" target="PRESETN">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TABLE 1" target="PWRITE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TABLE 1" target="PENABLE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PCLK" target="CLOCK">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PRESETN" target="RESET">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PWRITE" target="OPERATION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PWRITE" target="TX FIFO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PWRITE" target="RX FIFO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PWRITE" target="PWDATA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PWRITE" target="LOGGER CONFIGURATION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPERATION" target="PSLVERR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="INT_RX" target="FIFO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="FIFO" target="INT_TX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="FIFO" target="PWDATA">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="FIFO" target="PRDATA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FIFO" target="MODULE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="FIFO" target="PSLVERR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FIFO" target="TX">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="FIFO" target="RX">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PADDR" target="ADDRESS">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PADDR" target="PRDATA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PADDR" target="TX FIFO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PADDR" target="RX FIFO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PADDR" target="LOGGER CONFIGURATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ADDRESS" target="TABLE 2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PWDATA" target="TX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PWDATA" target="TX FIFO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PRDATA" target="RX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX" target="TABLE 3">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="RX" target="TABLE 3">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="CONFIGURATION REGISTER" target="I&#178;C TOP BLOCK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CONFIGURATION REGISTER" target="MODULE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I&#178;C SPECIFICATION" target="TABLE 2">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TABLE 2" target="START BIT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 2" target="CONTROL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 2" target="DATA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 2" target="ACK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 2" target="NACK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 2" target="R">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACK" target="NACK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ACK" target="FIGURE 6">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="NACK" target="FIGURE 7">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="R" target="FIGURE 7">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FIGURE 6" target="S">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="FIGURE 7" target="I&#178;C TOP BLOCK">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I&#178;C TOP BLOCK" target="FIGURE 8">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TABLE 3" target="CLOCK REGISTER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="C-BUS SPECIFICATION AND USER MANUAL" target="DB-I2C-M-APB">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="DB-I2C-M-APB" target="I2C MASTER MODE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="DB-I2C-M-APB" target="OPEN SOURCE RTL">
+      <data key="d0">1.0</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,0 +1,469 @@
+11:06:52,863 graphrag.cli.index INFO Logging enabled at C:\Users\huijie\Desktop\AssertionForge\design\uart\spec\graph_rag_uart\logs\indexing-engine.log
+11:06:53,914 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:07:54,101 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+11:07:54,109 graphrag.cli.index INFO Starting pipeline run. dry_run=False
+11:07:54,111 graphrag.cli.index INFO Using default configuration: {
+    "root_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\graph_rag_uart",
+    "models": {
+        "default_chat_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_chat",
+            "model": "deepseek-chat",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://api.deepseek.com",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        },
+        "default_embedding_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_embedding",
+            "model": "text-embedding-v2",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        }
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "text_column": "text",
+        "title_column": null,
+        "metadata": null
+    },
+    "chunks": {
+        "size": 200,
+        "overlap": 50,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": "tokens",
+        "encoding_model": "cl100k_base",
+        "prepend_metadata": false,
+        "chunk_size_includes_metadata": false
+    },
+    "output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\graph_rag_uart\\output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "outputs": null,
+    "update_index_output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\graph_rag_uart\\update_output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "reporting": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\graph_rag_uart\\logs",
+        "storage_account_blob_url": null
+    },
+    "vector_store": {
+        "default_vector_store": {
+            "type": "lancedb",
+            "db_uri": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\graph_rag_uart\\output\\lancedb",
+            "url": null,
+            "audience": null,
+            "container_name": "==== REDACTED ====",
+            "database_name": null,
+            "overwrite": true
+        }
+    },
+    "workflows": null,
+    "embed_text": {
+        "model_id": "default_embedding_model",
+        "vector_store_id": "default_vector_store",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "names": [
+            "entity.description",
+            "community.full_content",
+            "text_unit.text"
+        ],
+        "strategy": null
+    },
+    "extract_graph": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_graph.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "summarize_descriptions": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "max_input_tokens": 4000,
+        "strategy": null
+    },
+    "extract_graph_nlp": {
+        "normalize_edge_weights": true,
+        "text_analyzer": {
+            "extractor_type": "regex_english",
+            "model_name": "en_core_web_md",
+            "max_word_length": 15,
+            "word_delimiter": " ",
+            "include_named_entities": true,
+            "exclude_nouns": [
+                "stuff",
+                "thing",
+                "things",
+                "bunch",
+                "bit",
+                "bits",
+                "people",
+                "person",
+                "okay",
+                "hey",
+                "hi",
+                "hello",
+                "laughter",
+                "oh"
+            ],
+            "exclude_entity_tags": [
+                "DATE"
+            ],
+            "exclude_pos_tags": [
+                "DET",
+                "PRON",
+                "INTJ",
+                "X"
+            ],
+            "noun_phrase_tags": [
+                "PROPN",
+                "NOUNS"
+            ],
+            "noun_phrase_grammars": {
+                "PROPN,PROPN": "PROPN",
+                "NOUN,NOUN": "NOUNS",
+                "NOUNS,NOUN": "NOUNS",
+                "ADJ,ADJ": "ADJ",
+                "ADJ,NOUN": "NOUNS"
+            }
+        },
+        "concurrent_requests": 25
+    },
+    "prune_graph": {
+        "min_node_freq": 2,
+        "max_node_freq_std": null,
+        "min_node_degree": 1,
+        "max_node_degree_std": null,
+        "min_edge_weight_pct": 40.0,
+        "remove_ego_nodes": true,
+        "lcc_only": false
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "use_lcc": true,
+        "seed": 3735928559
+    },
+    "extract_claims": {
+        "enabled": false,
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_claims.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "community_reports": {
+        "model_id": "default_chat_model",
+        "graph_prompt": "prompts/community_report_graph.txt",
+        "text_prompt": "prompts/community_report_text.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "embed_graph": {
+        "enabled": true,
+        "dimensions": 1536,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "use_lcc": true
+    },
+    "umap": {
+        "enabled": true
+    },
+    "snapshots": {
+        "embeddings": true,
+        "graphml": true,
+        "raw_graph": false
+    },
+    "local_search": {
+        "prompt": "prompts/local_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "text_unit_prop": 0.5,
+        "community_prop": 0.15,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "max_context_tokens": 12000
+    },
+    "global_search": {
+        "map_prompt": "prompts/global_search_map_system_prompt.txt",
+        "reduce_prompt": "prompts/global_search_reduce_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "knowledge_prompt": "prompts/global_search_knowledge_system_prompt.txt",
+        "max_context_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_length": 1000,
+        "reduce_max_length": 2000,
+        "dynamic_search_threshold": 1,
+        "dynamic_search_keep_parent": false,
+        "dynamic_search_num_repeats": 1,
+        "dynamic_search_use_summary": false,
+        "dynamic_search_max_level": 2
+    },
+    "drift_search": {
+        "prompt": "prompts/drift_search_system_prompt.txt",
+        "reduce_prompt": "prompts/drift_search_reduce_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "data_max_tokens": 12000,
+        "reduce_max_tokens": null,
+        "reduce_temperature": 0,
+        "reduce_max_completion_tokens": null,
+        "concurrency": 32,
+        "drift_k_followups": 20,
+        "primer_folds": 5,
+        "primer_llm_max_tokens": 12000,
+        "n_depth": 3,
+        "local_search_text_unit_prop": 0.9,
+        "local_search_community_prop": 0.1,
+        "local_search_top_k_mapped_entities": 10,
+        "local_search_top_k_relationships": 10,
+        "local_search_max_data_tokens": 12000,
+        "local_search_temperature": 0,
+        "local_search_top_p": 1,
+        "local_search_n": 1,
+        "local_search_llm_max_gen_tokens": null,
+        "local_search_llm_max_gen_completion_tokens": null
+    },
+    "basic_search": {
+        "prompt": "prompts/basic_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "k": 10,
+        "max_context_tokens": 12000
+    }
+}
+11:07:54,122 graphrag.storage.file_pipeline_storage INFO Creating file storage at C:\Users\huijie\Desktop\AssertionForge\design\uart\spec\graph_rag_uart\output
+11:07:54,127 graphrag.index.input.factory INFO loading input from root_dir=input
+11:07:54,127 graphrag.index.input.factory INFO using file storage for input
+11:07:54,131 graphrag.storage.file_pipeline_storage INFO search C:\Users\huijie\Desktop\AssertionForge\design\uart\spec\graph_rag_uart\input for files matching .*\.txt$
+11:07:54,142 graphrag.index.input.util INFO Found 1 InputFileType.text files, loading 1
+11:07:54,144 graphrag.index.input.util INFO Total number of unfiltered InputFileType.text rows: 1
+11:07:54,146 graphrag.index.run.run_pipeline INFO Final # of rows loaded: 1
+11:07:54,193 graphrag.utils.storage INFO reading table from storage: documents.parquet
+11:07:54,287 graphrag.utils.storage INFO reading table from storage: documents.parquet
+11:07:54,292 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+11:07:54,342 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+11:07:54,908 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:08:54,914 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:09:54,897 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:10:54,901 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:11:54,925 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:12:55,0 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:13:54,949 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:14:54,971 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:15:54,994 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:16:54,978 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:17:54,977 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:18:54,975 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:19:54,985 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:20:55,20 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:21:55,26 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:22:55,28 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:23:55,30 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:24:55,35 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:25:55,41 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:26:55,50 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:27:55,60 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:29:55,67 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:32:55,94 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:35:55,179 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:36:55,108 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:37:55,119 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:38:55,133 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:40:55,168 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:41:55,175 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:42:55,193 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:43:55,196 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:44:55,202 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:45:55,225 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:46:55,211 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:47:55,220 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:48:55,226 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:49:55,225 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:50:55,238 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:51:55,269 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:52:55,309 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:53:55,264 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:54:55,336 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+11:59:55,751 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:00:55,772 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:01:55,765 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:02:55,753 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:06:55,805 graphrag.utils.storage INFO reading table from storage: entities.parquet
+12:06:55,816 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+12:06:55,831 root INFO Starting preprocessing of transition probabilities on graph with 19 nodes and 21 edges
+12:06:55,831 root INFO Starting at time 1751688415.8312757
+12:06:55,831 root INFO Beginning preprocessing of transition probabilities for 19 vertices
+12:06:55,831 root INFO Completed 1 / 19 vertices
+12:06:55,831 root INFO Completed 2 / 19 vertices
+12:06:55,831 root INFO Completed 3 / 19 vertices
+12:06:55,831 root INFO Completed 4 / 19 vertices
+12:06:55,831 root INFO Completed 5 / 19 vertices
+12:06:55,831 root INFO Completed 6 / 19 vertices
+12:06:55,831 root INFO Completed 7 / 19 vertices
+12:06:55,831 root INFO Completed 8 / 19 vertices
+12:06:55,831 root INFO Completed 9 / 19 vertices
+12:06:55,831 root INFO Completed 10 / 19 vertices
+12:06:55,831 root INFO Completed 11 / 19 vertices
+12:06:55,831 root INFO Completed 12 / 19 vertices
+12:06:55,831 root INFO Completed 13 / 19 vertices
+12:06:55,831 root INFO Completed 14 / 19 vertices
+12:06:55,831 root INFO Completed 15 / 19 vertices
+12:06:55,831 root INFO Completed 16 / 19 vertices
+12:06:55,831 root INFO Completed 17 / 19 vertices
+12:06:55,831 root INFO Completed 18 / 19 vertices
+12:06:55,831 root INFO Completed 19 / 19 vertices
+12:06:55,831 root INFO Completed preprocessing of transition probabilities for vertices
+12:06:55,831 root INFO Beginning preprocessing of transition probabilities for 21 edges
+12:06:55,831 root INFO Completed 1 / 21 edges
+12:06:55,831 root INFO Completed 3 / 21 edges
+12:06:55,831 root INFO Completed 5 / 21 edges
+12:06:55,831 root INFO Completed 7 / 21 edges
+12:06:55,831 root INFO Completed 9 / 21 edges
+12:06:55,831 root INFO Completed 11 / 21 edges
+12:06:55,831 root INFO Completed 13 / 21 edges
+12:06:55,831 root INFO Completed 15 / 21 edges
+12:06:55,831 root INFO Completed 17 / 21 edges
+12:06:55,831 root INFO Completed 19 / 21 edges
+12:06:55,831 root INFO Completed 21 / 21 edges
+12:06:55,831 root INFO Completed preprocessing of transition probabilities for edges
+12:06:55,836 root INFO Simulating walks on graph at time 1751688415.8365173
+12:06:55,837 root INFO Walk iteration: 1/10
+12:06:55,839 root INFO Walk iteration: 2/10
+12:06:55,839 root INFO Walk iteration: 3/10
+12:06:55,839 root INFO Walk iteration: 4/10
+12:06:55,844 root INFO Walk iteration: 5/10
+12:06:55,844 root INFO Walk iteration: 6/10
+12:06:55,844 root INFO Walk iteration: 7/10
+12:06:55,844 root INFO Walk iteration: 8/10
+12:06:55,844 root INFO Walk iteration: 9/10
+12:06:55,849 root INFO Walk iteration: 10/10
+12:06:55,849 root INFO Learning embeddings at time 1751688415.849539
+12:06:55,849 gensim.models.word2vec INFO collecting all words and their counts
+12:06:55,849 gensim.models.word2vec INFO PROGRESS: at sentence #0, processed 0 words, keeping 0 word types
+12:06:55,849 gensim.models.word2vec INFO collected 19 word types from a corpus of 3760 raw words and 190 sentences
+12:06:55,849 gensim.models.word2vec INFO Creating a fresh vocabulary
+12:06:55,849 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 retains 19 unique words (100.00% of original 19, drops 0)', 'datetime': '2025-07-05T12:06:55.849539', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+12:06:55,849 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 leaves 3760 word corpus (100.00% of original 3760, drops 0)', 'datetime': '2025-07-05T12:06:55.849539', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+12:06:55,849 gensim.models.word2vec INFO deleting the raw counts dictionary of 19 items
+12:06:55,849 gensim.models.word2vec INFO sample=0.001 downsamples 19 most-common words
+12:06:55,849 gensim.utils INFO Word2Vec lifecycle event {'msg': 'downsampling leaves estimated 558.6029683988645 word corpus (14.9%% of prior 3760)', 'datetime': '2025-07-05T12:06:55.849539', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+12:06:55,849 gensim.models.word2vec INFO estimated required memory for 19 words and 1536 dimensions: 242972 bytes
+12:06:55,849 gensim.models.word2vec INFO resetting layer weights
+12:06:55,855 gensim.utils INFO Word2Vec lifecycle event {'update': False, 'trim_rule': 'None', 'datetime': '2025-07-05T12:06:55.855537', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'build_vocab'}
+12:06:55,855 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training model with 8 workers on 19 vocabulary and 1536 features, using sg=1 hs=0 sample=0.001 negative=5 window=2 shrink_windows=True', 'datetime': '2025-07-05T12:06:55.855537', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'train'}
+12:06:55,865 gensim.models.word2vec INFO EPOCH 0: training on 3760 raw words (567 effective words) took 0.0s, 291217 effective words/s
+12:06:55,872 gensim.models.word2vec INFO EPOCH 1: training on 3760 raw words (520 effective words) took 0.0s, 225714 effective words/s
+12:06:55,879 gensim.models.word2vec INFO EPOCH 2: training on 3760 raw words (607 effective words) took 0.0s, 241237 effective words/s
+12:06:55,879 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training on 11280 raw words (1694 effective words) took 0.0s, 72532 effective words/s', 'datetime': '2025-07-05T12:06:55.879507', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'train'}
+12:06:55,879 gensim.utils INFO Word2Vec lifecycle event {'params': 'Word2Vec<vocab=19, vector_size=1536, alpha=0.025>', 'datetime': '2025-07-05T12:06:55.879507', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+12:06:55,879 root INFO Completed. Ending time is 1751688415.8795078 Elapsed time is -0.048232078552246094
+12:07:05,322 graphrag.utils.storage INFO reading table from storage: entities.parquet
+12:07:05,327 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+12:07:05,405 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+12:07:05,408 graphrag.utils.storage INFO reading table from storage: entities.parquet
+12:07:05,414 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+12:07:05,556 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+12:07:05,563 graphrag.utils.storage INFO reading table from storage: entities.parquet
+12:07:05,568 graphrag.utils.storage INFO reading table from storage: communities.parquet
+12:07:05,591 graphrag.index.operations.summarize_communities.graph_context.context_builder INFO Number of nodes at level=0 => 19
+12:07:06,136 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:08:06,170 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:09:06,153 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:10:06,151 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+12:14:06,142 graphrag.utils.storage INFO reading table from storage: documents.parquet
+12:14:06,146 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+12:14:06,153 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+12:14:06,154 graphrag.utils.storage INFO reading table from storage: entities.parquet
+12:14:06,164 graphrag.utils.storage INFO reading table from storage: community_reports.parquet
+12:14:06,171 graphrag.index.workflows.generate_text_embeddings INFO Creating embeddings
+12:14:06,171 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding entity.description: default-entity-description
+12:14:06,573 graphrag.index.operations.embed_text.strategies.openai INFO embedding 28 inputs via 28 snippets using 2 batches. max_batch_size=16, batch_max_tokens=8191
+12:14:07,153 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+12:15:07,105 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+12:15:07,524 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding community.full_content: default-community-full_content
+12:15:07,531 graphrag.index.operations.embed_text.strategies.openai INFO embedding 4 inputs via 4 snippets using 1 batches. max_batch_size=16, batch_max_tokens=8191
+12:16:06,985 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+12:17:06,662 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding text_unit.text: default-text_unit-text
+12:17:06,667 graphrag.index.operations.embed_text.strategies.openai INFO embedding 21 inputs via 21 snippets using 2 batches. max_batch_size=16, batch_max_tokens=8191
+12:18:06,954 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+12:19:07,302 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+12:19:07,538 graphrag.cli.index INFO All workflows completed successfully.

@@ -39,7 +39,7 @@ def analyze_coverage_of_proven_svas(svas: List[str], jasper_reports: List[str]) 
     proven_svas = [
         sva
         for sva, report_path in zip(svas, jasper_reports)
-        if extract_proof_status(open(report_path, 'r').read()) == "proven"
+        if extract_proof_status(open(report_path, 'r',encoding='utf-8').read()) == "proven"
     ]
 
     print(f"Number of proven SVAs: {len(proven_svas)}")
@@ -52,7 +52,7 @@ def analyze_coverage_of_proven_svas(svas: List[str], jasper_reports: List[str]) 
     print(f"Original SVA path: {original_sva_path}")
     print(f"File exists: {os.path.exists(original_sva_path)}")
 
-    with open(original_sva_path, "r") as f:
+    with open(original_sva_path, "r",encoding='utf-8') as f:
         original_content = f.read()
     print(f"Original SVA file length: {len(original_content)} chars")
 
@@ -86,7 +86,7 @@ def analyze_coverage_of_proven_svas(svas: List[str], jasper_reports: List[str]) 
     combined_sva_path = os.path.join(saver.logdir, "combined_proven_svas.sva")
     print(f"\nWriting combined SVA to: {combined_sva_path}")
 
-    with open(combined_sva_path, 'w') as f:
+    with open(combined_sva_path, 'w',encoding='utf-8') as f:
         f.write(f"{module_interface}\n\n")
         for i, sva in enumerate(proven_svas):
             f.write(f"property p{i};\n")
@@ -454,7 +454,7 @@ def extract_proof_status(report_content: str) -> str:
 
 
 def count_tokens_in_file(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r',encoding='utf-8') as file:
         content = file.read()
 
     # Use the cl100k_base encoder, which is used for GPT-4 and ChatGPT

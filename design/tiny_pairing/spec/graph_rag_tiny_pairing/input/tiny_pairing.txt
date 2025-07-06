@@ -1,0 +1,356 @@
+ 
+ 
+ 
+Tiny Tate Bilinear Pairing  Core 
+Specification  
+ 
+ 
+ 
+Author: Homer Hsing 
+homer. hsing@gmail.com  
+ 
+ 
+ 
+ 
+Rev. 0.1 
+May 3, 2012  
+  
+ OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 ii  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This page has been intentionally left blank.   OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 iii  
+Revision History  
+Rev.  Date  Author  Description   
+0.1 04/28/2012 Homer Hsing First Draft  
+ 05/03/2012  
+  Source of citation  
+  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 iv  
+Contents  
+INTRODUCTION ................................ ................................ ................................ .............  1 
+ARCHITECTURE  ................................ ................................ ................................ ............  3 
+INTERFACE  ................................ ................................ ................................ .....................  6 
+TIMING DIAGRAMS  ................................ ................................ ................................ ...... 7 
+FPGA IMPLEMENTATION  ................................ ................................ ........................  10 
+TEST BENCH  ................................ ................................ ................................ .................  12 
+REFERENCES  ................................ ................................ ................................ ................  13 
+  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 1 of 13 
+1  
+Introduction  
+Tiny Tate Bilinear Pairing core is for calculating  a special type of Tate bilinear pairing  
+called reduced     pairing . Its features  are: 
+ super -singular elliptic curve             
+ the field is the Galois field             
+ the irreducible polynomial is           
+ vendor independent code  
+ very low hardware cost (     US dollar)  
+Mathematical  background  
+The elliptic curve             contains a large cyclic subgroup of prime order   . 
+Also   divides       and not any            , and    does not divide    .[2] Now 
+          contains an  -torsion  group            , i.e., the set of elements    of 
+          satisfying       , where is the point at infinity .[4]           also 
+contains an  -torsion group               . The Tate bilinear pairing (of order  ) is a 
+bilinear map  between              and               to an element of the 
+multiplicative group          ,[2] i.e. 
+                                                                                              (1) 
+Let                               , let      be a rational function on the curve 
+with divisor           , there exists a divisor    equivalent to         , with a support 
+disjoint from the support of     .[4] Then the Tate pairing of order   is defined by  
+                                                                                                                   (2) 
+It is necessary to raise the value on the right hand side to the power              to 
+obtain a unique value in         . Consider                                  
+i.e.                    and define a distort ion map   as 
+                                                                                                         (3)  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 2 of 13 
+, where             satisfying          and       . Then one can define 
+the modified Tate pairing    for all points                  as 
+                                                                                                    (4) 
+Generally speaking, the modified Tate pairing is a transformation that takes  in two 
+elements in the elliptic curve point group and outputs a nonzero element in the extension 
+field        . 
+The modified Tate pairing  performs in two stages:[2] 
+Stage 1: calculation of                    in the rational function    on           
+such that                   , i.e.                               . This is 
+by Algorithm 1 ( Modified Duursma -Lee algorithm) below.  
+Algorithm 1  (Modified Duursma -Lee algorithm)  
+Input:                                    
+Output:                       
+1:                                                         
+2:                        
+3:                       
+4:                                            
+5: next   
+6: return   
+Stage 2: raising   to the power                 
+ 
+In [3], Barreto et al. introduced the    pairing , which improved above algorithm.  The    
+pairing of two points                  is 
+                            
+                     
+, where    ,                 and     if             ,      if   
+          . To assure the obtained value is unique, we have to compute the reduced    
+pairing defined as          where                     .[4]  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 3 of 13 
+2  
+Architecture  
+Architecture of the core  
+ 
+ 
+Processing element  
+This is a unified module for addition, subtraction, multiplication and cubing.  It has f our 
+registers           and    support ing following  functionalities . 
+          
+          
+              , where       is specified by instructions.  
+          
+The functionality depends on a control word.  The control word               for the 
+processing module  is as follows.  
+Table  1: the control word for the processing element  
+                                   
+set        1 0      Processing element  RAM  
+Control unit  ROM  input  output  
+reset  
+done  
+Figure  1: architecture of the core   OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 4 of 13 
+set    1 1          
+set      1 1        
+add/sub        1 0 0 0 1 
+cubic 0 1 0 1 0 0 0 0 0 0 1 
+mult  0 0 0 0 0 1 1 1 1 1 1 
+RAM  
+This is a dual -port RAM storing  64 words which is 198 bit s wide.  
+ROM (instruction memory)  
+This module stores instructions. Each instruction contains five fields:  
+ SRC1 (6 bits): address for the first operand  
+ SRC2 (6 bits): address for the second operand  if available  
+ OP (2 bits): operation type  
+ TIMES (6 bits): how many times an operation  should be repeated  
+ DEST (6 bits): address for the operation result  
+Control unit  
+The control unit contains a finite state machine. The s tate s are as follows.  
+Table  2: the state of the control unit  
+State Description  successor  
+START  the default after reset  READ_SRC1  
+READ_SRC1 (   ) for reading the first operator  READ_SRC2  
+READ_SRC2 (   ) for reading the second operator  DON  or CALC  
+CALC  for arithmetic  WAIT  
+WAIT  arithmetic result      WRITE  
+WRITE      RAM  READ_SRC1  
+DON  the default after the computation  DON  
+ 
+Its o utput signals are as follows.  
+Table  3: output signals of the control unit  
+arithmetic  type  state                                
+add/sub      src1  op_add/op_sub  set R0, R1   OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 5 of 13 
+      src2   set R2  
+cubic      src1 op_cubic  set R0,R1,R2  
+     src2    
+mult      src1   set R1,R2  
+     src2  src2  set R0   OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 6 of 13 
+3  
+Interface  
+The Tiny Tate Bilinear Pairing core implements the signals shown in the table below.  
+Input signals are synchronous and sampled at the rising edge of the clock.  
+Output signals are driven by flip -flops, and not directly connected to input signals by 
+combinational l ogic.  
+For signals wider than 1 bit, the range is most significant bit down to least significant bit.  
+Table  4: Interface signals  
+Signal name  Width  In/Out  Description  
+clk 1 In clock  
+reset  1 In active high s ynchronous  reset  
+sel 1 In active  high for reading/writing RAM  from outside  
+addr 6 In RAM address  
+w 1 In active high for writing  RAM ; low for reading RAM  
+update  1 In active high for updating the I/O buffer  
+ready  1 In active high if it is ready to read/write  
+i 1 In serial input  
+o 1 Out serial output whose  value is valid when the done  signal 
+is asserted  
+done  1 Out The termination signal. It is inactive low after the reset  
+signal asserted, and is active high only if the Tate pairing 
+computation is done.  
+ 
+  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 7 of 13 
+4  
+Timing  
+The entire computing process is  
+ write input to RAM  
+ wait for the end of the calculation , the time when the      signal is asserted  
+ read the result from RAM  
+Memory  address  of the i nput/output  
+Assume that the input is                     , assume  the output is            , 
+                            , assume  each of                          
+is 19 8-bit wide , equal to the width of RAM . The memory address for input/output is 
+defined below.  
+Table  5: memory address for input/output  
+input/output  address  
+   3 
+   5 
+   6 
+   7 
+   9 
+   10 
+   11 
+   12 
+   13 
+   14  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 8 of 13 
+Write to RAM  
+In order to write a value          to a specified RAM address           , firstly  let 
+                         
+, and  comply with the timing below.  
+Table  6: timing for writing to RAM  
+clock cycle  signal name/value  
+ update  ready  i 
+  1 0 or 1  0 or 1  
+    0 1      
+    0 1      
+. . . . . . 
+      0 1        
+Then  let    . 
+When write the RAM, the reset  signal should be asserted and keep asserted until the 
+termination of writing.  
+Wait for the end of the computation  
+Wait until the signal      is active.  
+Read from RAM  
+In order to read from  a specified RAM address           , firstly let  
+                         
+, and  comply with the timing below.  
+Table  7: timing for reading from RAM  
+clock cycle  signal name/value  
+ update  ready  o 
+  1 0 or 1  0 or 1  
+    0 1      
+    0 1      
+. . . . . . 
+      0 1        
+Then keep    .  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 9 of 13 
+You may use a 198 bits wide register to record  . 
+  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 10 of 13 
+5  
+FPGA Implementation  
+Synthesis results  (ISE)  
+Table  8: Synthesis result (ISE)  
+Device  Xilinx Spartan 3 XC 3S200-5PQ208 
+Number of Slice  Flip Flops  1,319  
+Number of 4 input LUTs  3,028  
+Number of occupied Slices  1,730  
+Number of bonded  IOBs  15 
+Minimum period  10.455ns  
+Maximum Frequency  95.6MHz  
+* Synthesis tool is Xilinx ISE 13.4 . 
+* Related Xilinx synthesis configuration files are in the directory synthesis/xilinx . 
+Synthesis results (Quartus)  
+Table  9: Synthesis result (Quartus)  
+Device  Altera  Cyclone II  EP2C20F484C7  
+Total  logic elements  3,637  
+Dedicated logic registers  1,310  
+Total memory bits  25,984  
+Total pins  15 
+* Synthesis tool is Altera Quartus II 11.1 . 
+Speed  
+The core computes one Tate pairing in 1.05 milliseconds if with a 50 MHz clock.   OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 11 of 13 
+Hardware price  
+The core applies to Xilinx Spartan 3 XC3S200. The price of that FPGA [5] is less than 0.2 
+US dollar  per piece . 
+Compared to Tate Bilinear Pairing  core  [6] 
+Table  10: Compared to Tate Bilinear Pairing core  
+ Tiny Tate Bilinear Pairing core  Tate Bilinear Pairing core  
+Device  Xilinx Spartan 3  XC3S200  Xilinx Virtex 4  XC4VLX200  
+Number of Slice Flip Flops  1,319  31,383  
+Number of 4 input LUTs  3,028  47,083  
+Number of occupied Slices  1,730  30,149  
+Computation time  1.02ms  0.76 m s 
+  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 12 of 13 
+6  
+Test bench  
+The file “testbench /simulation.do”  is a batch file for Model Sim to compile the HDL 
+files, setup the wave file, and begin function simulation. In order to make it work 
+properly, t he working directory of Model Sim must be the directory of “testbench ”. 
+The file “testbench /test_pairing.v”  is the main test bench for the Tate  Bilinear Pairing 
+core. The test bench is self -checked. It feeds input data to the core and compares the 
+correct result with the output of the core. If the output is wrong, the test bench will 
+display an error message.  
+If the function of the core is wrong,  some other self-checking test bench es in the 
+“testbench ” directory  may help . The  object of each test bench  is listed in the table below.  
+Table  11: the object being tested by each test bench  
+File name  the object being tested  
+test_ const .v the module  outputting constant and the control word for the 
+processing element  
+test_f sm.v control unit  
+test_ pe.v processing element  
+test_ ram.v RAM  
+test_ tiny.v the module computing the Tate bilinear pairing  
+  OpenCores  Tiny Tate Bilinear Pairing Core Specifications  5/3/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 13 of 13 
+7  
+References  
+[1] I.Duursma, H.S. Lee. Tate  pairing implementation for hyper -elliptic curves     
+      . In Advances in Cryptology Proc. ASIACRYPT’03, pp. 111 -123, 2003.  
+[2] T.Kerins , W.P. Marnane , E.M. Popovici , and P.S.L.M. Barreto . Efficient hardware for 
+the Tate pairing  calculation in characteristic th ree. In Cryptographic Hardware and 
+Embedded Systems Proc. CHES ’05, pp. 412 -426, 2005.  
+[3] P.Barreto, S. Galbraith, C. O hEigeartaigh, and M.Scott . Efficient pairing computation 
+on supersingular abelian varieties . In Designs, Codes and Cryptography. Springer 
+Netherlands, Mar. 2007, vol. 42(3), pp. 239 –271. 
+[4] J.Beuchat, N.Brisebarre, J.Detrey, E.Okamoto, M.Shirase, and T.Takagi. Algorithms 
+and arithmetic operators for computing the    pairing in characteristic three.  In IEEE 
+Transactions on Computers, Special Section on Special -Purpose Hardware for 
+Cryptography and Cryptanalysis, 57(11):1454 -1468, 2008.  
+[5] Price of Xilinx Spartan 3  FPGA . http://www.alibaba.com/showroom/xc3s200.html  
+[6] Tate Bilinear Pairing co re @ opencores.org. http://opencores.org/project,pairing  
+ 

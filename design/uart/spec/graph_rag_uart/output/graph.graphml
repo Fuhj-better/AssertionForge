@@ -1,0 +1,117 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="UART TO BUS CORE SPECIFICATIONS" />
+    <node id="MOTI LITOCHEVSKI" />
+    <node id="UART TO BUS IP CORE" />
+    <node id="PAUL V. SHATOV" />
+    <node id="LATTICE MACHXO DEVICE" />
+    <node id="UART" />
+    <node id="INTERNAL BUS" />
+    <node id="XILINX" />
+    <node id="SPARTAN 3" />
+    <node id="VIRTEX 5" />
+    <node id="XILINX ISE WEBPACK 11.4" />
+    <node id="ALTERA" />
+    <node id="CYCLONE III" />
+    <node id="STARTIX III" />
+    <node id="ALTERA QUARTUS WEB EDITION 9" />
+    <node id="LATTICE" />
+    <node id="MACHXO" />
+    <node id="XC3S50-5PQ208" />
+    <node id="XC5VLX30-3FF324" />
+    <node id="EP3C5F256C6" />
+    <node id="EP3SL50F484C2" />
+    <node id="LCMXO2280C-4T144C" />
+    <node id="UART TO BUS CORE" />
+    <node id="ALTERA QUARTUS WEB EDITION 9.1SP2" />
+    <node id="LATTICE DEVICE" />
+    <node id="OPEN CORES" />
+    <node id="C16 PROJECT" />
+    <node id="SCILAB" />
+    <edge source="UART TO BUS CORE SPECIFICATIONS" target="MOTI LITOCHEVSKI">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="MOTI LITOCHEVSKI" target="UART TO BUS IP CORE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART TO BUS IP CORE" target="PAUL V. SHATOV">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART TO BUS IP CORE" target="LATTICE MACHXO DEVICE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART TO BUS IP CORE" target="UART">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="UART TO BUS IP CORE" target="INTERNAL BUS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PAUL V. SHATOV" target="XILINX ISE WEBPACK 11.4">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="PAUL V. SHATOV" target="ALTERA QUARTUS WEB EDITION 9.1SP2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PAUL V. SHATOV" target="LATTICE DEVICE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="UART" target="OPEN CORES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART" target="C16 PROJECT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="UART" target="SCILAB">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 3">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="XILINX" target="VIRTEX 5">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="XILINX" target="XILINX ISE WEBPACK 11.4">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="SPARTAN 3" target="XC3S50-5PQ208">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="VIRTEX 5" target="XC5VLX30-3FF324">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="XILINX ISE WEBPACK 11.4" target="UART TO BUS CORE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ALTERA" target="CYCLONE III">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ALTERA" target="STARTIX III">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ALTERA" target="ALTERA QUARTUS WEB EDITION 9">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CYCLONE III" target="EP3C5F256C6">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="STARTIX III" target="EP3SL50F484C2">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="LATTICE" target="MACHXO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MACHXO" target="LCMXO2280C-4T144C">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART TO BUS CORE" target="ALTERA QUARTUS WEB EDITION 9.1SP2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART TO BUS CORE" target="LATTICE DEVICE">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPEN CORES" target="C16 PROJECT">
+      <data key="d0">8.0</data>
+    </edge>
+  </graph>
+</graphml>

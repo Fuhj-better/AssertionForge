@@ -134,7 +134,7 @@ def gen_plan():
             rtl_knowledge,
             context_summarizer,  # Pass the context_summarizer
         )
-        with open(Path(saver.logdir) / 'nl_plans.txt', 'w') as f:
+        with open(Path(saver.logdir) / 'nl_plans.txt', 'w',encoding='utf-8') as f:
             c = 1
             for signal_name, plans in nl_plans.items():
                 f.write(f'Signal {signal_name}:\n')
@@ -170,21 +170,21 @@ def gen_plan():
             sva_file_paths, _ = write_svas_to_file(svas)
             timer.time_and_clear("Write SVAs to files")
 
-            print("Step 8: Generating TCL scripts...")
-            tcl_file_paths = generate_tcl_scripts(sva_file_paths)
-            timer.time_and_clear("Generate TCL scripts")
+            # print("Step 8: Generating TCL scripts...")
+            # tcl_file_paths = generate_tcl_scripts(sva_file_paths)
+            # timer.time_and_clear("Generate TCL scripts")
 
-            print("Step 9: Running JasperGold...")
-            jasper_reports = run_jaspergold(tcl_file_paths)
-            timer.time_and_clear("Run JasperGold")
+            # print("Step 9: Running JasperGold...")
+            # jasper_reports = run_jaspergold(tcl_file_paths)
+            # timer.time_and_clear("Run JasperGold")
 
-            print("Step 10: Analyzing coverage of proven SVAs...")
-            coverage_report = analyze_coverage_of_proven_svas(svas, jasper_reports)
-            timer.time_and_clear("Analyze coverage of proven SVAs")
+            # print("Step 10: Analyzing coverage of proven SVAs...")
+            # coverage_report = analyze_coverage_of_proven_svas(svas, jasper_reports)
+            # timer.time_and_clear("Analyze coverage of proven SVAs")
 
-            print("Step 11: Analyzing and printing results...")
-            analyze_results(pdf_stats, nl_plans, svas, jasper_reports, coverage_report)
-            timer.time_and_clear("Analyze results")
+            # print("Step 11: Analyzing and printing results...")
+            # analyze_results(pdf_stats, nl_plans, svas, jasper_reports, coverage_report)
+            # timer.time_and_clear("Analyze results")
 
             print('Test plan generation and coverage evaluation process completed.')
 
@@ -932,46 +932,53 @@ def write_svas_to_file(svas: List[str]) -> Tuple[List[str], Set[str]]:
     Returns:
         Tuple[List[str], Set[str]]: List of paths to the generated SVA files and set of valid signal names.
     """
-    original_sva_path = os.path.join(FLAGS.design_dir, "property_goldmine.sva")
+    # original_sva_path = os.path.join(FLAGS.design_dir, "property_goldmine.sva")
 
-    # Extract the module interface from the original file
-    with open(original_sva_path, "r") as f:
-        original_content = f.read()
+    # # Extract the module interface from the original file
+    # with open(original_sva_path, "r") as f:
+    #     original_content = f.read()
 
-    # Use regex to find the module declaration
-    module_match = re.search(
-        r'module\s+(\w+)\s*\((.*?)\);', original_content, re.DOTALL
-    )
-    if not module_match:
-        raise ValueError("Could not find module declaration in the original SVA file.")
+    # # Use regex to find the module declaration
+    # module_match = re.search(
+    #     r'module\s+(\w+)\s*\((.*?)\);', original_content, re.DOTALL
+    # )
+    # if not module_match:
+    #     raise ValueError("Could not find module declaration in the original SVA file.")
 
-    module_name = module_match.group(1)
-    module_interface = f"module {module_name}({module_match.group(2)});"
+    # module_name = module_match.group(1)
+    # module_interface = f"module {module_name}({module_match.group(2)});"
 
-    # Extract valid signal names
-    valid_signals = extract_signal_names(module_interface)
+    # # Extract valid signal names
+    # valid_signals = extract_signal_names(module_interface)
 
+    sva_file_content=""
     sva_file_paths = []
     for i, sva in enumerate(svas):
-        sva_file_content = f"{module_interface}\n\n"
-
+        # sva_file_content = f"{module_interface}\n\n"
+        # sva_file_content=""
         # Format the SVA as a property
         property_name = f"a{i}"
-        sva_file_content += f"property {property_name};\n"
-        sva_file_content += f"{sva}\n"
-        sva_file_content += f"endproperty\n"
-        sva_file_content += (
-            f"assert_{property_name}: assert property({property_name});\n\n"
-        )
-        sva_file_content += "endmodule\n"
+        # sva_file_content += f"property {property_name};\n"
+        # sva_file_content += f"{sva}\n"
+        # sva_file_content += f"endproperty\n"
+        # sva_file_content += (
+        #     f"assert_{property_name}: assert property({property_name});\n\n"
+        # )
+        new_sva=sva.removesuffix(';')
+        sva_file_content +=f"assert_{property_name}: assert property({new_sva});\n"
+        # sva_file_content += "endmodule\n"
 
-        sva_file_path = os.path.join(saver.logdir, "tbs", f"property_goldmine_{i}.sva")
-        os.makedirs(os.path.dirname(sva_file_path), exist_ok=True)
-        with open(sva_file_path, "w") as f:
-            f.write(sva_file_content)
-        sva_file_paths.append(sva_file_path)
-
-    return sva_file_paths, valid_signals
+        # sva_file_path = os.path.join(saver.logdir, "tbs", f"property_goldmine_{i}.sva")
+        # os.makedirs(os.path.dirname(sva_file_path), exist_ok=True)
+        # with open(sva_file_path, "w",encoding='utf-8') as f:
+        #     f.write(sva_file_content)
+        # sva_file_paths.append(sva_file_path)
+    sva_file_path = os.path.join(saver.logdir, "tbs", f"property_goldmine.sva")
+    os.makedirs(os.path.dirname(sva_file_path), exist_ok=True)
+    with open(sva_file_path, "w",encoding='utf-8') as f:
+        f.write(sva_file_content)
+    sva_file_paths.append(sva_file_path)
+    return sva_file_paths, None
 
 
 def generate_tcl_scripts(sva_file_paths: List[str]) -> List[str]:
@@ -994,7 +1001,7 @@ def generate_tcl_scripts(sva_file_paths: List[str]) -> List[str]:
         raise Exception("Could not find the original TCL file")
 
     # Read the original TCL content
-    with open(original_tcl_path, 'r') as f:
+    with open(original_tcl_path, 'r',encoding='utf-8') as f:
         original_tcl_content = f.read()
 
     tcl_file_paths = []
@@ -1006,7 +1013,7 @@ def generate_tcl_scripts(sva_file_paths: List[str]) -> List[str]:
             saver.logdir, "tcl_scripts", f"FPV_{os.path.basename(design_dir)}_{i}.tcl"
         )
         os.makedirs(os.path.dirname(tcl_file_path), exist_ok=True)
-        with open(tcl_file_path, "w") as f:
+        with open(tcl_file_path, "w",encoding='utf-8') as f:
             f.write(modified_tcl_content)
         tcl_file_paths.append(tcl_file_path)
 
@@ -1379,7 +1386,7 @@ def log_llm_interaction(prompt: str, response: str, interaction_type: str):
         interaction_type (str): Type of interaction (e.g., 'NL_Plans', 'SVAs').
     """
     log_file_path = os.path.join(saver.logdir, 'llm_interactions.txt')
-    with open(log_file_path, 'a') as f:
+    with open(log_file_path, 'a',encoding='utf-8') as f:
         f.write(f"\n\n{'=' * 50}\n")
         f.write(f"Interaction Type: {interaction_type}\n")
         f.write(f"{'=' * 50}\n")

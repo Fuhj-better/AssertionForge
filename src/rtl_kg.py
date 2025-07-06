@@ -81,7 +81,7 @@ def extract_rtl_knowledge(design_dir, output_dir=None, verbose=False):
         rtl_knowledge['data_flow_graph'] = graph_data
 
         # Save the complete knowledge as JSON
-        with open(os.path.join(output_dir, "rtl_knowledge.json"), 'w') as f:
+        with open(os.path.join(output_dir, "rtl_knowledge.json"), 'w',encoding='utf-8') as f:
             # Convert non-serializable objects to strings
             json_data = make_json_serializable(rtl_knowledge)
             json.dump(json_data, f, indent=2)
@@ -747,7 +747,7 @@ def save_knowledge_graph(kg, output_path, output_dir):
 
         json_data = make_serializable(data)
 
-        with open(json_output_path, 'w') as f:
+        with open(json_output_path, 'w',encoding='utf-8') as f:
             json.dump(json_data, f, indent=2)
 
         print(f"Knowledge graph saved as JSON to {json_output_path}")
@@ -946,7 +946,7 @@ def write_graphml_with_unique_edge_ids(G, path):
                 edge.setAttribute('id', edge_id)
 
     # Write the modified document
-    with open(path, 'w') as f:
+    with open(path, 'w',encoding='utf-8') as f:
         f.write(doc.toxml())
 
     # Clean up temporary file

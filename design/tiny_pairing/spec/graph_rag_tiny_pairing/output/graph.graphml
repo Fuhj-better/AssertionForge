@@ -1,0 +1,387 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="TINY TATE BILINEAR PAIRING CORE" />
+    <node id="HOMER HSING" />
+    <node id="OPENCORES" />
+    <node id="TINY TATE BILINEAR PAIRING CORE SPECIFICATION" />
+    <node id="OPENCORES.ORG" />
+    <node id="GALOIS FIELD" />
+    <node id="SUPER-SINGULAR ELLIPTIC CURVE" />
+    <node id="RAM" />
+    <node id="ROM" />
+    <node id="CONTROL UNIT" />
+    <node id="FINITE STATE MACHINE" />
+    <node id="R0" />
+    <node id="R1" />
+    <node id="WWW.OPENCORES.ORG" />
+    <node id="OPEN CORES" />
+    <node id="XILINX SPARTAN 3 XC 3S200-5PQ208" />
+    <node id="XILINX SPARTAN 3 XC3S200-5PQ208" />
+    <node id="XILINX ISE 13.4" />
+    <node id="ALTERA QUARTUS II 11.1" />
+    <node id="XILINX" />
+    <node id="ALTERA CYCLONE II EP2C20F484C7" />
+    <node id="ALTERA" />
+    <node id="XILINX SPARTAN 3 XC3S200" />
+    <node id="TATE BILINEAR PAIRING CORE" />
+    <node id="MODEL SIM" />
+    <node id="XILINX VIRTEX 4 XC4VLX200" />
+    <node id="SIMULATION.DO" />
+    <node id="TEST_PAIRING.V" />
+    <node id="TESTBENCH" />
+    <node id="I.DUURSMA" />
+    <node id="H.S. LEE" />
+    <node id="TEST_FSM.V" />
+    <node id="TEST_CONST.V" />
+    <node id="TEST_PE.V" />
+    <node id="TEST_RAM.V" />
+    <node id="TEST_TINY.V" />
+    <node id="P.S.L.M. BARRETO" />
+    <node id="T.KERINS" />
+    <node id="W.P. MARNAME" />
+    <node id="E.M. POPOVICI" />
+    <node id="S. GALBRAITH" />
+    <node id="C. O HEIGEARTAIGH" />
+    <node id="M.SCOTT" />
+    <node id="ASIACRYPT&#8217;03" />
+    <node id="CHES&#8217;05" />
+    <node id="P.BARRETO" />
+    <node id="SPRINGER NETHERLANDS" />
+    <node id="J.BEUCHAT" />
+    <node id="N.BRISE BARRE" />
+    <node id="J.DETREY" />
+    <node id="E.OKAMOTO" />
+    <node id="M.SHIRASE" />
+    <node id="T.TAKAGI" />
+    <node id="IEEE" />
+    <node id="DESIGNS, CODES AND CRYPTOGRAPHY" />
+    <node id="IEEE TRANSACTIONS ON COMPUTERS" />
+    <node id="ALIBABA" />
+    <node id="XC3S200" />
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="HOMER HSING">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="OPENCORES">
+      <data key="d0">26.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="TINY TATE BILINEAR PAIRING CORE SPECIFICATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="GALOIS FIELD">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="SUPER-SINGULAR ELLIPTIC CURVE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="WWW.OPENCORES.ORG">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="OPEN CORES">
+      <data key="d0">11.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="XILINX SPARTAN 3 XC 3S200-5PQ208">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="XILINX SPARTAN 3 XC3S200-5PQ208">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="ALTERA QUARTUS II 11.1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="XILINX SPARTAN 3 XC3S200">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE" target="TATE BILINEAR PAIRING CORE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HOMER HSING" target="OPENCORES">
+      <data key="d0">12.0</data>
+    </edge>
+    <edge source="HOMER HSING" target="TINY TATE BILINEAR PAIRING CORE SPECIFICATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES" target="OPENCORES.ORG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TINY TATE BILINEAR PAIRING CORE SPECIFICATION" target="OPENCORES.ORG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="MODEL SIM">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="P.S.L.M. BARRETO">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="I.DUURSMA">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="H.S. LEE">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="T.KERINS">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="W.P. MARNAME">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="E.M. POPOVICI">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="S. GALBRAITH">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="C. O HEIGEARTAIGH">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="M.SCOTT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="TATE BILINEAR PAIRING CORE">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="RAM" target="ROM">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="RAM" target="CONTROL UNIT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ROM" target="CONTROL UNIT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="CONTROL UNIT" target="FINITE STATE MACHINE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="CONTROL UNIT" target="R0">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="CONTROL UNIT" target="R1">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="R0" target="R1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPEN CORES" target="TATE BILINEAR PAIRING CORE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPEN CORES" target="MODEL SIM">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="XILINX ISE 13.4" target="ALTERA QUARTUS II 11.1">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="XILINX ISE 13.4" target="XILINX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA QUARTUS II 11.1" target="ALTERA CYCLONE II EP2C20F484C7">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="ALTERA QUARTUS II 11.1" target="ALTERA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="XILINX SPARTAN 3 XC3S200">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="ALIBABA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="XC3S200">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA CYCLONE II EP2C20F484C7" target="ALTERA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="XILINX VIRTEX 4 XC4VLX200">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="MODEL SIM">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="TEST_PAIRING.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MODEL SIM" target="SIMULATION.DO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SIMULATION.DO" target="TESTBENCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TEST_PAIRING.V" target="TESTBENCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I.DUURSMA" target="H.S. LEE">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="I.DUURSMA" target="ASIACRYPT&#8217;03">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="H.S. LEE" target="ASIACRYPT&#8217;03">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="TEST_FSM.V" target="TEST_CONST.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_FSM.V" target="TEST_PE.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_FSM.V" target="TEST_RAM.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_FSM.V" target="TEST_TINY.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_CONST.V" target="TEST_PE.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_CONST.V" target="TEST_RAM.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_CONST.V" target="TEST_TINY.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_PE.V" target="TEST_RAM.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_PE.V" target="TEST_TINY.V">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="TEST_RAM.V" target="TEST_TINY.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="P.S.L.M. BARRETO" target="T.KERINS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="P.S.L.M. BARRETO" target="W.P. MARNAME">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="P.S.L.M. BARRETO" target="E.M. POPOVICI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="P.S.L.M. BARRETO" target="CHES&#8217;05">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="P.S.L.M. BARRETO" target="P.BARRETO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="T.KERINS" target="W.P. MARNAME">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="T.KERINS" target="E.M. POPOVICI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="T.KERINS" target="CHES&#8217;05">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="W.P. MARNAME" target="E.M. POPOVICI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="W.P. MARNAME" target="CHES&#8217;05">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="E.M. POPOVICI" target="CHES&#8217;05">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="S. GALBRAITH" target="P.BARRETO">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="S. GALBRAITH" target="C. O HEIGEARTAIGH">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="S. GALBRAITH" target="M.SCOTT">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="S. GALBRAITH" target="SPRINGER NETHERLANDS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="C. O HEIGEARTAIGH" target="P.BARRETO">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="C. O HEIGEARTAIGH" target="M.SCOTT">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="C. O HEIGEARTAIGH" target="SPRINGER NETHERLANDS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="M.SCOTT" target="P.BARRETO">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="M.SCOTT" target="SPRINGER NETHERLANDS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="P.BARRETO" target="SPRINGER NETHERLANDS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="SPRINGER NETHERLANDS" target="DESIGNS, CODES AND CRYPTOGRAPHY">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="J.BEUCHAT" target="N.BRISE BARRE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.BEUCHAT" target="J.DETREY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.BEUCHAT" target="E.OKAMOTO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.BEUCHAT" target="M.SHIRASE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.BEUCHAT" target="T.TAKAGI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.BEUCHAT" target="IEEE">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="N.BRISE BARRE" target="J.DETREY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="N.BRISE BARRE" target="E.OKAMOTO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="N.BRISE BARRE" target="M.SHIRASE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="N.BRISE BARRE" target="T.TAKAGI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="N.BRISE BARRE" target="IEEE">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="J.DETREY" target="E.OKAMOTO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.DETREY" target="M.SHIRASE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.DETREY" target="T.TAKAGI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="J.DETREY" target="IEEE">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="E.OKAMOTO" target="M.SHIRASE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="E.OKAMOTO" target="T.TAKAGI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="E.OKAMOTO" target="IEEE">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="M.SHIRASE" target="T.TAKAGI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="M.SHIRASE" target="IEEE">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="T.TAKAGI" target="IEEE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="IEEE" target="IEEE TRANSACTIONS ON COMPUTERS">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ALIBABA" target="XC3S200">
+      <data key="d0">2.0</data>
+    </edge>
+  </graph>
+</graphml>

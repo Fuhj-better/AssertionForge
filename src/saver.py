@@ -13,7 +13,7 @@ from command_line_args import parse_command_line_args
 
 # This will parse command line arguments and update config.FLAGS
 FLAGS = parse_command_line_args()
-
+print(FLAGS)
 
 from utils import get_ts, create_dir_if_not_exists, save, save_pickle
 from utils import (
@@ -62,7 +62,6 @@ class Saver(object):
             # '{}_{}_{}_{}_{}_{}_{}'.format(FLAGS.norm_method, FLAGS.task, FLAGS.subtask, FLAGS.tag, FLAGS.target, model_str, get_ts()))
             '{}_{}_{}_{}'.format(FLAGS.task, get_ts(), FLAGS.hostname, FLAGS.user),
         )
-
         self.accelerator = None
 
         self.pidstr = ''
@@ -95,7 +94,7 @@ class Saver(object):
             return FLAGS.device
 
     def _open(self, f):
-        return open(join(self.logdir, f), 'w')
+        return open(join(self.logdir, f), 'w',encoding='utf-8')
 
     def close(self):
         self.print_stats()
@@ -125,7 +124,7 @@ class Saver(object):
     def log_list_of_lists_to_csv(self, lol, fn, delimiter=','):
         import csv
 
-        fp = open(join(self.logdir, fn), 'w+')
+        fp = open(join(self.logdir, fn), 'w+',encoding='utf-8')
         csv_writer = csv.writer(fp, delimiter=delimiter)
         for l in lol:
             csv_writer.writerow(l)
@@ -134,7 +133,7 @@ class Saver(object):
     def log_dict_of_dicts_to_csv(self, fn, csv_dict, csv_header, delimiter=','):
         import csv
 
-        fp = open(join(self.logdir, f'{fn}.csv'), 'w+')
+        fp = open(join(self.logdir, f'{fn}.csv'), 'w+',encoding='utf-8')
         f_writer = csv.DictWriter(fp, fieldnames=csv_header)
         f_writer.writeheader()
         for d, value in csv_dict.items():
@@ -184,7 +183,7 @@ class Saver(object):
         import json
 
         # as requested in comment
-        with open(join(self.get_obj_dir(), fn), 'w') as file:
+        with open(join(self.get_obj_dir(), fn), 'w',encoding='utf-8') as file:
             file.write(json.dumps(dictionary))
 
     def log_model_architecture(self, model):
@@ -282,7 +281,7 @@ class Saver(object):
 
     def log_info_new_file(self, s, fn):
         # print(s)
-        log_f = open(join(self.logdir, fn), 'a')
+        log_f = open(join(self.logdir, fn), 'a',encoding='utf-8')
         log_f.write('{}\n'.format(s))
         log_f.close()
 
@@ -293,7 +292,7 @@ class Saver(object):
         # print(f'dict of keys {d.keys()} saved to {filepath}')
 
     def _save_conf_code(self):
-        with open(join(self.logdir, 'config.py'), 'w') as f:
+        with open(join(self.logdir, 'config.py'), 'w',encoding='utf-8') as f:
             f.write(extract_config_code())
         p = join(self.get_log_dir(), 'FLAGS')
         save({'FLAGS': FLAGS}, p, print_msg=False)

@@ -1,0 +1,661 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="IZTOK JERAS" />
+    <node id="SOCKIT_OWM" />
+    <node id="GITHUB" />
+    <node id="OPENCORES" />
+    <node id="1-WIRE PROTOCOL" />
+    <node id="VERILOG MODULE" />
+    <node id="QUARTUS II" />
+    <node id="ALTERA" />
+    <node id="SOPC BUILDER" />
+    <node id="NIOS II EDS" />
+    <node id="AVALON MM" />
+    <node id="NIOS II" />
+    <node id="MAXIM INTEGRATED PRODUCTS, INC" />
+    <node id="DALLAS SEMICONDUCTOR" />
+    <node id="1-WIRE PUBLIC DOMAIN KIT" />
+    <node id="IBUTTON" />
+    <node id="VERILOG HDL" />
+    <node id="FPGA" />
+    <node id="SOC" />
+    <node id="ASIC" />
+    <node id="MAXIM-IC" />
+    <node id="1-WIRE" />
+    <node id="SOCKIT_OWM.V" />
+    <node id="WISHBONE2BUS.V" />
+    <node id="ONEWIRE_SLAVE_MODEL.V" />
+    <node id="ONEWIRE_TB.V" />
+    <node id="SOCKIT_OWM_HW.TCL" />
+    <node id="SOCKIT_OWM_SW.TCL" />
+    <node id="ONEWIRE.ODT" />
+    <node id="WISHBONE TO BUS PROTOCOL CONVERTER" />
+    <node id="ALTERA DEV. TOOLS" />
+    <node id="NIOS II HAL" />
+    <node id="SOCKIT_OWM MODULE" />
+    <node id="CPU BUS ACCESSIBLE REGISTERS" />
+    <node id="OS" />
+    <node id="1-WIRE DRIVER" />
+    <node id="HAL" />
+    <node id="OS_INITIALIZATION" />
+    <node id="INTERRUPT_SERVICE_ROUTINE" />
+    <node id="IRQ_SOCKIT_OWM" />
+    <node id="PUBLIC DOMAIN KIT" />
+    <node id="&#924;C/OS-II" />
+    <node id="SOCKIT_OWR" />
+    <node id="MAXIM" />
+    <node id="SOCKIT_OWR COMPONENT" />
+    <node id="UC/OS-II" />
+    <node id="INC/SOCKIT_OWM_REGS.H" />
+    <node id="HAL/INC/SOCKIT_OWM.H" />
+    <node id="HAL/SRC/SOCKIT_OWM.C" />
+    <node id="OWPD310R2" />
+    <node id="CPU" />
+    <node id="OWNET.H" />
+    <node id="OWLNK.C" />
+    <node id="OWNET.C" />
+    <node id="OWTRAN.C" />
+    <node id="OWSES.C" />
+    <node id="OWERR.C" />
+    <node id="CRCUTIL.C" />
+    <node id="FINDTYPE.H" />
+    <node id="FINDTYPE.C" />
+    <node id="TEMP10.H" />
+    <node id="TEMP10.C" />
+    <node id="DS1920/DS1820" />
+    <node id="DS18B20" />
+    <node id="DS28EA00" />
+    <node id="OWNET" />
+    <node id="OWERR" />
+    <node id="GIT REPOSITORY" />
+    <node id="ALTERA DEVELOPMENT TOOLS" />
+    <node id="BSP" />
+    <node id="SOCKIT_OWM COMPONENT" />
+    <node id="BASE DRIVER" />
+    <node id="DEMO" />
+    <node id="TERASIC DE1 DEMO BOARD" />
+    <node id="NIOS II SOC" />
+    <node id="JTAG UART" />
+    <node id="TERASIC DE1 BOARD" />
+    <node id="PS/2 CONNECTOR" />
+    <node id="DS1820" />
+    <node id="ALTERA CYCLONE II" />
+    <node id="CPLD" />
+    <node id="DEMO SOFTWARE" />
+    <node id="TERASIC DE1" />
+    <node id="UART" />
+    <node id="DS18S20" />
+    <node id="VERILOG RTL" />
+    <node id="LIBHAL_BSP" />
+    <node id="FINDTYPE.O" />
+    <node id="OWLNK.O" />
+    <node id="ONEWIRE_BSP" />
+    <node id="OWNET.O" />
+    <node id="OWSES.O" />
+    <node id="OWTRAN.O" />
+    <node id="SOCKIT_OWM.O" />
+    <node id="TEMP10.O" />
+    <node id="ONEWIRE.O" />
+    <node id="VERILOG RTL SIMULATION" />
+    <node id="LINUX KERNEL DRIVER" />
+    <node id="IVERILOG_GTKWAVE.SCR" />
+    <node id="IVERILOG_GTKWAVE.CMD" />
+    <node id="VERILOG" />
+    <node id="VERILOG TESTBENCH" />
+    <node id="BASH SCRIPT" />
+    <node id="CPU BUS" />
+    <node id="CLOCK DIVIDERS" />
+    <node id="1-WIRE STATE MACHINE" />
+    <node id="1-WIRE SLAVE" />
+    <node id="1-WIRE MASTER" />
+    <node id="RTL" />
+    <node id="1-WIRE SLAVE MODELS" />
+    <node id="DEMO IMPLEMENTATION" />
+    <node id="1-WIRE FUNCTIONALITY" />
+    <node id="HARDWARE 1MS DELAY" />
+    <node id="SOFTWARE 1MS DELAY" />
+    <node id="POLLING DRIVER" />
+    <node id="INTERRUPT DRIVEN DRIVER" />
+    <node id="TASK SIMULTANEOUS ACCESS" />
+    <node id="CPU RETURN WHILE WAITING" />
+    <node id="GNU" />
+    <node id="TCL" />
+    <node id="LGPL 3" />
+    <node id="CREATIVE COMMONS" />
+    <node id="WIKIPEDIA" />
+    <node id="AN1097" />
+    <node id="AN155" />
+    <node id="JEAN J. LABROSSE" />
+    <node id="UG/UGC SOPC BUILDER.PDF" />
+    <node id="MICROC OS II" />
+    <edge source="IZTOK JERAS" target="SOCKIT_OWM">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="GITHUB">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="OPENCORES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="1-WIRE PROTOCOL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="VERILOG MODULE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="ALTERA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="ALTERA DEVELOPMENT TOOLS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="SOPC BUILDER">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="NIOS II EDS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="TERASIC DE1 DEMO BOARD">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="NIOS II SOC">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM" target="VERILOG RTL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="1-WIRE PROTOCOL" target="MAXIM INTEGRATED PRODUCTS, INC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="1-WIRE PROTOCOL" target="DALLAS SEMICONDUCTOR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VERILOG MODULE" target="WISHBONE TO BUS PROTOCOL CONVERTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VERILOG MODULE" target="SOCKIT_OWM MODULE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="QUARTUS II" target="ALTERA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ALTERA" target="SOPC BUILDER">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="ALTERA" target="NIOS II EDS">
+      <data key="d0">17.0</data>
+    </edge>
+    <edge source="ALTERA" target="AVALON MM">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ALTERA" target="NIOS II">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ALTERA" target="MAXIM INTEGRATED PRODUCTS, INC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="VERILOG HDL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="SOCKIT_OWM.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="WISHBONE2BUS.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="ONEWIRE_SLAVE_MODEL.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="ONEWIRE_TB.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="SOCKIT_OWM_HW.TCL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="SOCKIT_OWM_SW.TCL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="PUBLIC DOMAIN KIT">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="ALTERA" target="NIOS II HAL">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="ALTERA" target="GNU">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="TCL">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ALTERA" target="UG/UGC SOPC BUILDER.PDF">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOPC BUILDER" target="NIOS II HAL">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="SOPC BUILDER" target="SOCKIT_OWM_HW.TCL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SOPC BUILDER" target="ALTERA DEVELOPMENT TOOLS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SOPC BUILDER" target="NIOS II EDS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOPC BUILDER" target="SOCKIT_OWM COMPONENT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II EDS" target="NIOS II HAL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II EDS" target="SOCKIT_OWM_SW.TCL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NIOS II EDS" target="ALTERA DEVELOPMENT TOOLS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NIOS II EDS" target="BSP">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II EDS" target="NIOS II SOC">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="AVALON MM" target="UG/UGC SOPC BUILDER.PDF">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II" target="HAL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II" target="PUBLIC DOMAIN KIT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NIOS II" target="GIT REPOSITORY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAXIM INTEGRATED PRODUCTS, INC" target="DALLAS SEMICONDUCTOR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MAXIM INTEGRATED PRODUCTS, INC" target="1-WIRE PUBLIC DOMAIN KIT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MAXIM INTEGRATED PRODUCTS, INC" target="IBUTTON">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DALLAS SEMICONDUCTOR" target="MAXIM-IC">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="DALLAS SEMICONDUCTOR" target="1-WIRE PUBLIC DOMAIN KIT">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="DALLAS SEMICONDUCTOR" target="DS18S20">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="1-WIRE PUBLIC DOMAIN KIT" target="NIOS II HAL">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="FPGA" target="SOC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOC" target="ASIC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOC" target="WISHBONE TO BUS PROTOCOL CONVERTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ASIC" target="VERILOG RTL SIMULATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MAXIM-IC" target="1-WIRE">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="MAXIM-IC" target="DS18S20">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAXIM-IC" target="DS18B20">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAXIM-IC" target="AN1097">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="MAXIM-IC" target="AN155">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="1-WIRE" target="OS">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM.V" target="WISHBONE2BUS.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ONEWIRE_SLAVE_MODEL.V" target="ONEWIRE_TB.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ONEWIRE_SLAVE_MODEL.V" target="ONEWIRE.ODT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ONEWIRE_SLAVE_MODEL.V" target="VERILOG RTL SIMULATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ONEWIRE_SLAVE_MODEL.V" target="VERILOG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ONEWIRE_TB.V" target="VERILOG RTL SIMULATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="WISHBONE TO BUS PROTOCOL CONVERTER" target="ALTERA DEV. TOOLS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="PUBLIC DOMAIN KIT">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="MAXIM">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="SOCKIT_OWR COMPONENT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="UC/OS-II">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="TERASIC DE1 BOARD">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="DEMO SOFTWARE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="TERASIC DE1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="DEMO IMPLEMENTATION">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="&#924;C/OS-II">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="HARDWARE 1MS DELAY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="SOFTWARE 1MS DELAY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="POLLING DRIVER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="INTERRUPT DRIVEN DRIVER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="LGPL 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="GNU">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II HAL" target="CREATIVE COMMONS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM MODULE" target="CPU BUS ACCESSIBLE REGISTERS">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OS" target="1-WIRE DRIVER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OS" target="HAL">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OS" target="IRQ_SOCKIT_OWM">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OS" target="INTERRUPT_SERVICE_ROUTINE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OS" target="&#924;C/OS-II">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="HAL" target="OS_INITIALIZATION">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="HAL" target="INTERRUPT_SERVICE_ROUTINE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HAL" target="PUBLIC DOMAIN KIT">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="HAL" target="OWNET.H">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="OWLNK.C">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="HAL" target="OWNET.C">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="OWTRAN.C">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="OWSES.C">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="HAL" target="OWERR.C">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="CRCUTIL.C">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="FINDTYPE.H">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="FINDTYPE.C">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="TEMP10.H">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HAL" target="TEMP10.C">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HAL" target="DS1920/DS1820">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HAL" target="DS18B20">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HAL" target="DS28EA00">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HAL" target="OWNET">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HAL" target="OWERR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="&#924;C/OS-II">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="SOCKIT_OWR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="MAXIM">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="SOCKIT_OWR COMPONENT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="OWPD310R2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="CPU">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="GIT REPOSITORY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PUBLIC DOMAIN KIT" target="BSP">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="SOCKIT_OWR COMPONENT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="TERASIC DE1 BOARD">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="DEMO SOFTWARE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="DEMO IMPLEMENTATION">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="TASK SIMULTANEOUS ACCESS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="CPU RETURN WHILE WAITING">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="&#924;C/OS-II" target="JEAN J. LABROSSE">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="UC/OS-II" target="TERASIC DE1">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="INC/SOCKIT_OWM_REGS.H" target="HAL/INC/SOCKIT_OWM.H">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="HAL/INC/SOCKIT_OWM.H" target="HAL/SRC/SOCKIT_OWM.C">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DS18B20" target="TERASIC DE1 BOARD">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="DS18B20" target="DS1820">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DS18B20" target="PS/2 CONNECTOR">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="DS18B20" target="DS18S20">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="DS18B20" target="AN1097">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="DS18B20" target="AN155">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="BSP" target="SOCKIT_OWM COMPONENT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="BSP" target="DEMO">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="BSP" target="BASE DRIVER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SOCKIT_OWM COMPONENT" target="BASE DRIVER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TERASIC DE1 DEMO BOARD" target="NIOS II SOC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TERASIC DE1 DEMO BOARD" target="JTAG UART">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II SOC" target="TERASIC DE1 BOARD">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIOS II SOC" target="PS/2 CONNECTOR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TERASIC DE1 BOARD" target="PS/2 CONNECTOR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TERASIC DE1 BOARD" target="DS1820">
+      <data key="d0">12.0</data>
+    </edge>
+    <edge source="TERASIC DE1 BOARD" target="ALTERA CYCLONE II">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PS/2 CONNECTOR" target="DS1820">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="PS/2 CONNECTOR" target="WIKIPEDIA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA CYCLONE II" target="CPLD">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TERASIC DE1" target="UART">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DS18S20" target="AN1097">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="DS18S20" target="AN155">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="LIBHAL_BSP" target="FINDTYPE.O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OWLNK.O" target="ONEWIRE_BSP">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ONEWIRE_BSP" target="OWNET.O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ONEWIRE_BSP" target="OWSES.O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ONEWIRE_BSP" target="OWTRAN.O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ONEWIRE_BSP" target="SOCKIT_OWM.O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ONEWIRE_BSP" target="TEMP10.O">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ONEWIRE_BSP" target="ONEWIRE.O">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="VERILOG RTL SIMULATION" target="LINUX KERNEL DRIVER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="IVERILOG_GTKWAVE.SCR" target="IVERILOG_GTKWAVE.CMD">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VERILOG" target="LGPL 3">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="VERILOG TESTBENCH" target="BASH SCRIPT">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="VERILOG TESTBENCH" target="CPU BUS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="VERILOG TESTBENCH" target="CLOCK DIVIDERS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="VERILOG TESTBENCH" target="1-WIRE STATE MACHINE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VERILOG TESTBENCH" target="RTL">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="VERILOG TESTBENCH" target="1-WIRE SLAVE MODELS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="1-WIRE SLAVE" target="1-WIRE MASTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="DEMO IMPLEMENTATION" target="1-WIRE FUNCTIONALITY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TCL" target="LGPL 3">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="CREATIVE COMMONS" target="WIKIPEDIA">
+      <data key="d0">11.0</data>
+    </edge>
+    <edge source="JEAN J. LABROSSE" target="MICROC OS II">
+      <data key="d0">1.0</data>
+    </edge>
+  </graph>
+</graphml>

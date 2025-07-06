@@ -1,0 +1,995 @@
+19:14:23,309 graphrag.cli.index INFO Logging enabled at C:\Users\huijie\Desktop\AssertionForge\design\apb\spec\graph_rag_apb\logs\indexing-engine.log
+19:14:24,889 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:15:25,917 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+19:15:25,920 graphrag.cli.index INFO Starting pipeline run. dry_run=False
+19:15:25,920 graphrag.cli.index INFO Using default configuration: {
+    "root_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb",
+    "models": {
+        "default_chat_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_chat",
+            "model": "deepseek-chat",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://api.deepseek.com",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        },
+        "default_embedding_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_embedding",
+            "model": "text-embedding-v2",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        }
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "text_column": "text",
+        "title_column": null,
+        "metadata": null
+    },
+    "chunks": {
+        "size": 200,
+        "overlap": 50,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": "tokens",
+        "encoding_model": "cl100k_base",
+        "prepend_metadata": false,
+        "chunk_size_includes_metadata": false
+    },
+    "output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "outputs": null,
+    "update_index_output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\update_output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "reporting": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\logs",
+        "storage_account_blob_url": null
+    },
+    "vector_store": {
+        "default_vector_store": {
+            "type": "lancedb",
+            "db_uri": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\output\\lancedb",
+            "url": null,
+            "audience": null,
+            "container_name": "==== REDACTED ====",
+            "database_name": null,
+            "overwrite": true
+        }
+    },
+    "workflows": null,
+    "embed_text": {
+        "model_id": "default_embedding_model",
+        "vector_store_id": "default_vector_store",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "names": [
+            "entity.description",
+            "community.full_content",
+            "text_unit.text"
+        ],
+        "strategy": null
+    },
+    "extract_graph": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_graph.txt",
+        "entity_types": [
+            "Design Specification",
+            "Section",
+            "Subsection",
+            "Table",
+            "Figure",
+            "Author",
+            "Module",
+            "Submodule",
+            "Protocol",
+            "Signal",
+            "Port",
+            "Register",
+            "FIFO",
+            "Clock",
+            "Interrupt",
+            "Operation",
+            "Frequency",
+            "Standard",
+            "Reference",
+            "Component",
+            "Version",
+            "Date",
+            "Comment",
+            "Pin",
+            "Configuration",
+            "Constraint/Rule",
+            "Address",
+            "Document"
+        ],
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "summarize_descriptions": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "max_input_tokens": 4000,
+        "strategy": null
+    },
+    "extract_graph_nlp": {
+        "normalize_edge_weights": true,
+        "text_analyzer": {
+            "extractor_type": "regex_english",
+            "model_name": "en_core_web_md",
+            "max_word_length": 15,
+            "word_delimiter": " ",
+            "include_named_entities": true,
+            "exclude_nouns": [
+                "stuff",
+                "thing",
+                "things",
+                "bunch",
+                "bit",
+                "bits",
+                "people",
+                "person",
+                "okay",
+                "hey",
+                "hi",
+                "hello",
+                "laughter",
+                "oh"
+            ],
+            "exclude_entity_tags": [
+                "DATE"
+            ],
+            "exclude_pos_tags": [
+                "DET",
+                "PRON",
+                "INTJ",
+                "X"
+            ],
+            "noun_phrase_tags": [
+                "PROPN",
+                "NOUNS"
+            ],
+            "noun_phrase_grammars": {
+                "PROPN,PROPN": "PROPN",
+                "NOUN,NOUN": "NOUNS",
+                "NOUNS,NOUN": "NOUNS",
+                "ADJ,ADJ": "ADJ",
+                "ADJ,NOUN": "NOUNS"
+            }
+        },
+        "concurrent_requests": 25
+    },
+    "prune_graph": {
+        "min_node_freq": 2,
+        "max_node_freq_std": null,
+        "min_node_degree": 1,
+        "max_node_degree_std": null,
+        "min_edge_weight_pct": 40.0,
+        "remove_ego_nodes": true,
+        "lcc_only": false
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "use_lcc": true,
+        "seed": 3735928559
+    },
+    "extract_claims": {
+        "enabled": false,
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_claims.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "community_reports": {
+        "model_id": "default_chat_model",
+        "graph_prompt": "prompts/community_report_graph.txt",
+        "text_prompt": "prompts/community_report_text.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "embed_graph": {
+        "enabled": true,
+        "dimensions": 1536,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "use_lcc": true
+    },
+    "umap": {
+        "enabled": true
+    },
+    "snapshots": {
+        "embeddings": true,
+        "graphml": true,
+        "raw_graph": false
+    },
+    "local_search": {
+        "prompt": "prompts/local_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "text_unit_prop": 0.5,
+        "community_prop": 0.15,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "max_context_tokens": 12000
+    },
+    "global_search": {
+        "map_prompt": "prompts/global_search_map_system_prompt.txt",
+        "reduce_prompt": "prompts/global_search_reduce_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "knowledge_prompt": "prompts/global_search_knowledge_system_prompt.txt",
+        "max_context_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_length": 1000,
+        "reduce_max_length": 2000,
+        "dynamic_search_threshold": 1,
+        "dynamic_search_keep_parent": false,
+        "dynamic_search_num_repeats": 1,
+        "dynamic_search_use_summary": false,
+        "dynamic_search_max_level": 2
+    },
+    "drift_search": {
+        "prompt": "prompts/drift_search_system_prompt.txt",
+        "reduce_prompt": "prompts/drift_search_reduce_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "data_max_tokens": 12000,
+        "reduce_max_tokens": null,
+        "reduce_temperature": 0,
+        "reduce_max_completion_tokens": null,
+        "concurrency": 32,
+        "drift_k_followups": 20,
+        "primer_folds": 5,
+        "primer_llm_max_tokens": 12000,
+        "n_depth": 3,
+        "local_search_text_unit_prop": 0.9,
+        "local_search_community_prop": 0.1,
+        "local_search_top_k_mapped_entities": 10,
+        "local_search_top_k_relationships": 10,
+        "local_search_max_data_tokens": 12000,
+        "local_search_temperature": 0,
+        "local_search_top_p": 1,
+        "local_search_n": 1,
+        "local_search_llm_max_gen_tokens": null,
+        "local_search_llm_max_gen_completion_tokens": null
+    },
+    "basic_search": {
+        "prompt": "prompts/basic_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "k": 10,
+        "max_context_tokens": 12000
+    }
+}
+19:15:25,940 graphrag.storage.file_pipeline_storage INFO Creating file storage at C:\Users\huijie\Desktop\AssertionForge\design\apb\spec\graph_rag_apb\output
+19:15:25,942 graphrag.index.input.factory INFO loading input from root_dir=input
+19:15:25,942 graphrag.index.input.factory INFO using file storage for input
+19:15:25,945 graphrag.storage.file_pipeline_storage INFO search C:\Users\huijie\Desktop\AssertionForge\design\apb\spec\graph_rag_apb\input for files matching .*\.txt$
+19:15:25,946 graphrag.index.input.util INFO Found 1 InputFileType.text files, loading 1
+19:15:25,946 graphrag.index.input.util INFO Total number of unfiltered InputFileType.text rows: 1
+19:15:25,953 graphrag.index.run.run_pipeline INFO Final # of rows loaded: 1
+19:15:25,960 graphrag.utils.storage INFO reading table from storage: documents.parquet
+19:15:26,23 graphrag.utils.storage INFO reading table from storage: documents.parquet
+19:15:26,28 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+19:15:26,66 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+19:15:27,390 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:16:27,688 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:17:27,566 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:18:27,638 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:19:27,365 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:19:27,686 openai._base_client INFO Retrying request to /chat/completions in 0.393938 seconds
+19:19:28,959 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:20:27,583 openai._base_client INFO Retrying request to /chat/completions in 0.470201 seconds
+19:20:27,599 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:20:29,50 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:21:27,450 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:22:27,497 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:23:27,415 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:24:28,706 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:25:31,676 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:26:27,822 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:27:27,490 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:28:27,479 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:28:31,693 openai._base_client INFO Retrying request to /chat/completions in 0.437638 seconds
+19:28:33,16 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:29:27,472 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:30:27,742 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:31:27,497 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:32:27,740 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:33:27,766 openai._base_client INFO Retrying request to /chat/completions in 0.398672 seconds
+19:33:29,133 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:47:28,448 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:50:28,25 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:52:27,799 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:53:27,702 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:53:43,191 openai._base_client INFO Retrying request to /chat/completions in 0.471508 seconds
+19:53:44,649 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:54:27,970 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:55:27,987 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:56:27,763 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:57:28,775 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:58:28,101 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+19:59:27,815 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:00:33,366 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:01:28,158 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:02:28,724 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:03:28,38 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:04:28,629 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:05:27,816 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:05:28,725 openai._base_client INFO Retrying request to /chat/completions in 0.446388 seconds
+20:05:30,471 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:06:28,148 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:07:28,314 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:07:28,646 openai._base_client INFO Retrying request to /chat/completions in 0.385745 seconds
+20:07:30,691 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:08:30,469 openai._base_client INFO Retrying request to /chat/completions in 0.990830 seconds
+20:08:32,516 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:08:46,373 openai._base_client INFO Retrying request to /chat/completions in 0.784806 seconds
+20:08:48,209 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:11:48,210 openai._base_client INFO Retrying request to /chat/completions in 1.645082 seconds
+20:11:51,264 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:21:28,963 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:22:28,581 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:23:28,395 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:24:28,778 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:24:29,762 openai._base_client INFO Retrying request to /chat/completions in 0.453600 seconds
+20:24:31,122 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:25:28,596 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:26:28,492 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:27:29,768 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:28:28,383 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:29:28,522 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:30:28,757 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:30:43,788 openai._base_client INFO Retrying request to /chat/completions in 0.426970 seconds
+20:30:45,454 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:31:28,388 openai._base_client INFO Retrying request to /chat/completions in 0.425590 seconds
+20:31:29,22 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:31:29,751 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:32:28,616 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:33:28,791 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:34:28,475 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:34:29,758 openai._base_client INFO Retrying request to /chat/completions in 0.753244 seconds
+20:34:31,414 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:35:28,676 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:36:28,480 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:37:28,964 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:37:31,430 openai._base_client INFO Retrying request to /chat/completions in 1.671192 seconds
+20:37:34,128 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:38:28,552 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:38:49,176 openai._base_client INFO Retrying request to /chat/completions in 3.399470 seconds
+20:38:53,591 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:39:29,22 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:40:28,583 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:40:28,971 openai._base_client INFO Retrying request to /chat/completions in 0.463151 seconds
+20:40:30,439 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:41:28,707 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:41:53,591 openai._base_client INFO Retrying request to /chat/completions in 6.698038 seconds
+20:42:01,215 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:42:28,527 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:43:29,598 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:43:30,428 openai._base_client INFO Retrying request to /chat/completions in 0.956286 seconds
+20:43:33,342 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:44:28,652 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:45:01,222 openai._base_client INFO Retrying request to /chat/completions in 7.066104 seconds
+20:45:09,632 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:45:28,132 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:46:33,340 openai._base_client INFO Retrying request to /chat/completions in 1.955293 seconds
+20:46:36,524 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:49:36,532 openai._base_client INFO Retrying request to /chat/completions in 3.690196 seconds
+20:49:41,434 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+20:52:41,453 openai._base_client INFO Retrying request to /chat/completions in 6.466649 seconds
+20:52:48,841 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:10:28,999 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:11:31,248 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:12:17,154 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "FIGURE 7"\nDescription List: ["Figure 7 illustrates I\xb2C non-standard transmission fail protocol.\\"", "Figure 7 shows the attempted transfer/read data, illustrating NACK and retransmission scenarios.\\""]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,169 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "R"\nDescription List: ["R is a restart condition signal used when retrying to send a byte to I\xb2C.\\"", "Restart condition signal."]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,169 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "TX FIFO"\nDescription List: ["TX FIFO is accessed for writing by setting PADDR to 0h and enabling PWRITE.", "TX FIFO stores data to be transmitted and triggers INT_TX when empty.\\""]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,169 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "TABLE 2"\nDescription List: ["Table 2 describes the standard protocol used by many chip designs, including start bit, control, address, data, ACK, NACK, and restart condition.", "Table 2 shows the register configuration.\\""]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,185 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "ACK"\nDescription List: ["ACK signal must be LOW for each byte if all goes right in the transmission.\\"", "ACK signal must be LOW for each byte if all goes right."]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,185 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "NACK"\nDescription List: ["NACK signal must be HIGH for each byte if not all goes right in the transmission.\\"", "NACK signal must be HIGH for each byte if not all goes right."]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,195 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "TX ENABLER"\nDescription List: ["TX enabler is written in the configuration register to enable transmission.\\"", "TX enabler must be written in configuration register to enable transmit operation.\\""]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,197 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "CLOCK RANGE WORK"\nDescription List: ["Subsection 3.0.4 describes the clock frequency range (100 kHz to 5 MHz) for the module, which needs verification in FPGA.", "This subsection describes the initial frequency range (100) for the module\'s operation.\\""]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:17,201 graphrag.callbacks.file_workflow_callbacks INFO Error Invoking LLM details={'prompt': '\nYou are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\nGiven one or more entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\nLimit the final description length to 500 words.\n\n#######\n-Data-\nEntities: "CONFIGURATION REGISTER"\nDescription List: ["A configuration register used in I2C module, with two bits determining the mode of operation.\\"", "Configuration register must be set up with clock generation and TX enabled for I\xb2C module operation.\\"", "The configuration register is written after reset, enabling clock generation and TX operation.\\""]\n#######\nOutput:\n', 'kwargs': {'name': 'summarize'}}
+21:12:34,946 graphrag.cli.index INFO Logging enabled at C:\Users\huijie\Desktop\AssertionForge\design\apb\spec\graph_rag_apb\logs\indexing-engine.log
+21:12:37,491 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:13:37,942 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+21:13:37,946 graphrag.cli.index INFO Starting pipeline run. dry_run=False
+21:13:37,946 graphrag.cli.index INFO Using default configuration: {
+    "root_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb",
+    "models": {
+        "default_chat_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_chat",
+            "model": "deepseek-chat",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://api.deepseek.com",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        },
+        "default_embedding_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_embedding",
+            "model": "text-embedding-v2",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        }
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "text_column": "text",
+        "title_column": null,
+        "metadata": null
+    },
+    "chunks": {
+        "size": 200,
+        "overlap": 50,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": "tokens",
+        "encoding_model": "cl100k_base",
+        "prepend_metadata": false,
+        "chunk_size_includes_metadata": false
+    },
+    "output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "outputs": null,
+    "update_index_output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\update_output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "reporting": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\logs",
+        "storage_account_blob_url": null
+    },
+    "vector_store": {
+        "default_vector_store": {
+            "type": "lancedb",
+            "db_uri": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\output\\lancedb",
+            "url": null,
+            "audience": null,
+            "container_name": "==== REDACTED ====",
+            "database_name": null,
+            "overwrite": true
+        }
+    },
+    "workflows": null,
+    "embed_text": {
+        "model_id": "default_embedding_model",
+        "vector_store_id": "default_vector_store",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "names": [
+            "entity.description",
+            "community.full_content",
+            "text_unit.text"
+        ],
+        "strategy": null
+    },
+    "extract_graph": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_graph.txt",
+        "entity_types": [
+            "Design Specification",
+            "Section",
+            "Subsection",
+            "Table",
+            "Figure",
+            "Author",
+            "Module",
+            "Submodule",
+            "Protocol",
+            "Signal",
+            "Port",
+            "Register",
+            "FIFO",
+            "Clock",
+            "Interrupt",
+            "Operation",
+            "Frequency",
+            "Standard",
+            "Reference",
+            "Component",
+            "Version",
+            "Date",
+            "Comment",
+            "Pin",
+            "Configuration",
+            "Constraint/Rule",
+            "Address",
+            "Document"
+        ],
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "summarize_descriptions": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "max_input_tokens": 4000,
+        "strategy": null
+    },
+    "extract_graph_nlp": {
+        "normalize_edge_weights": true,
+        "text_analyzer": {
+            "extractor_type": "regex_english",
+            "model_name": "en_core_web_md",
+            "max_word_length": 15,
+            "word_delimiter": " ",
+            "include_named_entities": true,
+            "exclude_nouns": [
+                "stuff",
+                "thing",
+                "things",
+                "bunch",
+                "bit",
+                "bits",
+                "people",
+                "person",
+                "okay",
+                "hey",
+                "hi",
+                "hello",
+                "laughter",
+                "oh"
+            ],
+            "exclude_entity_tags": [
+                "DATE"
+            ],
+            "exclude_pos_tags": [
+                "DET",
+                "PRON",
+                "INTJ",
+                "X"
+            ],
+            "noun_phrase_tags": [
+                "PROPN",
+                "NOUNS"
+            ],
+            "noun_phrase_grammars": {
+                "PROPN,PROPN": "PROPN",
+                "NOUN,NOUN": "NOUNS",
+                "NOUNS,NOUN": "NOUNS",
+                "ADJ,ADJ": "ADJ",
+                "ADJ,NOUN": "NOUNS"
+            }
+        },
+        "concurrent_requests": 25
+    },
+    "prune_graph": {
+        "min_node_freq": 2,
+        "max_node_freq_std": null,
+        "min_node_degree": 1,
+        "max_node_degree_std": null,
+        "min_edge_weight_pct": 40.0,
+        "remove_ego_nodes": true,
+        "lcc_only": false
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "use_lcc": true,
+        "seed": 3735928559
+    },
+    "extract_claims": {
+        "enabled": false,
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_claims.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "community_reports": {
+        "model_id": "default_chat_model",
+        "graph_prompt": "prompts/community_report_graph.txt",
+        "text_prompt": "prompts/community_report_text.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "embed_graph": {
+        "enabled": true,
+        "dimensions": 1536,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "use_lcc": true
+    },
+    "umap": {
+        "enabled": true
+    },
+    "snapshots": {
+        "embeddings": true,
+        "graphml": true,
+        "raw_graph": false
+    },
+    "local_search": {
+        "prompt": "prompts/local_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "text_unit_prop": 0.5,
+        "community_prop": 0.15,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "max_context_tokens": 12000
+    },
+    "global_search": {
+        "map_prompt": "prompts/global_search_map_system_prompt.txt",
+        "reduce_prompt": "prompts/global_search_reduce_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "knowledge_prompt": "prompts/global_search_knowledge_system_prompt.txt",
+        "max_context_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_length": 1000,
+        "reduce_max_length": 2000,
+        "dynamic_search_threshold": 1,
+        "dynamic_search_keep_parent": false,
+        "dynamic_search_num_repeats": 1,
+        "dynamic_search_use_summary": false,
+        "dynamic_search_max_level": 2
+    },
+    "drift_search": {
+        "prompt": "prompts/drift_search_system_prompt.txt",
+        "reduce_prompt": "prompts/drift_search_reduce_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "data_max_tokens": 12000,
+        "reduce_max_tokens": null,
+        "reduce_temperature": 0,
+        "reduce_max_completion_tokens": null,
+        "concurrency": 32,
+        "drift_k_followups": 20,
+        "primer_folds": 5,
+        "primer_llm_max_tokens": 12000,
+        "n_depth": 3,
+        "local_search_text_unit_prop": 0.9,
+        "local_search_community_prop": 0.1,
+        "local_search_top_k_mapped_entities": 10,
+        "local_search_top_k_relationships": 10,
+        "local_search_max_data_tokens": 12000,
+        "local_search_temperature": 0,
+        "local_search_top_p": 1,
+        "local_search_n": 1,
+        "local_search_llm_max_gen_tokens": null,
+        "local_search_llm_max_gen_completion_tokens": null
+    },
+    "basic_search": {
+        "prompt": "prompts/basic_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "k": 10,
+        "max_context_tokens": 12000
+    }
+}
+21:13:37,946 graphrag.storage.file_pipeline_storage INFO Creating file storage at C:\Users\huijie\Desktop\AssertionForge\design\apb\spec\graph_rag_apb\output
+21:13:37,946 graphrag.index.input.factory INFO loading input from root_dir=input
+21:13:37,946 graphrag.index.input.factory INFO using file storage for input
+21:13:37,960 graphrag.storage.file_pipeline_storage INFO search C:\Users\huijie\Desktop\AssertionForge\design\apb\spec\graph_rag_apb\input for files matching .*\.txt$
+21:13:37,965 graphrag.index.input.util INFO Found 1 InputFileType.text files, loading 1
+21:13:37,965 graphrag.index.input.util INFO Total number of unfiltered InputFileType.text rows: 1
+21:13:37,965 graphrag.index.run.run_pipeline INFO Final # of rows loaded: 1
+21:13:37,976 graphrag.utils.storage INFO reading table from storage: documents.parquet
+21:13:38,29 graphrag.utils.storage INFO reading table from storage: documents.parquet
+21:13:38,41 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+21:13:38,79 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+21:13:40,595 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:14:40,692 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:15:39,742 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:16:39,505 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:17:39,595 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:18:39,508 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:19:40,838 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:19:55,36 openai._base_client INFO Retrying request to /chat/completions in 0.403876 seconds
+21:19:56,382 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:20:39,483 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:20:56,214 openai._base_client INFO Retrying request to /chat/completions in 0.423748 seconds
+21:20:57,872 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:21:39,494 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:22:39,415 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:23:40,110 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:24:40,832 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:25:39,608 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:26:39,799 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:26:40,115 openai._base_client INFO Retrying request to /chat/completions in 0.460984 seconds
+21:26:41,861 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:27:40,82 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:28:40,135 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:28:40,242 openai._base_client INFO Retrying request to /chat/completions in 0.485009 seconds
+21:28:42,223 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:29:40,333 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:30:40,571 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:48:44,189 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:49:41,146 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:49:59,620 openai._base_client INFO Retrying request to /chat/completions in 0.414165 seconds
+21:50:00,825 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:50:40,174 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:51:41,463 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:52:40,180 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:53:40,537 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:53:56,409 openai._base_client INFO Retrying request to /chat/completions in 0.429733 seconds
+21:53:59,594 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:54:40,763 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:55:40,777 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:55:55,986 openai._base_client INFO Retrying request to /chat/completions in 0.417677 seconds
+21:55:57,908 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:56:40,551 openai._base_client INFO Retrying request to /chat/completions in 0.400690 seconds
+21:56:42,851 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:56:44,237 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:56:58,60 openai._base_client INFO Retrying request to /chat/completions in 0.854216 seconds
+21:56:59,376 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:57:40,581 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:58:40,783 openai._base_client INFO Retrying request to /chat/completions in 0.489752 seconds
+21:58:41,212 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+21:58:43,324 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:01:41,224 openai._base_client INFO Retrying request to /chat/completions in 0.414884 seconds
+22:01:42,759 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:10:40,364 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:11:39,540 graphrag.utils.storage INFO reading table from storage: entities.parquet
+22:11:39,553 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+22:11:39,562 root INFO Starting preprocessing of transition probabilities on graph with 72 nodes and 91 edges
+22:11:39,563 root INFO Starting at time 1751292699.5634003
+22:11:39,563 root INFO Beginning preprocessing of transition probabilities for 72 vertices
+22:11:39,563 root INFO Completed 1 / 72 vertices
+22:11:39,563 root INFO Completed 8 / 72 vertices
+22:11:39,563 root INFO Completed 15 / 72 vertices
+22:11:39,563 root INFO Completed 22 / 72 vertices
+22:11:39,563 root INFO Completed 29 / 72 vertices
+22:11:39,563 root INFO Completed 36 / 72 vertices
+22:11:39,563 root INFO Completed 43 / 72 vertices
+22:11:39,563 root INFO Completed 50 / 72 vertices
+22:11:39,563 root INFO Completed 57 / 72 vertices
+22:11:39,563 root INFO Completed 64 / 72 vertices
+22:11:39,563 root INFO Completed 71 / 72 vertices
+22:11:39,563 root INFO Completed preprocessing of transition probabilities for vertices
+22:11:39,564 root INFO Beginning preprocessing of transition probabilities for 91 edges
+22:11:39,564 root INFO Completed 1 / 91 edges
+22:11:39,564 root INFO Completed 10 / 91 edges
+22:11:39,564 root INFO Completed 19 / 91 edges
+22:11:39,564 root INFO Completed 28 / 91 edges
+22:11:39,564 root INFO Completed 37 / 91 edges
+22:11:39,564 root INFO Completed 46 / 91 edges
+22:11:39,564 root INFO Completed 55 / 91 edges
+22:11:39,564 root INFO Completed 64 / 91 edges
+22:11:39,564 root INFO Completed 73 / 91 edges
+22:11:39,564 root INFO Completed 82 / 91 edges
+22:11:39,564 root INFO Completed 91 / 91 edges
+22:11:39,564 root INFO Completed preprocessing of transition probabilities for edges
+22:11:39,564 root INFO Simulating walks on graph at time 1751292699.5644002
+22:11:39,564 root INFO Walk iteration: 1/10
+22:11:39,570 root INFO Walk iteration: 2/10
+22:11:39,574 root INFO Walk iteration: 3/10
+22:11:39,578 root INFO Walk iteration: 4/10
+22:11:39,578 root INFO Walk iteration: 5/10
+22:11:39,578 root INFO Walk iteration: 6/10
+22:11:39,588 root INFO Walk iteration: 7/10
+22:11:39,588 root INFO Walk iteration: 8/10
+22:11:39,588 root INFO Walk iteration: 9/10
+22:11:39,588 root INFO Walk iteration: 10/10
+22:11:39,603 root INFO Learning embeddings at time 1751292699.6038096
+22:11:39,604 gensim.models.word2vec INFO collecting all words and their counts
+22:11:39,604 gensim.models.word2vec INFO PROGRESS: at sentence #0, processed 0 words, keeping 0 word types
+22:11:39,604 gensim.models.word2vec INFO collected 72 word types from a corpus of 14160 raw words and 720 sentences
+22:11:39,604 gensim.models.word2vec INFO Creating a fresh vocabulary
+22:11:39,604 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 retains 72 unique words (100.00% of original 72, drops 0)', 'datetime': '2025-06-30T22:11:39.604901', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+22:11:39,604 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 leaves 14160 word corpus (100.00% of original 14160, drops 0)', 'datetime': '2025-06-30T22:11:39.604901', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+22:11:39,604 gensim.models.word2vec INFO deleting the raw counts dictionary of 72 items
+22:11:39,604 gensim.models.word2vec INFO sample=0.001 downsamples 66 most-common words
+22:11:39,604 gensim.utils INFO Word2Vec lifecycle event {'msg': 'downsampling leaves estimated 4459.2258002617955 word corpus (31.5%% of prior 14160)', 'datetime': '2025-06-30T22:11:39.604901', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+22:11:39,604 gensim.models.word2vec INFO estimated required memory for 72 words and 1536 dimensions: 920736 bytes
+22:11:39,604 gensim.models.word2vec INFO resetting layer weights
+22:11:39,604 gensim.utils INFO Word2Vec lifecycle event {'update': False, 'trim_rule': 'None', 'datetime': '2025-06-30T22:11:39.604901', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'build_vocab'}
+22:11:39,604 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training model with 8 workers on 72 vocabulary and 1536 features, using sg=1 hs=0 sample=0.001 negative=5 window=2 shrink_windows=True', 'datetime': '2025-06-30T22:11:39.604901', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'train'}
+22:11:39,633 gensim.models.word2vec INFO EPOCH 0: training on 14160 raw words (4497 effective words) took 0.0s, 230939 effective words/s
+22:11:39,654 gensim.models.word2vec INFO EPOCH 1: training on 14160 raw words (4507 effective words) took 0.0s, 262799 effective words/s
+22:11:39,670 gensim.models.word2vec INFO EPOCH 2: training on 14160 raw words (4346 effective words) took 0.0s, 235696 effective words/s
+22:11:39,670 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training on 42480 raw words (13350 effective words) took 0.1s, 180213 effective words/s', 'datetime': '2025-06-30T22:11:39.670120', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'train'}
+22:11:39,670 gensim.utils INFO Word2Vec lifecycle event {'params': 'Word2Vec<vocab=72, vector_size=1536, alpha=0.025>', 'datetime': '2025-06-30T22:11:39.670120', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+22:11:39,670 root INFO Completed. Ending time is 1751292699.6701207 Elapsed time is -0.1067204475402832
+22:11:48,898 graphrag.utils.storage INFO reading table from storage: entities.parquet
+22:11:48,903 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+22:11:48,999 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+22:11:49,3 graphrag.utils.storage INFO reading table from storage: entities.parquet
+22:11:49,5 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+22:11:49,84 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+22:11:49,88 graphrag.utils.storage INFO reading table from storage: entities.parquet
+22:11:49,99 graphrag.utils.storage INFO reading table from storage: communities.parquet
+22:11:49,105 graphrag.index.operations.summarize_communities.graph_context.context_builder INFO Number of nodes at level=1 => 64
+22:11:49,195 graphrag.index.operations.summarize_communities.graph_context.context_builder INFO Number of nodes at level=0 => 72
+22:11:51,57 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:12:56,282 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:13:50,836 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:14:51,55 openai._base_client INFO Retrying request to /chat/completions in 0.445008 seconds
+22:14:51,303 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:14:52,891 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:15:52,964 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:16:21,732 openai._base_client INFO Retrying request to /chat/completions in 0.379438 seconds
+22:16:24,862 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:16:53,33 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:17:23,427 openai._base_client INFO Retrying request to /chat/completions in 0.432317 seconds
+22:17:26,250 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:17:51,613 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:18:23,601 openai._base_client INFO Retrying request to /chat/completions in 0.397349 seconds
+22:18:25,676 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:18:52,901 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:19:51,287 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:20:26,240 openai._base_client INFO Retrying request to /chat/completions in 0.921504 seconds
+22:20:29,501 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:20:51,150 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:21:55,198 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:22:52,460 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:23:51,421 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:24:51,379 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:25:56,244 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:28:56,261 openai._base_client INFO Retrying request to /chat/completions in 0.493641 seconds
+22:28:58,813 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:41:52,588 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:43:00,746 openai._base_client INFO Retrying request to /chat/completions in 0.465117 seconds
+22:43:04,138 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:43:44,722 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:44:43,680 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:45:17,285 openai._base_client INFO Retrying request to /chat/completions in 0.494557 seconds
+22:45:19,599 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:45:44,241 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:46:04,151 openai._base_client INFO Retrying request to /chat/completions in 0.922583 seconds
+22:46:06,482 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:46:44,512 httpx INFO HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+22:52:42,153 graphrag.utils.storage INFO reading table from storage: documents.parquet
+22:52:42,153 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+22:52:42,165 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+22:52:42,171 graphrag.utils.storage INFO reading table from storage: entities.parquet
+22:52:42,171 graphrag.utils.storage INFO reading table from storage: community_reports.parquet
+22:52:42,184 graphrag.index.workflows.generate_text_embeddings INFO Creating embeddings
+22:52:42,184 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding entity.description: default-entity-description
+22:52:42,613 graphrag.index.operations.embed_text.strategies.openai INFO embedding 77 inputs via 77 snippets using 5 batches. max_batch_size=16, batch_max_tokens=8191
+22:52:45,984 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:53:46,531 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:54:45,0 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:55:45,998 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:56:46,782 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:56:47,502 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding community.full_content: default-community-full_content
+22:56:47,517 graphrag.index.operations.embed_text.strategies.openai INFO embedding 21 inputs via 21 snippets using 2 batches. max_batch_size=16, batch_max_tokens=8191
+22:57:45,718 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:58:46,961 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:58:47,985 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding text_unit.text: default-text_unit-text
+22:58:47,996 graphrag.index.operations.embed_text.strategies.openai INFO embedding 18 inputs via 18 snippets using 2 batches. max_batch_size=16, batch_max_tokens=8191
+22:59:47,946 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+23:00:47,664 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+23:00:47,847 graphrag.cli.index INFO All workflows completed successfully.

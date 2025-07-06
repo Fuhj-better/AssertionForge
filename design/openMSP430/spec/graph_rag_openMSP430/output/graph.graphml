@@ -1,0 +1,1467 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="OPENMSP430" />
+    <node id="OLIVIER GIRARD" />
+    <node id="OPENCORES" />
+    <node id="ALTERA" />
+    <node id="GIRARD" />
+    <node id="MSP430-GCC" />
+    <node id="ACTEL PROASIC3" />
+    <node id="OPENMSP430-MINIDEBUG" />
+    <node id="MARCH 20TH, 2012" />
+    <node id="JULY 15TH, 2012" />
+    <node id="NOVEMBER 27TH, 2012" />
+    <node id="FEBRUARY 24TH, 2013" />
+    <node id="DECEMBER 17TH, 2013" />
+    <node id="MAY 19TH, 2015" />
+    <node id="DEC 5TH, 2016" />
+    <node id="DMA INTERFACE" />
+    <node id="SERIAL DEBUG INTERFACE" />
+    <node id="ASIC IMPLEMENTATION" />
+    <node id="CORE" />
+    <node id="PERIPHERALS" />
+    <node id="INTEGRATION AND CONNECTIVITY" />
+    <node id="AREA AND SPEED ANALYSIS" />
+    <node id="SOFTWARE DEVELOPMENT TOOLS" />
+    <node id="TEXAS INSTRUMENTS" />
+    <node id="MSP430" />
+    <node id="HARDWARE MULTIPLIER" />
+    <node id="WATCHDOG" />
+    <node id="GPIO" />
+    <node id="TIMERA" />
+    <node id="MSPGCC GNU DEBUGGER (GDB)" />
+    <node id="MSPGCC" />
+    <node id="OPENCORES.ORG" />
+    <node id="SVN" />
+    <node id="FPGA" />
+    <node id="ASIC" />
+    <node id="RSS FEED" />
+    <node id="TI" />
+    <node id="TI: MSP430X1XX FAMILY USER'S GUIDE" />
+    <node id="TI: MSP430 COMPETITIVE BENCHMARKING" />
+    <node id="TI: LIST OF AVAILABLE MSP430 OPEN SOURCE PROJECTS" />
+    <node id="OPENGFX430" />
+    <node id="WIKIPEDIA: MSP430" />
+    <node id="BASIC CLOCK MODULE" />
+    <node id="MSP430X" />
+    <node id="FRONTEND" />
+    <node id="EXECUTION UNIT" />
+    <node id="MEMORY BACKBONE" />
+    <node id="SFRS" />
+    <node id="16X16 MULTIPLIER" />
+    <node id="EXECUTION-UNIT" />
+    <node id="DMA" />
+    <node id="SERIAL-DEBUG" />
+    <node id="GCC COMPILER" />
+    <node id="SFR PERIPHERAL" />
+    <node id="CPU_NR REGISTER" />
+    <node id="MAIN_CORE_0" />
+    <node id="MAIN_CORE_1" />
+    <node id="OPENMSP430 CORE" />
+    <node id="CPU_EN" />
+    <node id="DCO_CLK" />
+    <node id="LFXT_CLK" />
+    <node id="MCLK" />
+    <node id="ACLK_EN" />
+    <node id="SMCLK_EN" />
+    <node id="DCO_ENABLE" />
+    <node id="DCO_WKUP" />
+    <node id="LFTX_ENABLE" />
+    <node id="TACLK" />
+    <node id="TIMER A OUTPUT UNIT" />
+    <node id="INCLK" />
+    <node id="ACLK" />
+    <node id="OPENMSP430 DIRECT-MEMORY-ACCESS INTERFACE" />
+    <node id="BOOTLOADER" />
+    <node id="DMA CONTROLLER" />
+    <node id="MEMORY-BIST" />
+    <node id="CPU MEMORY SPACE" />
+    <node id="MEMORY-BACKBONE" />
+    <node id="DMA MASTER" />
+    <node id="PUC_RST" />
+    <node id="DMA_WKUP" />
+    <node id="DMA_ADDR[15:1]" />
+    <node id="DMA_DIN[15:0]" />
+    <node id="DMA_EN" />
+    <node id="DMA_DOUT[15:0]" />
+    <node id="CPU" />
+    <node id="MCLK_DMA" />
+    <node id="LPMX MODE" />
+    <node id="DBG INTERFACE" />
+    <node id="BASIC-CLOCK-MODULE" />
+    <node id="JTAG" />
+    <node id="SPY-BI-WIRE" />
+    <node id="DEBUG COMMUNICATION INTERFACE" />
+    <node id="I2C" />
+    <node id="CPU MEMORY" />
+    <node id="HOST COMPUTER" />
+    <node id="UART" />
+    <node id="NEXUS CLASS 3" />
+    <node id="USB-ISS" />
+    <node id="DEVANTECH" />
+    <node id="ROBOT ELECTRONICS" />
+    <node id="USB-ISS ADAPTER" />
+    <node id="HOST PC" />
+    <node id="I2C PROTOCOL" />
+    <node id="LFXT_ENABLE" />
+    <node id="SMCLK" />
+    <node id="EXPERT SYSTEM CONFIGURATION" />
+    <node id="MSP430X1XX FAMILY USER'S GUIDE" />
+    <node id="ASIC_CLOCKING" />
+    <node id="LFXT CLOCK DOMAIN" />
+    <node id="MCLK_MUX" />
+    <node id="SMCLK_MUX" />
+    <node id="OSCOFF_EN" />
+    <node id="PERIPHERAL" />
+    <node id="DCO OSCILLATOR" />
+    <node id="WATCHDOG_MUX" />
+    <node id="WATCHDOG_NOMUX_ACLK" />
+    <node id="WDTCTL.WDTSSEL" />
+    <node id="ATE" />
+    <node id="SCAN_MODE" />
+    <node id="SCAN_ENABLE" />
+    <node id="AND GATE (OMSP_AND_GATE.V)" />
+    <node id="CLOCK GATE" />
+    <node id="NAND2" />
+    <node id="AND2" />
+    <node id="TARGET LIBRARY" />
+    <node id="OMSP_SCAN_MUX.V" />
+    <node id="OMSP_WAKEUP_CELL" />
+    <node id="RTL" />
+    <node id="SYNTHESIS TOOL" />
+    <node id="GATE NETLIST" />
+    <node id="OMSP_SYNC_CELL.V" />
+    <node id="OMSP_SYNC_RESET.V" />
+    <node id="OMSP_WAKEUP_CELL.V" />
+    <node id="WATCHDOG TIMER" />
+    <node id="WKUP_OUT" />
+    <node id="WKUP_EVENT" />
+    <node id="WKUP_CLEAR" />
+    <node id="XILINX" />
+    <node id="SPARTAN 3" />
+    <node id="SPARTAN 3E" />
+    <node id="SPARTAN 3A" />
+    <node id="SPARTAN 3A DSP" />
+    <node id="VIRTEX 4" />
+    <node id="ISE" />
+    <node id="SYNOPSYS" />
+    <node id="DESIGN COMPILER" />
+    <node id="QUARTUSII" />
+    <node id="LIBERO" />
+    <node id="XILINXSPARTAN 3" />
+    <node id="SPARTAN SERIES" />
+    <node id="VIRTEX 5" />
+    <node id="VIRTEX SERIES" />
+    <node id="SPARTAN 6" />
+    <node id="VIRTEX 6" />
+    <node id="ALTERA CYCLONE II" />
+    <node id="CYCLONE III" />
+    <node id="CYCLONE IV GX" />
+    <node id="CYCLONE SERIES" />
+    <node id="STRATIX II" />
+    <node id="STRATIX III" />
+    <node id="STRATIX SERIES" />
+    <node id="ACTEL PROASIC3E" />
+    <node id="PROASIC3L" />
+    <node id="PROASIC3" />
+    <node id="PROASIC SERIES" />
+    <node id="FUSION" />
+    <node id="IGLOO" />
+    <node id="ACTEL" />
+    <node id="CYCLONE II" />
+    <node id="PROASIC3E" />
+    <node id="ACTELPROASIC3E" />
+    <node id="IGLOOETILES" />
+    <node id="SPARTAN 3 FAMILY" />
+    <node id="VIRTEX FAMILY" />
+    <node id="ALTERACYCLONE II" />
+    <node id="ARRIA II GX" />
+    <node id="961.2 ASICS" />
+    <node id="OPENMSP430-LOADER" />
+    <node id="OPENMSP430-GDBPROXY" />
+    <node id="TCL/TK" />
+    <node id="LINUX" />
+    <node id="WINDOWS" />
+    <node id="MSPGCC TOOLCHAIN" />
+    <node id="ECLIPSE" />
+    <node id="DDD" />
+    <node id="INSIGHT" />
+    <node id="ELF" />
+    <node id="INTEL-HEX" />
+    <node id="RS232" />
+    <node id="MSP430-GDBPROXY" />
+    <node id="GDB" />
+    <node id="EMBSYSREGVIEW" />
+    <node id="MSP430X110" />
+    <node id="MSP430X1101" />
+    <node id="MSP430X2001" />
+    <node id="MSP430X2002" />
+    <node id="MSP430X2003" />
+    <node id="XILINX SPARTAN 3" />
+    <node id="PROGRAM MEMORY" />
+    <node id="DATA MEMORY" />
+    <node id="PERIPHERAL SPACE" />
+    <node id="TB_OPENMSP430.V" />
+    <node id="RAM.V" />
+    <node id="REGISTERS.V" />
+    <node id="DBG_UART_TASKS.V" />
+    <node id="DBG_I2C_TASKS.V" />
+    <node id="DMA_TASKS.V" />
+    <node id="IO_CELL.V" />
+    <node id="UART TASKS" />
+    <node id="I2C TASKS" />
+    <node id="OPENMSP430 DEFINES" />
+    <node id="OMSP FRONTEND" />
+    <node id="OMSP EXECUTION UNIT" />
+    <node id="VERILOG" />
+    <node id="ICARUS" />
+    <node id="NC-VERILOG" />
+    <node id="OMSP" />
+    <node id="MEM.TCL" />
+    <node id="RTLSIM.SH" />
+    <node id="OMSP_CONFIG.SH" />
+    <node id="PARSE_RESULTS" />
+    <node id="113PARSE_SUMMARIES" />
+    <node id="RUN" />
+    <node id="DRUN" />
+    <node id="RUN_C" />
+    <node id="RUN_ALL" />
+    <node id="RUN_ALL_MPY" />
+    <node id="RUN_DISASSEMBLE" />
+    <node id="RUN_COVERAGE_ANALYSIS" />
+    <node id="ICM" />
+    <node id="COV_*" />
+    <node id="COREMARK" />
+    <node id="DHRYSTONE" />
+    <node id="TETRAMAX" />
+    <node id="DILIGENT SPARTAN-3 BOARD" />
+    <node id="SPARTAN-3 FPGA STARTER KIT" />
+    <node id="FPGAOPENMSP430" />
+    <node id="XILINX SPARTAN 3 EXAMPLE" />
+    <node id="XILINX DIGITAL CLOCK MANAGERS (DCMS)" />
+    <node id="MSP430F1121A" />
+    <node id="CDK4MSP PROJECT" />
+    <node id="SOFTWARE UART" />
+    <node id="XILINX ISE" />
+    <node id="VERILOG SIMULATOR" />
+    <node id="TIMER_A" />
+    <node id="XST" />
+    <node id="OPENMSP430_FPGA" />
+    <node id="IMPACT" />
+    <node id="XST_VERILOG" />
+    <node id="CYCLONE II FPGA STARTER DEVELOPMENT BOARD" />
+    <node id="DRIVER_7SEGMENT" />
+    <node id="IO_MUX" />
+    <node id="EXT_DE1_SRAM" />
+    <node id="MEGAFUNCTION WIZARD" />
+    <node id="ALTERA DE1" />
+    <node id="MIFWRITE.EXE" />
+    <node id="MIFWRITE" />
+    <node id="120MEMLEDTESTLEDS" />
+    <node id="CDK4MSP" />
+    <node id="ACTEL M1A3PL DEV KIT" />
+    <node id="QUARTUS II" />
+    <node id="A3PL DEVELOPMENT KIT" />
+    <node id="DAC121S101" />
+    <node id="ACTEL PROASIC3L" />
+    <node id="M1A3PL_DEV_KIT_QS.PDF" />
+    <node id="M1IGLOO_STARTERKIT_V1_5_UG.PDF" />
+    <node id="M1IGLOO STARTERKIT" />
+    <node id="NATIONAL" />
+    <node id="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" />
+    <node id="OPENMSP430-LOADER.TCL" />
+    <node id="OPENMSP430-MINIDEBUG.TCL" />
+    <node id="SYNPLIFY.TCL" />
+    <node id="LIBERO_DESIGNER.TCL" />
+    <node id="DESIGN_FILES.V" />
+    <node id="DESIGN_CONSTRAINTS.PRE.SDC" />
+    <node id="DESIGN_CONSTRAINTS.POST.SDC" />
+    <node id="DESIGN_CONSTRAINTS.PDC" />
+    <node id="OPENMSP_ALIAS.XML" />
+    <node id="BILL GATLIFF" />
+    <node id="JEREMY BENNETT" />
+    <node id="RSP PROTOCOL" />
+    <node id="GNU" />
+    <node id="EMBECOSM" />
+    <edge source="OPENMSP430" target="OLIVIER GIRARD">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OPENCORES">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ALTERA">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="GIRARD">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="TEXAS INSTRUMENTS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MSP430">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SERIAL DEBUG INTERFACE">
+      <data key="d0">24.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="HARDWARE MULTIPLIER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="WATCHDOG">
+      <data key="d0">24.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="GPIO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="TIMERA">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DMA INTERFACE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MSPGCC GNU DEBUGGER (GDB)">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OPENCORES.ORG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="FPGA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ASIC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="TI">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="BASIC CLOCK MODULE">
+      <data key="d0">20.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MSP430X">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="FRONTEND">
+      <data key="d0">24.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="EXECUTION UNIT">
+      <data key="d0">17.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MEMORY BACKBONE">
+      <data key="d0">17.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SFRS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="16X16 MULTIPLIER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="EXECUTION-UNIT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DMA">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SERIAL-DEBUG">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MSPGCC">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="BOOTLOADER">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DMA CONTROLLER">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MEMORY-BIST">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="CPU MEMORY SPACE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MEMORY-BACKBONE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DMA MASTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ASIC IMPLEMENTATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DMA_DOUT[15:0]">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="CPU">
+      <data key="d0">25.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="JTAG">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SPY-BI-WIRE">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="UART">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="I2C">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="NEXUS CLASS 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="USB-ISS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DEVANTECH">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ROBOT ELECTRONICS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="USB-ISS ADAPTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="HOST PC">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="I2C PROTOCOL">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ACLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SMCLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MCLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="EXPERT SYSTEM CONFIGURATION">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MSP430X1XX FAMILY USER'S GUIDE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="PERIPHERAL">
+      <data key="d0">17.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DCO OSCILLATOR">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ATE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SCAN_MODE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SCAN_ENABLE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="AND GATE (OMSP_AND_GATE.V)">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="CLOCK GATE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OMSP_SYNC_CELL.V">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OMSP_SYNC_RESET.V">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OMSP_WAKEUP_CELL.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="XILINX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="SYNOPSYS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OPENMSP430-LOADER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OPENMSP430-MINIDEBUG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OPENMSP430-GDBPROXY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="INSIGHT">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="LINUX">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="WINDOWS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ELF">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="INTEL-HEX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="XILINX SPARTAN 3">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ALTERA CYCLONE II">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="ACTEL PROASIC3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="PROGRAM MEMORY">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DATA MEMORY">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="PERIPHERAL SPACE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="OPENMSP430 DEFINES">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MSP430F1121A">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="MEGAFUNCTION WIZARD">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="M1IGLOO STARTERKIT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430" target="DAC121S101">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES" target="SVN">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPENCORES" target="RSS FEED">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENCORES" target="OPENMSP430 CORE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="CYCLONE SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="STRATIX SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="FPGA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="XILINX">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="ALTERA" target="VERILOG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA" target="CYCLONE II FPGA STARTER DEVELOPMENT BOARD">
+      <data key="d0">12.0</data>
+    </edge>
+    <edge source="GIRARD" target="MSP430-GCC">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="GIRARD" target="ACTEL PROASIC3">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="GIRARD" target="OPENMSP430-MINIDEBUG">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="GIRARD" target="MARCH 20TH, 2012">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="JULY 15TH, 2012">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="NOVEMBER 27TH, 2012">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="FEBRUARY 24TH, 2013">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="DECEMBER 17TH, 2013">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="MAY 19TH, 2015">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="DEC 5TH, 2016">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="GIRARD" target="DMA INTERFACE">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="GIRARD" target="SERIAL DEBUG INTERFACE">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="GIRARD" target="ASIC IMPLEMENTATION">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="GIRARD" target="CORE">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="GIRARD" target="PERIPHERALS">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="GIRARD" target="INTEGRATION AND CONNECTIVITY">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="GIRARD" target="AREA AND SPEED ANALYSIS">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="GIRARD" target="SOFTWARE DEVELOPMENT TOOLS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSP430-GCC" target="OPENMSP430-MINIDEBUG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACTEL PROASIC3" target="OPENMSP430 CORE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-MINIDEBUG" target="OPENMSP430-LOADER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-MINIDEBUG" target="OPENMSP430-GDBPROXY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-MINIDEBUG" target="TCL/TK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-MINIDEBUG" target="LINUX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-MINIDEBUG" target="WINDOWS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA INTERFACE" target="OPENMSP430 DIRECT-MEMORY-ACCESS INTERFACE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA INTERFACE" target="ASIC IMPLEMENTATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SERIAL DEBUG INTERFACE" target="MSPGCC GNU DEBUGGER (GDB)">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ASIC IMPLEMENTATION" target="DMA MASTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TEXAS INSTRUMENTS" target="MSP430">
+      <data key="d0">11.0</data>
+    </edge>
+    <edge source="TEXAS INSTRUMENTS" target="MSPGCC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TEXAS INSTRUMENTS" target="TI: MSP430X1XX FAMILY USER'S GUIDE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TEXAS INSTRUMENTS" target="TI: MSP430 COMPETITIVE BENCHMARKING">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TEXAS INSTRUMENTS" target="TI: LIST OF AVAILABLE MSP430 OPEN SOURCE PROJECTS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSP430" target="OPENGFX430">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="MSP430" target="WIKIPEDIA: MSP430">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="MSP430" target="TI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MSP430" target="MSP430X">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSP430" target="MSPGCC">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MSP430" target="JTAG">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="MSP430" target="SPY-BI-WIRE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSP430" target="DEBUG COMMUNICATION INTERFACE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MSP430" target="OPENMSP430-GDBPROXY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSP430" target="FPGAOPENMSP430">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="WATCHDOG" target="TIMERA">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="MSPGCC GNU DEBUGGER (GDB)" target="MSPGCC">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSPGCC" target="EMBSYSREGVIEW">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES.ORG" target="SVN">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FPGA" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FPGA" target="XILINX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FPGA" target="XILINX ISE">
+      <data key="d0">25.0</data>
+    </edge>
+    <edge source="FPGA" target="OPENMSP430_FPGA">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="FPGA" target="IMPACT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ASIC" target="EXPERT SYSTEM CONFIGURATION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ASIC" target="ASIC_CLOCKING">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TI" target="ACLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TI" target="SMCLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="BASIC CLOCK MODULE" target="ASIC_CLOCKING">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="16X16 MULTIPLIER" target="GCC COMPILER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA" target="MCLK_DMA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="DMA" target="LPMX MODE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SFR PERIPHERAL" target="CPU_NR REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="CPU_NR REGISTER" target="MAIN_CORE_0">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="CPU_NR REGISTER" target="MAIN_CORE_1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="CPU_EN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="DCO_CLK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="LFXT_CLK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="MCLK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="ACLK_EN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="SMCLK_EN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="DCO_ENABLE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="DCO_WKUP">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="LFTX_ENABLE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="XILINX SPARTAN 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="ALTERA CYCLONE II">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="TB_OPENMSP430.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="RAM.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="REGISTERS.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="DBG_UART_TASKS.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="DBG_I2C_TASKS.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="DMA_TASKS.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 CORE" target="IO_CELL.V">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CPU_EN" target="MCLK">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="DCO_CLK" target="INCLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DCO_CLK" target="ACLK">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="DCO_CLK" target="DCO_ENABLE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="DCO_CLK" target="LFXT CLOCK DOMAIN">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="LFXT_CLK" target="LFXT_ENABLE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="LFXT_CLK" target="LFXT CLOCK DOMAIN">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MCLK" target="TACLK">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="MCLK" target="INCLK">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="MCLK" target="DMA MASTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MCLK" target="ACLK_EN">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="MCLK" target="SMCLK_EN">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TACLK" target="TIMER A OUTPUT UNIT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TIMER A OUTPUT UNIT" target="INCLK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ACLK" target="SMCLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACLK" target="WATCHDOG_MUX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACLK" target="WATCHDOG_NOMUX_ACLK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACLK" target="WDTCTL.WDTSSEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MEMORY-BACKBONE" target="DMA MASTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA MASTER" target="PUC_RST">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA MASTER" target="DMA_WKUP">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="DMA MASTER" target="DMA_ADDR[15:1]">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA MASTER" target="DMA_DIN[15:0]">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA MASTER" target="DMA_EN">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA MASTER" target="CPU">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DMA_WKUP" target="MCLK_DMA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="DMA_WKUP" target="BASIC-CLOCK-MODULE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CPU" target="MCLK_DMA">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="CPU" target="LPMX MODE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="CPU" target="PERIPHERAL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MCLK_DMA" target="LPMX MODE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MCLK_DMA" target="DBG INTERFACE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DEBUG COMMUNICATION INTERFACE" target="I2C">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="DEBUG COMMUNICATION INTERFACE" target="HOST COMPUTER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I2C" target="CPU MEMORY">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="I2C" target="USB-ISS">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="UART" target="RS232">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="DEVANTECH" target="ROBOT ELECTRONICS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="DEVANTECH" target="USB-ISS ADAPTER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ROBOT ELECTRONICS" target="USB-ISS ADAPTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="USB-ISS ADAPTER" target="HOST PC">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="USB-ISS ADAPTER" target="I2C PROTOCOL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SMCLK" target="WATCHDOG_MUX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SMCLK" target="WDTCTL.WDTSSEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="LFXT CLOCK DOMAIN" target="MCLK_MUX">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="LFXT CLOCK DOMAIN" target="SMCLK_MUX">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="LFXT CLOCK DOMAIN" target="OSCOFF_EN">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ATE" target="SCAN_MODE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ATE" target="SCAN_ENABLE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NAND2" target="AND2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NAND2" target="TARGET LIBRARY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="AND2" target="TARGET LIBRARY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TARGET LIBRARY" target="RTL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OMSP_SCAN_MUX.V" target="OMSP_WAKEUP_CELL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="RTL" target="SYNTHESIS TOOL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SYNTHESIS TOOL" target="GATE NETLIST">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OMSP_WAKEUP_CELL.V" target="WATCHDOG TIMER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OMSP_WAKEUP_CELL.V" target="WKUP_OUT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OMSP_WAKEUP_CELL.V" target="WKUP_EVENT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OMSP_WAKEUP_CELL.V" target="WKUP_CLEAR">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="WKUP_OUT" target="WKUP_EVENT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WKUP_OUT" target="WKUP_CLEAR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 3">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 3E">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 3A">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 3A DSP">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="XILINX" target="VIRTEX 4">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="XILINX" target="ISE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="VIRTEX SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 6">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="VIRTEX 5">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN 3 FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="VIRTEX FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="DILIGENT SPARTAN-3 BOARD">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="SPARTAN-3 FPGA STARTER KIT">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="XILINX" target="VERILOG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="XILINX DIGITAL CLOCK MANAGERS (DCMS)">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="XILINX" target="CDK4MSP PROJECT">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="XILINX" target="LINUX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX" target="M1IGLOO STARTERKIT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3" target="SPARTAN SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3" target="SPARTAN 3 FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3E" target="XILINXSPARTAN 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3E" target="SPARTAN 3A">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3E" target="SPARTAN SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3E" target="SPARTAN 3 FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3A" target="XILINXSPARTAN 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3A" target="SPARTAN SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3A" target="SPARTAN 3 FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VIRTEX 4" target="VIRTEX 5">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="VIRTEX 4" target="VIRTEX SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VIRTEX 4" target="VIRTEX FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VIRTEX 4" target="SPARTAN 6">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="SYNOPSYS" target="DESIGN COMPILER">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="SYNOPSYS" target="TETRAMAX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="QUARTUSII" target="LIBERO">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN SERIES" target="SPARTAN 6">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VIRTEX 5" target="VIRTEX 6">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="VIRTEX 5" target="VIRTEX SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VIRTEX 5" target="VIRTEX FAMILY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VIRTEX SERIES" target="VIRTEX 6">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA CYCLONE II" target="CYCLONE III">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALTERA CYCLONE II" target="OPENMSP430_FPGA">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="CYCLONE III" target="CYCLONE IV GX">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="CYCLONE III" target="CYCLONE SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CYCLONE III" target="ALTERACYCLONE II">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="CYCLONE IV GX" target="CYCLONE SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CYCLONE IV GX" target="ARRIA II GX">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="CYCLONE SERIES" target="CYCLONE II">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="STRATIX II" target="STRATIX III">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="STRATIX II" target="STRATIX SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="STRATIX II" target="ARRIA II GX">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="STRATIX III" target="STRATIX SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACTEL PROASIC3E" target="PROASIC3L">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PROASIC3L" target="PROASIC3">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="PROASIC3L" target="PROASIC SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PROASIC3L" target="ACTELPROASIC3E">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="PROASIC3" target="PROASIC SERIES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PROASIC3" target="ACTELPROASIC3E">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PROASIC3" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PROASIC3" target="FUSION">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="PROASIC SERIES" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PROASIC SERIES" target="PROASIC3E">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FUSION" target="IGLOO">
+      <data key="d0">3.0</data>
+    </edge>
+    <edge source="FUSION" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FUSION" target="ACTELPROASIC3E">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="IGLOO" target="ACTEL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="IGLOO" target="961.2 ASICS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACTEL" target="IGLOOETILES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ACTELPROASIC3E" target="IGLOOETILES">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-LOADER" target="OPENMSP430-GDBPROXY">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-LOADER" target="TCL/TK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-LOADER" target="LINUX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-LOADER" target="WINDOWS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="MSPGCC TOOLCHAIN">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="TCL/TK">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="LINUX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="WINDOWS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="ECLIPSE">
+      <data key="d0">19.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="DDD">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="INSIGHT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="MSP430-GDBPROXY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENMSP430-GDBPROXY" target="GDB">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TCL/TK" target="INSIGHT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="LINUX" target="XILINX ISE">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="ECLIPSE" target="EMBSYSREGVIEW">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="INTEL-HEX" target="VERILOG">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="GDB" target="BILL GATLIFF">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="GDB" target="JEREMY BENNETT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="GDB" target="RSP PROTOCOL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="GDB" target="GNU">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MSP430X110" target="MSP430X1101">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X110" target="MSP430X2001">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X110" target="MSP430X2002">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X110" target="MSP430X2003">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X1101" target="MSP430X2001">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X1101" target="MSP430X2002">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X1101" target="MSP430X2003">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X2001" target="MSP430X2002">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X2001" target="MSP430X2003">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="MSP430X2002" target="MSP430X2003">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="UART TASKS" target="I2C TASKS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OMSP FRONTEND" target="OMSP EXECUTION UNIT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="VERILOG" target="ICARUS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="VERILOG" target="NC-VERILOG">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="VERILOG" target="OMSP">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="VERILOG" target="MEM.TCL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ICARUS" target="RTLSIM.SH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ICARUS" target="M1IGLOO STARTERKIT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NC-VERILOG" target="ICM">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NC-VERILOG" target="COV_*">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OMSP" target="OMSP_CONFIG.SH">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OMSP" target="PARSE_RESULTS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OMSP" target="113PARSE_SUMMARIES">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OMSP" target="RUN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OMSP" target="DRUN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OMSP" target="RUN_C">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OMSP" target="RUN_ALL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OMSP" target="RUN_ALL_MPY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OMSP" target="RUN_DISASSEMBLE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OMSP" target="RUN_COVERAGE_ANALYSIS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ICM" target="COV_*">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="COREMARK" target="DHRYSTONE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="FPGAOPENMSP430" target="XILINX SPARTAN 3 EXAMPLE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CDK4MSP PROJECT" target="SOFTWARE UART">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SOFTWARE UART" target="TIMER_A">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="XILINX ISE" target="VERILOG SIMULATOR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX ISE" target="XST">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430_FPGA" target="XST_VERILOG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430_FPGA" target="CYCLONE II FPGA STARTER DEVELOPMENT BOARD">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="OPENMSP430_FPGA" target="ACTEL M1A3PL DEV KIT">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="OPENMSP430_FPGA" target="QUARTUS II">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENMSP430_FPGA" target="A3PL DEVELOPMENT KIT">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="CYCLONE II FPGA STARTER DEVELOPMENT BOARD" target="DRIVER_7SEGMENT">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="CYCLONE II FPGA STARTER DEVELOPMENT BOARD" target="IO_MUX">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="CYCLONE II FPGA STARTER DEVELOPMENT BOARD" target="EXT_DE1_SRAM">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="MEGAFUNCTION WIZARD" target="ALTERA DE1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MIFWRITE.EXE" target="MIFWRITE">
+      <data key="d0">13.0</data>
+    </edge>
+    <edge source="120MEMLEDTESTLEDS" target="CDK4MSP">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="A3PL DEVELOPMENT KIT" target="DAC121S101">
+      <data key="d0">11.0</data>
+    </edge>
+    <edge source="A3PL DEVELOPMENT KIT" target="ACTEL PROASIC3L">
+      <data key="d0">12.0</data>
+    </edge>
+    <edge source="A3PL DEVELOPMENT KIT" target="M1A3PL_DEV_KIT_QS.PDF">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="A3PL DEVELOPMENT KIT" target="M1IGLOO_STARTERKIT_V1_5_UG.PDF">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="DAC121S101" target="NATIONAL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="M1IGLOO STARTERKIT" target="NATIONAL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="OPENMSP430-LOADER.TCL">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="OPENMSP430-MINIDEBUG.TCL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="SYNPLIFY.TCL">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="LIBERO_DESIGNER.TCL">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="DESIGN_FILES.V">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="DESIGN_CONSTRAINTS.PRE.SDC">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="DESIGN_CONSTRAINTS.POST.SDC">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="DESIGN_CONSTRAINTS.PDC">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="OPENMSP430 SOFTWARE DEVELOPMENT TOOLS" target="OPENMSP_ALIAS.XML">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="JEREMY BENNETT" target="EMBECOSM">
+      <data key="d0">8.0</data>
+    </edge>
+  </graph>
+</graphml>

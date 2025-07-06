@@ -125,7 +125,7 @@ def load_klepto(filepath, print_msg):
 def save_pickle(obj, filepath, print_msg=True, protocal=4):
     if print_msg:
         print('Saving to {}'.format(filepath))
-    with open(filepath, 'wb') as handle:
+    with open(filepath, 'wb',encoding='utf-8') as handle:
         if sys.version_info.major < 3:  # python 2
             pickle.dump(obj, handle)
         elif sys.version_info >= (3, 4):  # qilin & feilong --> 3.4
@@ -136,7 +136,7 @@ def save_pickle(obj, filepath, print_msg=True, protocal=4):
 
 def load_pickle(filepath, print_msg=True):
     if isfile(filepath):
-        with open(filepath, 'rb') as handle:
+        with open(filepath, 'rb',encoding='utf-8') as handle:
             pickle_data = pickle.load(handle)
             if print_msg:
                 print(f'Loaded pickle from {filepath}')
@@ -194,7 +194,7 @@ def global_turnoff_print():
     import sys
     import os
 
-    sys.stdout = open(os.devnull, 'w')
+    sys.stdout = open(os.devnull, 'w',encoding='utf-8')
 
 
 def global_turnon_print():
@@ -281,13 +281,51 @@ class timeout:
         signal.alarm(0)
 
 
-def get_user():
-    try:
-        home_user = expanduser("~").split('/')[-1]
-    except:
-        home_user = 'user'
-    return home_user
+# def get_user():
+#     try:
+#         home_user = expanduser("~").split('/')[-1]
+#     except:
+#         home_user = 'user'
+#     return home_user
 
+def get_user():
+    """
+    返回当前用户的登录名，确保它是干净的字符串，不包含路径分隔符。
+    兼容 Windows 和类 Unix 系统。
+    """
+    username = None
+
+    # 1. 尝试从环境变量获取 (在 Windows 上通常是 USERNAME, 在 Linux/macOS 上是 USER)
+    username = os.environ.get('USERNAME') # 适用于 Windows
+    if username is None:
+        username = os.environ.get('USER') # 适用于 Linux/macOS
+
+    # 2. 如果环境变量没有，尝试 os.getlogin()
+    if username is None:
+        try:
+            username = os.getlogin()
+        except OSError:
+            # os.getlogin() 在某些非交互式环境或服务中可能失败
+            pass
+
+    # 3. 如果以上方法都未获取到，从用户主目录路径中提取最后一个部分作为用户名
+    if username is None:
+        try:
+            # expanduser("~") 返回主目录，例如 C:\Users\huijie 或 /home/huijie
+            # basename 会正确处理 Windows 和 Unix 路径分隔符
+            username = os.path.basename(expanduser("~"))
+        except:
+            # 如果获取主目录也失败，提供一个默认值
+            username = 'unknown_user'
+
+    # 4. 最后，清理用户名，确保它不包含任何文件系统不允许的字符
+    if username:
+        # 移除冒号和所有类型的斜杠，用下划线替换
+        username = username.replace(':', '_').replace('\\', '_').replace('/', '_')
+    else:
+        username = 'unknown_user' # 如果最终还是空，给一个默认值
+
+    return username
 
 def get_host():
     host = environ.get('HOSTNAME')

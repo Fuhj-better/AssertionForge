@@ -6,13 +6,14 @@
 # distribution of this software and related documentation without an express
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
 
+from signal import valid_signals
 from types import SimpleNamespace
 from pathlib import Path
 from utils import get_user, get_host
 from collections import OrderedDict
 
-task = 'gen_plan'
-# task = 'build_KG'
+# task = 'gen_plan'
+task = 'build_KG'
 # task = 'use_KG'
 
 
@@ -26,20 +27,20 @@ if task == 'gen_plan':
         DEBUG = False
         # DEBUG = True
 
-        # design_name = 'apb'
+        design_name = 'apb'
         # design_name = 'ethmac'
         # design_name = 'openMSP430'
         # design_name = 'tiny_pairing'
-        design_name = 'uart'
+        # design_name = 'uart'
         # design_name = 'sockit'
 
         if design_name == 'apb':
 
             file_path = (
-                '/<path>/<to>/apb/apbi2c_spec.pdf'
+            'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\apbi2c_spec.pdf'
             )
-            design_dir = '/<path>/<to>/communication_controller_apb_to_i2c/apb/'
-            KG_path = '/<path>/<to>/apb/graph_rag/output/20240805-165534/artifacts/clustered_graph.0.graphml'
+            design_dir =             'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\rtl'
+            KG_path = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\output\\graph.graphml'
 
             # KG_path = '/<path>/<to>/apb/graph_rag_apb/output/20240920-164702/artifacts/clustered_graph.graphml' # baseline KG
 
@@ -103,8 +104,8 @@ if task == 'gen_plan':
         # llm_model = 'gpt-35-turbo'
         # llm_model = 'gpt-4'
         # llm_model = 'gpt-4-turbo'
-        llm_model = 'gpt-4o'
-
+        #llm_model = 'gpt-4o'
+        llm_model = 'deepseek-ai/DeepSeek-V3'
         llm_args = {}
 
 
@@ -244,10 +245,49 @@ if task == 'gen_plan':
 
         if gen_plan_sva_using_valid_signals:
             # valid_signals = None
-            valid_signals = ['baud_clk', 'baud_freq']
+            # valid_signals = ['baud_clk', 'baud_freq']
+            # valid_signals=['fifo_rx_wr_en','fifo_rx_data_in','fifo_tx_rd_en','TX_EMPTY','RX_EMPTY','ERROR']
+            valid_signals=['ERROR']
+        #     valid_signals=[
+        #     'PADDR',
+        #     'PWDATA',
+        #     'PWRITE',
+        #     'PSELx',
+        #     'PENABLE',
+        #     'PREADY',
+        #     'PSLVERR',
+        #     'INT_RX',
+        #     'INT_TX',
+        #     'PRDATA',
 
-        # generate_SVAs = True
-        generate_SVAs = False
+        #     'SDA_ENABLE',
+        #     'SCL_ENABLE',
+        #     'SDA', 
+        #     'SCL', 
+
+        #     'RESET_N',
+        #     'TX_RD_EN',
+        #     'TX_F_EMPTY',
+        #     'TX_F_FULL',
+        #     'TX_DATA_IN',
+        #     'TX_DATA_OUT',
+        #     'TX_WRITE_ENA',
+        #     'RX_RD_EN',
+        #     'RX_F_EMPTY',
+        #     'RX_F_FULL',
+        #     'RX_DATA_IN',
+        #     'RX_DATA_OUT',
+        #     'RX_WRITE_ENA',
+        #     'REGISTER_CONFIG',
+        #     'TIMEOUT_CONFIG',
+        #     'error',
+        #     'tx_empty',
+        #     'rx_empty',
+        #     'w_full'
+        # ]
+
+        generate_SVAs = True
+        # generate_SVAs = False
 
     elif subtask == 'parse_result':
 
@@ -261,15 +301,16 @@ elif task == 'build_KG':
 
     # design_name = 'apb'
     # design_name = 'ethmac'
-    # design_name = 'openMSP430'
+    design_name = 'openMSP430'
     # design_name = 'tiny_pairing'
-    # design_name = 'uart'
-    design_name = 'sockit'
 
+    # design_name = 'uart'
+    # design_name = 'apb'
+    # design_name = 'sockit'
     if design_name == 'apb':
 
         input_file_path = (
-            '/<path>/<to>/apb/apbi2c_spec.pdf'
+            'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\apbi2c_spec.pdf'
         )
 
     elif design_name == 'ethmac':
@@ -281,31 +322,31 @@ elif task == 'build_KG':
         ]
 
     elif design_name == 'tiny_pairing':
-        input_file_path = '/<path>/<to>/AssertLLM/spec/tiny_pairing.pdf'
+        input_file_path = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\tiny_pairing\\spec\\tiny_pairing.pdf'
 
     elif design_name == 'openMSP430':
-        input_file_path = '/<path>/<to>/AssertLLM/spec/openMSP430.pdf'
+        input_file_path = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\openMSP430\\spec\\openMSP430.pdf'
 
     elif design_name == 'uart':
         input_file_path = (
-            '/<path>/<to>/AssertLLM/spec/uart.pdf'
+            'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\uart.pdf'
         )
     elif design_name == 'sockit':
         input_file_path = (
-            '/<path>/<to>/AssertLLM/spec/sockit.pdf'
+            'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\sockit\\spec\\sockit.pdf'
         )
 
     else:
         assert False
 
-    env_source_path = '/<path>/<to>/rag_apb/.env'
+    env_source_path = 'C:\\Users\\huijie\\Desktop\\AssertionForge/rag_apb/.env'
 
     settings_source_path = (
-        '/<path>/<to>/rag_apb/settings.yaml'
+        'C:\\Users\\huijie\\Desktop\\AssertionForge/rag_apb/settings.yaml'
     )
 
     # entity_extraction_prompt_source_path = '/<path>/<to>/rag_apb/prompts/entity_extraction_vanilla_graphRAG.txt'  # original/baseline
-    entity_extraction_prompt_source_path = f'/<path>/<to>/rag_apb/prompts/entity_extraction.txt'  # better- customized for HW
+    entity_extraction_prompt_source_path = f'C:\\Users\\huijie\\Desktop\\AssertionForge/rag_apb/entity_extraction.txt'  # better- customized for HW
 
 elif task == 'use_KG':
     KG_root = f'/<path>/<to>/data/apb/graph_rag/output/20240813-163015/artifacts'
@@ -315,17 +356,18 @@ elif task == 'use_KG':
 else:
     assert False
 
-graphrag_local_dir = '/<path>/<to>/graphrag'  # point to your local GraphRAG repo
+graphrag_local_dir = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\graphrag\\graphrag'  # point to your local GraphRAG repo
 
 
 user = get_user()
+
 hostname = get_host()
 
 ###################################### Below: no need to touch ######################################
 
 # Define the root path (adjust this if necessary)
 ROOT = (
-    Path(__file__).resolve().parents[2]
+    Path(__file__).resolve().parents[1]
 )  # Adjust this number based on actual .git location
 
 try:

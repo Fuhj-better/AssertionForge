@@ -54,7 +54,7 @@ class RTLAnalyzer:
         combined_content = ""
         for file_path in verilog_files:
             try:
-                with open(file_path, 'r') as f:
+                with open(file_path, 'r',encoding='utf-8') as f:
                     content = f.read()
                     # Remove include directives to avoid duplicates
                     content = re.sub(r'`include\s+"[^"]+"\s*', '', content)
@@ -70,7 +70,7 @@ class RTLAnalyzer:
         # Create a combined file for analysis
         combined_file = os.path.join(self.design_dir, "_combined_rtl.v")
         try:
-            with open(combined_file, 'w') as f:
+            with open(combined_file, 'w',encoding='utf-8') as f:
                 f.write(combined_content)
             print(f"Created combined RTL file for analysis: {combined_file}")
         except Exception as e:
@@ -148,11 +148,11 @@ class RTLAnalyzer:
         self._print_expanded_summary()
 
         # Clean up the combined file
-        if combined_file and os.path.exists(combined_file):
-            try:
-                os.remove(combined_file)
-            except:
-                pass
+        # if combined_file and os.path.exists(combined_file):
+        #     try:
+        #         os.remove(combined_file)
+        #     except:
+        #         pass
 
     def _create_simplified_sockit_module(self, file_path):
         """Create a simplified version of sockit_owm that PyVerilog can parse"""
@@ -180,7 +180,7 @@ class RTLAnalyzer:
         simplified_path = os.path.join(
             os.path.dirname(file_path), "_simplified_sockit.v"
         )
-        with open(simplified_path, 'w') as f:
+        with open(simplified_path, 'w',encoding='utf-8') as f:
             f.write(simplified_content)
 
         return simplified_path
@@ -192,7 +192,7 @@ class RTLAnalyzer:
         try:
 
             # First, try to extract module definitions directly from the file
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r',encoding='utf-8') as f:
                 content = f.read()
 
             # Check for include directives
@@ -273,7 +273,7 @@ class RTLAnalyzer:
             # Create a temporary file with preprocessed content
             temp_dir = os.path.dirname(file_path)
             temp_file = os.path.join(temp_dir, "_temp_" + os.path.basename(file_path))
-            with open(temp_file, 'w') as f:
+            with open(temp_file, 'w',encoding='utf-8') as f:
                 f.write(preprocessed_content)
             print(f"  Created enhanced preprocessed file for PyVerilog: {temp_file}")
 
@@ -344,8 +344,8 @@ class RTLAnalyzer:
                     )
 
             # Clean up temporary file if created
-            if os.path.exists(temp_file):
-                os.remove(temp_file)
+            # if os.path.exists(temp_file):
+            #     os.remove(temp_file)
 
         except Exception as e:
             print(f"Error processing {file_path}: {str(e)}")
@@ -361,7 +361,7 @@ class RTLAnalyzer:
 
             if os.path.exists(include_path):
                 try:
-                    with open(include_path, 'r') as f:
+                    with open(include_path, 'r',encoding='utf-8') as f:
                         included_content = f.read()
                     return included_content
                 except Exception as e:
@@ -465,7 +465,7 @@ class RTLAnalyzer:
 
     def _extract_module_info_from_simplified(self, file_path):
         """Extract module information directly from the simplified file"""
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r',encoding='utf-8') as f:
             content = f.read()
 
         module_info = {}
@@ -854,7 +854,7 @@ class RTLAnalyzer:
                     file_path = os.path.join(root, file)
 
                     try:
-                        with open(file_path, 'r') as f:
+                        with open(file_path, 'r',encoding='utf-8') as f:
                             content = f.read()
 
                         # Find module definitions
@@ -949,7 +949,7 @@ class RTLAnalyzer:
                     file_path = os.path.join(root, file)
 
                     try:
-                        with open(file_path, 'r') as f:
+                        with open(file_path, 'r',encoding='utf-8') as f:
                             content = f.read()
 
                         # Find module definitions with port lists
@@ -1053,7 +1053,7 @@ class RTLAnalyzer:
                 for file_name, file_data in self.file_info.items():
                     if module_name in file_data.get('modules', []):
                         try:
-                            with open(file_data['path'], 'r') as f:
+                            with open(file_data['path'], 'r',encoding='utf-8') as f:
                                 content = f.read()
 
                                 # Look for case statements - likely state machine transitions
@@ -1258,7 +1258,7 @@ class RTLAnalyzer:
         # Look in each file
         for file_name, file_data in self.file_info.items():
             try:
-                with open(file_data['path'], 'r') as f:
+                with open(file_data['path'], 'r',encoding='utf-8') as f:
                     content = f.read()
 
                     print(f"  Analyzing {file_name} for FSM patterns")
@@ -1588,7 +1588,7 @@ class RTLAnalyzer:
             print(f"\nAnalyzing file: {filename}")
 
             try:
-                with open(file_path, 'r') as f:
+                with open(file_path, 'r',encoding='utf-8') as f:
                     content = f.read()
 
                 # Look for module definitions
@@ -1771,7 +1771,7 @@ class RTLAnalyzer:
         print(f"\nExtracting control flow for module {module_name}...")
 
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r',encoding='utf-8') as f:
                 content = f.read()
 
             # Initialize control flow data structure if not exists
@@ -1844,7 +1844,7 @@ class RTLAnalyzer:
         print(f"\nExtracting assignments for module {module_name}...")
 
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r',encoding='utf-8') as f:
                 content = f.read()
 
             # Initialize assignment data structure
@@ -1970,7 +1970,7 @@ class RTLAnalyzer:
         print(f"\nExtracting signal attributes for module {module_name}...")
 
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r',encoding='utf-8') as f:
                 content = f.read()
 
             # Initialize signal attributes data structure
@@ -2199,7 +2199,7 @@ def process_files_in_order(design_dir):
     module_map = {}
 
     for file_path in verilog_files:
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r',encoding='utf-8') as f:
             content = f.read()
 
         # Find includes
@@ -2227,7 +2227,7 @@ def process_files_in_order(design_dir):
 
     # Add dependencies based on module instantiations
     for file_path in verilog_files:
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r',encoding='utf-8') as f:
             content = f.read()
 
         # Find module instantiations (simplified)

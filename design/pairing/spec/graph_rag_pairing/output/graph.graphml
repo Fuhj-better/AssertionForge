@@ -1,0 +1,152 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="OPENCORES" />
+    <node id="HOMER HSING" />
+    <node id="TATE BILINEAR PAIRING CORE SPECIFICATION" />
+    <node id="MARCH 4, 2012" />
+    <node id="GALOIS FIELD" />
+    <node id="TATE BILINEAR PAIRING CORE" />
+    <node id="ELLIPTIC CURVE" />
+    <node id="ALGORITHM 1" />
+    <node id="MODEL SIM" />
+    <node id="TEST BENCH" />
+    <node id="FPGA IMPLEMENTATION" />
+    <node id="DUURSMA-LEE ALGORITHM MODULE" />
+    <node id="POWER CALCULATION MODULE" />
+    <node id="TABLE 1" />
+    <node id="FIGURE 1" />
+    <node id="FIGURE 2" />
+    <node id="XILINX VIRTEX 4 XC4VLX200" />
+    <node id="CLK" />
+    <node id="RESET" />
+    <node id="X1" />
+    <node id="Y1" />
+    <node id="X2" />
+    <node id="Y2" />
+    <node id="DONE" />
+    <node id="OUT" />
+    <node id="XILINX ISE 13.3" />
+    <node id="I. DUURSMA" />
+    <node id="H.S. LEE" />
+    <node id="T. KERINS" />
+    <node id="W. P. MARNANE" />
+    <node id="E. M. POPOVICI" />
+    <node id="P.S.L.M. BARRETO" />
+    <node id="TABLE 2" />
+    <edge source="OPENCORES" target="HOMER HSING">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENCORES" target="TATE BILINEAR PAIRING CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OPENCORES" target="I. DUURSMA">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="H.S. LEE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="T. KERINS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="W. P. MARNANE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="E. M. POPOVICI">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="P.S.L.M. BARRETO">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="HOMER HSING" target="TATE BILINEAR PAIRING CORE SPECIFICATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE SPECIFICATION" target="MARCH 4, 2012">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="GALOIS FIELD" target="TATE BILINEAR PAIRING CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="ELLIPTIC CURVE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="ALGORITHM 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="MODEL SIM">
+      <data key="d0">15.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="TEST BENCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="FPGA IMPLEMENTATION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="DUURSMA-LEE ALGORITHM MODULE">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="POWER CALCULATION MODULE">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="TABLE 1">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="FIGURE 1">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="FIGURE 2">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="XILINX VIRTEX 4 XC4VLX200">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="CLK">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="RESET">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="X1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="Y1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="X2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="Y2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="DONE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="OUT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="XILINX ISE 13.3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="I. DUURSMA">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="H.S. LEE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="T. KERINS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="W. P. MARNANE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="E. M. POPOVICI">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="P.S.L.M. BARRETO">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TATE BILINEAR PAIRING CORE" target="TABLE 2">
+      <data key="d0">1.0</data>
+    </edge>
+  </graph>
+</graphml>

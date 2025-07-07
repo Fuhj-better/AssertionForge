@@ -1,0 +1,527 @@
+19:09:19,241 graphrag.cli.index INFO Logging enabled at C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet\logs\indexing-engine.log
+19:09:22,170 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:10:20,396 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+19:10:20,397 graphrag.cli.index INFO Starting pipeline run. dry_run=False
+19:10:20,397 graphrag.cli.index INFO Using default configuration: {
+    "root_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\ethernet\\spec\\graph_rag_ethernet",
+    "models": {
+        "default_chat_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_chat",
+            "model": "deepseek-ai/DeepSeek-V3",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://api.siliconflow.cn/v1",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        },
+        "default_embedding_model": {
+            "api_key": "==== REDACTED ====",
+            "auth_type": "api_key",
+            "type": "openai_embedding",
+            "model": "text-embedding-v2",
+            "encoding_model": "cl100k_base",
+            "api_base": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+            "api_version": null,
+            "deployment_name": null,
+            "proxy": null,
+            "audience": null,
+            "model_supports_json": true,
+            "request_timeout": 180.0,
+            "tokens_per_minute": "auto",
+            "requests_per_minute": "auto",
+            "retry_strategy": "native",
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "concurrent_requests": 25,
+            "async_mode": "threaded",
+            "responses": null,
+            "max_tokens": null,
+            "temperature": 0,
+            "max_completion_tokens": null,
+            "reasoning_effort": null,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        }
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "text_column": "text",
+        "title_column": null,
+        "metadata": null
+    },
+    "chunks": {
+        "size": 1024,
+        "overlap": 20,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": "tokens",
+        "encoding_model": "cl100k_base",
+        "prepend_metadata": false,
+        "chunk_size_includes_metadata": false
+    },
+    "output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\ethernet\\spec\\graph_rag_ethernet\\output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "outputs": null,
+    "update_index_output": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\ethernet\\spec\\graph_rag_ethernet\\update_output",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null,
+        "cosmosdb_account_url": null
+    },
+    "reporting": {
+        "type": "file",
+        "base_dir": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\ethernet\\spec\\graph_rag_ethernet\\logs",
+        "storage_account_blob_url": null
+    },
+    "vector_store": {
+        "default_vector_store": {
+            "type": "lancedb",
+            "db_uri": "C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\ethernet\\spec\\graph_rag_ethernet\\output\\lancedb",
+            "url": null,
+            "audience": null,
+            "container_name": "==== REDACTED ====",
+            "database_name": null,
+            "overwrite": true
+        }
+    },
+    "workflows": null,
+    "embed_text": {
+        "model_id": "default_embedding_model",
+        "vector_store_id": "default_vector_store",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "names": [
+            "entity.description",
+            "community.full_content",
+            "text_unit.text"
+        ],
+        "strategy": null
+    },
+    "extract_graph": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_graph.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "summarize_descriptions": {
+        "model_id": "default_chat_model",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "max_input_tokens": 4000,
+        "strategy": null
+    },
+    "extract_graph_nlp": {
+        "normalize_edge_weights": true,
+        "text_analyzer": {
+            "extractor_type": "regex_english",
+            "model_name": "en_core_web_md",
+            "max_word_length": 15,
+            "word_delimiter": " ",
+            "include_named_entities": true,
+            "exclude_nouns": [
+                "stuff",
+                "thing",
+                "things",
+                "bunch",
+                "bit",
+                "bits",
+                "people",
+                "person",
+                "okay",
+                "hey",
+                "hi",
+                "hello",
+                "laughter",
+                "oh"
+            ],
+            "exclude_entity_tags": [
+                "DATE"
+            ],
+            "exclude_pos_tags": [
+                "DET",
+                "PRON",
+                "INTJ",
+                "X"
+            ],
+            "noun_phrase_tags": [
+                "PROPN",
+                "NOUNS"
+            ],
+            "noun_phrase_grammars": {
+                "PROPN,PROPN": "PROPN",
+                "NOUN,NOUN": "NOUNS",
+                "NOUNS,NOUN": "NOUNS",
+                "ADJ,ADJ": "ADJ",
+                "ADJ,NOUN": "NOUNS"
+            }
+        },
+        "concurrent_requests": 25
+    },
+    "prune_graph": {
+        "min_node_freq": 2,
+        "max_node_freq_std": null,
+        "min_node_degree": 1,
+        "max_node_degree_std": null,
+        "min_edge_weight_pct": 40.0,
+        "remove_ego_nodes": true,
+        "lcc_only": false
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "use_lcc": true,
+        "seed": 3735928559
+    },
+    "extract_claims": {
+        "enabled": false,
+        "model_id": "default_chat_model",
+        "prompt": "prompts/extract_claims.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null
+    },
+    "community_reports": {
+        "model_id": "default_chat_model",
+        "graph_prompt": "prompts/community_report_graph.txt",
+        "text_prompt": "prompts/community_report_text.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "embed_graph": {
+        "enabled": true,
+        "dimensions": 1536,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "use_lcc": true
+    },
+    "umap": {
+        "enabled": true
+    },
+    "snapshots": {
+        "embeddings": true,
+        "graphml": true,
+        "raw_graph": false
+    },
+    "local_search": {
+        "prompt": "prompts/local_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "text_unit_prop": 0.5,
+        "community_prop": 0.15,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "max_context_tokens": 12000
+    },
+    "global_search": {
+        "map_prompt": "prompts/global_search_map_system_prompt.txt",
+        "reduce_prompt": "prompts/global_search_reduce_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "knowledge_prompt": "prompts/global_search_knowledge_system_prompt.txt",
+        "max_context_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_length": 1000,
+        "reduce_max_length": 2000,
+        "dynamic_search_threshold": 1,
+        "dynamic_search_keep_parent": false,
+        "dynamic_search_num_repeats": 1,
+        "dynamic_search_use_summary": false,
+        "dynamic_search_max_level": 2
+    },
+    "drift_search": {
+        "prompt": "prompts/drift_search_system_prompt.txt",
+        "reduce_prompt": "prompts/drift_search_reduce_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "data_max_tokens": 12000,
+        "reduce_max_tokens": null,
+        "reduce_temperature": 0,
+        "reduce_max_completion_tokens": null,
+        "concurrency": 32,
+        "drift_k_followups": 20,
+        "primer_folds": 5,
+        "primer_llm_max_tokens": 12000,
+        "n_depth": 3,
+        "local_search_text_unit_prop": 0.9,
+        "local_search_community_prop": 0.1,
+        "local_search_top_k_mapped_entities": 10,
+        "local_search_top_k_relationships": 10,
+        "local_search_max_data_tokens": 12000,
+        "local_search_temperature": 0,
+        "local_search_top_p": 1,
+        "local_search_n": 1,
+        "local_search_llm_max_gen_tokens": null,
+        "local_search_llm_max_gen_completion_tokens": null
+    },
+    "basic_search": {
+        "prompt": "prompts/basic_search_system_prompt.txt",
+        "chat_model_id": "default_chat_model",
+        "embedding_model_id": "default_embedding_model",
+        "k": 10,
+        "max_context_tokens": 12000
+    }
+}
+19:10:20,402 graphrag.storage.file_pipeline_storage INFO Creating file storage at C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet\output
+19:10:20,405 graphrag.index.input.factory INFO loading input from root_dir=input
+19:10:20,405 graphrag.index.input.factory INFO using file storage for input
+19:10:20,408 graphrag.storage.file_pipeline_storage INFO search C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet\input for files matching .*\.txt$
+19:10:20,408 graphrag.index.input.util INFO Found 1 InputFileType.text files, loading 1
+19:10:20,408 graphrag.index.input.util INFO Total number of unfiltered InputFileType.text rows: 1
+19:10:20,413 graphrag.index.run.run_pipeline INFO Final # of rows loaded: 1
+19:10:20,428 graphrag.utils.storage INFO reading table from storage: documents.parquet
+19:10:20,501 graphrag.utils.storage INFO reading table from storage: documents.parquet
+19:10:20,506 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+19:10:20,546 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+19:10:38,520 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:11:31,323 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:13:06,172 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:13:33,886 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:15:00,722 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:15:43,489 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:16:30,351 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:17:29,594 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:18:44,579 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:19:29,723 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:20:37,188 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:21:37,927 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:22:41,912 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:44,141 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:00,519 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:43,896 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:49,503 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:33:32,253 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:34:51,910 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:37:09,920 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:44:41,550 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:45:55,445 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:46:33,860 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:47:46,817 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:48:26,317 openai._base_client INFO Retrying request to /chat/completions in 0.425969 seconds
+19:48:35,630 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:49:49,294 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:51:42,232 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:54:02,703 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:54:42,652 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:55:46,423 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:57:01,628 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:57:30,995 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:58:34,370 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+19:59:36,88 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:10:28,148 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:11:31,714 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:12:29,417 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:13:29,366 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:14:26,813 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:15:27,70 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:16:32,95 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:17:40,129 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:18:38,447 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:19:28,905 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:20:30,452 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:21:27,455 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:22:29,777 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:23:30,697 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:24:32,48 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:25:29,206 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:26:28,831 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:27:29,269 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:28:38,470 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:29:26,868 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:30:29,623 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:31:29,606 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:32:28,584 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:33:28,202 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+20:34:28,665 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:00:38,295 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:01:31,419 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:02:33,225 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:03:52,420 openai._base_client INFO Retrying request to /chat/completions in 0.479385 seconds
+21:04:02,468 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:04:30,285 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:05:33,870 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:06:40,283 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:14:37,779 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:15:27,780 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:16:27,823 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:17:52,556 openai._base_client INFO Retrying request to /chat/completions in 0.477023 seconds
+21:17:58,748 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:18:38,60 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:19:52,582 openai._base_client INFO Retrying request to /chat/completions in 0.421894 seconds
+21:19:58,735 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:20:52,589 openai._base_client INFO Retrying request to /chat/completions in 0.462340 seconds
+21:21:08,749 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:21:29,301 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:22:29,352 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:23:28,153 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:24:29,288 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:35:22,602 graphrag.utils.storage INFO reading table from storage: entities.parquet
+21:35:22,611 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+21:35:22,626 root INFO Starting preprocessing of transition probabilities on graph with 150 nodes and 185 edges
+21:35:22,626 root INFO Starting at time 1751808922.6263282
+21:35:22,626 root INFO Beginning preprocessing of transition probabilities for 150 vertices
+21:35:22,627 root INFO Completed 1 / 150 vertices
+21:35:22,627 root INFO Completed 16 / 150 vertices
+21:35:22,627 root INFO Completed 31 / 150 vertices
+21:35:22,627 root INFO Completed 46 / 150 vertices
+21:35:22,627 root INFO Completed 61 / 150 vertices
+21:35:22,627 root INFO Completed 76 / 150 vertices
+21:35:22,627 root INFO Completed 91 / 150 vertices
+21:35:22,628 root INFO Completed 106 / 150 vertices
+21:35:22,628 root INFO Completed 121 / 150 vertices
+21:35:22,628 root INFO Completed 136 / 150 vertices
+21:35:22,628 root INFO Completed preprocessing of transition probabilities for vertices
+21:35:22,628 root INFO Beginning preprocessing of transition probabilities for 185 edges
+21:35:22,628 root INFO Completed 1 / 185 edges
+21:35:22,628 root INFO Completed 19 / 185 edges
+21:35:22,628 root INFO Completed 37 / 185 edges
+21:35:22,628 root INFO Completed 55 / 185 edges
+21:35:22,628 root INFO Completed 73 / 185 edges
+21:35:22,628 root INFO Completed 91 / 185 edges
+21:35:22,633 root INFO Completed 109 / 185 edges
+21:35:22,633 root INFO Completed 127 / 185 edges
+21:35:22,633 root INFO Completed 145 / 185 edges
+21:35:22,633 root INFO Completed 163 / 185 edges
+21:35:22,633 root INFO Completed 181 / 185 edges
+21:35:22,633 root INFO Completed preprocessing of transition probabilities for edges
+21:35:22,633 root INFO Simulating walks on graph at time 1751808922.6338074
+21:35:22,638 root INFO Walk iteration: 1/10
+21:35:22,643 root INFO Walk iteration: 2/10
+21:35:22,653 root INFO Walk iteration: 3/10
+21:35:22,659 root INFO Walk iteration: 4/10
+21:35:22,670 root INFO Walk iteration: 5/10
+21:35:22,680 root INFO Walk iteration: 6/10
+21:35:22,688 root INFO Walk iteration: 7/10
+21:35:22,696 root INFO Walk iteration: 8/10
+21:35:22,704 root INFO Walk iteration: 9/10
+21:35:22,709 root INFO Walk iteration: 10/10
+21:35:22,719 root INFO Learning embeddings at time 1751808922.716616
+21:35:22,719 gensim.models.word2vec INFO collecting all words and their counts
+21:35:22,719 gensim.models.word2vec INFO PROGRESS: at sentence #0, processed 0 words, keeping 0 word types
+21:35:22,724 gensim.models.word2vec INFO collected 150 word types from a corpus of 24480 raw words and 1500 sentences
+21:35:22,724 gensim.models.word2vec INFO Creating a fresh vocabulary
+21:35:22,724 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 retains 150 unique words (100.00% of original 150, drops 0)', 'datetime': '2025-07-06T21:35:22.724656', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+21:35:22,724 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 leaves 24480 word corpus (100.00% of original 24480, drops 0)', 'datetime': '2025-07-06T21:35:22.724656', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+21:35:22,724 gensim.models.word2vec INFO deleting the raw counts dictionary of 150 items
+21:35:22,724 gensim.models.word2vec INFO sample=0.001 downsamples 106 most-common words
+21:35:22,724 gensim.utils INFO Word2Vec lifecycle event {'msg': 'downsampling leaves estimated 11231.870144289052 word corpus (45.9%% of prior 24480)', 'datetime': '2025-07-06T21:35:22.724656', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'prepare_vocab'}
+21:35:22,724 gensim.models.word2vec INFO estimated required memory for 150 words and 1536 dimensions: 1918200 bytes
+21:35:22,724 gensim.models.word2vec INFO resetting layer weights
+21:35:22,724 gensim.utils INFO Word2Vec lifecycle event {'update': False, 'trim_rule': 'None', 'datetime': '2025-07-06T21:35:22.724656', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'build_vocab'}
+21:35:22,729 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training model with 8 workers on 150 vocabulary and 1536 features, using sg=1 hs=0 sample=0.001 negative=5 window=2 shrink_windows=True', 'datetime': '2025-07-06T21:35:22.729992', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'train'}
+21:35:22,776 gensim.models.word2vec INFO EPOCH 0: training on 24480 raw words (11267 effective words) took 0.0s, 303346 effective words/s
+21:35:22,822 gensim.models.word2vec INFO EPOCH 1: training on 24480 raw words (11155 effective words) took 0.0s, 278096 effective words/s
+21:35:22,872 gensim.models.word2vec INFO EPOCH 2: training on 24480 raw words (11203 effective words) took 0.0s, 298630 effective words/s
+21:35:22,874 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training on 73440 raw words (33625 effective words) took 0.1s, 233344 effective words/s', 'datetime': '2025-07-06T21:35:22.874193', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'train'}
+21:35:22,874 gensim.utils INFO Word2Vec lifecycle event {'params': 'Word2Vec<vocab=150, vector_size=1536, alpha=0.025>', 'datetime': '2025-07-06T21:35:22.874193', 'gensim': '4.3.3', 'python': '3.11.13 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:03:15) [MSC v.1929 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+21:35:22,874 root INFO Completed. Ending time is 1751808922.874194 Elapsed time is -0.2478656768798828
+21:35:33,236 graphrag.utils.storage INFO reading table from storage: entities.parquet
+21:35:33,242 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+21:35:33,341 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+21:35:33,346 graphrag.utils.storage INFO reading table from storage: entities.parquet
+21:35:33,351 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+21:35:33,429 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+21:35:33,434 graphrag.utils.storage INFO reading table from storage: entities.parquet
+21:35:33,438 graphrag.utils.storage INFO reading table from storage: communities.parquet
+21:35:33,455 graphrag.index.operations.summarize_communities.graph_context.context_builder INFO Number of nodes at level=1 => 125
+21:35:33,688 graphrag.index.operations.summarize_communities.graph_context.context_builder INFO Number of nodes at level=0 => 150
+21:36:47,216 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:37:31,824 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:39:02,441 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:39:28,260 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:40:49,938 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:41:54,472 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:42:03,685 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:43:43,258 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:44:22,429 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:45:22,526 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:46:32,630 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:47:24,169 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:48:28,37 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+21:49:23,357 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:05:19,374 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:05:41,84 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:07:16,789 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:07:36,36 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:08:48,474 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:09:29,401 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:10:28,207 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:11:55,76 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:13:00,486 httpx INFO HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+22:20:35,35 graphrag.utils.storage INFO reading table from storage: documents.parquet
+22:20:35,41 graphrag.utils.storage INFO reading table from storage: relationships.parquet
+22:20:35,46 graphrag.utils.storage INFO reading table from storage: text_units.parquet
+22:20:35,53 graphrag.utils.storage INFO reading table from storage: entities.parquet
+22:20:35,58 graphrag.utils.storage INFO reading table from storage: community_reports.parquet
+22:20:35,63 graphrag.index.workflows.generate_text_embeddings INFO Creating embeddings
+22:20:35,63 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding entity.description: default-entity-description
+22:20:35,502 graphrag.index.operations.embed_text.strategies.openai INFO embedding 152 inputs via 152 snippets using 10 batches. max_batch_size=16, batch_max_tokens=8191
+22:20:36,114 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:21:36,195 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:22:36,180 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:23:36,44 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:24:36,306 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:25:36,157 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:26:36,327 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:27:36,177 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:28:36,302 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:29:36,20 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:29:36,447 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding community.full_content: default-community-full_content
+22:29:36,467 graphrag.index.operations.embed_text.strategies.openai INFO embedding 23 inputs via 23 snippets using 3 batches. max_batch_size=16, batch_max_tokens=8191
+22:30:36,434 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:31:35,808 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:32:36,354 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:33:35,670 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding text_unit.text: default-text_unit-text
+22:33:35,693 graphrag.index.operations.embed_text.strategies.openai INFO embedding 17 inputs via 17 snippets using 3 batches. max_batch_size=16, batch_max_tokens=8191
+22:34:36,254 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:35:36,263 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:36:36,15 httpx INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings "HTTP/1.1 200 OK"
+22:36:36,237 graphrag.cli.index INFO All workflows completed successfully.

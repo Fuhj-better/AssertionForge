@@ -1,0 +1,117 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="ELLIPTIC CURVE GROUP CORE" />
+    <node id="HOMER HSING" />
+    <node id="OPENCORES" />
+    <node id="POINT_ADD" />
+    <node id="POINT_SCALAR_MULT" />
+    <node id="REV. 0.1" />
+    <node id="02/19/2012" />
+    <node id="02/23/2012" />
+    <node id="03/04/2012" />
+    <node id="INTRODUCTION" />
+    <node id="ARCHITECTURE" />
+    <node id="INTERFACE" />
+    <node id="TIMING DIAGRAMS" />
+    <node id="FPGA IMPLEMENTATION" />
+    <node id="TEST BENCH" />
+    <node id="REFERENCES" />
+    <node id="TABLE 1" />
+    <node id="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" />
+    <node id="XILINX VIRTEX 4 XC4VLX200-11FF1513" />
+    <node id="XILINX ISE 13.4" />
+    <node id="FIGURE 1" />
+    <node id="FIGURE 2" />
+    <node id="TABLE 2" />
+    <node id="PAULO S.L.M. BARRETO" />
+    <node id="H.Y. KIM" />
+    <node id="BEN LYNN" />
+    <node id="MICHAEL SCOTT" />
+    <node id="MODEL SIM" />
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="HOMER HSING">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="OPENCORES">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="POINT_ADD">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="POINT_SCALAR_MULT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="REV. 0.1">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="02/19/2012">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="02/23/2012">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="03/04/2012">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="INTRODUCTION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="ARCHITECTURE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="INTERFACE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="TIMING DIAGRAMS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="FPGA IMPLEMENTATION">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="TEST BENCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE" target="REFERENCES">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENCORES" target="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS">
+      <data key="d0">27.0</data>
+    </edge>
+    <edge source="POINT_ADD" target="POINT_SCALAR_MULT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="POINT_ADD" target="FIGURE 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="POINT_ADD" target="FIGURE 2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="POINT_SCALAR_MULT" target="TABLE 2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="INTERFACE" target="TABLE 1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" target="XILINX VIRTEX 4 XC4VLX200-11FF1513">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" target="PAULO S.L.M. BARRETO">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" target="H.Y. KIM">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" target="BEN LYNN">
+      <data key="d0">14.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" target="MICHAEL SCOTT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ELLIPTIC CURVE GROUP CORE SPECIFICATIONS" target="MODEL SIM">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="XILINX VIRTEX 4 XC4VLX200-11FF1513" target="XILINX ISE 13.4">
+      <data key="d0">9.0</data>
+    </edge>
+  </graph>
+</graphml>

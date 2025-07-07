@@ -1,0 +1,710 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="IGOR MOHOR" />
+    <node id="ETHERNET IP CORE SPECIFICATION" />
+    <node id="FIRST DRAFT" />
+    <node id="MII MODULE COMPLETED" />
+    <node id="DMA SUPPORT AND BUFFER DESCRIPTORS ADDED" />
+    <node id="CONTROL FRAME DETECTION SECTION IMPROVED" />
+    <node id="JEANNE WIEGELMANN" />
+    <node id="OPENCORES" />
+    <node id="NOVEMBER 27, 2002" />
+    <node id="REV. 1.19" />
+    <node id="OPENCORES.ORG" />
+    <node id="REV 1.19" />
+    <node id="HOST INTERFACE" />
+    <node id="TX ETHERNET MAC" />
+    <node id="RX ETHERNET MAC" />
+    <node id="MAC CONTROL MODULE" />
+    <node id="MII MANAGEMENT MODULE" />
+    <node id="MODER" />
+    <node id="TABLE 1" />
+    <node id="TABLE 2" />
+    <node id="ETHERNET IP CORE" />
+    <node id="MAC" />
+    <node id="MII MANAGEMENT" />
+    <node id="PHY" />
+    <node id="MII" />
+    <node id="WISHBONE" />
+    <node id="CLK_I" />
+    <node id="RST_I" />
+    <node id="ADDR_I" />
+    <node id="DATA_I" />
+    <node id="DATA_O" />
+    <node id="SEL_I" />
+    <node id="WE_I" />
+    <node id="STB_I" />
+    <node id="CYC_I" />
+    <node id="ACK_O" />
+    <node id="ERR_O" />
+    <node id="INTA_O" />
+    <node id="TABLE 1: HOST INTERFACE PORTS" />
+    <node id="PHY INTERFACE PORTS" />
+    <node id="MTXCLK" />
+    <node id="MTXD[3:0]" />
+    <node id="MTXEN" />
+    <node id="MTXERR" />
+    <node id="MRXCLK" />
+    <node id="MRXDV" />
+    <node id="MRXD[3:0]" />
+    <node id="MRXERR" />
+    <node id="MCOLL" />
+    <node id="MCRS" />
+    <node id="MDIO" />
+    <node id="INT_SOURCE" />
+    <node id="MIIMODER" />
+    <node id="TABLE 3" />
+    <node id="INT_MASK" />
+    <node id="IPGT" />
+    <node id="IPGR1" />
+    <node id="IPGR2" />
+    <node id="PACKETLEN" />
+    <node id="COLLCONF" />
+    <node id="COLLVALID" />
+    <node id="MAXRET" />
+    <node id="CTRLMODER" />
+    <node id="TXFLOW" />
+    <node id="RXFLOW" />
+    <node id="PASSALL" />
+    <node id="MIINOPRE" />
+    <node id="CLKDIV" />
+    <node id="MIICOMMAND" />
+    <node id="WCTRLDATA" />
+    <node id="RSTAT" />
+    <node id="SCANSTAT" />
+    <node id="MIISTATUS" />
+    <node id="ETHERNET STANDARD" />
+    <node id="MIIADDRESS" />
+    <node id="MIITX_DATA" />
+    <node id="MIIRX_DATA" />
+    <node id="MAC_ADDR0" />
+    <node id="MAC_ADDR1" />
+    <node id="HASH0" />
+    <node id="HASH1" />
+    <node id="TXCTRL" />
+    <node id="TABLE 17" />
+    <node id="TABLE 18" />
+    <node id="TABLE 19" />
+    <node id="TABLE 20" />
+    <node id="TABLE 21" />
+    <node id="TABLE 22" />
+    <node id="TABLE 23" />
+    <node id="TABLE 24" />
+    <node id="TABLE 25" />
+    <node id="HTTP://WWW.OPENCORES.ORG" />
+    <node id="CSMA/CD" />
+    <node id="TX_BD_NUM" />
+    <node id="TX BUFFER DESCRIPTOR" />
+    <node id="RX BUFFER DESCRIPTORS" />
+    <node id="TXB" />
+    <node id="TXE" />
+    <node id="LEN" />
+    <node id="RD" />
+    <node id="IRQ" />
+    <node id="WR" />
+    <node id="PAD" />
+    <node id="CRC" />
+    <node id="UR" />
+    <node id="RTRY" />
+    <node id="RL" />
+    <node id="LC" />
+    <node id="DF" />
+    <node id="CS" />
+    <node id="TXPNT" />
+    <node id="RXPNT" />
+    <node id="FIGURE 2" />
+    <node id="TABLE 28" />
+    <node id="TABLE 29" />
+    <node id="FIFO" />
+    <node id="TXEN" />
+    <node id="ETHERNET MAC CORE" />
+    <node id="RISC" />
+    <node id="ETHERNET PHY" />
+    <node id="FCS" />
+    <node id="PAUSE TIMER" />
+    <node id="SLOT TIMER" />
+    <node id="CTRLMODER REGISTER" />
+    <node id="INT_SOURCE REGISTER" />
+    <node id="RX BD" />
+    <node id="PAUSE CONTROL FRAME" />
+    <node id="FIGURE 3" />
+    <node id="TXCTRL REGISTER" />
+    <node id="TPAUSERQ" />
+    <node id="TXSTARTFRM" />
+    <node id="TXENDFRM" />
+    <node id="TPAUSETV[15:0]" />
+    <node id="TXDATA[7:0]" />
+    <node id="TXUSEDDATA" />
+    <node id="TXDONE" />
+    <node id="TXABORT" />
+    <node id="MDC" />
+    <node id="OPERATION CONTROLLER" />
+    <node id="SHIFT REGISTERS" />
+    <node id="OUTPUT CONTROL MODULE" />
+    <node id="CLOCK GENERATOR" />
+    <node id="IEEE 803.2U" />
+    <node id="MIIM" />
+    <node id="FIAD[4:0]" />
+    <node id="RGAD[4:0]" />
+    <node id="PRSD[15:0]" />
+    <node id="LINKFAIL" />
+    <node id="NVALID" />
+    <node id="BUSY" />
+    <edge source="IGOR MOHOR" target="ETHERNET IP CORE SPECIFICATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="IGOR MOHOR" target="FIRST DRAFT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="IGOR MOHOR" target="MII MODULE COMPLETED">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="IGOR MOHOR" target="DMA SUPPORT AND BUFFER DESCRIPTORS ADDED">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="IGOR MOHOR" target="CONTROL FRAME DETECTION SECTION IMPROVED">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="JEANNE WIEGELMANN">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="OPENCORES">
+      <data key="d0">41.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="NOVEMBER 27, 2002">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="REV. 1.19">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="OPENCORES.ORG">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="REV 1.19">
+      <data key="d0">27.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="HOST INTERFACE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TX ETHERNET MAC">
+      <data key="d0">25.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="RX ETHERNET MAC">
+      <data key="d0">25.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MAC CONTROL MODULE">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MII MANAGEMENT MODULE">
+      <data key="d0">17.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MODER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 1">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 1: HOST INTERFACE PORTS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="PHY INTERFACE PORTS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="INT_MASK">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="IPGT">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="IPGR1">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="IPGR2">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="PACKETLEN">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="COLLCONF">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MIIADDRESS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MIITX_DATA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MIIRX_DATA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MIISTATUS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MAC_ADDR0">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="MAC_ADDR1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="HASH0">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="HASH1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TXCTRL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 17">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 18">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 19">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 20">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 21">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 22">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 23">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 24">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 25">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TX BUFFER DESCRIPTOR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="RX BUFFER DESCRIPTORS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="FIGURE 2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 28">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="TABLE 29">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="HTTP://WWW.OPENCORES.ORG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="WISHBONE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE SPECIFICATION" target="RISC">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="NOVEMBER 27, 2002" target="ETHERNET IP CORE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="WISHBONE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="CLK_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="RST_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="ADDR_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="DATA_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="DATA_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="SEL_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="WE_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="STB_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="CYC_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="ACK_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="ERR_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOST INTERFACE" target="INTA_O">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="TX ETHERNET MAC" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX ETHERNET MAC" target="ETHERNET PHY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TX ETHERNET MAC" target="FCS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TX ETHERNET MAC" target="MAC CONTROL MODULE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TX ETHERNET MAC" target="RX ETHERNET MAC">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="RX ETHERNET MAC" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="RX ETHERNET MAC" target="RISC">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="RX ETHERNET MAC" target="CRC">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="RX ETHERNET MAC" target="MAC CONTROL MODULE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="CTRLMODER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="PAUSE TIMER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="SLOT TIMER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="CTRLMODER REGISTER">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="INT_SOURCE REGISTER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="PAUSE CONTROL FRAME">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXCTRL REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TPAUSERQ">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXSTARTFRM">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXENDFRM">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXFLOW">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="RXFLOW">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="PASSALL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TPAUSETV[15:0]">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXDATA[7:0]">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXUSEDDATA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXDONE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAC CONTROL MODULE" target="TXABORT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="PHY">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="MIIMODER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="MDIO">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="MDC">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="OPERATION CONTROLLER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="SHIFT REGISTERS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="OUTPUT CONTROL MODULE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="CLOCK GENERATOR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT MODULE" target="IEEE 803.2U">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MODER" target="ETHERNET IP CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TABLE 2" target="PHY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="MAC">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="MII MANAGEMENT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="PHY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="INT_SOURCE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="MIIMODER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="TABLE 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="WISHBONE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="HTTP://WWW.OPENCORES.ORG">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="CSMA/CD">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="RST_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="TX_BD_NUM">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="RX BD">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET IP CORE" target="MIIM">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MII MANAGEMENT" target="MII">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PHY" target="MCOLL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PHY" target="MCRS">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PHY" target="MDIO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY" target="ETHERNET MAC CORE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY" target="MIIM">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MTXCLK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MTXD[3:0]">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MTXEN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MTXERR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MRXCLK">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MRXDV">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MRXD[3:0]">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MRXERR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PHY INTERFACE PORTS" target="MCOLL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MDIO" target="MIIM">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="INT_SOURCE" target="TX BUFFER DESCRIPTOR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="INT_SOURCE" target="RXPNT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MIIMODER" target="MIINOPRE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MIIMODER" target="CLKDIV">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PACKETLEN" target="RXPNT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="COLLCONF" target="COLLVALID">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="COLLCONF" target="MAXRET">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="COLLCONF" target="TX BUFFER DESCRIPTOR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MAXRET" target="ETHERNET STANDARD">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="CTRLMODER" target="TXFLOW">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="CTRLMODER" target="RXFLOW">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="CTRLMODER" target="PASSALL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MIICOMMAND" target="WCTRLDATA">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MIICOMMAND" target="RSTAT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MIICOMMAND" target="SCANSTAT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MIICOMMAND" target="MIISTATUS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SCANSTAT" target="MIIM">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="TXB">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="TXE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="LEN">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="RD">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="IRQ">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="WR">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="PAD">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="CRC">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="UR">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="RTRY">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="RL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="LC">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="DF">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="CS">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TX BUFFER DESCRIPTOR" target="TXPNT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="RX BUFFER DESCRIPTORS" target="RXPNT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="RXPNT" target="FIFO">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="FIFO" target="ETHERNET MAC CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TXEN" target="ETHERNET MAC CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="ETHERNET MAC CORE" target="RISC">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PAUSE TIMER" target="PAUSE CONTROL FRAME">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PAUSE TIMER" target="SLOT TIMER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PAUSE CONTROL FRAME" target="FIGURE 3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="MDC" target="MIIM">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MIIM" target="FIAD[4:0]">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MIIM" target="RGAD[4:0]">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MIIM" target="PRSD[15:0]">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="MIIM" target="LINKFAIL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="MIIM" target="NVALID">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="MIIM" target="BUSY">
+      <data key="d0">8.0</data>
+    </edge>
+  </graph>
+</graphml>

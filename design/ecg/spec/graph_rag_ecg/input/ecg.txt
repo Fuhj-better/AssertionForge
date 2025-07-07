@@ -1,0 +1,302 @@
+ 
+ 
+ 
+Elliptic  Curve  Group  Core 
+Specification  
+ 
+ 
+ 
+Author: Homer Hsing 
+homer. hsing@gmail.com  
+ 
+ 
+ 
+ 
+Rev. 0.1 
+March 4, 2012  
+  
+ OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 ii  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This page has been intentionally left blank.   OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 iii  
+Revision  History  
+Rev
+. Date  Author  Description   
+0.1 02/19/2012  Homer Hsing First Draft  
+ 02/23/2012  
+ 
+ 
+03/04/2012  Homer  Hsing 
+ 
+ 
+Homer Hsing  1. correct test bench name for adding two points  
+2. detailed explain to the speed of scalar 
+multiplication  
+New email and new English name of the author  
+  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 iv  
+Contents  
+INTRODUCTION  ................................ ................................ ................................ .................. 1 
+ARCHITECTURE  ................................ ................................ ................................ ................. 2 
+INTERFACE  ................................ ................................ ................................ ........................... 3 
+TIMING DIAGRAMS  ................................ ................................ ................................ ........... 5 
+FPGA IMPLEMENTATION  ................................ ................................ ............................... 7 
+TEST BENCH  ................................ ................................ ................................ ......................... 8 
+REFERENCES  ................................ ................................ ................................ ....................... 9 
+  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 1 of 9 
+1  
+Introduction  
+The Elliptic Curve Group  core is for computing  the addition of two elements in the 
+elliptic curve group, and the addition of   identical elements in the elliptic curve group.  
+The elliptic curve is super -singular              in affine coordinates  defined  over 
+a Galois field   (  )     , whose  irreducible polynomial is          .  
+The elliptic curve group is the set of solutions (   ) over   (  ) to the equation of   , 
+together with an additional point at infinity , denoted   . An element in the elliptic curve 
+group is also called “a point”. The elliptic curve group is abelian. The group law is as 
+follows.  
+Suppose    (     )    (     )          (     ). Then,  
+     
+    (      ) 
+             
+                    
+                   ⁄    (       (     )) 
+                 (     )(     ) ⁄     (                 ) 
+In the following,       will be also called the addition of (elliptic curve group element) 
+   and   . Given a positive integer   , let      represent  the addition of   identical 
+(elliptic curve group element)   , i.e.                  (       ). Computation 
+of      proceeds as follows.  
+1:          
+2: while     do   
+3:     if   is odd then       
+4:           
+5:            (  ⁄) 
+6:   
+7: return   
+For more information about the elliptic curve group, please refer to  [1].  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 2 of 9 
+2  
+Architecture  
+The Elliptic Curve Group  core consists of two modules , one computing  the addition of 
+two elliptic curve group elements  (     ) and the other computing  the addition of 
+many identical elliptic curve group elements  (    ). The first module is called 
+point_add . The second  module is called point_scalar_mult . The second module build s 
+around the  first module . 
+ 
+The module computing 𝑐 𝑃  
+The module  computing the addition of two elliptic curve 
+group elements   OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 3 of 9 
+3  
+Interface  
+The Elliptic Curve Group  core implements the signals shown in the table s below. Two 
+modules are separately listed.  
+Input signals are synchronous  and sampled at the rising edge of the clock. Output signals 
+are driven by flip -flops, and not directly connected to input signals by combinational 
+logic. For signals wider than 1 bit, the range is most significant bit down to least 
+significant bit.  
+Table 1: Interface  signals  of point_add  
+Signal name  Width  In/Out  Description  
+clk 1 In clock  
+reset  1 In active high s ynchronous  reset  
+x1 194 In one of input data  
+y1 194 In one of input data  
+zero1  1 In asserted if (     ) is the point at infinity  
+x2 194 In one of input data  
+y2 194 In one of input data  
+zero2  1 In asserted if (     ) is the point at infinity  
+done  1 Out The termination signal. It is inactive low after the reset  
+signal asserted, and is active high only if the computation 
+is done.  When the computation is done (     ) 
+(     ) (     ). 
+x3 194 Out Output data. Its value is valid when the done  signal is 
+asserted . 
+y3 194 Out Output data. Its value is valid when the done  signal is 
+asserted . 
+zero3  1 Out Output data. It is active high only if (     ) is the point 
+at infinity .  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 4 of 9 
+ 
+Table 2:  Interface  signals of point_scalar_mult  
+Signal name  Width  In/Out  Description  
+clk 1 In clock  
+reset  1 In active high s ynchronous  reset  
+x1 194 In one of input data  
+y1 194 In one of input data  
+zero1  1 In asserted if (     ) is the point at infinity  
+c 151 In one of input data  
+done  1 Out The termination signal. It is inactive low after the reset  
+signal asserted, and is active high only if the computation 
+is done.  When the computation is done  (     )   
+(     ). 
+x3 194 Out Output data. Its value is valid when the done  signal is 
+asserted . 
+y3 194 Out Output data. Its value is valid when the done  signal is 
+asserted . 
+zero3  1 Out Output data. It is active high only if (     ) is the point 
+at infinity . 
+  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 5 of 9 
+4  
+Timing diagrams  
+Input timing pattern  
+Please follow the rule  when using any module of the core: When the reset  signal is 
+asserted, valid input data should be on the input signals and keep valid until the 
+computation term ination.  
+The input data is captured at the moment when the rising edge of the clk signal meets the 
+high value of the reset  signal  as shown by the  blue arrow in Figure 1.  
+ 
+Figure 1: Input timing pattern  of the module point_add  
+clk 
+r     
+x  
+y  
+z ro  
+x  
+y  
+z ro  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+   
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data   OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 6 of 9 
+Output timing pattern  
+ 
+Figure 2 : Output timing pattern  of the module point_add  
+ 
+clk 
+do   
+x  
+y  
+z ro  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
+ XXXXXX  
+ Valid output data  
+  
+  
+ XXXXXX  
+ Valid output data  
+  
+  
+ XXXXXX  
+ Valid output data   OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 7 of 9 
+5  
+FPGA Implementation  
+The core has only been verified  on a Xilinx Virtex 4 XC4VLX200 -11FF1513  FPGA , 
+synthesized  with Xilinx ISE 13.4 . For this setup related configuration files is in the 
+directory synthesis/xilinx . 
+The code is vendor independent in Verilog 2001.  
+Synthesis results of the module point_add : 
+- Number of occupied slices:  6,694 (7%)  
+- Number of 4 input LUTs:  12,099 (6%)  
+- Number  of flip -flops:   6,141 (3%)  
+- Minimal  period:    5.204 ns 
+- Max achiev able frequency :  192 MHz  
+The module computes       in 2.7 microseconds if with a 100MHz  clock.  
+Synthesis results of the module point_ scalar_mult : 
+- Number of occupied slices:  7,272  (8%) 
+- Number of 4 input LUTs:  13,780  (7%) 
+- Number of flip -flops:   7,451 (4%) 
+- Minimal  period:    6.740 ns 
+- Max achiev able frequency :  148 MHz  
+The module computes      in 0.552  milliseconds if with a 100MHz clock . Here    is the 
+order of the generator of the elliptic curve group.  
+  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 8 of 9 
+6  
+Test bench  
+The file “testbench /simulation.do”  is a batch file for Model Sim to compile the HDL 
+files, setup the wave file, and begin function simulation. In order to make it work 
+properly, t he working directory of Model Sim must be th e directory of “testbench ”. 
+The file “testbench /test_point_scalar_mult .v” is the main test bench for the Elliptic 
+Curve Group  core. The test bench is self -checked. It feeds input data to the core and 
+compares the correct result with the output of the core. If the output is wrong, the test 
+bench will display an error message.  Passing the test bench means both point_add  and 
+point_ scalar_mult  modules work.  
+The file “testbench /test_point_ add.v” is for testing point_add  module alone .  OpenCores  Elliptic Curve Group Core Specifications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 9 of 9 
+7  
+References  
+[1] Paulo S.L.M. Barreto , H.Y. Kim, Ben Lynn, and Michael Scott . Efficient Algorithms  
+for Pairing -Based Cryptosystems.  
+ 

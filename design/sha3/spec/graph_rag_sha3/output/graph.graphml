@@ -1,0 +1,221 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="HOMER HSING" />
+    <node id="OPENCORES" />
+    <node id="SHA3 CORE" />
+    <node id="SHA-3" />
+    <node id="NIST" />
+    <node id="NIST HASH FUNCTION COMPETITION" />
+    <node id="KECCAK" />
+    <node id="MD5" />
+    <node id="SHA-0" />
+    <node id="SHA-1" />
+    <node id="JANUARY 29, 2013" />
+    <node id="REV. 0.1" />
+    <node id="SHA-3 512" />
+    <node id="VIRTEX 6" />
+    <node id="SHA3 CORE SPECIFICATIONS" />
+    <node id="APACHE LICENSE, VERSION 2" />
+    <node id="PADDING MODULE" />
+    <node id="PERMUTATION MODULE" />
+    <node id="FIGURE 2" />
+    <node id="HIGH THROUGHPUT CORE" />
+    <node id="LOW THROUGHPUT CORE" />
+    <node id="FIGURE 3A" />
+    <node id="FIGURE 4B" />
+    <node id="FIGURE 1" />
+    <node id="TABLE 1" />
+    <node id="SPARTAN 3" />
+    <node id="TABLE 2" />
+    <node id="XILINX" />
+    <node id="XILINX ISE" />
+    <node id="TABLE 3" />
+    <node id="TABLE 4" />
+    <node id="GUIDO BERTONI" />
+    <node id="JOAN DAEMEN" />
+    <node id="MICHA&#203;L PEETERS" />
+    <node id="GILLES VAN ASSCHE" />
+    <node id="K. GAJ" />
+    <node id="E. HOMSIRIKAMOL" />
+    <node id="M. ROGAWSKI" />
+    <node id="R. SHAHID" />
+    <node id="M. U. SHARIF" />
+    <node id="WIKIPEDIA" />
+    <node id="FEDERAL REGISTER" />
+    <node id="ALTERA" />
+    <node id="3RD SHA-3 CANDIDATE CONFERENCE" />
+    <node id="SHA-3 COMPETITION" />
+    <edge source="HOMER HSING" target="OPENCORES">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HOMER HSING" target="SHA3 CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="OPENCORES" target="SHA-3">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES" target="SHA3 CORE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENCORES" target="SHA3 CORE SPECIFICATIONS">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="OPENCORES" target="GUIDO BERTONI">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="JOAN DAEMEN">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="MICHA&#203;L PEETERS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="GILLES VAN ASSCHE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="NIST">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="OPENCORES" target="K. GAJ">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="E. HOMSIRIKAMOL">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="M. ROGAWSKI">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="R. SHAHID">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="M. U. SHARIF">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="WIKIPEDIA">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="OPENCORES" target="FEDERAL REGISTER">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="XILINX">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="ALTERA">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="OPENCORES" target="3RD SHA-3 CANDIDATE CONFERENCE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="SHA3 CORE" target="SHA-3 512">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SHA3 CORE" target="VIRTEX 6">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SHA-3" target="NIST">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SHA-3" target="KECCAK">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="SHA-3" target="NIST HASH FUNCTION COMPETITION">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="SHA-3" target="MD5">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SHA-3" target="SHA-0">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SHA-3" target="SHA-1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIST" target="NIST HASH FUNCTION COMPETITION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="NIST" target="SHA-3 COMPETITION">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NIST" target="FEDERAL REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="JANUARY 29, 2013" target="REV. 0.1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="VIRTEX 6" target="XILINX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="VIRTEX 6" target="HIGH THROUGHPUT CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SHA3 CORE SPECIFICATIONS" target="APACHE LICENSE, VERSION 2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SHA3 CORE SPECIFICATIONS" target="XILINX">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PADDING MODULE" target="PERMUTATION MODULE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PADDING MODULE" target="FIGURE 2">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PERMUTATION MODULE" target="HIGH THROUGHPUT CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PERMUTATION MODULE" target="LOW THROUGHPUT CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PERMUTATION MODULE" target="FIGURE 3A">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PERMUTATION MODULE" target="FIGURE 4B">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="HIGH THROUGHPUT CORE" target="FIGURE 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HIGH THROUGHPUT CORE" target="TABLE 1">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="HIGH THROUGHPUT CORE" target="XILINX ISE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="HIGH THROUGHPUT CORE" target="TABLE 3">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="LOW THROUGHPUT CORE" target="SPARTAN 3">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="LOW THROUGHPUT CORE" target="FIGURE 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="LOW THROUGHPUT CORE" target="TABLE 2">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="LOW THROUGHPUT CORE" target="XILINX ISE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="LOW THROUGHPUT CORE" target="TABLE 4">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="SPARTAN 3" target="XILINX">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="K. GAJ" target="3RD SHA-3 CANDIDATE CONFERENCE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="E. HOMSIRIKAMOL" target="3RD SHA-3 CANDIDATE CONFERENCE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="M. ROGAWSKI" target="3RD SHA-3 CANDIDATE CONFERENCE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="R. SHAHID" target="3RD SHA-3 CANDIDATE CONFERENCE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="M. U. SHARIF" target="3RD SHA-3 CANDIDATE CONFERENCE">
+      <data key="d0">1.0</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,0 +1,35 @@
+Derived base directory: C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec
+Step 1: Processing input file(s)
+Cleaned up input folder: C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet\input
+PDF Statistics for ethernet.pdf:
+  Pages: 51
+  File size: 0.24 MB
+  Word count: 10723
+  Token count: 16983
+Step 2: Initializing GraphRAG
+graphrag init --root C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet
+GraphRAG Initialization Output:
+Initializing project at 
+C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet
+
+Step 3: Updating .env file
+Copied .env from C:\Users\huijie\Desktop\AssertionForge/rag_apb/.env to C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet
+Step 4: Updating settings.yaml file
+Copied settings.yaml from C:\Users\huijie\Desktop\AssertionForge/rag_apb/settings.yaml to C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet
+Step 5: Copying entity extraction prompt
+Copied entity extraction prompt from C:\Users\huijie\Desktop\AssertionForge/rag_apb/extract_graph.txt to C:\Users\huijie\Desktop\AssertionForge\design\ethernet\spec\graph_rag_ethernet\prompts\extract_graph.txt
+Process completed successfully
+Timer log ***********************************************************
+Total duration 2.860 secs
+create_directory_structure       : 1.901 msecs (0.07%)
+clean_input_folder               : 0.000 msecs (0.00%)
+process_files                    : 1.522 secs (53.22%)
+initialize_graphrag              : 1.331 secs (46.53%)
+Updating .env file               : 5.342 msecs (0.19%)
+Updating settings.yaml file      : 0.000 msecs (0.00%)
+Copying entity extraction prompt : 0.000 msecs (0.00%)
+run_graphrag_index               : 0.000 msecs (0.00%)
+Timer log ***********************************************************
+Total time: 2.865 secs; Total number of files: 4; Total folder size: 18.68 KiB
+C:\Users\huijie\Desktop\AssertionForge\logs\build_KG_2025-07-06T04-07-58.116297_DESKTOP-4FTGQ55_huijie
+build_KG_2025-07-06T04-07-58.116297_DESKTOP-4FTGQ55_huijie

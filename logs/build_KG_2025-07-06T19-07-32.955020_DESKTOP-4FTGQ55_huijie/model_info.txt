@@ -1,0 +1,14 @@
+task                       : build_KG
+design_name                : pairing
+input_file_path            : C:\Users\huijie\Desktop\AssertionForge\design\pairing\spec\pairing.pdf
+env_source_path            : C:\Users\huijie\Desktop\AssertionForge/rag_apb/.env
+settings_source_path       : C:\Users\huijie\Desktop\AssertionForge/rag_apb/settings.yaml
+entity_extraction_prompt_source_path : C:\Users\huijie\Desktop\AssertionForge/rag_apb/extract_graph.txt
+graphrag_local_dir         : C:\Users\huijie\Desktop\AssertionForge\graphrag\graphrag
+user                       : huijie
+hostname                   : DESKTOP-4FTGQ55
+repo_name                  : AssertionForge
+local_branch_name          : test-sva
+commit_sha                 : d32918f699ea0dcc889e7a82b8f77b4a3bfa8c27
+ts                         : 2025-07-06T19-07-32.955020
+

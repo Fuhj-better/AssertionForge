@@ -1,0 +1,277 @@
+ 
+ 
+ 
+Tate Bilinear Pairing  Core 
+Specification  
+ 
+ 
+ 
+Author: Homer Hsing 
+homer. hsing@gmail.com  
+ 
+ 
+ 
+ 
+Rev. 0.1 
+March 4, 2012  
+  
+ OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 ii  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This page has been intentionally left blank.   OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 iii  
+Revision History  
+Rev
+. Date  Author  Description   
+0.1 01/31/2012  Homer Hsing First Draft  
+ 02/02/2012  
+ 
+02/10/2012  
+ 
+03/04/2012  Homer Hsing 
+ 
+Homer Hsing 
+ 
+Homer Hsing  Detailed input data capture time in the section 
+“Input timing pattern ” 
+Detailed description for the Model Sim macro file 
+and the main test bench file  
+New email and new English name of the author  
+  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 iv  
+Contents  
+INTRODUCTION  ................................ ................................ ................................ .................. 1 
+ARCHITECTURE  ................................ ................................ ................................ ................. 3 
+INTERFACE  ................................ ................................ ................................ ........................... 4 
+TIMING DIAGRAMS  ................................ ................................ ................................ ........... 5 
+FPGA IMPLEMENTATION  ................................ ................................ ............................... 7 
+TEST BENCH  ................................ ................................ ................................ ......................... 8 
+REFERENCES  ................................ ................................ ................................ ....................... 9 
+  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 1 of 9 
+1  
+Introduction  
+The Tate Bilinear Pairing core is for calculating  Tate bilinear pairing especially  on super -
+singular elliptic curve             in affine coordinates  defined  over a Galois 
+field   (  )     , whose  irreducible polynomial is          . (For improving 
+security, a n irreducible polynomial with higher degree might be used in the future. ) 
+ 
+The above elliptic curve contains a large cyclic subgroup of prime order   . Also   divides 
+      and not any            , and    does not divide    . Now  (  (  )) 
+contains an  -torsion  group  [ ](  (  )) and  (  (   )) also contains an  -torsion 
+group  [ ](  (   )). The Tate bilinear pairing (of order  ) is a bilinear map  between 
+ [ ](  (  )) and  [ ](  (   )) to an element of the multiplicative group    (   ) , 
+i.e. 
+                                          [ ](  (  ))  [ ](  (   ))   (   )                   (1) 
+It is necessary to raise the value on the right hand side to the power    (     )   to 
+obtain a unique value in    (   ). Consider   (     )   (     )  [ ](  (  )) 
+i.e.               (  ) and define a distortion map    as 
+                                       ( )  (     ) (        )                                           (2) 
+, where       (   ) satisfying          and       . Then the Tate 
+pairing is defined on points      [ ](  (  )) as 
+                                        ̂(   )   (   ( ))      (   )                                (3) 
+Generally speaking, the Tate pairing is a transformation that takes  in two elements in the 
+elliptic curve point group and outputs a nonzero element in the extension field   (   ). 
+ 
+The Tate pairing  performs in two stages:  
+Stage 1: calculation of  ( )  [ ](  (   )) in the rational function    on  (  (  )) 
+such that     (  )  [ ]  [ ], i.e.   (   ( ))   ( ( ))     (   ) . This is 
+by Algorithm  1 (Modified Duursma -Lee algorithm) below.  
+Stage 2: raising   to the power         ⁄        OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 2 of 9 
+Algorithm 1  (Modified Duursma -Lee algorithm)  
+Input:     (     )   (     )  [ ](  (  )) 
+Output:     (   ( ))   (   )  
+1:       (   )                              (  )           
+2:                        
+3:                       
+4:                                            
+5: next   
+6: return   
+ 
+For more information about the Tate pairing please refer to  [1], [2].  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 3 of 9 
+2  
+Architecture  
+The Tate Bilinear Pairing core  consists of two fundamental modules, where the first 
+module running Duursma -Lee algorithm, and the second  module calculating the power .  
+ 
+Tate Bilinear Pairing core  
+Duursma -Lee 
+algorith m module  
+The module  
+computing the power   OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 4 of 9 
+3  
+Interface  
+The Tate Bilinear Pairing core implements the signals shown in the table below.  
+Input signals are synchronous and sampled at the rising edge of the clock.  
+Output signals are driven by flip -flops, and not directly connected to input signals by 
+combination al logic.  
+For signals wider than 1 bit, the range is most significant bit down to least significant bit.  
+ 
+Table 1: Interface  signals  
+Signal name  Width  In/Out  Description  
+clk 1 In clock  
+reset  1 In active high s ynchronous  reset  
+x1 194 In one of input data 
+y1 194 In one of input data  
+x2 194 In one of input data  
+y2 194 In one of input data  
+done  1 Out The termination signal. It is inactive low after the reset  
+signal asserted, and is active high only if the Tate pairing 
+computation is done.  
+out 1164 Out Output data. Its value is valid when the done  signal is 
+asserted . 
+ 
+  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 5 of 9 
+4  
+Timing diagrams  
+Input timing pattern  
+When the reset  signal is asserted, valid input data should be on the input signals and keep 
+valid until the computation term ination. The input data is captured at the moment when 
+the rising edge of the clk signal meets the high value of the reset  signal  as shown by the 
+blue arrow in Figure 1.  
+ 
+Figure 1: Input timing pattern  
+Output timing pattern  
+ 
+clk 
+ ese  
+x  
+y  
+x  
+y  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+   
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+  
+  
+ XXXXXX  
+ Valid input data  
+clk 
+  ne  
+ u  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
+ XXXXXX  
+ Valid output data   OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 6 of 9 
+Figure 2 : Output timing pattern  
+  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 7 of 9 
+5  
+FPGA Implementation  
+The core has only been verified  on a Xilinx Virtex 4 XC4VLX200  FPGA. For this setup 
+related configuration files is in the directory synthesis/xilinx .  
+The code is vendor independent in Verilog 2001.  
+Synthesis results on Xilinx Virtex 4 XC4VLX200 -11FF1513 , synthesized  with Xilinx 
+ISE 13.3:  
+- Number of occupied slices:  30,149  
+- Number of 4 input LUTs:  47,083  
+- Number of flip -flops:   31,383  
+- Minimal  period:    7.632 ns  
+- Max achiev able frequency :  131 MHz  
+The number of clock cycles for one Tate pairing is 75,839. It means the core computes 
+one Tate pairing in 0.76 milliseconds if with a 100MHz  clock.  
+  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 8 of 9 
+6  
+Test bench  
+The file “testbench /simulation.do”  is a batch file for Model Sim to compile the HDL 
+files, setup the wave file, and begin function simulation. In order to make it work 
+properly, t he working directory of Model Sim must be the directory of “testbench ”. 
+The file “testbench /test_tate_pairing.v”  is the main test bench for the  Tate Bilinear 
+Pairing core. The test bench is self -checked. It feeds input data to the core and compares 
+the correct result with the output of the core. If the output is wrong, the test bench will 
+display an error message.  
+If the function of the core is w rong, s ome other self-checking test bench es in the 
+“testbench ” directory  may help . The  object of each test bench  is listed in the table below.  
+Table 2:  the object being tested by each test bench  
+File name  the object being tested  
+test_f3_*.v  arithmetic modules  in   ( ), i.e. addition, negation, 
+multiplication  
+test_f3 m_*.v arithmetic modules  in   (  ), i.e. cubic, multiplication, 
+inversion  
+test_f32m_*.v  multiplication  module  in   (   ) 
+test_f33m_*.v  multiplication and inversion  module  in   (   ) 
+test_f36m*.v  multiplication and cubic module in   (   ) 
+test_duursma_lee_algo.v  module running Modified Duursma Lee algorithm  
+test_second_part.v  module raising   to the power     
+test_tate_pairing.v  the outer most core  
+  OpenCores  Tate Bilinear Pairing Core Speci fications  3/4/2012  
+ 
+ 
+www.opencores.org  Rev 0. 1 9 of 9 
+7  
+References  
+[1] I. Duursma, H.S. Lee. Tate pairing implementation for hyper -elliptic curves     
+      . 
+[2] T. Kerins , W. P. Marnane , E. M. Popovici , and P.S.L.M. Barreto . Efficient hardware 
+for the Tate pairing  calculation in characteristic three . 
+ 

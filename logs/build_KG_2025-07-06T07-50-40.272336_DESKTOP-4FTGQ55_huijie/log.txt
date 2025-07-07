@@ -1,0 +1,35 @@
+Derived base directory: C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec
+Step 1: Processing input file(s)
+Cleaned up input folder: C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec\graph_rag_i2c\input
+PDF Statistics for i2c.pdf:
+  Pages: 18
+  File size: 0.20 MB
+  Word count: 3480
+  Token count: 5436
+Step 2: Initializing GraphRAG
+graphrag init --root C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec\graph_rag_i2c
+GraphRAG Initialization Output:
+Initializing project at 
+C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec\graph_rag_i2c
+
+Step 3: Updating .env file
+Copied .env from C:\Users\huijie\Desktop\AssertionForge/rag_apb/.env to C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec\graph_rag_i2c
+Step 4: Updating settings.yaml file
+Copied settings.yaml from C:\Users\huijie\Desktop\AssertionForge/rag_apb/settings.yaml to C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec\graph_rag_i2c
+Step 5: Copying entity extraction prompt
+Copied entity extraction prompt from C:\Users\huijie\Desktop\AssertionForge/rag_apb/extract_graph.txt to C:\Users\huijie\Desktop\AssertionForge\design\i2c\spec\graph_rag_i2c\prompts\extract_graph.txt
+Process completed successfully
+Timer log ***********************************************************
+Total duration 2.259 secs
+create_directory_structure       : 5.131 msecs (0.23%)
+clean_input_folder               : 0.000 msecs (0.00%)
+process_files                    : 613.225 msecs (27.14%)
+initialize_graphrag              : 1.626 secs (71.95%)
+Updating .env file               : 11.163 msecs (0.49%)
+Updating settings.yaml file      : 1.387 msecs (0.06%)
+Copying entity extraction prompt : 2.844 msecs (0.13%)
+run_graphrag_index               : 0.000 msecs (0.00%)
+Timer log ***********************************************************
+Total time: 2.260 secs; Total number of files: 4; Total folder size: 18.76 KiB
+C:\Users\huijie\Desktop\AssertionForge\logs\build_KG_2025-07-06T07-50-40.272336_DESKTOP-4FTGQ55_huijie
+build_KG_2025-07-06T07-50-40.272336_DESKTOP-4FTGQ55_huijie

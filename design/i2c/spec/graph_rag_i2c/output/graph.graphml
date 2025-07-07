@@ -1,0 +1,289 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="RICHARD HERVEILLE" />
+    <node id="I2C-MASTER CORE SPECIFICATION" />
+    <node id="OPENCORES" />
+    <node id="PHILIPS" />
+    <node id="JULY 3, 2003" />
+    <node id="WISHBONE" />
+    <node id="I2C" />
+    <node id="ARST_LVL" />
+    <node id="WB_CLK_I" />
+    <node id="WB_RST_I" />
+    <node id="ARST_I" />
+    <node id="WB_ADR_I" />
+    <node id="WB_DAT_I" />
+    <node id="WB_DAT_O" />
+    <node id="WB_WE_I" />
+    <node id="WB_STB_I" />
+    <node id="WB_CYC_I" />
+    <node id="WB_ACK_O" />
+    <node id="WB_INTA_O" />
+    <node id="I2C-MASTER CORE" />
+    <node id="SCL" />
+    <node id="SDA" />
+    <node id="PRERLO" />
+    <node id="PRERHI" />
+    <node id="CTR" />
+    <node id="TXR" />
+    <node id="RXR" />
+    <node id="CR" />
+    <node id="SR" />
+    <node id="SCL_PAD_I" />
+    <node id="SCL_PAD_O" />
+    <node id="SCL_PAD_OE" />
+    <node id="SDA_PAD_I" />
+    <node id="SDA_PAD_O" />
+    <node id="SDA_PAD_OE" />
+    <node id="VHDL" />
+    <node id="VERILOG" />
+    <node id="FPGA" />
+    <node id="I2C PROTOCOL" />
+    <node id="COMMAND REGISTER" />
+    <node id="STATUS REGISTER" />
+    <node id="START SIGNAL" />
+    <node id="STOP SIGNAL" />
+    <node id="REPEATED START" />
+    <node id="CLOCK GENERATOR" />
+    <node id="TRANSMIT REGISTER" />
+    <node id="BYTE COMMAND CONTROLLER" />
+    <node id="RECEIVE REGISTER" />
+    <node id="WR BIT" />
+    <node id="RD BIT" />
+    <node id="TIP FLAG" />
+    <node id="BIT COMMAND CONTROLLER" />
+    <node id="IF FLAG" />
+    <node id="DATAIO SHIFT REGISTER" />
+    <node id="SYNPLIFY PRO" />
+    <node id="ACTEL A54SX16ATQ100" />
+    <node id="ALTERA EP10K50ETC144" />
+    <node id="XILINX 2S15CS144" />
+    <node id="INTERRUPT SERVICE ROUTINE" />
+    <edge source="RICHARD HERVEILLE" target="I2C-MASTER CORE SPECIFICATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="RICHARD HERVEILLE" target="OPENCORES">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE SPECIFICATION" target="PHILIPS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE SPECIFICATION" target="JULY 3, 2003">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE SPECIFICATION" target="WISHBONE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE SPECIFICATION" target="I2C">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE SPECIFICATION" target="ARST_LVL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="OPENCORES" target="I2C-MASTER CORE">
+      <data key="d0">63.0</data>
+    </edge>
+    <edge source="PHILIPS" target="I2C-MASTER CORE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_CLK_I">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_RST_I">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="WISHBONE" target="ARST_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_ADR_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_DAT_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_DAT_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_WE_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_STB_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_CYC_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_ACK_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WISHBONE" target="WB_INTA_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="WB_CLK_I" target="I2C-MASTER CORE">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="WB_RST_I" target="I2C-MASTER CORE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ARST_I" target="I2C-MASTER CORE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SCL">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SDA">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="PRERLO">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="PRERHI">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="CTR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="TXR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="RXR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="CR">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SR">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SCL_PAD_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SCL_PAD_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SCL_PAD_OE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SDA_PAD_I">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SDA_PAD_O">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SDA_PAD_OE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="VHDL">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="VERILOG">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="FPGA">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="I2C PROTOCOL">
+      <data key="d0">17.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="COMMAND REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="STATUS REGISTER">
+      <data key="d0">16.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="START SIGNAL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="STOP SIGNAL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="REPEATED START">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="BYTE COMMAND CONTROLLER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="BIT COMMAND CONTROLLER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="SYNPLIFY PRO">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="ACTEL A54SX16ATQ100">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="ALTERA EP10K50ETC144">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="XILINX 2S15CS144">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="TRANSMIT REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="I2C-MASTER CORE" target="INTERRUPT SERVICE ROUTINE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="SCL" target="I2C PROTOCOL">
+      <data key="d0">10.0</data>
+    </edge>
+    <edge source="SCL" target="CLOCK GENERATOR">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SCL" target="BIT COMMAND CONTROLLER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="SDA" target="I2C PROTOCOL">
+      <data key="d0">18.0</data>
+    </edge>
+    <edge source="SDA" target="BIT COMMAND CONTROLLER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="I2C PROTOCOL" target="START SIGNAL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="I2C PROTOCOL" target="STOP SIGNAL">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="COMMAND REGISTER" target="START SIGNAL">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="COMMAND REGISTER" target="STOP SIGNAL">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="COMMAND REGISTER" target="BYTE COMMAND CONTROLLER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="COMMAND REGISTER" target="WR BIT">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="COMMAND REGISTER" target="RD BIT">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="STATUS REGISTER" target="BYTE COMMAND CONTROLLER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TRANSMIT REGISTER" target="BYTE COMMAND CONTROLLER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="TRANSMIT REGISTER" target="DATAIO SHIFT REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="BYTE COMMAND CONTROLLER" target="RECEIVE REGISTER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="BYTE COMMAND CONTROLLER" target="BIT COMMAND CONTROLLER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="RECEIVE REGISTER" target="DATAIO SHIFT REGISTER">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="TIP FLAG" target="BIT COMMAND CONTROLLER">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="BIT COMMAND CONTROLLER" target="IF FLAG">
+      <data key="d0">9.0</data>
+    </edge>
+  </graph>
+</graphml>

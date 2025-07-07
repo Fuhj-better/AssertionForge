@@ -346,7 +346,7 @@ def copy_entity_extraction_prompt(graph_rag_dir):
     graph_rag_dir (str): Path to the GraphRAG directory
     """
     source_path = FLAGS.entity_extraction_prompt_source_path
-    destination_path = os.path.join(graph_rag_dir, 'prompts', 'entity_extraction.txt')
+    destination_path = os.path.join(graph_rag_dir, 'prompts', 'extract_graph.txt')
 
     # Ensure the prompts directory exists
     os.makedirs(os.path.dirname(destination_path), exist_ok=True)

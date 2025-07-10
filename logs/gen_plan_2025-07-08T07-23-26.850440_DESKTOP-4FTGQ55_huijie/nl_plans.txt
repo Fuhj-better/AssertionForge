@@ -1,0 +1,412 @@
+Signal clock:
+Plan 1: clock: that the 'int_address' signal remains stable for at least 2 clock cycles after 'int_write' is asserted high, using the signals 'clock', 'int_address', and 'int_write'.
+Plan 2: clock: that the 'int_rd_data' signal is valid and stable within 3 clock cycles after 'int_read' is asserted high, using the signals 'clock', 'int_rd_data', and 'int_read'.
+Plan 3: clock: that the 'ser_out' signal transitions only on the rising edge of 'clock' when 'tx_busy' is high, using the signals 'clock', 'ser_out', and 'tx_busy'.
+Plan 4: clock: that the 'int_req' signal is deasserted within 5 clock cycles after 'int_gnt' is asserted high, using the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 5: clock: that the 'ser_in' signal is sampled correctly on the rising edge of 'clock' when not in 'reset', using the signals 'clock', 'ser_in', and 'reset'.
+Plan 6: clock: that the 'int_wr_data' signal is stable for at least 1 clock cycle before and after 'int_write' is asserted high, using the signals 'clock', 'int_wr_data', and 'int_write'.
+Plan 7: clock: that the 'reset' signal asynchronously clears 'int_address' and 'int_wr_data' regardless of the 'clock' state, using the signals 'clock', 'reset', 'int_address', and 'int_wr_data'.
+Plan 8: clock: that the 'int_read' signal remains high for exactly 1 clock cycle per transaction, using the signals 'clock' and 'int_read'.
+Plan 9: clock: that the 'ser_out' signal remains idle (high) for at least 2 clock cycles after 'tx_busy' goes low, using the signals 'clock', 'ser_out', and 'tx_busy'.
+Plan 10: clock: that the 'int_write' signal is never asserted high for more than 1 clock cycle consecutively, using the signals 'clock' and 'int_write'.
+Plan 11: clock: that when 'int_write' is asserted high, it remains valid for only a single clock cycle, as observed on the rising edge of 'clock'. Use the signals 'clock' and 'int_write'.
+Plan 12: clock: that the 'int_read' signal, when asserted high, is only valid for a single clock cycle, verified on the rising edge of 'clock'. Use the signals 'clock' and 'int_read'.
+Plan 13: clock: that after 'reset' is deasserted (low), 'ser_out' stabilizes within 5 clock cycles, observed on the rising edge of 'clock'. Use the signals 'clock', 'reset', and 'ser_out'.
+Plan 14: clock: that when 'ser_in' transitions from low to high, 'int_rd_data' becomes stable within 3 clock cycles, verified on the rising edge of 'clock'. Use the signals 'clock', 'ser_in', and 'int_rd_data'.
+Plan 15: clock: that 'int_address' remains stable for at least 2 clock cycles after 'int_req' is asserted high, observed on the rising edge of 'clock'. Use the signals 'clock', 'int_req', and 'int_address'.
+Plan 16: clock: that 'int_wr_data' does not change during the clock cycle when 'int_write' is asserted high, verified on the rising edge of 'clock'. Use the signals 'clock', 'int_write', and 'int_wr_data'.
+Plan 17: clock: that when 'reset' is asserted high (active), 'ser_out' remains low for the duration of reset and for 2 clock cycles after deassertion, observed on the rising edge of 'clock'. Use the signals 'clock', 'reset', and 'ser_out'.
+Plan 18: clock: that 'int_gnt' responds to 'int_req' within 4 clock cycles, verified on the rising edge of 'clock'. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 19: that when 'int_write' is asserted high, it remains valid for only one clock cycle. Use the signals 'clock' and 'int_write'.
+Plan 20: that the 'int_read' signal is asserted high for only one clock cycle when active. Use the signals 'clock' and 'int_read'.
+Plan 21: that the 'int_address' signal remains stable for at least one clock cycle after 'int_write' or 'int_read' is asserted. Use the signals 'clock', 'int_address', 'int_write', and 'int_read'.
+Plan 22: that the 'ser_out' signal transitions only on the rising edge of 'clock' when 'tx_busy' is active. Use the signals 'clock', 'ser_out', and 'tx_busy'.
+Plan 23: that the 'ser_in' signal is sampled on the rising edge of 'clock' when the UART receiver is active. Use the signals 'clock' and 'ser_in'.
+Plan 24: that the 'int_wr_data' signal is stable for at least one clock cycle after 'int_write' is asserted. Use the signals 'clock', 'int_wr_data', and 'int_write'.
+Plan 25: that the 'int_rd_data' signal is valid within one clock cycle after 'int_read' is asserted. Use the signals 'clock', 'int_rd_data', and 'int_read'.
+Plan 26: that the 'reset' signal asynchronously clears all outputs regardless of the 'clock' state. Use the signals 'clock', 'reset', 'ser_out', 'int_address', 'int_wr_data', 'int_write', and 'int_read'.
+Plan 27: that the 'int_req' signal is synchronized to the rising edge of 'clock' before being processed. Use the signals 'clock' and 'int_req'.
+Plan 28: that the 'int_gnt' signal is asserted within two clock cycles after 'int_req' is raised. Use the signals 'clock', 'int_req', and 'int_gnt'.
+
+Signal int_address:
+Plan 29: int_address: that when reset is asserted, int_address is set to 0 on the next clock edge. Use the signals 'reset' and 'clock'.
+Plan 30: int_address: that when main_sm is in MAIN_ADDR state, new_rx_data is high, and data_in_hex_range is low, int_address is updated to addr_param[AW-1:0] on the next clock edge. Use the signals 'clock', 'main_sm', 'new_rx_data', and 'data_in_hex_range'.
+Plan 31: int_address: that when main_sm is in MAIN_BIN_LEN state and new_rx_data is high, int_address is updated to addr_param[AW-1:0] on the next clock edge. Use the signals 'clock', 'main_sm', and 'new_rx_data'.
+Plan 32: int_address: that when addr_auto_inc is enabled and a bin_read_op completes (tx_end_p high) without being the last byte (bin_last_byte low), int_address increments by 1 on the next clock edge. Use the signals 'clock', 'addr_auto_inc', 'bin_read_op', 'tx_end_p', and 'bin_last_byte'.
+Plan 33: int_address: that when addr_auto_inc is enabled and a bin_write_op occurs (int_write high), int_address increments by 1 on the next clock edge. Use the signals 'clock', 'addr_auto_inc', 'bin_write_op', and 'int_write'.
+Plan 34: int_address: that int_address remains stable when neither reset, address update, nor auto-increment conditions are met. Use the signals 'clock' and 'reset'.
+Plan 35: int_address: that after reset is deasserted, int_address holds its value until a valid update condition occurs. Use the signals 'clock' and 'reset'.
+Plan 36: int_address: that int_address does not increment during a bin_read_op if addr_auto_inc is disabled. Use the signals 'clock', 'addr_auto_inc', 'bin_read_op', and 'tx_end_p'.
+Plan 37: int_address: that int_address does not increment during a bin_write_op if addr_auto_inc is disabled. Use the signals 'clock', 'addr_auto_inc', 'bin_write_op', and 'int_write'.
+Plan 38: int_address: that when 'reset' is asserted, 'int_address' is set to 0 on the next clock edge. Use the signals 'reset' and 'clock'.
+Plan 39: int_address: that when 'main_sm' is in state `MAIN_ADDR`, 'new_rx_data' is high, and 'data_in_hex_range' is low, 'int_address' takes the value of 'addr_param[AW-1:0]' on the next clock edge. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 40: int_address: that when 'main_sm' is in state `MAIN_BIN_LEN` and 'new_rx_data' is high, 'int_address' is updated to 'addr_param[AW-1:0]' on the next clock edge. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 41: int_address: that 'int_address' retains its previous value when neither reset nor the conditions for address update are met. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 42: int_address: that 'int_address' remains stable across clock cycles when 'new_rx_data' is low, regardless of the 'main_sm' state. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 43: int_address: that 'int_address' does not update during reset, even if 'new_rx_data' or state conditions are met. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 44: int_address: that 'int_address' updates to 'addr_param[AW-1:0]' only on the clock edge following the condition where 'main_sm' is `MAIN_ADDR`, 'new_rx_data' is high, and 'data_in_hex_range' is low. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 45: int_address: that 'int_address' does not change when 'main_sm' is not in `MAIN_ADDR` or `MAIN_BIN_LEN` states, even if 'new_rx_data' is high. Use the signals 'clock', 'reset', and 'int_address'.
+Plan 46: int_address: that when the reset signal is asserted, int_address is cleared to 0 on the next clock edge. Use the signals 'reset' and 'clock'.
+Plan 47: int_address: that when the state machine is in MAIN_ADDR, new_rx_data is high, and data_in_hex_range is low, int_address is updated with addr_param[AW-1:0] on the next clock edge. Use the signals 'main_sm', 'new_rx_data', 'data_in_hex_range', 'clock', and 'int_address'.
+Plan 48: int_address: that when the state machine is in MAIN_BIN_LEN and new_rx_data is high, int_address is updated with addr_param[AW-1:0] on the next clock edge. Use the signals 'main_sm', 'new_rx_data', 'clock', and 'int_address'.
+Plan 49: int_address: that int_address retains its value when neither reset is asserted nor the state machine is in MAIN_ADDR or MAIN_BIN_LEN with new_rx_data high. Use the signals 'reset', 'main_sm', 'new_rx_data', 'clock', and 'int_address'.
+Plan 50: int_address: that int_address does not change when new_rx_data is low in the MAIN_ADDR state. Use the signals 'main_sm', 'new_rx_data', 'clock', and 'int_address'.
+Plan 51: int_address: that int_address remains stable when data_in_hex_range is high in the MAIN_ADDR state with new_rx_data high. Use the signals 'main_sm', 'new_rx_data', 'data_in_hex_range', 'clock', and 'int_address'.
+
+Signal int_gnt:
+Plan 52: int_gnt: that when 'int_req' is asserted and 'reset' is deasserted, 'int_gnt' is asserted within 3 clock cycles of 'int_req' being high. Use the signals 'clock', 'reset', 'int_req', and 'int_gnt'.
+Plan 53: int_gnt: that 'int_gnt' remains deasserted while 'reset' is asserted, regardless of 'int_req' state. Use the signals 'reset', 'int_req', and 'int_gnt'.
+Plan 54: int_gnt: that when 'int_gnt' is asserted, 'int_write' or 'int_read' is asserted in the same clock cycle. Use the signals 'clock', 'int_gnt', 'int_write', and 'int_read'.
+Plan 55: int_gnt: that 'int_gnt' is deasserted within 1 clock cycle after 'int_req' is deasserted. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 56: int_gnt: that 'int_gnt' is never asserted simultaneously with 'reset' being asserted. Use the signals 'reset' and 'int_gnt'.
+Plan 57: int_gnt: that when 'int_req' is held asserted for 5 clock cycles, 'int_gnt' is asserted at least once during that period (assuming no reset). Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 58: int_gnt: that 'int_gnt' remains stable (does not toggle) between clock edges when 'int_req' is stable. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 59: int_gnt: that 'int_gnt' is deasserted during the first clock cycle after reset is deasserted. Use the signals 'clock', 'reset', and 'int_gnt'.
+Plan 60: int_gnt: that when 'int_read' is asserted, 'int_gnt' remains asserted until 'int_read' is deasserted. Use the signals 'clock', 'int_gnt', and 'int_read'.
+Plan 61: int_gnt: that 'int_gnt' is never asserted when 'int_wr_data' is all zeros unless 'int_req' is also asserted. Use the signals 'int_gnt', 'int_wr_data', and 'int_req'.
+Plan 62: int_gnt: that 'int_gnt' transitions from asserted to deasserted only on clock edges. Use the signals 'clock' and 'int_gnt'.
+Plan 63: int_gnt: that 'int_gnt' is never asserted for more than 8 consecutive clock cycles. Use the signals 'clock' and 'int_gnt'.
+Plan 64: int_gnt: that when 'int_req' is asserted and 'reset' is deasserted, 'int_gnt' is asserted within 2 clock cycles of 'int_req' being high. Use the signals 'clock', 'reset', 'int_req', and 'int_gnt'.
+Plan 65: int_gnt: that 'int_gnt' remains deasserted when 'reset' is asserted, regardless of the state of 'int_req'. Use the signals 'clock', 'reset', 'int_req', and 'int_gnt'.
+Plan 66: int_gnt: that 'int_gnt' is deasserted in the clock cycle immediately following the deassertion of 'int_req'. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 67: int_gnt: that when 'int_read' or 'int_write' is asserted while 'int_gnt' is high, 'int_gnt' remains asserted for at least 2 more clock cycles. Use the signals 'clock', 'int_read', 'int_write', and 'int_gnt'.
+Plan 68: int_gnt: that 'int_gnt' is never asserted simultaneously with 'reset' being asserted. Use the signals 'clock', 'reset', and 'int_gnt'.
+Plan 69: int_gnt: that when 'int_gnt' is asserted, 'int_rd_data' becomes valid within 3 clock cycles if 'int_read' is high. Use the signals 'clock', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 70: int_gnt: that 'int_gnt' is never asserted for more than 8 consecutive clock cycles when 'int_req' remains high. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 71: int_gnt: that when 'int_address' changes while 'int_gnt' is high, 'int_gnt' remains asserted for at least one more clock cycle. Use the signals 'clock', 'int_address', and 'int_gnt'.
+Plan 72: int_gnt: that 'int_gnt' is deasserted within 1 clock cycle when 'reset' transitions from low to high. Use the signals 'clock', 'reset', and 'int_gnt'.
+Plan 73: int_gnt: that when 'int_wr_data' changes while 'int_gnt' is high and 'int_write' is asserted, 'int_gnt' remains stable for at least 2 clock cycles. Use the signals 'clock', 'int_gnt', 'int_write', and 'int_wr_data'.
+Plan 74: int_gnt: that when 'int_req' is asserted and 'reset' is deasserted, 'int_gnt' is asserted within 3 clock cycles of 'clock'.
+Plan 75: int_gnt: that 'int_gnt' remains deasserted while 'reset' is asserted, regardless of 'int_req' or other signals.
+Plan 76: int_gnt: that 'int_gnt' is deasserted in the same cycle 'int_read' or 'int_write' is deasserted, verified using 'clock'.
+Plan 77: int_gnt: that when 'int_req' is deasserted, 'int_gnt' is deasserted within 1 clock cycle of 'clock'.
+Plan 78: int_gnt: that 'int_gnt' is never asserted simultaneously with 'reset' being asserted.
+Plan 79: int_gnt: that 'int_gnt' remains stable (no glitches) between clock edges when 'int_req' is stable, verified using 'clock'.
+Plan 80: int_gnt: that 'int_gnt' is only asserted when 'int_req' is asserted and 'int_read' or 'int_write' is asserted, checked across 5 'clock' cycles.
+Plan 81: int_gnt: that 'int_gnt' transitions from asserted to deasserted within 2 clock cycles of 'int_req' transitioning low, monitored using 'clock'.
+Plan 82: int_gnt: that 'int_gnt' is never asserted when 'int_address' changes value during the same 'clock' cycle.
+Plan 83: int_gnt: that 'int_gnt' asserts within 4 clock cycles after 'int_req' is asserted, provided 'reset' remains deasserted.
+
+Signal int_rd_data:
+Plan 84: int_rd_data: that when int_rd_data is read (int_read asserted and int_gnt granted), its value remains stable for at least one clock cycle after int_read is deasserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 85: int_rd_data: that int_rd_data is only valid when int_gnt is asserted and int_read is active. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 86: int_rd_data: that int_rd_data remains at zero during reset. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 87: int_rd_data: that int_rd_data does not change when int_read is deasserted, even if int_gnt is granted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 88: int_rd_data: that int_rd_data is updated within two clock cycles after int_read is asserted and int_gnt is granted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 89: int_rd_data: that int_rd_data holds its previous value when int_req is asserted but int_gnt is not granted. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_rd_data'.
+Plan 90: int_rd_data: that int_rd_data transitions to a non-zero value only after int_read is asserted and int_gnt is granted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 91: int_rd_data: that int_rd_data is not driven (high impedance) when neither int_read nor int_write is active. Use the signals 'clock', 'int_read', 'int_write', and 'int_rd_data'.
+Plan 92: int_rd_data: that int_rd_data remains stable for at least three clock cycles after int_read is deasserted, provided no new read request occurs. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 93: int_rd_data: that int_rd_data changes only on the rising edge of the clock when int_read and int_gnt are both active. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 94: int_rd_data: that int_rd_data is zero during the first clock cycle after reset is deasserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 95: int_rd_data: that int_rd_data does not glitch or change unexpectedly when int_req is toggled without int_gnt being granted. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_rd_data'.
+Plan 96: int_rd_data: that int_rd_data is always an 8-bit value (0x00 to 0xFF) when read. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 97: int_rd_data: that int_rd_data remains unchanged if int_gnt is revoked (deasserted) during a read operation. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 98: int_rd_data: that int_rd_data is only driven when int_gnt is asserted, regardless of int_req state. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_rd_data'.
+Plan 99: int_rd_data: that int_rd_data does not update when int_write is active, even if int_read is also asserted. Use the signals 'clock', 'int_read', 'int_write', 'int_gnt', and 'int_rd_data'.
+Plan 100: int_rd_data: that int_rd_data is stable for at least one clock cycle before int_read is deasserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 101: int_rd_data: that int_rd_data transitions to zero within one clock cycle after reset is asserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 102: int_rd_data: that int_rd_data does not change when ser_in or ser_out are toggled, unless a read operation is in progress. Use the signals 'clock', 'ser_in', 'ser_out', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 103: int_rd_data: that int_rd_data updates synchronously with the clock edge when int_read and int_gnt are both high. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 104: int_rd_data: that int_rd_data is not affected by changes in int_wr_data, even when int_write is active. Use the signals 'clock', 'int_write', 'int_wr_data', and 'int_rd_data'.
+Plan 105: int_rd_data: that int_rd_data is only driven by the module when int_gnt is high, otherwise it should be high impedance. Use the signals 'clock', 'int_gnt', and 'int_rd_data'.
+Plan 106: int_rd_data: that int_rd_data does not update if int_address changes during a read operation. Use the signals 'clock', 'int_read', 'int_gnt', 'int_address', and 'int_rd_data'.
+Plan 107: int_rd_data: that int_rd_data remains at its last valid value if int_gnt is deasserted during a read operation. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 108: int_rd_data: that int_rd_data is stable for at least two clock cycles after int_gnt is deasserted. Use the signals 'clock', 'int_gnt', and 'int_rd_data'.
+Plan 109: int_rd_data: that int_rd_data does not glitch when reset is asynchronously asserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 110: int_rd_data: that int_rd_data updates only once per read transaction, even if int_read remains asserted for multiple cycles. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 111: int_rd_data: that int_rd_data is always zero when reset is active, regardless of other control signals. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 112: int_rd_data: that int_rd_data does not change when int_write is toggled without int_read being active. Use the signals 'clock', 'int_write', 'int_read', and 'int_rd_data'.
+Plan 113: int_rd_data: that int_rd_data is only updated on the clock edge where both int_read and int_gnt are first asserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 114: int_rd_data: that int_rd_data remains unchanged if int_req is deasserted mid-transaction. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_rd_data'.
+Plan 115: int_rd_data: that int_rd_data does not update if int_read is asserted but int_gnt is never granted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 116: int_rd_data: that int_rd_data holds its value indefinitely if no new read operations are initiated. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 117: int_rd_data: that int_rd_data transitions smoothly (no glitches) between valid read operations. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 118: int_rd_data: that int_rd_data is not affected by ser_in transitions unless a read operation is in progress. Use the signals 'clock', 'ser_in', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 119: int_rd_data: that int_rd_data is never driven when reset is active. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 120: int_rd_data: that int_rd_data updates only after int_gnt is asserted, not just when int_read is asserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 121: int_rd_data: that int_rd_data does not update when int_write is active, even if int_gnt is granted. Use the signals 'clock', 'int_write', 'int_gnt', and 'int_rd_data'.
+Plan 122: int_rd_data: that int_rd_data remains at zero if no read operation has ever occurred. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 123: int_rd_data: that int_rd_data is only valid for one clock cycle after int_read and int_gnt are both deasserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 124: int_rd_data: that int_rd_data does not change when ser_out is toggled, regardless of read operations. Use the signals 'clock', 'ser_out', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 125: int_rd_data: that int_rd_data is updated no later than the second clock edge after int_read and int_gnt are both asserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 126: int_rd_data: that int_rd_data is not affected by int_address changes unless a read operation is active. Use the signals 'clock', 'int_address', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 127: int_rd_data: that int_rd_data remains stable if int_gnt is held high but int_read is toggled. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 128: int_rd_data: that int_rd_data does not update when only int_req is active without int_gnt. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_rd_data'.
+Plan 129: int_rd_data: that int_rd_data is zero during the first clock cycle after power-on (before reset is deasserted). Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 130: int_rd_data: that int_rd_data does not change when int_wr_data is updated mid-read. Use the signals 'clock', 'int_wr_data', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 131: int_rd_data: that int_rd_data is not affected by ser_in unless a read operation is explicitly initiated. Use the signals 'clock', 'ser_in', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 132: int_rd_data: that int_rd_data remains unchanged if int_read is pulsed without int_gnt being granted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 133: int_rd_data: that int_rd_data is only driven when both int_read and int_gnt are high, otherwise high impedance. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 134: int_rd_data: that int_rd_data does not glitch when int_gnt is asynchronously deasserted. Use the signals 'clock', 'int_gnt', and 'int_rd_data'.
+Plan 135: int_rd_data: that int_rd_data is stable for at least one full clock cycle after int_read is deasserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 136: int_rd_data: that int_rd_data updates synchronously even if int_req is deasserted after int_gnt is granted. Use the signals 'clock', 'int_req', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 137: int_rd_data: that int_rd_data is not affected by changes in ser_out during a read operation. Use the signals 'clock', 'ser_out', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 138: int_rd_data: that int_rd_data is zero when reset is asserted, regardless of other control signals. Use the signals 'reset', 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 139: int_rd_data: that int_rd_data does not update when int_write is active, even if int_read is also high. Use the signals 'clock', 'int_write', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 140: int_rd_data: that int_rd_data is not affected by int_address unless a read is in progress. Use the signals 'clock', 'int_address', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 141: int_rd_data: that int_rd_data is always driven to zero during reset, overriding any read operations. Use the signals 'reset', 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 142: int_rd_data: that int_rd_data does not change when ser_in is toggled unless a read is active. Use the signals 'clock', 'ser_in', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 143: int_rd_data: that int_rd_data remains stable if int_gnt is held high but int_read is pulsed. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 144: int_rd_data: that int_rd_data is only updated once per int_read assertion, even if int_gnt is held high. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 145: int_rd_data: that int_rd_data does not update if int_req is deasserted before int_gnt is granted. Use the signals 'clock', 'int_req', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 146: int_rd_data: that int_rd_data is never driven when int_gnt is low, regardless of int_read state. Use the signals 'clock', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 147: int_rd_data: that int_rd_data transitions to zero within one clock cycle if reset is asserted mid-read. Use the signals 'reset', 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 148: int_rd_data: that int_rd_data does not change when int_wr_data is updated unless a write is active. Use the signals 'clock', 'int_wr_data', 'int_write', and 'int_rd_data'.
+Plan 149: int_rd_data: that int_rd_data is not affected by ser_out transitions during idle states. Use the signals 'clock', 'ser_out', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 150: int_rd_data: that int_rd_data is only valid on the clock edge where int_read and int_gnt are both high. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 151: int_rd_data: that int_rd_data holds its value if int_gnt is revoked before int_read is deasserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 152: int_rd_data: that int_rd_data does not glitch when int_read is asynchronously deasserted. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 153: int_rd_data: that int_rd_data is zero until the first successful read operation after reset. Use the signals 'reset', 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 154: int_rd_data: that int_rd_data does not update when ser_in changes unless a read is in progress. Use the signals 'clock', 'ser_in', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 155: int_rd_data: that int_rd_data is not affected by int_write pulses during idle states. Use the signals 'clock', 'int_write', 'int_read', and 'int_rd_data'.
+Plan 156: int_rd_data: that int_rd_data remains stable when int_address changes unless int_read is active. Use the signals 'clock', 'int_address', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 157: int_rd_data: that int_rd_data is only driven when both int_read and int_gnt are asserted, otherwise high-Z. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 158: int_rd_data: that int_rd_data does not change when int_req is toggled without int_gnt being granted. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_rd_data'.
+Plan 159: int_rd_data: that int_rd_data is zero during reset, overriding any ongoing read operations. Use the signals 'reset', 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 160: int_rd_data: that int_rd_data does not update when ser_out is toggled during a read operation. Use the signals 'clock', 'ser_out', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 161: int_rd_data: that int_rd_data is not affected by int_wr_data changes unless int_write is active. Use the signals 'clock', 'int_wr_data', 'int_write', and 'int_rd_data'.
+Plan 162: int_rd_data: that int_rd_data remains stable for at least one clock cycle after int_gnt is deasserted. Use the signals 'clock', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 163: int_rd_data: that int_rd_data is only updated on the clock edge where int
+Plan 164: that when 'int_rd_data' is within the range of 0 to 127, in the next clock cycle 'int_rd_data' will remain within the range of 0 to 255. Use the signals 'clock' for the clock edge and 'int_rd_data' for the data being checked.
+Plan 165: that the input data 'int_rd_data' is within the valid range (0 to 255) when not in reset. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 166: that if 'int_rd_data' is within the range of 128 to 255 inclusive, then in the subsequent cycles, 'int_rd_data' must continue to be within the range of 64 to 255 inclusive. Use the signals 'int_rd_data' and 'clock'.
+Plan 167: that 'int_rd_data' has a value between 0 and 255, inclusive, 2 clock cycles after the reset signal 'reset' becomes deasserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 168: that the input data signal 'int_rd_data' is within the range 0 to 63 inclusive, starting from three clock cycles after the reset signal 'reset' becomes deasserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 169: that when 'int_read' is asserted and 'int_gnt' is high, 'int_rd_data' must stabilize to a valid value (0 to 255) within one clock cycle. Use the signals 'int_read', 'int_gnt', 'clock', and 'int_rd_data'.
+Plan 170: that if 'int_req' is high and 'int_gnt' is low, 'int_rd_data' remains in a known state (e.g., all zeros or previous valid data) until 'int_gnt' is asserted. Use the signals 'int_req', 'int_gnt', 'clock', and 'int_rd_data'.
+Plan 171: that 'int_rd_data' does not change when 'reset' is asserted, regardless of other signal transitions. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 172: that 'int_rd_data' updates only when both 'int_read' and 'int_gnt' are high and 'reset' is low. Use the signals 'int_read', 'int_gnt', 'reset', 'clock', and 'int_rd_data'.
+Plan 173: that when 'int_wr_data' is updated, 'int_rd_data' remains unaffected unless 'int_read' is active. Use the signals 'int_wr_data', 'int_read', 'clock', and 'int_rd_data'.
+Plan 174: int_rd_data: that when 'int_read' is asserted and 'int_gnt' is high, 'int_rd_data' becomes valid within 2 clock cycles. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 175: int_rd_data: that 'int_rd_data' remains stable during the entire cycle when 'int_gnt' is asserted and 'int_read' is high. Use the signals 'clock', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 176: int_rd_data: that 'int_rd_data' is driven to zero when 'reset' is asserted, regardless of 'int_read' or 'int_gnt' states. Use the signals 'reset', 'clock', 'int_rd_data', 'int_read', and 'int_gnt'.
+Plan 177: int_rd_data: that 'int_rd_data' does not change value while 'int_gnt' is deasserted, even if 'int_read' is high. Use the signals 'clock', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 178: int_rd_data: that 'int_rd_data' transitions to a non-zero value within 3 clock cycles after 'int_req' is granted ('int_gnt' goes high) and 'int_read' is active. Use the signals 'clock', 'int_req', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 179: int_rd_data: that 'int_rd_data' holds its previous value when 'int_read' is deasserted, even if 'int_gnt' remains high. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 180: int_rd_data: that 'int_rd_data' is always valid (non-X) when 'int_gnt' is high and 'int_read' is asserted for two consecutive clock cycles. Use the signals 'clock', 'int_gnt', 'int_read', and 'int_rd_data'.
+Plan 181: int_rd_data: that 'int_rd_data' does not update during reset, even if 'int_read' and 'int_gnt' are both high. Use the signals 'reset', 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 182: int_rd_data: that 'int_rd_data' matches the expected value from 'int_address' when 'int_read' is active and 'int_gnt' is asserted for at least one clock cycle. Use the signals 'clock', 'int_address', 'int_read', 'int_gnt', and 'int_rd_data'.
+Plan 183: int_rd_data: that 'int_rd_data' remains unchanged for at least one clock cycle after 'int_read' is deasserted, even if 'int_gnt' stays high. Use the signals 'clock', 'int_read', 'int_gnt', and 'int_rd_data'.
+
+Signal int_read:
+Plan 184: int_read: that 'int_read' is only asserted for a single clock cycle when 'int_req' is asserted and 'int_gnt' is granted, using the signals 'clock', 'int_read', 'int_req', and 'int_gnt'.
+Plan 185: int_read: that 'int_read' is never asserted simultaneously with 'int_write', using the signals 'int_read' and 'int_write'.
+Plan 186: int_read: that 'int_read' is only active when 'int_req' is asserted and 'int_gnt' is high, using the signals 'clock', 'int_read', 'int_req', and 'int_gnt'.
+Plan 187: int_read: that 'int_rd_data' is sampled on the clock cycle following the active 'int_read' cycle, using the signals 'clock', 'int_read', and 'int_rd_data'.
+Plan 188: int_read: that 'int_read' remains deasserted during reset, using the signals 'reset', 'clock', and 'int_read'.
+Plan 189: int_read: that 'int_read' is never asserted without a corresponding 'int_req' being asserted first, using the signals 'int_read' and 'int_req'.
+Plan 190: int_read: that 'int_read' is deasserted immediately after the clock cycle where it is active, using the signals 'clock' and 'int_read'.
+Plan 191: int_read: that 'int_read' is only asserted when 'int_address' is stable for at least one clock cycle prior, using the signals 'clock', 'int_read', and 'int_address'.
+Plan 192: int_read: that 'int_read' is never asserted when 'int_gnt' is low, using the signals 'int_read' and 'int_gnt'.
+Plan 193: int_read: that 'int_read' is not asserted consecutively for more than one clock cycle, even if 'int_req' remains asserted, using the signals 'clock', 'int_read', and 'int_req'.
+Plan 194: int_read: that the 'int_read' signal is only asserted for a single clock cycle when 'int_req' is asserted and 'int_gnt' is granted, using the signals 'clock', 'int_read', 'int_req', and 'int_gnt'.
+Plan 195: int_read: that 'int_read' is never asserted simultaneously with 'int_write', using the signals 'int_read', 'int_write', and 'clock'.
+Plan 196: int_read: that 'int_rd_data' is sampled on the clock cycle immediately following the cycle where 'int_read' is asserted, using the signals 'clock', 'int_read', and 'int_rd_data'.
+Plan 197: int_read: that 'int_read' is only asserted when 'int_req' has been granted ('int_gnt' is high), using the signals 'int_read', 'int_req', 'int_gnt', and 'clock'.
+Plan 198: int_read: that 'int_read' remains deasserted during reset ('reset' is high), using the signals 'reset', 'clock', and 'int_read'.
+Plan 199: int_read: that 'int_read' is never asserted without a corresponding valid 'int_address', using the signals 'int_read', 'int_address', and 'clock'.
+Plan 200: int_read: that 'int_read' is not asserted back-to-back in consecutive clock cycles unless 'int_req' is reasserted and 'int_gnt' is granted again, using the signals 'clock', 'int_read', 'int_req', and 'int_gnt'.
+Plan 201: int_read: that 'int_read' is never asserted when 'int_gnt' is permanently high (bus request/grant mechanism disabled), using the signals 'int_read', 'int_gnt', and 'clock'.
+Plan 202: int_read: that 'int_read' is deasserted in the same cycle that 'int_req' is deasserted, using the signals 'int_read', 'int_req', and 'clock'.
+Plan 203: int_read: that 'int_read' is only asserted when 'int_address' is stable, using the signals 'int_read', 'int_address', and 'clock'.
+Plan 204: int_read: that 'int_read' is only valid when 'int_req' is asserted and 'int_gnt' is high, using the signals 'int_read', 'int_req', and 'int_gnt'.
+Plan 205: int_read: that 'int_read' is not asserted unless 'int_address' is stable for at least one clock cycle prior, using the signals 'clock', 'int_read', and 'int_address'.
+Plan 206: int_read: that 'int_read' is never asserted when 'int_gnt' is permanently tied to logic '1' (bus request/grant disabled), using the signals 'int_read' and 'int_gnt'.
+Plan 207: int_read: that 'int_read' is only asserted after 'int_req' is asserted and before it is released, using the signals 'int_read' and 'int_req'.
+Plan 208: int_read: that 'int_read' does not trigger a new read if 'int_req' is deasserted in the same cycle, using the signals 'clock', 'int_read', and 'int_req'.
+Plan 209: int_read: that 'int_read' is never asserted back-to-back for the same 'int_address', using the signals 'clock', 'int_read', and 'int_address'.
+
+Signal int_req:
+Plan 210: int_req: that when 'int_req' is asserted, 'int_gnt' is deasserted in the same clock cycle. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 211: int_req: that 'int_req' remains deasserted for at least 2 clock cycles after 'reset' is deasserted. Use the signals 'clock', 'reset', and 'int_req'.
+Plan 212: int_req: that if 'int_req' is asserted while 'int_read' is active, 'int_gnt' is asserted within 3 clock cycles. Use the signals 'clock', 'int_req', 'int_read', and 'int_gnt'.
+Plan 213: int_req: that 'int_req' cannot be asserted simultaneously with 'int_write'. Use the signals 'clock', 'int_req', and 'int_write'.
+Plan 214: int_req: that when 'int_req' is asserted, 'int_address' remains stable until 'int_gnt' is asserted. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_address'.
+Plan 215: int_req: that 'int_req' is deasserted within 1 clock cycle after 'reset' is asserted. Use the signals 'clock', 'reset', and 'int_req'.
+Plan 216: int_req: that if 'int_req' is asserted for more than 5 consecutive clock cycles without 'int_gnt', it is automatically deasserted. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 217: int_req: that 'int_req' cannot be asserted while 'int_rd_data' is valid. Use the signals 'clock', 'int_req', and 'int_rd_data'.
+Plan 218: int_req: that when 'int_req' is asserted, 'int_wr_data' remains stable until 'int_gnt' is asserted. Use the signals 'clock', 'int_req', 'int_gnt', and 'int_wr_data'.
+Plan 219: int_req: that 'int_req' is only asserted when 'int_read' or 'int_write' is active. Use the signals 'clock', 'int_req', 'int_read', and 'int_write'.
+Plan 220: int_req: that when 'int_req' is asserted, 'int_gnt' must be asserted within 3 clock cycles, unless 'reset' is active. Use the signals 'clock', 'int_req', 'int_gnt', and 'reset'.
+Plan 221: int_req: that 'int_req' remains deasserted for at least 2 clock cycles after 'reset' is deasserted. Use the signals 'clock', 'int_req', and 'reset'.
+Plan 222: int_req: that if 'int_req' is asserted while 'int_write' or 'int_read' is active, 'int_gnt' must not be granted until the current operation completes. Use the signals 'clock', 'int_req', 'int_gnt', 'int_write', and 'int_read'.
+Plan 223: int_req: that 'int_req' cannot be asserted simultaneously with 'reset'. Use the signals 'int_req' and 'reset'.
+Plan 224: int_req: that when 'int_req' is deasserted, 'int_gnt' must be deasserted within 1 clock cycle. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 225: int_req: that 'int_req' remains stable for at least 1 clock cycle after being asserted. Use the signals 'clock' and 'int_req'.
+Plan 226: int_req: that 'int_req' is only asserted when 'int_address' has a valid non-zero value. Use the signals 'int_req' and 'int_address'.
+Plan 227: int_req: that 'int_req' is deasserted immediately when 'reset' is asserted. Use the signals 'int_req' and 'reset'.
+Plan 228: int_req: that 'int_req' cannot be reasserted within 2 clock cycles after 'int_gnt' is deasserted. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 229: int_req: that 'int_req' is never asserted when 'int_rd_data' or 'int_wr_data' is being transferred. Use the signals 'int_req', 'int_rd_data', and 'int_wr_data'.
+Plan 230: int_req: that when 'int_req' is asserted, 'int_gnt' is granted within 3 clock cycles of the request, provided 'reset' is deasserted. Use the signals 'clock', 'reset', 'int_req', and 'int_gnt'.
+Plan 231: int_req: that when 'int_req' is asserted while 'int_read' or 'int_write' is active, 'int_gnt' is granted in the same clock cycle. Use the signals 'clock', 'int_req', 'int_gnt', 'int_read', and 'int_write'.
+Plan 232: int_req: that 'int_req' cannot be asserted simultaneously with 'reset' being asserted. Use the signals 'clock', 'reset', and 'int_req'.
+Plan 233: int_req: that when 'int_req' is asserted, it remains asserted until 'int_gnt' is received, unless 'reset' occurs. Use the signals 'clock', 'reset', 'int_req', and 'int_gnt'.
+Plan 234: int_req: that 'int_req' is deasserted for at least 1 clock cycle between consecutive requests when no 'int_gnt' is received. Use the signals 'clock', 'int_req', and 'int_gnt'.
+Plan 235: int_req: that 'int_req' is never asserted when 'int_rd_data' or 'int_wr_data' is being transferred without an active 'int_read' or 'int_write'. Use the signals 'clock', 'int_req', 'int_rd_data', 'int_wr_data', 'int_read', and 'int_write'.
+Plan 236: int_req: that when 'int_req' is asserted while 'ser_in' is active, the request is prioritized and 'int_gnt' is granted within 2 clock cycles. Use the signals 'clock', 'int_req', 'int_gnt', and 'ser_in'.
+Plan 237: int_req: that when 'int_req' is asserted with a specific 'int_address', the same address appears on 'int_rd_data' or 'int_wr_data' when the request is granted. Use the signals 'clock', 'int_req', 'int_gnt', 'int_address', 'int_rd_data', and 'int_wr_data'.
+
+Signal int_wr_data:
+Plan 238: int_wr_data: that when 'int_wr_data' is assigned during a write operation (write_op active) and main_sm is in MAIN_ADDR state, the value is equal to 'data_param' on the next clock edge. Use the signals 'clock', 'write_op', 'main_sm', and 'int_wr_data'.
+Plan 239: int_wr_data: that during binary extension mode (bin_write_op active) with main_sm in MAIN_BIN_DATA state, 'int_wr_data' takes the value of 'rx_data' on the next clock edge. Use the signals 'clock', 'bin_write_op', 'main_sm', and 'int_wr_data'.
+Plan 240: int_wr_data: that when reset is asserted, 'int_wr_data' is cleared to 0 on the next clock edge. Use the signals 'reset', 'clock', and 'int_wr_data'.
+Plan 241: int_wr_data: that 'int_wr_data' maintains its previous value when neither write_op nor bin_write_op are active during valid main_sm states. Use the signals 'clock', 'write_op', 'bin_write_op', 'main_sm', and 'int_wr_data'.
+Plan 242: int_wr_data: that 'int_wr_data' remains stable (unchanged) for at least two clock cycles after a successful write operation completes (write_req transitions high to low). Use the signals 'clock', 'write_req', and 'int_wr_data'.
+Plan 243: int_wr_data: that when transitioning from reset to operational mode (reset deasserted), 'int_wr_data' remains at 0 until the first valid write operation occurs. Use the signals 'reset', 'clock', 'write_op', and 'int_wr_data'.
+Plan 244: int_wr_data: that no spurious transitions occur on 'int_wr_data' when new_rx_data transitions while not in a valid write state (main_sm not in MAIN_ADDR or MAIN_BIN_DATA). Use the signals 'clock', 'new_rx_data', 'main_sm', and 'int_wr_data'.
+Plan 245: int_wr_data: that during back-to-back write operations (write_op active for consecutive cycles), 'int_wr_data' updates to the new 'data_param' value on each clock edge. Use the signals 'clock', 'write_op', 'data_param', and 'int_wr_data'.
+Plan 246: int_wr_data: that when both write_op and bin_write_op are simultaneously active, 'int_wr_data' takes priority based on the state machine state (MAIN_ADDR vs MAIN_BIN_DATA). Use the signals 'clock', 'write_op', 'bin_write_op', 'main_sm', and 'int_wr_data'.
+Plan 247: int_wr_data: that 'int_wr_data' properly holds its value during clock cycles where new_rx_data is inactive during an ongoing write operation. Use the signals 'clock', 'new_rx_data', 'write_op', and 'int_wr_data'.
+Plan 248: int_wr_data: that when 'write_op' is active and 'main_sm' is in `MAIN_ADDR` state with 'new_rx_data' and '!data_in_hex_range', 'int_wr_data' is assigned the value of 'data_param' on the next clock edge. Use the signals 'clock', 'reset', 'int_wr_data'.
+Plan 249: int_wr_data: that during reset, 'int_wr_data' is cleared to 0 and remains 0 until reset is deasserted. Use the signals 'reset', 'clock', 'int_wr_data'.
+Plan 250: int_wr_data: that in binary extension mode ('bin_write_op' active and 'main_sm' in `MAIN_BIN_DATA` with 'new_rx_data'), 'int_wr_data' is assigned the value of 'rx_data' on the next clock edge. Use the signals 'clock', 'reset', 'int_wr_data'.
+Plan 251: int_wr_data: that when neither write condition is met and reset is inactive, 'int_wr_data' retains its previous value. Use the signals 'clock', 'reset', 'int_wr_data'.
+Plan 252: int_wr_data: that the signal transitions to its new value synchronously with the rising edge of 'clock' when write conditions are met. Use the signals 'clock', 'int_wr_data'.
+Plan 253: int_wr_data: that no spurious changes occur on 'int_wr_data' when 'write_req' is inactive and reset is not asserted. Use the signals 'clock', 'reset', 'int_wr_data'.
+Plan 254: int_wr_data: that the signal maintains its value for at least one full clock cycle after being written until another valid write condition occurs. Use the signals 'clock', 'int_wr_data'.
+Plan 255: int_wr_data: that when transitioning out of reset, 'int_wr_data' remains 0 until the first valid write operation occurs. Use the signals 'reset', 'clock', 'int_wr_data'.
+Plan 256: int_wr_data: that the signal properly reflects the last written value after multiple consecutive write operations with different data. Use the signals 'clock', 'int_wr_data'.
+Plan 257: int_wr_data: that no metastability occurs on 'int_wr_data' when write conditions change near the clock edge. Use the signals 'clock', 'int_wr_data'.
+Plan 258: int_wr_data: that when 'write_op' is active and 'main_sm' is in `MAIN_ADDR` state with 'new_rx_data' asserted and 'data_in_hex_range' is false, 'int_wr_data' is assigned the value of 'data_param' on the next clock edge. Use the signals 'clock', 'reset', 'int_wr_data', and 'write_op'.
+Plan 259: int_wr_data: that during reset, 'int_wr_data' is cleared to 0 and remains 0 until reset is deasserted. Use the signals 'reset', 'clock', and 'int_wr_data'.
+Plan 260: int_wr_data: that when 'bin_write_op' is active and 'main_sm' is in `MAIN_BIN_DATA` state with 'new_rx_data' asserted, 'int_wr_data' is assigned the value of 'rx_data' on the next clock edge. Use the signals 'clock', 'reset', 'int_wr_data', and 'bin_write_op'.
+Plan 261: int_wr_data: that 'int_wr_data' holds its previous value when neither 'write_op' nor 'bin_write_op' conditions are met and reset is inactive. Use the signals 'clock', 'reset', and 'int_wr_data'.
+Plan 262: int_wr_data: that 'int_wr_data' does not update until the next clock edge after the 'write_op' or 'bin_write_op' conditions are met. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', and 'bin_write_op'.
+Plan 263: int_wr_data: that 'int_wr_data' remains stable and does not glitch when transitioning between write conditions (e.g., 'write_op' to 'bin_write_op'). Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', and 'bin_write_op'.
+Plan 264: int_wr_data: that 'int_wr_data' is only updated when 'new_rx_data' is asserted alongside either 'write_op' or 'bin_write_op' in their respective states. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', 'bin_write_op', and 'new_rx_data'.
+Plan 265: int_wr_data: that 'int_wr_data' correctly follows 'data_param' when 'write_op' is active and 'data_in_hex_range' is false, regardless of 'bin_write_op' state. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', and 'data_in_hex_range'.
+Plan 266: int_wr_data: that 'int_wr_data' does not update when 'write_op' is active but 'main_sm' is not in `MAIN_ADDR` state. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', and 'main_sm'.
+Plan 267: int_wr_data: that 'int_wr_data' does not update when 'bin_write_op' is active but 'main_sm' is not in `MAIN_BIN_DATA` state. Use the signals 'clock', 'reset', 'int_wr_data', 'bin_write_op', and 'main_sm'.
+Plan 268: int_wr_data: that 'int_wr_data' maintains its value for at least one clock cycle after being assigned, unless reset occurs. Use the signals 'clock', 'reset', and 'int_wr_data'.
+Plan 269: int_wr_data: that 'int_wr_data' is never updated during reset, regardless of 'write_op' or 'bin_write_op' conditions. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', and 'bin_write_op'.
+Plan 270: int_wr_data: that 'int_wr_data' correctly transitions to a new value upon the clock edge following the assignment condition being met, without intermediate corruption. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', and 'bin_write_op'.
+Plan 271: int_wr_data: that 'int_wr_data' does not update if 'new_rx_data' is not asserted, even if 'write_op' or 'bin_write_op' are active. Use the signals 'clock', 'reset', 'int_wr_data', 'write_op', 'bin_write_op', and 'new_rx_data'.
+
+Signal int_write:
+Plan 272: int_write: that when 'int_gnt' is asserted and 'write_req' is high, 'int_write' is set to 1'b1 on the next clock edge. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 273: int_write: that 'int_write' is set to 1'b0 when 'reset' is asserted, regardless of other signals. Use the signals 'reset', 'clock', and 'int_write'.
+Plan 274: int_write: that 'int_write' remains 1'b0 when 'int_gnt' is not asserted, even if 'write_req' is high. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 275: int_write: that 'int_write' transitions to 1'b0 in the next cycle after being set to 1'b1, provided no new 'write_req' is pending. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 276: int_write: that 'int_write' stays 1'b0 when 'write_req' is low, regardless of 'int_gnt' state. Use the signals 'clock', 'write_req', 'int_gnt', and 'int_write'.
+Plan 277: int_write: that 'int_write' does not assert during reset even if 'int_gnt' and 'write_req' are high. Use the signals 'reset', 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 278: int_write: that 'int_write' asserts only for one clock cycle when 'int_gnt' and 'write_req' are high, then deasserts. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 279: int_write: that 'int_write' remains 1'b0 if 'write_req' is cleared before 'int_gnt' is asserted. Use the signals 'clock', 'write_req', 'int_gnt', and 'int_write'.
+Plan 280: int_write: that when both 'int_gnt' and 'write_req' are asserted, 'int_write' is set to 1 in the next clock cycle, and 'write_req' is cleared to 0. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 281: int_write: that when 'reset' is asserted, 'int_write' is set to 0 in the next clock cycle. Use the signals 'clock', 'reset', and 'int_write'.
+Plan 282: int_write: that if 'int_gnt' is asserted but 'write_req' is not, 'int_write' remains 0 in the next clock cycle. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 283: int_write: that when 'bin_write_op' is active, 'main_sm' is in `MAIN_BIN_DATA`, and 'new_rx_data' is asserted, 'write_req' is set to 1 in the next clock cycle. Use the signals 'clock', 'bin_write_op', 'main_sm', 'new_rx_data', and 'write_req'.
+Plan 284: int_write: that if neither 'int_gnt' nor 'write_req' is asserted, 'int_write' remains 0 in the next clock cycle. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 285: int_write: that when 'write_req' is asserted but 'int_gnt' is not, 'int_write' remains 0 until 'int_gnt' is also asserted. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 286: int_write: that 'int_write' stays at 0 during reset and only changes state after reset is deasserted and the conditions for 'int_gnt' and 'write_req' are met. Use the signals 'clock', 'reset', 'int_gnt', 'write_req', and 'int_write'.
+Plan 287: int_write: that 'write_req' is cleared to 0 in the same cycle that 'int_write' is set to 1 when both 'int_gnt' and 'write_req' are asserted. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 288: int_write: that 'int_write' transitions from 1 to 0 in the next clock cycle if 'int_gnt' or 'write_req' is deasserted. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 289: int_write: that 'int_write' remains 0 when 'reset' is deasserted but no write conditions ('int_gnt' and 'write_req') are met. Use the signals 'clock', 'reset', 'int_gnt', 'write_req', and 'int_write'.
+Plan 290: int_write: that when 'int_gnt' is high and 'write_req' is high, 'int_write' becomes high on the next clock edge, and 'write_req' is cleared. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 291: int_write: that 'int_write' remains low when either 'int_gnt' or 'write_req' is low, regardless of the other signal's state. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 292: int_write: that 'int_write' is immediately set to low when the 'reset' signal is asserted, regardless of 'int_gnt' or 'write_req'. Use the signals 'reset', 'clock', and 'int_write'.
+Plan 293: int_write: that 'int_write' remains low in the cycle following deassertion of 'write_req', even if 'int_gnt' stays high. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 294: int_write: that 'int_write' transitions from high to low in the next cycle after 'int_gnt' drops low, even if 'write_req' was previously high. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 295: int_write: that 'int_write' does not assert if 'write_req' is high but 'int_gnt' is low at the clock edge. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 296: int_write: that 'int_write' remains stable (does not toggle) between clock edges unless 'int_gnt' or 'write_req' changes. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 297: int_write: that 'int_write' correctly reflects the logical AND of 'int_gnt' and 'write_req' at the clock edge, with no glitches. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 298: int_write: that 'int_write' is never high when 'reset' is high, even if 'int_gnt' and 'write_req' are both high. Use the signals 'reset', 'clock', 'int_gnt', 'write_req', and 'int_write'.
+Plan 299: int_write: that 'int_write' transitions low one cycle after 'write_req' is cleared, even if 'int_gnt' remains asserted. Use the signals 'clock', 'int_gnt', 'write_req', and 'int_write'.
+
+Signal reset:
+Plan 300: that when the 'reset' signal is asserted, the 'rx_data' signal is cleared to 8'h0 within one clock cycle. Use the signals 'reset', 'clock', and 'rx_data'.
+Plan 301: that when the 'reset' signal is deasserted, the 'new_rx_data' signal remains at 1'b0 until a valid data reception occurs. Use the signals 'reset', 'clock', and 'new_rx_data'.
+Plan 302: that the 'ser_out' signal remains stable (no transitions) while the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'ser_out'.
+Plan 303: that the 'data_buf' signal is cleared to 8'h0 within one clock cycle after the 'reset' signal is asserted. Use the signals 'reset', 'clock', and indirectly infer 'data_buf' behavior through 'rx_data' and 'new_rx_data'.
+Plan 304: that the 'tx_busy' signal is deasserted (set to 1'b0) within one clock cycle after the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'tx_busy'.
+Plan 305: that the 'int_gnt' signal remains inactive (1'b0) while the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'int_gnt'.
+Plan 306: that the 'ser_in' signal is ignored (no effect on 'rx_data') while the 'reset' signal is asserted. Use the signals 'reset', 'clock', 'ser_in', and 'rx_data'.
+Plan 307: that the 'int_req' signal is cleared (set to 1'b0) within one clock cycle after the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'int_req'.
+Plan 308: that the 'int_rd_data' signal is cleared to a default value (e.g., 8'h0 or 32'h0, depending on design) within one clock cycle after the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 309: that the 'int_write' and 'int_read' signals are deasserted (set to 1'b0) within one clock cycle after the 'reset' signal is asserted. Use the signals 'reset', 'clock', 'int_write', and 'int_read'.
+Plan 310: that when the 'reset' signal is asserted, the 'rx_data' output is cleared to 8'h0 within one clock cycle. Use the signals 'reset', 'clock', and 'rx_data'.
+Plan 311: that when the 'reset' signal is asserted, the 'new_rx_data' flag is deasserted (set to 1'b0) within one clock cycle. Use the signals 'reset', 'clock', and 'new_rx_data'.
+Plan 312: that after the 'reset' signal is deasserted, the 'ser_out' signal remains stable (does not toggle) for at least two clock cycles. Use the signals 'reset', 'clock', and 'ser_out'.
+Plan 313: that when the 'reset' signal is asserted, the 'int_gnt' signal remains deasserted (1'b0) until the reset is deasserted. Use the signals 'reset', 'clock', and 'int_gnt'.
+Plan 314: that within three clock cycles after the 'reset' signal is deasserted, the 'ser_in' signal is sampled correctly by the receiver. Use the signals 'reset', 'clock', and 'ser_in'.
+Plan 315: that the 'int_req' signal is ignored (not granted) while the 'reset' signal is asserted. Use the signals 'reset', 'clock', 'int_req', and 'int_gnt'.
+Plan 316: that the 'int_rd_data' signal is cleared to a default value (e.g., 8'h0 or 32'h0) when the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'int_rd_data'.
+Plan 317: that the 'int_write' and 'int_read' signals are forced to 1'b0 when the 'reset' signal is asserted. Use the signals 'reset', 'clock', 'int_write', and 'int_read'.
+Plan 318: that the 'tx_busy' signal is deasserted (1'b0) within one clock cycle after the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'tx_busy'.
+Plan 319: that the 'int_address' signal is reset to a default value (e.g., 0) when the 'reset' signal is asserted. Use the signals 'reset', 'clock', and 'int_address'.
+Plan 320: reset: that when the reset signal is asserted, the rx_data signal is cleared to 8'h0 on the next positive clock edge.
+Plan 321: reset: that when the reset signal is asserted, the new_rx_data signal is cleared to 1'b0 on the next positive clock edge.
+Plan 322: reset: that after the reset signal is deasserted, the rx_data signal retains its value unless modified by other logic.
+Plan 323: reset: that when the reset signal is asserted, the data_buf signal is cleared to 8'h0 on the next positive clock edge.
+Plan 324: reset: that the reset signal takes precedence over other conditions (e.g., rx_busy & ce_1_mid) in the data_buf shift register logic.
+Plan 325: reset: that the reset signal clears all relevant registers (rx_data, new_rx_data, data_buf) simultaneously on the next clock edge when asserted.
+Plan 326: reset: that the reset signal remains stable for at least one full clock cycle to ensure proper initialization of all registers.
+Plan 327: reset: that after reset is deasserted, the data_buf register begins shifting in new data (if rx_busy & ce_1_mid are active) on subsequent clock edges.
+Plan 328: reset: that the reset signal, when asserted, overrides any ongoing serial data reception (ser_in) and forces registers to their default states.
+Plan 329: reset: that the reset signal, when deasserted, allows normal operation to resume on the next clock cycle without corruption of register values.
+
+Signal ser_in:
+Plan 330: ser_in: that when 'ser_in' transitions from high to low (start bit), the 'int_req' signal asserts within 16 clock cycles, indicating a valid UART frame start. Use the signals 'clock', 'ser_in', and 'int_req'.
+Plan 331: ser_in: that during reset (asserted), 'ser_in' is ignored and does not propagate to 'ser_out' or internal signals. Use the signals 'reset', 'clock', 'ser_in', and 'ser_out'.
+Plan 332: ser_in: that a continuous high level on 'ser_in' for more than 16 clock cycles (idle state) causes 'int_read' to deassert. Use the signals 'clock', 'ser_in', and 'int_read'.
+Plan 333: ser_in: that when 'ser_in' remains stable for 8 consecutive clock cycles (valid data bit), 'int_gnt' asserts in the following cycle if 'int_req' is high. Use the signals 'clock', 'ser_in', 'int_req', and 'int_gnt'.
+Plan 334: ser_in: that starting 4 clock cycles after reset deassertion, 'ser_in' must remain stable for at least 2 clock cycles between transitions (valid UART timing). Use the signals 'reset', 'clock', and 'ser_in'.
+Plan 335: ser_in: that when 'ser_in' shows a valid start bit followed by 8 data bits, 'int_wr_data' captures the correct parallel data within 24 clock cycles. Use the signals 'clock', 'ser_in', and 'int_wr_data'.
+Plan 336: ser_in: that a glitch on 'ser_in' (pulse shorter than 1 clock cycle) does not affect 'ser_out' or internal bus signals. Use the signals 'clock', 'ser_in', and 'ser_out'.
+Plan 337: ser_in: that when 'ser_in' completes a full UART frame (start + 8 data + stop), 'int_write' asserts exactly once during the stop bit period. Use the signals 'clock', 'ser_in', and 'int_write'.
+Plan 338: ser_in: that during the first 16 clock cycles after reset deassertion, 'ser_in' transitions are ignored by the UART receiver. Use the signals 'reset', 'clock', and 'ser_in'.
+Plan 339: ser_in: that when 'ser_in' maintains a low level for exactly 16 clock cycles (invalid frame), 'int_address' remains unchanged. Use the signals 'clock', 'ser_in', and 'int_address'.
+Plan 340: ser_in: that when 'ser_in' transitions from high to low (start bit), the 'int_req' signal asserts within 3 clock cycles, provided 'reset' is deasserted. Use the signals 'ser_in', 'clock', 'reset', and 'int_req'.
+Plan 341: ser_in: that during active 'reset', 'ser_in' is ignored and does not propagate to 'int_rd_data'. Use the signals 'ser_in', 'reset', 'clock', and 'int_rd_data'.
+Plan 342: ser_in: that a valid start bit on 'ser_in' (low) followed by 8 data bits results in 'int_write' being asserted within 16 clock cycles. Use the signals 'ser_in', 'clock', 'int_write', and 'reset'.
+Plan 343: ser_in: that continuous high on 'ser_in' for 10 clock cycles while 'reset' is deasserted does not trigger 'int_read'. Use the signals 'ser_in', 'clock', 'reset', and 'int_read'.
+Plan 344: ser_in: that when 'ser_in' receives a valid stop bit (high), 'int_gnt' deasserts within 2 clock cycles if 'int_req' was previously high. Use the signals 'ser_in', 'clock', 'int_gnt', and 'int_req'.
+Plan 345: ser_in: that a glitch (pulse < 1 clock cycle) on 'ser_in' does not corrupt 'int_wr_data'. Use the signals 'ser_in', 'clock', 'int_wr_data', and 'reset'.
+Plan 346: ser_in: that after 'reset' deasserts, 'ser_in' must remain stable for at least 2 clock cycles before being sampled. Use the signals 'ser_in', 'reset', and 'clock'.
+Plan 347: ser_in: that a sequence of 0x55 (01010101) on 'ser_in' with 'ce_16' active updates 'int_address' correctly. Use the signals 'ser_in', 'clock', 'int_address', and 'reset'.
+Plan 348: ser_in: that 'ser_out' mirrors 'ser_in' when 'uart_tx' is idle (no 'tx_busy'), verified 4 clock cycles later. Use the signals 'ser_in', 'ser_out', 'clock', and 'reset'.
+Plan 349: ser_in: that a start bit on 'ser_in' during active 'int_read' is queued and processed after 'int_read' deasserts. Use the signals 'ser_in', 'clock', 'int_read', and 'reset'.
+Plan 350: ser_in: that when 'ser_in' transitions from high to low (start bit), valid data bits are received within 16 clock cycles of 'ce_16' being active, using signals 'clock', 'ce_16', and 'ser_in'.
+Plan 351: ser_in: that during reset assertion ('reset' high), 'ser_in' is ignored regardless of its value, using signals 'reset', 'clock', and 'ser_in'.
+Plan 352: ser_in: that a valid UART frame (start bit + 8 data bits + stop bit) on 'ser_in' triggers 'new_rx_data' pulse within 2 clock cycles after the stop bit, using signals 'ser_in', 'clock', 'new_rx_data', and 'ce_16'.
+Plan 353: ser_in: that when 'ser_in' remains high (idle state) for more than 10 clock cycles, the receiver remains idle until a valid start bit (low) is detected, using signals 'ser_in', 'clock', and 'reset'.
+Plan 354: ser_in: that corrupted frames (missing stop bit) on 'ser_in' do not set 'new_rx_data', using signals 'ser_in', 'new_rx_data', 'clock', and 'ce_16'.
+Plan 355: ser_in: that continuous low level on 'ser_in' for more than 1.5 character times (24 'ce_16' cycles) forces a framing error state, using signals 'ser_in', 'ce_16', and 'clock'.
+Plan 356: ser_in: that valid data on 'ser_in' is correctly received when 'ce_16' is stable for the entire frame duration, using signals 'ser_in', 'ce_16', 'clock', and 'new_rx_data'.
+Plan 357: ser_in: that glitches on 'ser_in' shorter than 1/16th of a bit time (1 'ce_16' cycle) are filtered out, using signals 'ser_in', 'ce_16', and 'clock'.
+Plan 358: ser_in: that the system recovers correctly from a break condition (extended low on 'ser_in') after 'reset' is deasserted, using signals 'ser_in', 'reset', and 'clock'.
+Plan 359: ser_in: that simultaneous operation with 'ser_out' does not corrupt 'ser_in' data reception, using signals 'ser_in', 'ser_out', 'clock', and 'new_rx_data'.
+
+Signal ser_out:
+Plan 360: ser_out: that when 'int_write' is asserted, 'ser_out' transitions to a valid state within 2 clock cycles of 'int_gnt' being asserted. Use the signals 'clock', 'int_write', 'int_gnt', and 'ser_out'.
+Plan 361: ser_out: that 'ser_out' remains stable (no transitions) while 'reset' is asserted. Use the signals 'reset', 'clock', and 'ser_out'.
+Plan 362: ser_out: that 'ser_out' responds to 'ser_in' within 3 clock cycles when 'int_read' is asserted and 'int_gnt' is high. Use the signals 'clock', 'ser_in', 'int_read', 'int_gnt', and 'ser_out'.
+Plan 363: ser_out: that 'ser_out' maintains a consistent output pattern for at least 5 consecutive clock cycles when 'int_req' is asserted but 'int_gnt' remains low. Use the signals 'clock', 'int_req', 'int_gnt', and 'ser_out'.
+Plan 364: ser_out: that 'ser_out' transitions to a known idle state within 1 clock cycle after 'int_write' is deasserted. Use the signals 'clock', 'int_write', and 'ser_out'.
+Plan 365: ser_out: that 'ser_out' matches the lower 8 bits of 'int_wr_data' when 'int_write' is asserted and 'int_gnt' is high for 3 consecutive clock cycles. Use the signals 'clock', 'int_write', 'int_gnt', 'int_wr_data', and 'ser_out'.
+Plan 366: ser_out: that 'ser_out' remains in its current state when 'int_read' and 'int_write' are simultaneously asserted. Use the signals 'clock', 'int_read', 'int_write', and 'ser_out'.
+Plan 367: ser_out: that 'ser_out' begins transmitting data within 4 clock cycles after both 'int_req' and 'int_gnt' are asserted. Use the signals 'clock', 'int_req', 'int_gnt', and 'ser_out'.
+Plan 368: ser_out: that 'ser_out' shows no activity for 2 clock cycles before and after reset is asserted. Use the signals 'reset', 'clock', and 'ser_out'.
+Plan 369: ser_out: that 'ser_out' maintains proper signal integrity (no glitches) during transitions between 'int_read' and 'int_write' operations. Use the signals 'clock', 'int_read', 'int_write', and 'ser_out'.
+Plan 370: ser_out: that when 'int_address' changes while 'int_write' is asserted, 'ser_out' completes its current transmission before responding to the new address. Use the signals 'clock', 'int_address', 'int_write', and 'ser_out'.
+Plan 371: ser_out: that 'ser_out' matches the expected pattern when 'int_rd_data' changes while 'int_read' is asserted for 4 consecutive clock cycles. Use the signals 'clock', 'int_read', 'int_rd_data', and 'ser_out'.
+Plan 372: ser_out: that when 'int_write' is asserted, 'ser_out' transitions to a valid logic level (0 or 1) within 2 clock cycles of 'clock'. Use the signals 'clock', 'int_write', and 'ser_out'.
+Plan 373: ser_out: that 'ser_out' toggles at least once within 10 clock cycles after 'int_read' is asserted. Use the signals 'clock', 'int_read', and 'ser_out'.
+Plan 374: ser_out: that 'ser_out' matches the LSB of 'int_wr_data' when 'int_write' is asserted. Use the signals 'int_write', 'int_wr_data', and 'ser_out'.
+Plan 375: ser_out: that 'ser_out' remains low for at least 3 clock cycles after 'reset' is deasserted. Use the signals 'reset', 'clock', and 'ser_out'.
+Plan 376: ser_out: that 'ser_out' does not transition while 'int_req' is asserted and 'int_gnt' is deasserted. Use the signals 'int_req', 'int_gnt', 'clock', and 'ser_out'.
+Plan 377: ser_out: that 'ser_out' transitions to high within 5 clock cycles after 'int_address' changes from 0x00 to a non-zero value. Use the signals 'int_address', 'clock', and 'ser_out'.
+Plan 378: ser_out: that 'ser_out' alternates between 0 and 1 for 4 consecutive clock cycles when 'int_read' and 'int_write' are both deasserted. Use the signals 'int_read', 'int_write', 'clock', and 'ser_out'.
+Plan 379: ser_out: that 'ser_out' mirrors 'ser_in' with a delay of 1 clock cycle when 'int_write' is deasserted. Use the signals 'ser_in', 'int_write', 'clock', and 'ser_out'.
+Plan 380: ser_out: that 'ser_out' holds its value for at least 2 clock cycles after 'int_rd_data' changes. Use the signals 'int_rd_data', 'clock', and 'ser_out'.
+Plan 381: ser_out: that 'ser_out' remains stable (no transitions) when the 'reset' signal is asserted. Use the signals 'reset' and 'clock' to monitor stability.
+Plan 382: ser_out: that 'ser_out' transitions only on the rising edge of 'clock' when 'reset' is deasserted. Use the signals 'clock' and 'reset' to verify edge-sensitive behavior.
+Plan 383: ser_out: that 'ser_out' is driven to a known state (e.g., logic 0 or 1) within 2 clock cycles after 'reset' is deasserted. Use the signals 'reset' and 'clock' for timing verification.
+Plan 384: ser_out: that 'ser_out' does not change value when 'int_gnt' is asserted, unless 'int_req' is also active. Use the signals 'ser_out', 'int_gnt', 'int_req', and 'clock' for synchronization.
+Plan 385: ser_out: that 'ser_out' mirrors the LSB of 'int_wr_data' when 'int_write' is asserted. Use the signals 'ser_out', 'int_wr_data', 'int_write', and 'clock' for data comparison.
+Plan 386: ser_out: that 'ser_out' remains high for at least 3 consecutive clock cycles after 'int_read' is deasserted. Use the signals 'ser_out', 'int_read', and 'clock' for duration validation.
+Plan 387: ser_out: that 'ser_out' toggles at least once every 10 clock cycles when 'int_req' is asserted and 'int_gnt' is inactive. Use the signals 'ser_out', 'int_req', 'int_gnt', and 'clock' for toggle verification.
+Plan 388: ser_out: that 'ser_out' is low during the first clock cycle after 'reset' is deasserted. Use the signals 'ser_out', 'reset', and 'clock' for initial-state checking.
+Plan 389: ser_out: that 'ser_out' matches the parity bit of 'int_rd_data' when 'int_read' is active. Use the signals 'ser_out', 'int_rd_data', 'int_read', and 'clock' for parity validation.
+Plan 390: ser_out: that 'ser_out' remains unchanged when 'int_address' is modified unless 'int_write' is asserted. Use the signals 'ser_out', 'int_address', 'int_write', and 'clock' for stability testing.
+

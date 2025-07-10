@@ -3,8 +3,7 @@
 //
 //---------------------------------------------------------------------------------------
 
-module uart2bus_top 
-(
+module uart2bus_top (
 	// global signals 
 	clock, reset,
 	// uart serial signals 

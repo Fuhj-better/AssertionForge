@@ -12,8 +12,8 @@ from pathlib import Path
 from utils import get_user, get_host
 from collections import OrderedDict
 
-# task = 'gen_plan'
-task = 'build_KG'
+task = 'gen_plan'
+# task = 'build_KG'
 # task = 'use_KG'
 
 
@@ -27,13 +27,15 @@ if task == 'gen_plan':
         DEBUG = False
         # DEBUG = True
 
-        design_name = 'apb'
+        # design_name = 'apb'
         # design_name = 'ethmac'
         # design_name = 'openMSP430'
         # design_name = 'tiny_pairing'
         # design_name = 'uart'
         # design_name = 'sockit'
 
+        # design_name='i2c'
+        design_name='uart'
         if design_name == 'apb':
 
             file_path = (
@@ -43,7 +45,15 @@ if task == 'gen_plan':
             KG_path = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\apb\\spec\\graph_rag_apb\\output\\graph.graphml'
 
             # KG_path = '/<path>/<to>/apb/graph_rag_apb/output/20240920-164702/artifacts/clustered_graph.graphml' # baseline KG
+        elif design_name == 'i2c':
 
+            file_path = (
+                'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\i2c\\spec\\i2c.pdf'
+            )
+            design_dir = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\i2c\\rtl'
+            KG_path = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\i2c\\spec\\graph_rag_i2c\\output\\graph.graphml'
+
+            # KG_path = '/<path>/<to>/i2c/graph_rag_i2c/output/20240920-164702/artifacts/clustered_graph.graphml' # baseline KG
         elif design_name == 'ethmac':
 
             file_path = [
@@ -74,13 +84,9 @@ if task == 'gen_plan':
             # KG_path = '/<path>/<to>/AssertLLM/spec/graph_rag_tiny_pairing/output/20240920-145022/artifacts/clustered_graph.0.graphml' # vanilla/baseline
 
         elif design_name == 'uart':
-
-            file_path = '/<path>/<to>/AssertLLM/spec/uart.pdf'
-            design_dir = (
-                '/<path>/<to>/AssertLLM/rtl/uart'
-            )
-            KG_path = '/<path>/<to>/AssertLLM/spec/graph_rag_uart/output/20240917-111426/artifacts/clustered_graph.0.graphml'
-
+            file_path='C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\uart.pdf'
+            design_dir = 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\rtl'
+            KG_path= 'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\uart\\spec\\graph_rag_uart\\output\\graph.graphml'
             # KG_path = '/<path>/<to>/AssertLLM/spec/graph_rag_uart/output/20240920-163242/artifacts/clustered_graph.graphml'  # vanilla/baseline
 
         elif design_name == 'sockit':
@@ -247,7 +253,39 @@ if task == 'gen_plan':
             # valid_signals = None
             # valid_signals = ['baud_clk', 'baud_freq']
             # valid_signals=['fifo_rx_wr_en','fifo_rx_data_in','fifo_tx_rd_en','TX_EMPTY','RX_EMPTY','ERROR']
-            valid_signals=['ERROR']
+#             valid_signals = [
+#             'wb_clk_i', 'wb_rst_i', 'arst_i', 'wb_adr_i', 'wb_dat_i', 'wb_dat_o','wb_we_i', 'wb_stb_i', 'wb_cyc_i', 'wb_ack_o', 'wb_inta_o',
+# 'scl_pad_i', 'scl_pad_o', 'scl_padoen_o', 'sda_pad_i', 'sda_pad_o', 'sda_padoen_o'
+# ]
+#             valid_signals = [
+#     'PCLK',
+#     'PRESETn',
+#     'fifo_tx_f_full',
+#     'fifo_tx_f_empty',
+#     'fifo_tx_data_out',
+#     'fifo_rx_f_full',
+#     'fifo_rx_f_empty',
+#     'fifo_rx_wr_en',
+#     'fifo_rx_data_in',
+#     'DATA_CONFIG_REG',
+#     'TIMEOUT_TX',
+#     'fifo_tx_rd_en',
+#     'TX_EMPTY',
+#     'RX_EMPTY',
+#     'ERROR',
+#     'ENABLE_SDA',
+#     'ENABLE_SCL',
+#     'SDA',
+#     'SCL'
+# ]
+            valid_signals=[
+            'clock', 'reset', 
+            'ser_in', 'ser_out',
+            'int_address', 'int_wr_data', 'int_write',
+            'int_rd_data', 'int_read', 
+            'int_req', 'int_gnt'
+            ]
+            # valid_signals=['ERROR']
         #     valid_signals=[
         #     'PADDR',
         #     'PWDATA',
@@ -310,7 +348,8 @@ elif task == 'build_KG':
     # design_name='ethernet'
     # design_name='i2c'
     # design_name = 'pairing'
-    design_name='sha3'
+    # design_name='sha3'
+    design_name='tiny_aes'
     if design_name == 'apb':
 
         input_file_path = (
@@ -356,6 +395,10 @@ elif task == 'build_KG':
     elif design_name=='sha3':
         input_file_path=(
             'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\sha3\\spec\\sha3.pdf'
+        )
+    elif design_name=='tiny_aes':
+        input_file_path=(
+            'C:\\Users\\huijie\\Desktop\\AssertionForge\\design\\tiny_aes\\spec\\tiny_aes.pdf'
         )
     else:
         assert False

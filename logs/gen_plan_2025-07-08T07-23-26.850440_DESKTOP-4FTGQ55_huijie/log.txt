@@ -1,0 +1,2988 @@
+Starting the test plan generation process...
+Step 1: Reading the PDF file(s)...
+First 5 lines of spec_text (truncated):
+UART to Bus
+Core Specifications
+Written for publication on:
+ 
+File name: UART to Bus Core Specifications
+...
+Total number of lines in spec_text: 285
+Step 2: Loading and processing the Knowledge Graph...
+Knowledge Graph loaded from C:\Users\huijie\Desktop\AssertionForge\design\uart\spec\graph_rag_uart\output\graph.graphml
+Number of nodes: 28
+Number of edges: 28
+
+Example node attributes:
+
+Example edge attributes:
+  weight: 9.0
+
+Node attribute keys:
+
+
+Edge attribute keys:
+weight
+Step 2b: Refining Knowledge Graph with RTL information...
+Starting Knowledge Graph refinement with RTL from C:\Users\huijie\Desktop\AssertionForge\design\uart\rtl
+Initial specification KG has 28 nodes and 28 edges
+
+=== Specification KG Analysis ===
+Node types in specification KG:
+  - unknown: 28 nodes
+Specification KG has 0 nodes with 'text' attributes for matching
+Built knowledge graph with 1362 nodes and 1573 edges
+Built RTL KG with 1362 nodes and 1573 edges
+Added 1362 RTL nodes and 1573 RTL edges to combined KG
+
+=== Link Summary ===
+Total links created: 34
+- contains_spec: 28 links
+- contains_implementation: 6 links
+
+=== Link Examples ===
+
+Examples of 'contains_spec' links:
+  1. design_root --contains_spec--> UART TO BUS CORE SPECIFICATIONS
+     Target node details:
+  2. design_root --contains_spec--> MOTI LITOCHEVSKI
+     Target node details:
+  3. design_root --contains_spec--> UART TO BUS IP CORE
+     Target node details:
+
+Examples of 'contains_implementation' links:
+  1. design_root --contains_implementation--> rtl_0
+     Target node details:
+       type: module
+       name: uart_tx
+       original_id: module:uart_tx
+       source: rtl
+  2. design_root --contains_implementation--> rtl_1
+     Target node details:
+       type: module
+       name: uart_rx
+       original_id: module:uart_rx
+       source: rtl
+  3. design_root --contains_implementation--> rtl_2
+     Target node details:
+       type: module
+       name: uart_top
+       original_id: module:uart_top
+       source: rtl
+Created 34 links between specification and RTL nodes
+
+Attempting to link 39 RTL signals to 29 spec nodes
+Created 0 additional links based on signal name matching
+Graph is already connected
+Graph is connected
+Number of connected components: 1
+Number of bridges between RTL and spec: 6
+  Bridge 1: rtl_0 (module: uart_tx) ---> design_root (root: Design Root)
+  Bridge 2: rtl_1 (module: uart_rx) ---> design_root (root: Design Root)
+  Bridge 3: rtl_2 (module: uart_top) ---> design_root (root: Design Root)
+  Bridge 4: rtl_3 (module: uart_parser) ---> design_root (root: Design Root)
+  Bridge 5: rtl_4 (module: uart2bus_top) ---> design_root (root: Design Root)
+  Bridge 6: rtl_5 (module: baud_gen) ---> design_root (root: Design Root)
+
+=== High-Degree Nodes (Hubs) ===
+  Node: rtl_2 (module: uart_top)
+  Degree: 232 connections
+  Source: rtl
+  Connected to:
+    - rtl_0 (module: uart_tx)
+    - rtl_17 (port: tx_data)
+    - rtl_18 (port: new_tx_data)
+    - rtl_20 (port: ser_out)
+    - rtl_21 (port: tx_busy)
+    - ... and 227 more
+
+  Node: rtl_0 (module: uart_tx)
+  Degree: 230 connections
+  Source: rtl
+  Connected to:
+    - rtl_7 (port: tx_data)
+    - rtl_8 (port: new_tx_data)
+    - rtl_9 (port: ser_out)
+    - rtl_10 (port: tx_busy)
+    - rtl_11 (port: ce_16)
+    - ... and 225 more
+
+  Node: rtl_3 (module: uart_parser)
+  Degree: 230 connections
+  Source: rtl
+  Connected to:
+    - rtl_24 (port: tx_busy)
+    - rtl_25 (port: new_rx_data)
+    - rtl_28 (port: tx_data)
+    - rtl_29 (port: new_tx_data)
+    - rtl_30 (port: int_wr_data)
+    - ... and 225 more
+
+  Node: rtl_1 (module: uart_rx)
+  Degree: 228 connections
+  Source: rtl
+  Connected to:
+    - rtl_0 (module: uart_tx)
+    - rtl_14 (port: rx_data)
+    - rtl_15 (port: new_rx_data)
+    - rtl_16 (port: ce_16)
+    - rtl_2 (module: uart_top)
+    - ... and 223 more
+
+  Node: rtl_4 (module: uart2bus_top)
+  Degree: 228 connections
+  Source: rtl
+  Connected to:
+    - rtl_36 (port: ser_out)
+    - rtl_37 (port: int_wr_data)
+    - rtl_38 (port: int_write)
+    - rtl_39 (port: int_read)
+    - rtl_40 (port: int_req)
+    - ... and 223 more
+
+Combined KG now has 1391 nodes and 1630 edges
+Refined Knowledge Graph now has 1391 nodes and 1630 edges
+Step 3: Initializing the language model...
+Step 4: Extracting valid signal names...
+Valid signal names: clock, int_address, int_gnt, int_rd_data, int_read, int_req, int_wr_data, int_write, reset, ser_in, ser_out
+Step 5: Generating natural language test plans...
+
+=== KG Structure ===
+KG is a dictionary with keys: ['nodes', 'edges']
+  nodes: list with 1391 items
+    First item type: <class 'dict'>
+    First item keys: ['id', 'attributes']
+  edges: list with 1630 items
+    First item type: <class 'dict'>
+    First item keys: ['source', 'target', 'attributes']
+
+Building signal name to node ID mapping for 11 signals...
+
+=== Building signal to node mapping for 11 signals ===
+Valid signals: ['clock', 'reset', 'ser_in', 'ser_out', 'int_address', 'int_wr_data', 'int_write', 'int_rd_data', 'int_read', 'int_req', 'int_gnt']
+KG structure: ['nodes', 'edges']
+Number of nodes in KG: 1391
+
+Node type distribution in KG:
+  unknown: 28 nodes
+  module: 6 nodes
+  port: 39 nodes
+  fsm: 54 nodes
+  protocol_pattern: 12 nodes
+  verification_point: 3 nodes
+  assignment: 1248 nodes
+  root: 1 nodes
+
+Signal mentions by node type:
+  clock: {'port': 3}
+  reset: No mentions found in node names
+  ser_in: {'port': 1}
+  ser_out: {'port': 3, 'assignment': 18}
+  int_address: {'assignment': 24}
+  int_wr_data: {'port': 2, 'assignment': 18}
+  int_write: {'port': 2, 'assignment': 18}
+  int_rd_data: {'port': 2}
+  int_read: {'port': 2, 'assignment': 18}
+  int_req: {'port': 2, 'assignment': 12}
+  int_gnt: {'port': 2}
+
+=== Signal mapping results ===
+Signal 'clock' mapped to 3 nodes: ['rtl_6', 'rtl_12', 'rtl_41']
+WARNING: No node mapping found for signal 'reset'
+Signal 'ser_in' mapped to 7 nodes: ['rtl_13', 'rtl_140', 'rtl_348', 'rtl_556', 'rtl_764', 'rtl_972', 'rtl_1180']
+Signal 'ser_out' mapped to 21 nodes: ['rtl_9', 'rtl_20', 'rtl_36', 'rtl_136', 'rtl_137', 'rtl_138', 'rtl_344', 'rtl_345', 'rtl_346', 'rtl_552', 'rtl_553', 'rtl_554', 'rtl_760', 'rtl_761', 'rtl_762', 'rtl_968', 'rtl_969', 'rtl_970', 'rtl_1176', 'rtl_1177', 'rtl_1178']
+Signal 'int_address' mapped to 24 nodes: ['rtl_240', 'rtl_241', 'rtl_242', 'rtl_243', 'rtl_448', 'rtl_449', 'rtl_450', 'rtl_451', 'rtl_656', 'rtl_657', 'rtl_658', 'rtl_659', 'rtl_864', 'rtl_865', 'rtl_866', 'rtl_867', 'rtl_1072', 'rtl_1073', 'rtl_1074', 'rtl_1075', 'rtl_1280', 'rtl_1281', 'rtl_1282', 'rtl_1283']
+Signal 'int_wr_data' mapped to 20 nodes: ['rtl_30', 'rtl_37', 'rtl_223', 'rtl_225', 'rtl_227', 'rtl_431', 'rtl_433', 'rtl_435', 'rtl_639', 'rtl_641', 'rtl_643', 'rtl_847', 'rtl_849', 'rtl_851', 'rtl_1055', 'rtl_1057', 'rtl_1059', 'rtl_1263', 'rtl_1265', 'rtl_1267']
+Signal 'int_write' mapped to 20 nodes: ['rtl_31', 'rtl_38', 'rtl_222', 'rtl_228', 'rtl_230', 'rtl_430', 'rtl_436', 'rtl_438', 'rtl_638', 'rtl_644', 'rtl_646', 'rtl_846', 'rtl_852', 'rtl_854', 'rtl_1054', 'rtl_1060', 'rtl_1062', 'rtl_1262', 'rtl_1268', 'rtl_1270']
+Signal 'int_rd_data' mapped to 8 nodes: ['rtl_26', 'rtl_34', 'rtl_250', 'rtl_458', 'rtl_666', 'rtl_874', 'rtl_1082', 'rtl_1290']
+Signal 'int_read' mapped to 20 nodes: ['rtl_32', 'rtl_39', 'rtl_231', 'rtl_236', 'rtl_238', 'rtl_439', 'rtl_444', 'rtl_446', 'rtl_647', 'rtl_652', 'rtl_654', 'rtl_855', 'rtl_860', 'rtl_862', 'rtl_1063', 'rtl_1068', 'rtl_1070', 'rtl_1271', 'rtl_1276', 'rtl_1278']
+Signal 'int_req' mapped to 14 nodes: ['rtl_33', 'rtl_40', 'rtl_119', 'rtl_239', 'rtl_327', 'rtl_447', 'rtl_535', 'rtl_655', 'rtl_743', 'rtl_863', 'rtl_951', 'rtl_1071', 'rtl_1159', 'rtl_1279']
+Signal 'int_gnt' mapped to 2 nodes: ['rtl_27', 'rtl_35']
+Created mappings for 10 signals
+Signal 'clock' mapped to 3 nodes: ['rtl_6', 'rtl_12', 'rtl_41']
+Signal 'ser_out' mapped to 21 nodes: ['rtl_9', 'rtl_20', 'rtl_36', 'rtl_136', 'rtl_137', 'rtl_138', 'rtl_344', 'rtl_345', 'rtl_346', 'rtl_552', 'rtl_553', 'rtl_554', 'rtl_760', 'rtl_761', 'rtl_762', 'rtl_968', 'rtl_969', 'rtl_970', 'rtl_1176', 'rtl_1177', 'rtl_1178']
+Signal 'ser_in' mapped to 7 nodes: ['rtl_13', 'rtl_140', 'rtl_348', 'rtl_556', 'rtl_764', 'rtl_972', 'rtl_1180']
+Signal 'int_rd_data' mapped to 8 nodes: ['rtl_26', 'rtl_34', 'rtl_250', 'rtl_458', 'rtl_666', 'rtl_874', 'rtl_1082', 'rtl_1290']
+Signal 'int_gnt' mapped to 2 nodes: ['rtl_27', 'rtl_35']
+Signal 'int_wr_data' mapped to 20 nodes: ['rtl_30', 'rtl_37', 'rtl_223', 'rtl_225', 'rtl_227', 'rtl_431', 'rtl_433', 'rtl_435', 'rtl_639', 'rtl_641', 'rtl_643', 'rtl_847', 'rtl_849', 'rtl_851', 'rtl_1055', 'rtl_1057', 'rtl_1059', 'rtl_1263', 'rtl_1265', 'rtl_1267']
+Signal 'int_write' mapped to 20 nodes: ['rtl_31', 'rtl_38', 'rtl_222', 'rtl_228', 'rtl_230', 'rtl_430', 'rtl_436', 'rtl_438', 'rtl_638', 'rtl_644', 'rtl_646', 'rtl_846', 'rtl_852', 'rtl_854', 'rtl_1054', 'rtl_1060', 'rtl_1062', 'rtl_1262', 'rtl_1268', 'rtl_1270']
+Signal 'int_read' mapped to 20 nodes: ['rtl_32', 'rtl_39', 'rtl_231', 'rtl_236', 'rtl_238', 'rtl_439', 'rtl_444', 'rtl_446', 'rtl_647', 'rtl_652', 'rtl_654', 'rtl_855', 'rtl_860', 'rtl_862', 'rtl_1063', 'rtl_1068', 'rtl_1070', 'rtl_1271', 'rtl_1276', 'rtl_1278']
+Signal 'int_req' mapped to 14 nodes: ['rtl_33', 'rtl_40', 'rtl_119', 'rtl_239', 'rtl_327', 'rtl_447', 'rtl_535', 'rtl_655', 'rtl_743', 'rtl_863', 'rtl_951', 'rtl_1071', 'rtl_1159', 'rtl_1279']
+Signal 'int_address' mapped to 24 nodes: ['rtl_240', 'rtl_241', 'rtl_242', 'rtl_243', 'rtl_448', 'rtl_449', 'rtl_450', 'rtl_451', 'rtl_656', 'rtl_657', 'rtl_658', 'rtl_659', 'rtl_864', 'rtl_865', 'rtl_866', 'rtl_867', 'rtl_1072', 'rtl_1073', 'rtl_1074', 'rtl_1075', 'rtl_1280', 'rtl_1281', 'rtl_1282', 'rtl_1283']
+Using LLM-based context pruning
+Processing signal 1/11: clock
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['clock']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 
+assign baud_clk = ce_16;
+//---------------------------------------------------------------------------------------
+// module implementation 
+// baud rate generator module 
+baud_gen baud_gen_1
+(
+	.clock(clock), .reset(reset), 
+	.ce_16(ce_16), .baud_freq(baud_freq), .baud_limit(baud_limit)
+);
+
+// uart receiver 
+uart_rx uart_rx_1 
+(
+	.clock(clock), .reset(reset), 
+	.ce_16(ce_16), .ser_in(ser_in), 
+	.rx_data(rx_data), .new_rx_data(new_rx_data) 
+);
+
+// uart transmitter 
+uart_tx  uart_tx_1
+(
+	.clock(clock), .reset(reset), 
+	.ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), 
+	.ser_out(ser_out), .tx_busy(tx_busy) 
+);
+
+endmodule
+
+Processing generator: path
+Mapped signal 'clock' to 3 nodes
+Using 3/3 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_41
+Found 330 significant paths for node rtl_41
+  Found 30 potential endpoints for rtl_6
+Found 1180 significant paths for node rtl_6
+  Found 30 potential endpoints for rtl_12
+Found 861 significant paths for node rtl_12
+Generated 2371 path-based contexts
+path generator returned 2371 contexts
+Added 2371 contexts from path, total now: 2381
+Sample path context: PATH ANALYSIS FROM clock TO data_nibble_assignment
+Path length: 3 nodes with clustering 0.00
+Source: clock (port) in module baud_gen
+Target: data_nibble_assignment (assignment) in module baud_gen
+
+Relationship chain:
+  clock (port in baud_gen) input_to baud_gen (module)
+  baud_gen (module) part_of data_nibble_assignment (assignment in baud_gen)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: baud_gen
+
+Pruning 2381 contexts...
+Using LLM-based context pruning
+Pruning 2381 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 8.35 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Evaluating 2371 contexts of type 'path'
+Pre-filtering 2371 contexts of type 'path' based on score
+LLM evaluation for path took 10.38 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 2 of type path
+Selected context 5 of type path
+Selected context 8 of type path
+Selected context 9 of type path
+Final selection: 12 contexts
+After pruning: 12 contexts remain
+Selected contexts by type: {'rag': 6, 'path': 6}
+Context distribution plan: {'rag': [2, 2, 2], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 13
+Prompt 1: 4 contexts, 571 tokens
+Prompt 2: 4 contexts, 571 tokens
+Prompt 3: 4 contexts, 571 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal clock
+Processing dynamic context 1/3 for clock
+Generated 10 plans from context 1 for signal clock
+Processing dynamic context 2/3 for clock
+Generated 8 plans from context 2 for signal clock
+Processing dynamic context 3/3 for clock
+Generated 10 plans from context 3 for signal clock
+Generated 28 unique plans for signal clock from 28 total plans
+Processing signal 2/11: int_address
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_address']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'int_address' to 24 nodes
+Using 24/24 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_1074
+Found 64 significant paths for node rtl_1074
+  Found 30 potential endpoints for rtl_448
+Found 62 significant paths for node rtl_448
+  Found 30 potential endpoints for rtl_656
+Found 190 significant paths for node rtl_656
+  Found 30 potential endpoints for rtl_867
+Found 92 significant paths for node rtl_867
+  Found 30 potential endpoints for rtl_1075
+Found 65 significant paths for node rtl_1075
+  Found 30 potential endpoints for rtl_1281
+Found 94 significant paths for node rtl_1281
+  Found 30 potential endpoints for rtl_864
+Found 90 significant paths for node rtl_864
+  Found 30 potential endpoints for rtl_240
+Found 232 significant paths for node rtl_240
+  Found 30 potential endpoints for rtl_865
+Found 141 significant paths for node rtl_865
+  Found 30 potential endpoints for rtl_1072
+Found 51 significant paths for node rtl_1072
+  Found 30 potential endpoints for rtl_242
+Found 181 significant paths for node rtl_242
+  Found 30 potential endpoints for rtl_657
+Found 100 significant paths for node rtl_657
+  Found 30 potential endpoints for rtl_241
+Found 209 significant paths for node rtl_241
+  Found 30 potential endpoints for rtl_659
+Found 174 significant paths for node rtl_659
+  Found 30 potential endpoints for rtl_449
+Found 75 significant paths for node rtl_449
+  Found 30 potential endpoints for rtl_1283
+Found 66 significant paths for node rtl_1283
+  Found 30 potential endpoints for rtl_866
+Found 68 significant paths for node rtl_866
+  Found 30 potential endpoints for rtl_1073
+Found 112 significant paths for node rtl_1073
+  Found 30 potential endpoints for rtl_450
+Found 83 significant paths for node rtl_450
+  Found 30 potential endpoints for rtl_1280
+Found 55 significant paths for node rtl_1280
+  Found 30 potential endpoints for rtl_658
+Found 159 significant paths for node rtl_658
+  Found 30 potential endpoints for rtl_451
+Found 46 significant paths for node rtl_451
+  Found 30 potential endpoints for rtl_1282
+Found 80 significant paths for node rtl_1282
+  Found 30 potential endpoints for rtl_243
+Found 104 significant paths for node rtl_243
+Generated 2593 path-based contexts
+path generator returned 2593 contexts
+Added 2593 contexts from path, total now: 2603
+Sample path context: PATH ANALYSIS FROM int_address_assignment TO read_data_s_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_address_assignment (assignment) in module uart2bus_top
+Target: read_data_s_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_address_assignment (assignment in uart2bus_top) part_of uart2bus_top (module)
+  uart2bus_top (module) part_of read_data_s_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 2603 contexts...
+Using LLM-based context pruning
+Pruning 2603 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 5.56 seconds
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 8 of type rag
+Evaluating 2593 contexts of type 'path'
+Pre-filtering 2593 contexts of type 'path' based on score
+LLM evaluation for path took 8.12 seconds
+Selected context 3 of type path
+Selected context 6 of type path
+Selected context 15 of type path
+Selected context 17 of type path
+Final selection: 8 contexts
+After pruning: 8 contexts remain
+Selected contexts by type: {'rag': 4, 'path': 4}
+Context distribution plan: {'rag': [2, 1, 1], 'path': [2, 1, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 14
+Prompt 1: 4 contexts, 512 tokens
+Prompt 2: 2 contexts, 258 tokens
+Prompt 3: 2 contexts, 258 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_address
+Processing dynamic context 1/3 for int_address
+Generated 9 plans from context 1 for signal int_address
+Processing dynamic context 2/3 for int_address
+Generated 8 plans from context 2 for signal int_address
+Processing dynamic context 3/3 for int_address
+Generated 6 plans from context 3 for signal int_address
+Generated 23 unique plans for signal int_address from 23 total plans
+Processing signal 3/11: int_gnt
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_gnt']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'int_gnt' to 2 nodes
+Using 2/2 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_35
+Found 73 significant paths for node rtl_35
+  Found 30 potential endpoints for rtl_27
+Found 180 significant paths for node rtl_27
+Generated 253 path-based contexts
+path generator returned 253 contexts
+Added 253 contexts from path, total now: 263
+Sample path context: PATH ANALYSIS FROM int_gnt TO read_data_s_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_gnt (port) in module uart2bus_top
+Target: read_data_s_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_gnt (port in uart2bus_top) input_to uart2bus_top (module)
+  uart2bus_top (module) part_of read_data_s_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 263 contexts...
+Using LLM-based context pruning
+Pruning 263 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 9.57 seconds
+Selected context 1 of type rag
+Selected context 6 of type rag
+Selected context 7 of type rag
+Selected context 9 of type rag
+Evaluating 253 contexts of type 'path'
+Pre-filtering 253 contexts of type 'path' based on score
+LLM evaluation for path took 10.53 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 4 of type path
+Selected context 7 of type path
+Selected context 10 of type path
+Selected context 11 of type path
+Selected context 14 of type path
+Selected context 15 of type path
+Selected context 18 of type path
+Final selection: 13 contexts
+After pruning: 13 contexts remain
+Selected contexts by type: {'rag': 4, 'path': 9}
+Context distribution plan: {'rag': [2, 1, 1], 'path': [3, 3, 3], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 15
+Prompt 1: 5 contexts, 698 tokens
+Prompt 2: 4 contexts, 596 tokens
+Prompt 3: 4 contexts, 596 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_gnt
+Processing dynamic context 1/3 for int_gnt
+Generated 12 plans from context 1 for signal int_gnt
+Processing dynamic context 2/3 for int_gnt
+Generated 10 plans from context 2 for signal int_gnt
+Processing dynamic context 3/3 for int_gnt
+Generated 10 plans from context 3 for signal int_gnt
+Generated 32 unique plans for signal int_gnt from 32 total plans
+Processing signal 4/11: int_rd_data
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_rd_data']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: int_rd_data 8 clock resetint_req int_gntFebruary 25, 2012 4.Operation This section describes the protocols used to access the internal bus from the UART interface. As mentioned above the parser supports two modes of operation: text & binary commands. To distinguish between the two protocols all binary commands start with a value of zero which will not be sent when using the text protocol. The following drawing depicts a simplified state machine of the parser. The figure does not include some transitions used to abort illegal command sequences. Figure 2: Parser State Diagram In the state diagram above the states on the
+
+Processing generator: path
+Mapped signal 'int_rd_data' to 8 nodes
+Using 8/8 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_34
+Found 226 significant paths for node rtl_34
+  Found 30 potential endpoints for rtl_458
+Found 139 significant paths for node rtl_458
+  Found 30 potential endpoints for rtl_1082
+Found 164 significant paths for node rtl_1082
+  Found 30 potential endpoints for rtl_1290
+Found 72 significant paths for node rtl_1290
+  Found 30 potential endpoints for rtl_874
+Found 368 significant paths for node rtl_874
+  Found 30 potential endpoints for rtl_666
+Found 234 significant paths for node rtl_666
+  Found 30 potential endpoints for rtl_250
+Found 121 significant paths for node rtl_250
+  Found 30 potential endpoints for rtl_26
+Found 1200 significant paths for node rtl_26
+Generated 2524 path-based contexts
+path generator returned 2524 contexts
+Added 2524 contexts from path, total now: 2534
+Sample path context: PATH ANALYSIS FROM int_rd_data TO main_sm_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_rd_data (port) in module uart2bus_top
+Target: main_sm_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_rd_data (port in uart2bus_top) input_to uart2bus_top (module)
+  uart2bus_top (module) part_of main_sm_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 2534 contexts...
+Using LLM-based context pruning
+Pruning 2534 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 8.88 seconds
+Selected context 0 of type rag
+Selected context 2 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 8 of type rag
+Evaluating 2524 contexts of type 'path'
+Pre-filtering 2524 contexts of type 'path' based on score
+LLM evaluation for path took 8.02 seconds
+Selected context 0 of type path
+Selected context 7 of type path
+Final selection: 7 contexts
+After pruning: 7 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 2}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [1, 1, 0], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 15
+Prompt 1: 3 contexts, 447 tokens
+Prompt 2: 3 contexts, 447 tokens
+Prompt 3: 1 contexts, 138 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_rd_data
+Processing dynamic context 1/3 for int_rd_data
+Generated 80 plans from context 1 for signal int_rd_data
+Processing dynamic context 2/3 for int_rd_data
+Generated 10 plans from context 2 for signal int_rd_data
+Processing dynamic context 3/3 for int_rd_data
+Generated 10 plans from context 3 for signal int_rd_data
+Generated 100 unique plans for signal int_rd_data from 100 total plans
+Processing signal 5/11: int_read
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_read']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Scilab script which calculates the above parameters is added under the “scilab” directory with the core files. The interface between the “uart_parser.v” module and the “uart_top.v” is very simple and uses only five signals. For cases where the UART interface is not possible or another interface is preferred, the “uart_parser.v” module can be used as is with a different interface implementation. UART to Bus Core Specifications Page 5 of 10 uart_tx.v uart_rx.v baud_gen.vuart_top.v uart_parser.vuart2bus_top.v ser_out ser_inint_address int_wr_data16 8 int_write int_read int_rd_data 8 clock resetint_req int_gntFebruary 25, 2012 4.Operation This section describes the protocols used to access the internal bus from
+
+Processing generator: path
+Mapped signal 'int_read' to 20 nodes
+Using 20/20 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_647
+Found 231 significant paths for node rtl_647
+  Found 30 potential endpoints for rtl_1070
+Found 160 significant paths for node rtl_1070
+  Found 30 potential endpoints for rtl_32
+Found 251 significant paths for node rtl_32
+  Found 30 potential endpoints for rtl_652
+Found 149 significant paths for node rtl_652
+  Found 30 potential endpoints for rtl_855
+Found 163 significant paths for node rtl_855
+  Found 30 potential endpoints for rtl_1271
+Found 88 significant paths for node rtl_1271
+  Found 30 potential endpoints for rtl_1068
+Found 141 significant paths for node rtl_1068
+  Found 30 potential endpoints for rtl_446
+Found 66 significant paths for node rtl_446
+  Found 30 potential endpoints for rtl_238
+Found 107 significant paths for node rtl_238
+  Found 30 potential endpoints for rtl_1276
+Found 59 significant paths for node rtl_1276
+  Found 30 potential endpoints for rtl_860
+Found 279 significant paths for node rtl_860
+  Found 30 potential endpoints for rtl_444
+Found 100 significant paths for node rtl_444
+  Found 30 potential endpoints for rtl_439
+Found 167 significant paths for node rtl_439
+  Found 30 potential endpoints for rtl_236
+Found 133 significant paths for node rtl_236
+  Found 30 potential endpoints for rtl_39
+Found 176 significant paths for node rtl_39
+  Found 30 potential endpoints for rtl_862
+Found 207 significant paths for node rtl_862
+  Found 30 potential endpoints for rtl_231
+Found 187 significant paths for node rtl_231
+  Found 30 potential endpoints for rtl_1063
+Found 177 significant paths for node rtl_1063
+  Found 30 potential endpoints for rtl_1278
+Found 60 significant paths for node rtl_1278
+  Found 30 potential endpoints for rtl_654
+Found 117 significant paths for node rtl_654
+Generated 3018 path-based contexts
+path generator returned 3018 contexts
+Added 3018 contexts from path, total now: 3028
+Sample path context: PATH ANALYSIS FROM int_read_assignment TO tx_busy_assignment
+Path length: 6 nodes with clustering 0.25
+Source: int_read_assignment (assignment) in module uart_top
+Target: tx_busy_assignment (assignment) in module uart_top
+
+Relationship chain:
+  int_read_assignment (assignment in uart_top) part_of uart_top (module)
+  uart_top (module) instantiates uart_tx (module)
+  uart_tx (module) outputs tx_busy (port in uart_tx)
+  tx_busy (port in uart_tx) drives tx_busy (port in uart_top)
+  tx_busy (port in uart_top) assigns_to tx_busy_assignment (assignment in uart_top)
+
+Analysis:
+  • Signal flow path with 2 ports and 2 assignments
+  • Cross-module path connecting: uart_top, uart_tx
+
+Pruning 3028 contexts...
+Using LLM-based context pruning
+Pruning 3028 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 7.06 seconds
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 7 of type rag
+Selected context 8 of type rag
+Selected context 9 of type rag
+Evaluating 3018 contexts of type 'path'
+Pre-filtering 3018 contexts of type 'path' based on score
+LLM evaluation for path took 8.22 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 5 of type path
+Selected context 6 of type path
+Selected context 12 of type path
+Selected context 19 of type path
+Final selection: 13 contexts
+After pruning: 13 contexts remain
+Selected contexts by type: {'rag': 7, 'path': 6}
+Context distribution plan: {'rag': [3, 2, 2], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 14
+Prompt 1: 5 contexts, 704 tokens
+Prompt 2: 4 contexts, 589 tokens
+Prompt 3: 4 contexts, 589 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_read
+Processing dynamic context 1/3 for int_read
+Generated 10 plans from context 1 for signal int_read
+Processing dynamic context 2/3 for int_read
+Generated 10 plans from context 2 for signal int_read
+Processing dynamic context 3/3 for int_read
+Generated 10 plans from context 3 for signal int_read
+Generated 26 unique plans for signal int_read from 30 total plans
+Processing signal 6/11: int_req
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_req']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'int_req' to 14 nodes
+Using 14/14 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_40
+Found 156 significant paths for node rtl_40
+  Found 30 potential endpoints for rtl_863
+Found 263 significant paths for node rtl_863
+  Found 30 potential endpoints for rtl_447
+Found 90 significant paths for node rtl_447
+  Found 30 potential endpoints for rtl_33
+Found 284 significant paths for node rtl_33
+  Found 30 potential endpoints for rtl_119
+Found 130 significant paths for node rtl_119
+  Found 30 potential endpoints for rtl_1279
+Found 82 significant paths for node rtl_1279
+  Found 30 potential endpoints for rtl_1159
+Found 61 significant paths for node rtl_1159
+  Found 30 potential endpoints for rtl_239
+Found 211 significant paths for node rtl_239
+  Found 30 potential endpoints for rtl_327
+Found 146 significant paths for node rtl_327
+  Found 30 potential endpoints for rtl_535
+Found 86 significant paths for node rtl_535
+  Found 30 potential endpoints for rtl_743
+Found 209 significant paths for node rtl_743
+  Found 30 potential endpoints for rtl_1071
+Found 148 significant paths for node rtl_1071
+  Found 30 potential endpoints for rtl_951
+Found 176 significant paths for node rtl_951
+  Found 30 potential endpoints for rtl_655
+Found 296 significant paths for node rtl_655
+Generated 2338 path-based contexts
+path generator returned 2338 contexts
+Added 2338 contexts from path, total now: 2348
+Sample path context: PATH ANALYSIS FROM int_req TO ce_16_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_req (port) in module uart2bus_top
+Target: ce_16_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_req (port in uart2bus_top) outputs uart2bus_top (module)
+  uart2bus_top (module) part_of ce_16_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 2348 contexts...
+Using LLM-based context pruning
+Pruning 2348 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 10.01 seconds
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Selected context 9 of type rag
+Evaluating 2338 contexts of type 'path'
+Pre-filtering 2338 contexts of type 'path' based on score
+LLM evaluation for path took 7.73 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 2 of type path
+Selected context 17 of type path
+Selected context 18 of type path
+Selected context 19 of type path
+Final selection: 11 contexts
+After pruning: 11 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 6}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 14
+Prompt 1: 4 contexts, 669 tokens
+Prompt 2: 4 contexts, 669 tokens
+Prompt 3: 3 contexts, 499 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_req
+Processing dynamic context 1/3 for int_req
+Generated 10 plans from context 1 for signal int_req
+Processing dynamic context 2/3 for int_req
+Generated 10 plans from context 2 for signal int_req
+Processing dynamic context 3/3 for int_req
+Generated 10 plans from context 3 for signal int_req
+Generated 28 unique plans for signal int_req from 30 total plans
+Processing signal 7/11: int_wr_data
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_wr_data']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 		write_req <= 1'b0;
+		int_write <= 1'b0;
+		int_wr_data <= 0;
+	end 
+	else if (write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range)
+	begin 
+		write_req <= 1'b1;
+		int_wr_data <= data_param;
+	end 
+	// binary extension mode 
+	else if (bin_write_op && (main_sm == `MAIN_BIN_DATA) && new_rx_data) 
+	begin 
+		write_req <= 1'b1;
+		int_wr_data <= rx_data;
+	end 
+
+Processing generator: path
+Mapped signal 'int_wr_data' to 20 nodes
+Using 20/20 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_1267
+Found 106 significant paths for node rtl_1267
+  Found 30 potential endpoints for rtl_227
+Found 169 significant paths for node rtl_227
+  Found 30 potential endpoints for rtl_1265
+Found 79 significant paths for node rtl_1265
+  Found 30 potential endpoints for rtl_643
+Found 158 significant paths for node rtl_643
+  Found 30 potential endpoints for rtl_1055
+Found 228 significant paths for node rtl_1055
+  Found 30 potential endpoints for rtl_847
+Found 424 significant paths for node rtl_847
+  Found 30 potential endpoints for rtl_433
+Found 125 significant paths for node rtl_433
+  Found 30 potential endpoints for rtl_1263
+Found 75 significant paths for node rtl_1263
+  Found 30 potential endpoints for rtl_639
+Found 183 significant paths for node rtl_639
+  Found 30 potential endpoints for rtl_435
+Found 539 significant paths for node rtl_435
+  Found 30 potential endpoints for rtl_641
+Found 272 significant paths for node rtl_641
+  Found 30 potential endpoints for rtl_37
+Found 239 significant paths for node rtl_37
+  Found 30 potential endpoints for rtl_851
+Found 372 significant paths for node rtl_851
+  Found 30 potential endpoints for rtl_849
+Found 447 significant paths for node rtl_849
+  Found 30 potential endpoints for rtl_431
+Found 109 significant paths for node rtl_431
+  Found 30 potential endpoints for rtl_223
+Found 139 significant paths for node rtl_223
+  Found 30 potential endpoints for rtl_1059
+Found 218 significant paths for node rtl_1059
+  Found 30 potential endpoints for rtl_1057
+Found 197 significant paths for node rtl_1057
+  Found 30 potential endpoints for rtl_225
+Found 227 significant paths for node rtl_225
+  Found 30 potential endpoints for rtl_30
+Found 1245 significant paths for node rtl_30
+Generated 5551 path-based contexts
+path generator returned 5551 contexts
+Added 5551 contexts from path, total now: 5561
+Sample path context: PATH ANALYSIS FROM int_wr_data_assignment TO new_tx_data_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_wr_data_assignment (assignment) in module baud_gen
+Target: new_tx_data_assignment (assignment) in module baud_gen
+
+Relationship chain:
+  int_wr_data_assignment (assignment in baud_gen) part_of baud_gen (module)
+  baud_gen (module) part_of new_tx_data_assignment (assignment in baud_gen)
+
+Analysis:
+  • Cross-module path connecting: baud_gen
+
+Pruning 5561 contexts...
+Using LLM-based context pruning
+Pruning 5561 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 9.22 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 7 of type rag
+Selected context 8 of type rag
+Evaluating 5551 contexts of type 'path'
+Pre-filtering 5551 contexts of type 'path' based on score
+LLM evaluation for path took 8.17 seconds
+Selected context 2 of type path
+Selected context 5 of type path
+Selected context 9 of type path
+Selected context 13 of type path
+Selected context 3 of type path
+Final selection: 11 contexts
+After pruning: 11 contexts remain
+Selected contexts by type: {'rag': 6, 'path': 5}
+Context distribution plan: {'rag': [2, 2, 2], 'path': [2, 2, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 15
+Prompt 1: 4 contexts, 554 tokens
+Prompt 2: 4 contexts, 554 tokens
+Prompt 3: 3 contexts, 392 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_wr_data
+Processing dynamic context 1/3 for int_wr_data
+Generated 10 plans from context 1 for signal int_wr_data
+Processing dynamic context 2/3 for int_wr_data
+Generated 10 plans from context 2 for signal int_wr_data
+Processing dynamic context 3/3 for int_wr_data
+Generated 14 plans from context 3 for signal int_wr_data
+Generated 34 unique plans for signal int_wr_data from 34 total plans
+Processing signal 8/11: int_write
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_write']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 	else if (int_gnt && write_req) 
+	begin 
+		// set internal bus write and clear the write request flag 
+		int_write <= 1'b1;
+		write_req <= 1'b0;
+	end 
+	else 
+		int_write <= 1'b0;
+end 
+
+// internal read control 
+always @ (posedge clock or posedge reset)
+begin 
+	if (reset)
+	begin 
+		int_read <= 1'b0;
+		read_req <= 1'b0;
+
+Processing generator: path
+Mapped signal 'int_write' to 20 nodes
+Using 20/20 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_1054
+Found 132 significant paths for node rtl_1054
+  Found 30 potential endpoints for rtl_646
+Found 104 significant paths for node rtl_646
+  Found 30 potential endpoints for rtl_852
+Found 394 significant paths for node rtl_852
+  Found 30 potential endpoints for rtl_228
+Found 211 significant paths for node rtl_228
+  Found 30 potential endpoints for rtl_644
+Found 143 significant paths for node rtl_644
+  Found 30 potential endpoints for rtl_438
+Found 129 significant paths for node rtl_438
+  Found 30 potential endpoints for rtl_638
+Found 149 significant paths for node rtl_638
+  Found 30 potential endpoints for rtl_430
+Found 68 significant paths for node rtl_430
+  Found 30 potential endpoints for rtl_1062
+Found 172 significant paths for node rtl_1062
+  Found 30 potential endpoints for rtl_1262
+Found 61 significant paths for node rtl_1262
+  Found 30 potential endpoints for rtl_846
+Found 352 significant paths for node rtl_846
+  Found 30 potential endpoints for rtl_222
+Found 152 significant paths for node rtl_222
+  Found 30 potential endpoints for rtl_31
+Found 413 significant paths for node rtl_31
+  Found 30 potential endpoints for rtl_1060
+Found 148 significant paths for node rtl_1060
+  Found 30 potential endpoints for rtl_436
+Found 109 significant paths for node rtl_436
+  Found 30 potential endpoints for rtl_1268
+Found 111 significant paths for node rtl_1268
+  Found 30 potential endpoints for rtl_38
+Found 256 significant paths for node rtl_38
+  Found 30 potential endpoints for rtl_230
+Found 153 significant paths for node rtl_230
+  Found 30 potential endpoints for rtl_854
+Found 288 significant paths for node rtl_854
+  Found 30 potential endpoints for rtl_1270
+Found 38 significant paths for node rtl_1270
+Generated 3583 path-based contexts
+path generator returned 3583 contexts
+Added 3583 contexts from path, total now: 3593
+Sample path context: PATH ANALYSIS FROM int_write_assignment TO bin_read_op_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_write_assignment (assignment) in module uart2bus_top
+Target: bin_read_op_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_write_assignment (assignment in uart2bus_top) part_of uart2bus_top (module)
+  uart2bus_top (module) part_of bin_read_op_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 3593 contexts...
+Using LLM-based context pruning
+Pruning 3593 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 5.95 seconds
+Selected context 0 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 6 of type rag
+Selected context 8 of type rag
+Evaluating 3583 contexts of type 'path'
+Pre-filtering 3583 contexts of type 'path' based on score
+LLM evaluation for path took 13.32 seconds
+Selected context 0 of type path
+Selected context 2 of type path
+Selected context 7 of type path
+Selected context 10 of type path
+Selected context 14 of type path
+Selected context 15 of type path
+Selected context 16 of type path
+Selected context 17 of type path
+Selected context 18 of type path
+Final selection: 14 contexts
+After pruning: 14 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 9}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [3, 3, 3], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 14
+Prompt 1: 5 contexts, 696 tokens
+Prompt 2: 5 contexts, 696 tokens
+Prompt 3: 4 contexts, 587 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_write
+Processing dynamic context 1/3 for int_write
+Generated 8 plans from context 1 for signal int_write
+Processing dynamic context 2/3 for int_write
+Generated 10 plans from context 2 for signal int_write
+Processing dynamic context 3/3 for int_write
+Generated 10 plans from context 3 for signal int_write
+Generated 28 unique plans for signal int_write from 28 total plans
+Processing signal 9/11: reset
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['reset']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 
+// data buffer shift register 
+always @ (posedge clock or posedge reset)
+begin 
+	if (reset)
+		data_buf <= 8'h0;
+	else if (rx_busy & ce_1_mid)
+		data_buf <= {in_sync[1], data_buf[7:1]};
+end 
+
+// data output and flag 
+always @ (posedge clock or posedge reset)
+begin 
+	if (reset) 
+	begin 
+		rx_data <= 8'h0;
+		new_rx_data <= 1'b0;
+
+Processing generator: path
+No mapping found for 'reset', using as-is
+Using 0/1 valid nodes for path context generation
+No valid nodes found in graph for path analysis
+path generator returned 0 contexts
+
+Pruning 10 contexts...
+Using LLM-based context pruning
+Pruning 10 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 6.41 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 4 of type rag
+Selected context 9 of type rag
+Final selection: 5 contexts
+After pruning: 5 contexts remain
+Selected contexts by type: {'rag': 5}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [0, 0, 0], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 13
+Prompt 1: 2 contexts, 308 tokens
+Prompt 2: 2 contexts, 308 tokens
+Prompt 3: 1 contexts, 122 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal reset
+Processing dynamic context 1/3 for reset
+Generated 10 plans from context 1 for signal reset
+Processing dynamic context 2/3 for reset
+Generated 10 plans from context 2 for signal reset
+Processing dynamic context 3/3 for reset
+Generated 10 plans from context 3 for signal reset
+Generated 30 unique plans for signal reset from 30 total plans
+Processing signal 10/11: ser_in
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['ser_in']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'ser_in' to 7 nodes
+Using 7/7 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_140
+Found 153 significant paths for node rtl_140
+  Found 30 potential endpoints for rtl_348
+Found 184 significant paths for node rtl_348
+  Found 30 potential endpoints for rtl_764
+Found 86 significant paths for node rtl_764
+  Found 30 potential endpoints for rtl_1180
+Found 98 significant paths for node rtl_1180
+  Found 30 potential endpoints for rtl_556
+Found 113 significant paths for node rtl_556
+  Found 30 potential endpoints for rtl_972
+Found 62 significant paths for node rtl_972
+  Found 30 potential endpoints for rtl_13
+Found 159 significant paths for node rtl_13
+Generated 855 path-based contexts
+path generator returned 855 contexts
+Added 855 contexts from path, total now: 865
+Sample path context: PATH ANALYSIS FROM in_sync_assignment TO new_tx_data_assignment
+Path length: 6 nodes with clustering 0.61
+Source: in_sync_assignment (assignment) in module uart_tx
+Target: new_tx_data_assignment (assignment) in module uart_tx
+
+Relationship chain:
+  in_sync_assignment (assignment in uart_tx) part_of uart_tx (module)
+  uart_tx (module) outputs tx_data (port in uart_tx)
+  tx_data (port in uart_tx) includes rtl_100 (protocol_pattern in uart_tx)
+  rtl_100 (protocol_pattern in uart_tx) includes new_tx_data (port in uart_tx)
+  new_tx_data (port in uart_tx) assigns_to new_tx_data_assignment (assignment in uart_tx)
+
+Analysis:
+  • Signal flow path with 2 ports and 2 assignments
+  • Cross-module path connecting: uart_tx
+
+Pruning 865 contexts...
+Using LLM-based context pruning
+Pruning 865 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 6.69 seconds
+Selected context 1 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Selected context 9 of type rag
+Evaluating 855 contexts of type 'path'
+Pre-filtering 855 contexts of type 'path' based on score
+LLM evaluation for path took 8.33 seconds
+Selected context 0 of type path
+Selected context 5 of type path
+Selected context 12 of type path
+Selected context 13 of type path
+Selected context 19 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 5}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [2, 2, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 14
+Prompt 1: 4 contexts, 527 tokens
+Prompt 2: 4 contexts, 527 tokens
+Prompt 3: 2 contexts, 288 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal ser_in
+Processing dynamic context 1/3 for ser_in
+Generated 10 plans from context 1 for signal ser_in
+Processing dynamic context 2/3 for ser_in
+Generated 10 plans from context 2 for signal ser_in
+Processing dynamic context 3/3 for ser_in
+Generated 10 plans from context 3 for signal ser_in
+Generated 30 unique plans for signal ser_in from 30 total plans
+Processing signal 11/11: ser_out
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['ser_out']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Scilab script which calculates the above parameters is added under the “scilab” directory with the core files. The interface between the “uart_parser.v” module and the “uart_top.v” is very simple and uses only five signals. For cases where the UART interface is not possible or another interface is preferred, the “uart_parser.v” module can be used as is with a different interface implementation. UART to Bus Core Specifications Page 5 of 10 uart_tx.v uart_rx.v baud_gen.vuart_top.v uart_parser.vuart2bus_top.v ser_out ser_inint_address int_wr_data16 8 int_write int_read int_rd_data 8 clock resetint_req int_gntFebruary 25, 2012 4.Operation This section describes the protocols used to access the internal bus from
+
+Processing generator: path
+Mapped signal 'ser_out' to 21 nodes
+Using 21/21 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_137
+Found 427 significant paths for node rtl_137
+  Found 30 potential endpoints for rtl_553
+Found 439 significant paths for node rtl_553
+  Found 30 potential endpoints for rtl_138
+Found 601 significant paths for node rtl_138
+  Found 30 potential endpoints for rtl_345
+Found 185 significant paths for node rtl_345
+  Found 30 potential endpoints for rtl_20
+Found 756 significant paths for node rtl_20
+  Found 30 potential endpoints for rtl_761
+Found 58 significant paths for node rtl_761
+  Found 30 potential endpoints for rtl_968
+Found 167 significant paths for node rtl_968
+  Found 30 potential endpoints for rtl_36
+Found 355 significant paths for node rtl_36
+  Found 30 potential endpoints for rtl_554
+Found 405 significant paths for node rtl_554
+  Found 30 potential endpoints for rtl_9
+Found 657 significant paths for node rtl_9
+  Found 30 potential endpoints for rtl_970
+Found 188 significant paths for node rtl_970
+  Found 30 potential endpoints for rtl_552
+Found 344 significant paths for node rtl_552
+  Found 30 potential endpoints for rtl_762
+Found 141 significant paths for node rtl_762
+  Found 30 potential endpoints for rtl_969
+Found 178 significant paths for node rtl_969
+  Found 30 potential endpoints for rtl_1176
+Found 76 significant paths for node rtl_1176
+  Found 30 potential endpoints for rtl_344
+Found 79 significant paths for node rtl_344
+  Found 30 potential endpoints for rtl_760
+Found 112 significant paths for node rtl_760
+  Found 30 potential endpoints for rtl_346
+Found 120 significant paths for node rtl_346
+  Found 30 potential endpoints for rtl_136
+Found 376 significant paths for node rtl_136
+  Found 30 potential endpoints for rtl_1177
+Found 110 significant paths for node rtl_1177
+  Found 30 potential endpoints for rtl_1178
+Found 161 significant paths for node rtl_1178
+Generated 5935 path-based contexts
+path generator returned 5935 contexts
+Added 5935 contexts from path, total now: 5945
+Sample path context: PATH ANALYSIS FROM ser_out_assignment TO write_op_assignment
+Path length: 3 nodes with clustering 0.00
+Source: ser_out_assignment (assignment) in module uart_tx
+Target: write_op_assignment (assignment) in module uart_tx
+
+Relationship chain:
+  ser_out_assignment (assignment in uart_tx) part_of uart_tx (module)
+  uart_tx (module) part_of write_op_assignment (assignment in uart_tx)
+
+Analysis:
+  • Cross-module path connecting: uart_tx
+
+Pruning 5945 contexts...
+Using LLM-based context pruning
+Pruning 5945 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 6.80 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Evaluating 5935 contexts of type 'path'
+Pre-filtering 5935 contexts of type 'path' based on score
+LLM evaluation for path took 9.75 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 5 of type path
+Selected context 7 of type path
+Selected context 15 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 5}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [2, 2, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 14
+Prompt 1: 4 contexts, 627 tokens
+Prompt 2: 4 contexts, 627 tokens
+Prompt 3: 2 contexts, 304 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal ser_out
+Processing dynamic context 1/3 for ser_out
+Generated 12 plans from context 1 for signal ser_out
+Processing dynamic context 2/3 for ser_out
+Generated 10 plans from context 2 for signal ser_out
+Processing dynamic context 3/3 for ser_out
+Generated 10 plans from context 3 for signal ser_out
+Generated 31 unique plans for signal ser_out from 32 total plans
+Step 6: Generating SVAs...
+
+=== KG Structure ===
+KG is a dictionary with keys: ['nodes', 'edges']
+  nodes: list with 1391 items
+    First item type: <class 'dict'>
+    First item keys: ['id', 'attributes']
+  edges: list with 1630 items
+    First item type: <class 'dict'>
+    First item keys: ['source', 'target', 'attributes']
+
+Building signal name to node ID mapping for 11 signals...
+
+=== Building signal to node mapping for 11 signals ===
+Valid signals: ['clock', 'reset', 'ser_in', 'ser_out', 'int_address', 'int_wr_data', 'int_write', 'int_rd_data', 'int_read', 'int_req', 'int_gnt']
+KG structure: ['nodes', 'edges']
+Number of nodes in KG: 1391
+
+Node type distribution in KG:
+  unknown: 28 nodes
+  module: 6 nodes
+  port: 39 nodes
+  fsm: 54 nodes
+  protocol_pattern: 12 nodes
+  verification_point: 3 nodes
+  assignment: 1248 nodes
+  root: 1 nodes
+
+Signal mentions by node type:
+  clock: {'port': 3}
+  reset: No mentions found in node names
+  ser_in: {'port': 1}
+  ser_out: {'port': 3, 'assignment': 18}
+  int_address: {'assignment': 24}
+  int_wr_data: {'port': 2, 'assignment': 18}
+  int_write: {'port': 2, 'assignment': 18}
+  int_rd_data: {'port': 2}
+  int_read: {'port': 2, 'assignment': 18}
+  int_req: {'port': 2, 'assignment': 12}
+  int_gnt: {'port': 2}
+
+=== Signal mapping results ===
+Signal 'clock' mapped to 3 nodes: ['rtl_6', 'rtl_12', 'rtl_41']
+WARNING: No node mapping found for signal 'reset'
+Signal 'ser_in' mapped to 7 nodes: ['rtl_13', 'rtl_140', 'rtl_348', 'rtl_556', 'rtl_764', 'rtl_972', 'rtl_1180']
+Signal 'ser_out' mapped to 21 nodes: ['rtl_9', 'rtl_20', 'rtl_36', 'rtl_136', 'rtl_137', 'rtl_138', 'rtl_344', 'rtl_345', 'rtl_346', 'rtl_552', 'rtl_553', 'rtl_554', 'rtl_760', 'rtl_761', 'rtl_762', 'rtl_968', 'rtl_969', 'rtl_970', 'rtl_1176', 'rtl_1177', 'rtl_1178']
+Signal 'int_address' mapped to 24 nodes: ['rtl_240', 'rtl_241', 'rtl_242', 'rtl_243', 'rtl_448', 'rtl_449', 'rtl_450', 'rtl_451', 'rtl_656', 'rtl_657', 'rtl_658', 'rtl_659', 'rtl_864', 'rtl_865', 'rtl_866', 'rtl_867', 'rtl_1072', 'rtl_1073', 'rtl_1074', 'rtl_1075', 'rtl_1280', 'rtl_1281', 'rtl_1282', 'rtl_1283']
+Signal 'int_wr_data' mapped to 20 nodes: ['rtl_30', 'rtl_37', 'rtl_223', 'rtl_225', 'rtl_227', 'rtl_431', 'rtl_433', 'rtl_435', 'rtl_639', 'rtl_641', 'rtl_643', 'rtl_847', 'rtl_849', 'rtl_851', 'rtl_1055', 'rtl_1057', 'rtl_1059', 'rtl_1263', 'rtl_1265', 'rtl_1267']
+Signal 'int_write' mapped to 20 nodes: ['rtl_31', 'rtl_38', 'rtl_222', 'rtl_228', 'rtl_230', 'rtl_430', 'rtl_436', 'rtl_438', 'rtl_638', 'rtl_644', 'rtl_646', 'rtl_846', 'rtl_852', 'rtl_854', 'rtl_1054', 'rtl_1060', 'rtl_1062', 'rtl_1262', 'rtl_1268', 'rtl_1270']
+Signal 'int_rd_data' mapped to 8 nodes: ['rtl_26', 'rtl_34', 'rtl_250', 'rtl_458', 'rtl_666', 'rtl_874', 'rtl_1082', 'rtl_1290']
+Signal 'int_read' mapped to 20 nodes: ['rtl_32', 'rtl_39', 'rtl_231', 'rtl_236', 'rtl_238', 'rtl_439', 'rtl_444', 'rtl_446', 'rtl_647', 'rtl_652', 'rtl_654', 'rtl_855', 'rtl_860', 'rtl_862', 'rtl_1063', 'rtl_1068', 'rtl_1070', 'rtl_1271', 'rtl_1276', 'rtl_1278']
+Signal 'int_req' mapped to 14 nodes: ['rtl_33', 'rtl_40', 'rtl_119', 'rtl_239', 'rtl_327', 'rtl_447', 'rtl_535', 'rtl_655', 'rtl_743', 'rtl_863', 'rtl_951', 'rtl_1071', 'rtl_1159', 'rtl_1279']
+Signal 'int_gnt' mapped to 2 nodes: ['rtl_27', 'rtl_35']
+Created mappings for 10 signals
+Signal 'clock' mapped to 3 nodes: ['rtl_6', 'rtl_12', 'rtl_41']
+Signal 'ser_out' mapped to 21 nodes: ['rtl_9', 'rtl_20', 'rtl_36', 'rtl_136', 'rtl_137', 'rtl_138', 'rtl_344', 'rtl_345', 'rtl_346', 'rtl_552', 'rtl_553', 'rtl_554', 'rtl_760', 'rtl_761', 'rtl_762', 'rtl_968', 'rtl_969', 'rtl_970', 'rtl_1176', 'rtl_1177', 'rtl_1178']
+Signal 'ser_in' mapped to 7 nodes: ['rtl_13', 'rtl_140', 'rtl_348', 'rtl_556', 'rtl_764', 'rtl_972', 'rtl_1180']
+Signal 'int_rd_data' mapped to 8 nodes: ['rtl_26', 'rtl_34', 'rtl_250', 'rtl_458', 'rtl_666', 'rtl_874', 'rtl_1082', 'rtl_1290']
+Signal 'int_gnt' mapped to 2 nodes: ['rtl_27', 'rtl_35']
+Signal 'int_wr_data' mapped to 20 nodes: ['rtl_30', 'rtl_37', 'rtl_223', 'rtl_225', 'rtl_227', 'rtl_431', 'rtl_433', 'rtl_435', 'rtl_639', 'rtl_641', 'rtl_643', 'rtl_847', 'rtl_849', 'rtl_851', 'rtl_1055', 'rtl_1057', 'rtl_1059', 'rtl_1263', 'rtl_1265', 'rtl_1267']
+Signal 'int_write' mapped to 20 nodes: ['rtl_31', 'rtl_38', 'rtl_222', 'rtl_228', 'rtl_230', 'rtl_430', 'rtl_436', 'rtl_438', 'rtl_638', 'rtl_644', 'rtl_646', 'rtl_846', 'rtl_852', 'rtl_854', 'rtl_1054', 'rtl_1060', 'rtl_1062', 'rtl_1262', 'rtl_1268', 'rtl_1270']
+Signal 'int_read' mapped to 20 nodes: ['rtl_32', 'rtl_39', 'rtl_231', 'rtl_236', 'rtl_238', 'rtl_439', 'rtl_444', 'rtl_446', 'rtl_647', 'rtl_652', 'rtl_654', 'rtl_855', 'rtl_860', 'rtl_862', 'rtl_1063', 'rtl_1068', 'rtl_1070', 'rtl_1271', 'rtl_1276', 'rtl_1278']
+Signal 'int_req' mapped to 14 nodes: ['rtl_33', 'rtl_40', 'rtl_119', 'rtl_239', 'rtl_327', 'rtl_447', 'rtl_535', 'rtl_655', 'rtl_743', 'rtl_863', 'rtl_951', 'rtl_1071', 'rtl_1159', 'rtl_1279']
+Signal 'int_address' mapped to 24 nodes: ['rtl_240', 'rtl_241', 'rtl_242', 'rtl_243', 'rtl_448', 'rtl_449', 'rtl_450', 'rtl_451', 'rtl_656', 'rtl_657', 'rtl_658', 'rtl_659', 'rtl_864', 'rtl_865', 'rtl_866', 'rtl_867', 'rtl_1072', 'rtl_1073', 'rtl_1074', 'rtl_1075', 'rtl_1280', 'rtl_1281', 'rtl_1282', 'rtl_1283']
+Using LLM-based context pruning
+Processing signal 1/11: clock
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['clock']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 
+assign baud_clk = ce_16;
+//---------------------------------------------------------------------------------------
+// module implementation 
+// baud rate generator module 
+baud_gen baud_gen_1
+(
+	.clock(clock), .reset(reset), 
+	.ce_16(ce_16), .baud_freq(baud_freq), .baud_limit(baud_limit)
+);
+
+// uart receiver 
+uart_rx uart_rx_1 
+(
+	.clock(clock), .reset(reset), 
+	.ce_16(ce_16), .ser_in(ser_in), 
+	.rx_data(rx_data), .new_rx_data(new_rx_data) 
+);
+
+// uart transmitter 
+uart_tx  uart_tx_1
+(
+	.clock(clock), .reset(reset), 
+	.ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), 
+	.ser_out(ser_out), .tx_busy(tx_busy) 
+);
+
+endmodule
+
+Processing generator: path
+Mapped signal 'clock' to 3 nodes
+Using 3/3 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_41
+Found 361 significant paths for node rtl_41
+  Found 30 potential endpoints for rtl_6
+Found 1434 significant paths for node rtl_6
+  Found 30 potential endpoints for rtl_12
+Found 784 significant paths for node rtl_12
+Generated 2579 path-based contexts
+path generator returned 2579 contexts
+Added 2579 contexts from path, total now: 2589
+Sample path context: PATH ANALYSIS FROM clock TO data_stability
+Path length: 5 nodes with clustering 0.47
+Source: clock (port) in module baud_gen
+Target: data_stability (verification_point) in module uart_tx
+
+Relationship chain:
+  clock (port in baud_gen) input_to baud_gen (module)
+  baud_gen (module) instantiates uart_tx (module)
+  uart_tx (module) outputs tx_data (port in uart_tx)
+  tx_data (port in uart_tx) involves data_stability (verification_point in uart_tx)
+
+Analysis:
+  • Cross-module path connecting: baud_gen, uart_tx
+
+Pruning 2589 contexts...
+Using LLM-based context pruning
+Pruning 2589 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 7.54 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 3 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Evaluating 2579 contexts of type 'path'
+Pre-filtering 2579 contexts of type 'path' based on score
+LLM evaluation for path took 8.86 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 2 of type path
+Selected context 3 of type path
+Selected context 6 of type path
+Selected context 13 of type path
+Selected context 15 of type path
+Selected context 17 of type path
+Selected context 19 of type path
+Final selection: 14 contexts
+After pruning: 14 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 9}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [3, 3, 3], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 23
+Prompt 1: 5 contexts, 721 tokens
+Prompt 2: 5 contexts, 721 tokens
+Prompt 3: 4 contexts, 566 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal clock
+Distributing 28 plans across 3 contexts
+Processing context 1 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 8
+Generated 8 SVAs from context 1 for signal clock
+Processing context 2 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 7
+Generated 7 SVAs from context 2 for signal clock
+Processing context 3 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 0 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 3 for signal clock
+Generated 24 unique SVAs for signal clock from 24 total SVAs
+Processing signal 2/11: int_address
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_address']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'int_address' to 24 nodes
+Using 24/24 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_1074
+Found 55 significant paths for node rtl_1074
+  Found 30 potential endpoints for rtl_448
+Found 138 significant paths for node rtl_448
+  Found 30 potential endpoints for rtl_656
+Found 136 significant paths for node rtl_656
+  Found 30 potential endpoints for rtl_867
+Found 76 significant paths for node rtl_867
+  Found 30 potential endpoints for rtl_1075
+Found 49 significant paths for node rtl_1075
+  Found 30 potential endpoints for rtl_1281
+Found 83 significant paths for node rtl_1281
+  Found 30 potential endpoints for rtl_864
+Found 93 significant paths for node rtl_864
+  Found 30 potential endpoints for rtl_240
+Found 148 significant paths for node rtl_240
+  Found 30 potential endpoints for rtl_865
+Found 147 significant paths for node rtl_865
+  Found 30 potential endpoints for rtl_1072
+Found 47 significant paths for node rtl_1072
+  Found 30 potential endpoints for rtl_242
+Found 187 significant paths for node rtl_242
+  Found 30 potential endpoints for rtl_657
+Found 137 significant paths for node rtl_657
+  Found 30 potential endpoints for rtl_241
+Found 158 significant paths for node rtl_241
+  Found 30 potential endpoints for rtl_659
+Found 144 significant paths for node rtl_659
+  Found 30 potential endpoints for rtl_449
+Found 110 significant paths for node rtl_449
+  Found 30 potential endpoints for rtl_1283
+Found 79 significant paths for node rtl_1283
+  Found 30 potential endpoints for rtl_866
+Found 140 significant paths for node rtl_866
+  Found 30 potential endpoints for rtl_1073
+Found 38 significant paths for node rtl_1073
+  Found 30 potential endpoints for rtl_450
+Found 94 significant paths for node rtl_450
+  Found 30 potential endpoints for rtl_1280
+Found 113 significant paths for node rtl_1280
+  Found 30 potential endpoints for rtl_658
+Found 106 significant paths for node rtl_658
+  Found 30 potential endpoints for rtl_451
+Found 90 significant paths for node rtl_451
+  Found 30 potential endpoints for rtl_1282
+Found 77 significant paths for node rtl_1282
+  Found 30 potential endpoints for rtl_243
+Found 152 significant paths for node rtl_243
+Generated 2597 path-based contexts
+path generator returned 2597 contexts
+Added 2597 contexts from path, total now: 2607
+Sample path context: PATH ANALYSIS FROM int_address_assignment TO ce_16_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_address_assignment (assignment) in module uart2bus_top
+Target: ce_16_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_address_assignment (assignment in uart2bus_top) part_of uart2bus_top (module)
+  uart2bus_top (module) part_of ce_16_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 2607 contexts...
+Using LLM-based context pruning
+Pruning 2607 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 6.00 seconds
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 8 of type rag
+Evaluating 2597 contexts of type 'path'
+Pre-filtering 2597 contexts of type 'path' based on score
+LLM evaluation for path took 8.46 seconds
+Selected context 0 of type path
+Selected context 2 of type path
+Selected context 6 of type path
+Selected context 11 of type path
+Selected context 12 of type path
+Selected context 18 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 4, 'path': 6}
+Context distribution plan: {'rag': [2, 1, 1], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 24
+Prompt 1: 4 contexts, 503 tokens
+Prompt 2: 3 contexts, 384 tokens
+Prompt 3: 3 contexts, 384 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_address
+Distributing 23 plans across 3 contexts
+Processing context 1 with 8 plans
+
+Strategy Effectiveness:
+Strategy 1: 8 SVAs extracted
+Strategy 2: 8 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 6
+Generated 6 SVAs from context 1 for signal int_address
+Processing context 2 with 8 plans
+
+Strategy Effectiveness:
+Strategy 1: 8 SVAs extracted
+Strategy 2: 8 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 7
+Generated 7 SVAs from context 2 for signal int_address
+Processing context 3 with 7 plans
+
+Strategy Effectiveness:
+Strategy 1: 7 SVAs extracted
+Strategy 2: 7 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 7
+Generated 7 SVAs from context 3 for signal int_address
+Generated 18 unique SVAs for signal int_address from 20 total SVAs
+Processing signal 3/11: int_gnt
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_gnt']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'int_gnt' to 2 nodes
+Using 2/2 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_35
+Found 85 significant paths for node rtl_35
+  Found 30 potential endpoints for rtl_27
+Found 116 significant paths for node rtl_27
+Generated 201 path-based contexts
+path generator returned 201 contexts
+Added 201 contexts from path, total now: 211
+Sample path context: PATH ANALYSIS FROM int_gnt TO main_sm_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_gnt (port) in module uart2bus_top
+Target: main_sm_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_gnt (port in uart2bus_top) input_to uart2bus_top (module)
+  uart2bus_top (module) part_of main_sm_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 211 contexts...
+Using LLM-based context pruning
+Pruning 211 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 6.09 seconds
+Selected context 1 of type rag
+Selected context 6 of type rag
+Selected context 7 of type rag
+Selected context 9 of type rag
+Evaluating 201 contexts of type 'path'
+Pre-filtering 201 contexts of type 'path' based on score
+LLM evaluation for path took 11.04 seconds
+Selected context 0 of type path
+Selected context 4 of type path
+Selected context 7 of type path
+Selected context 11 of type path
+Selected context 14 of type path
+Selected context 15 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 4, 'path': 6}
+Context distribution plan: {'rag': [2, 1, 1], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 25
+Prompt 1: 4 contexts, 557 tokens
+Prompt 2: 3 contexts, 455 tokens
+Prompt 3: 3 contexts, 455 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_gnt
+Distributing 32 plans across 3 contexts
+Processing context 1 with 11 plans
+
+Strategy Effectiveness:
+Strategy 1: 11 SVAs extracted
+Strategy 2: 11 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 1 for signal int_gnt
+Processing context 2 with 11 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 2 for signal int_gnt
+Processing context 3 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 3 for signal int_gnt
+Generated 27 unique SVAs for signal int_gnt from 28 total SVAs
+Processing signal 4/11: int_rd_data
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_rd_data']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: int_rd_data 8 clock resetint_req int_gntFebruary 25, 2012 4.Operation This section describes the protocols used to access the internal bus from the UART interface. As mentioned above the parser supports two modes of operation: text & binary commands. To distinguish between the two protocols all binary commands start with a value of zero which will not be sent when using the text protocol. The following drawing depicts a simplified state machine of the parser. The figure does not include some transitions used to abort illegal command sequences. Figure 2: Parser State Diagram In the state diagram above the states on the
+
+Processing generator: path
+Mapped signal 'int_rd_data' to 8 nodes
+Using 8/8 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_34
+Found 224 significant paths for node rtl_34
+  Found 30 potential endpoints for rtl_458
+Found 104 significant paths for node rtl_458
+  Found 30 potential endpoints for rtl_1082
+Found 143 significant paths for node rtl_1082
+  Found 30 potential endpoints for rtl_1290
+Found 59 significant paths for node rtl_1290
+  Found 30 potential endpoints for rtl_874
+Found 340 significant paths for node rtl_874
+  Found 30 potential endpoints for rtl_666
+Found 211 significant paths for node rtl_666
+  Found 30 potential endpoints for rtl_250
+Found 143 significant paths for node rtl_250
+  Found 30 potential endpoints for rtl_26
+Found 938 significant paths for node rtl_26
+Generated 2162 path-based contexts
+path generator returned 2162 contexts
+Added 2162 contexts from path, total now: 2172
+Sample path context: PATH ANALYSIS FROM int_rd_data TO int_address_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_rd_data (port) in module uart2bus_top
+Target: int_address_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_rd_data (port in uart2bus_top) input_to uart2bus_top (module)
+  uart2bus_top (module) part_of int_address_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 2172 contexts...
+Using LLM-based context pruning
+Pruning 2172 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 9.07 seconds
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Selected context 8 of type rag
+Evaluating 2162 contexts of type 'path'
+Pre-filtering 2162 contexts of type 'path' based on score
+LLM evaluation for path took 7.30 seconds
+Selected context 0 of type path
+Selected context 2 of type path
+Selected context 3 of type path
+Selected context 17 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 6, 'path': 4}
+Context distribution plan: {'rag': [2, 2, 2], 'path': [2, 1, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 25
+Prompt 1: 4 contexts, 627 tokens
+Prompt 2: 3 contexts, 481 tokens
+Prompt 3: 3 contexts, 481 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_rd_data
+Distributing 100 plans across 3 contexts
+Processing context 1 with 34 plans
+
+Strategy Effectiveness:
+Strategy 1: 34 SVAs extracted
+Strategy 2: 34 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 30
+Generated 30 SVAs from context 1 for signal int_rd_data
+Processing context 2 with 33 plans
+
+Strategy Effectiveness:
+Strategy 1: 32 SVAs extracted
+Strategy 2: 32 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 28
+Generated 28 SVAs from context 2 for signal int_rd_data
+Processing context 3 with 33 plans
+
+Strategy Effectiveness:
+Strategy 1: 33 SVAs extracted
+Strategy 2: 33 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 32
+Generated 32 SVAs from context 3 for signal int_rd_data
+Generated 88 unique SVAs for signal int_rd_data from 90 total SVAs
+Processing signal 5/11: int_read
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_read']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Scilab script which calculates the above parameters is added under the “scilab” directory with the core files. The interface between the “uart_parser.v” module and the “uart_top.v” is very simple and uses only five signals. For cases where the UART interface is not possible or another interface is preferred, the “uart_parser.v” module can be used as is with a different interface implementation. UART to Bus Core Specifications Page 5 of 10 uart_tx.v uart_rx.v baud_gen.vuart_top.v uart_parser.vuart2bus_top.v ser_out ser_inint_address int_wr_data16 8 int_write int_read int_rd_data 8 clock resetint_req int_gntFebruary 25, 2012 4.Operation This section describes the protocols used to access the internal bus from
+
+Processing generator: path
+Mapped signal 'int_read' to 20 nodes
+Using 20/20 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_647
+Found 156 significant paths for node rtl_647
+  Found 30 potential endpoints for rtl_1070
+Found 158 significant paths for node rtl_1070
+  Found 30 potential endpoints for rtl_32
+Found 352 significant paths for node rtl_32
+  Found 30 potential endpoints for rtl_652
+Found 209 significant paths for node rtl_652
+  Found 30 potential endpoints for rtl_855
+Found 355 significant paths for node rtl_855
+  Found 30 potential endpoints for rtl_1271
+Found 114 significant paths for node rtl_1271
+  Found 30 potential endpoints for rtl_1068
+Found 147 significant paths for node rtl_1068
+  Found 30 potential endpoints for rtl_446
+Found 176 significant paths for node rtl_446
+  Found 30 potential endpoints for rtl_238
+Found 164 significant paths for node rtl_238
+  Found 30 potential endpoints for rtl_1276
+Found 101 significant paths for node rtl_1276
+  Found 30 potential endpoints for rtl_860
+Found 389 significant paths for node rtl_860
+  Found 30 potential endpoints for rtl_444
+Found 93 significant paths for node rtl_444
+  Found 30 potential endpoints for rtl_439
+Found 89 significant paths for node rtl_439
+  Found 30 potential endpoints for rtl_236
+Found 177 significant paths for node rtl_236
+  Found 30 potential endpoints for rtl_39
+Found 165 significant paths for node rtl_39
+  Found 30 potential endpoints for rtl_862
+Found 165 significant paths for node rtl_862
+  Found 30 potential endpoints for rtl_231
+Found 132 significant paths for node rtl_231
+  Found 30 potential endpoints for rtl_1063
+Found 169 significant paths for node rtl_1063
+  Found 30 potential endpoints for rtl_1278
+Found 48 significant paths for node rtl_1278
+  Found 30 potential endpoints for rtl_654
+Found 154 significant paths for node rtl_654
+Generated 3513 path-based contexts
+path generator returned 3513 contexts
+Added 3513 contexts from path, total now: 3523
+Sample path context: PATH ANALYSIS FROM int_read_assignment TO uart_rx
+Path length: 6 nodes with clustering 0.17
+Source: int_read_assignment (assignment) in module uart_top
+Target: uart_rx (module) in module unknown
+
+Relationship chain:
+  int_read_assignment (assignment in uart_top) part_of uart_top (module)
+  uart_top (module) instantiates uart_tx (module)
+  uart_tx (module) outputs ce_16 (port in uart_tx)
+  ce_16 (port in uart_tx) drives ce_16 (port in uart_rx)
+  ce_16 (port in uart_rx) outputs uart_rx (module)
+
+Analysis:
+  • Signal flow path with 2 ports and 1 assignments
+  • Cross-module path connecting: uart_top, uart_tx, uart_rx
+
+Pruning 3523 contexts...
+Using LLM-based context pruning
+Pruning 3523 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 8.19 seconds
+Selected context 2 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 7 of type rag
+Selected context 8 of type rag
+Selected context 9 of type rag
+Evaluating 3513 contexts of type 'path'
+Pre-filtering 3513 contexts of type 'path' based on score
+LLM evaluation for path took 9.14 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 3 of type path
+Selected context 4 of type path
+Selected context 16 of type path
+Selected context 18 of type path
+Final selection: 12 contexts
+After pruning: 12 contexts remain
+Selected contexts by type: {'rag': 6, 'path': 6}
+Context distribution plan: {'rag': [2, 2, 2], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 24
+Prompt 1: 4 contexts, 540 tokens
+Prompt 2: 4 contexts, 540 tokens
+Prompt 3: 4 contexts, 540 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_read
+Distributing 26 plans across 3 contexts
+Processing context 1 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 8
+Generated 8 SVAs from context 1 for signal int_read
+Processing context 2 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 2 for signal int_read
+Processing context 3 with 8 plans
+
+Strategy Effectiveness:
+Strategy 1: 8 SVAs extracted
+Strategy 2: 8 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 8
+Generated 8 SVAs from context 3 for signal int_read
+Generated 25 unique SVAs for signal int_read from 25 total SVAs
+Processing signal 6/11: int_req
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_req']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'int_req' to 14 nodes
+Using 14/14 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_40
+Found 175 significant paths for node rtl_40
+  Found 30 potential endpoints for rtl_863
+Found 221 significant paths for node rtl_863
+  Found 30 potential endpoints for rtl_447
+Found 121 significant paths for node rtl_447
+  Found 30 potential endpoints for rtl_33
+Found 232 significant paths for node rtl_33
+  Found 30 potential endpoints for rtl_119
+Found 87 significant paths for node rtl_119
+  Found 30 potential endpoints for rtl_1279
+Found 80 significant paths for node rtl_1279
+  Found 30 potential endpoints for rtl_1159
+Found 60 significant paths for node rtl_1159
+  Found 30 potential endpoints for rtl_239
+Found 189 significant paths for node rtl_239
+  Found 30 potential endpoints for rtl_327
+Found 103 significant paths for node rtl_327
+  Found 30 potential endpoints for rtl_535
+Found 237 significant paths for node rtl_535
+  Found 30 potential endpoints for rtl_743
+Found 376 significant paths for node rtl_743
+  Found 30 potential endpoints for rtl_1071
+Found 158 significant paths for node rtl_1071
+  Found 30 potential endpoints for rtl_951
+Found 153 significant paths for node rtl_951
+  Found 30 potential endpoints for rtl_655
+Found 197 significant paths for node rtl_655
+Generated 2389 path-based contexts
+path generator returned 2389 contexts
+Added 2389 contexts from path, total now: 2399
+Sample path context: PATH ANALYSIS FROM int_req TO main_sm_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_req (port) in module uart2bus_top
+Target: main_sm_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_req (port in uart2bus_top) outputs uart2bus_top (module)
+  uart2bus_top (module) part_of main_sm_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 2399 contexts...
+Using LLM-based context pruning
+Pruning 2399 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 7.88 seconds
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Selected context 8 of type rag
+Evaluating 2389 contexts of type 'path'
+Pre-filtering 2389 contexts of type 'path' based on score
+LLM evaluation for path took 9.54 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 4 of type path
+Selected context 5 of type path
+Selected context 7 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 5}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [2, 2, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 24
+Prompt 1: 4 contexts, 583 tokens
+Prompt 2: 4 contexts, 583 tokens
+Prompt 3: 2 contexts, 288 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_req
+Distributing 28 plans across 3 contexts
+Processing context 1 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 1 for signal int_req
+Processing context 2 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 2 for signal int_req
+Processing context 3 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 0 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 9 SVAs extracted
+Strategy 4: 9 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 3 for signal int_req
+Generated 26 unique SVAs for signal int_req from 28 total SVAs
+Processing signal 7/11: int_wr_data
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_wr_data']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 		write_req <= 1'b0;
+		int_write <= 1'b0;
+		int_wr_data <= 0;
+	end 
+	else if (write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range)
+	begin 
+		write_req <= 1'b1;
+		int_wr_data <= data_param;
+	end 
+	// binary extension mode 
+	else if (bin_write_op && (main_sm == `MAIN_BIN_DATA) && new_rx_data) 
+	begin 
+		write_req <= 1'b1;
+		int_wr_data <= rx_data;
+	end 
+
+Processing generator: path
+Mapped signal 'int_wr_data' to 20 nodes
+Using 20/20 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_1267
+Found 126 significant paths for node rtl_1267
+  Found 30 potential endpoints for rtl_227
+Found 137 significant paths for node rtl_227
+  Found 30 potential endpoints for rtl_1265
+Found 57 significant paths for node rtl_1265
+  Found 30 potential endpoints for rtl_643
+Found 211 significant paths for node rtl_643
+  Found 30 potential endpoints for rtl_1055
+Found 223 significant paths for node rtl_1055
+  Found 30 potential endpoints for rtl_847
+Found 437 significant paths for node rtl_847
+  Found 30 potential endpoints for rtl_433
+Found 75 significant paths for node rtl_433
+  Found 30 potential endpoints for rtl_1263
+Found 97 significant paths for node rtl_1263
+  Found 30 potential endpoints for rtl_639
+Found 79 significant paths for node rtl_639
+  Found 30 potential endpoints for rtl_435
+Found 411 significant paths for node rtl_435
+  Found 30 potential endpoints for rtl_641
+Found 204 significant paths for node rtl_641
+  Found 30 potential endpoints for rtl_37
+Found 244 significant paths for node rtl_37
+  Found 30 potential endpoints for rtl_851
+Found 447 significant paths for node rtl_851
+  Found 30 potential endpoints for rtl_849
+Found 419 significant paths for node rtl_849
+  Found 30 potential endpoints for rtl_431
+Found 146 significant paths for node rtl_431
+  Found 30 potential endpoints for rtl_223
+Found 195 significant paths for node rtl_223
+  Found 30 potential endpoints for rtl_1059
+Found 216 significant paths for node rtl_1059
+  Found 30 potential endpoints for rtl_1057
+Found 248 significant paths for node rtl_1057
+  Found 30 potential endpoints for rtl_225
+Found 125 significant paths for node rtl_225
+  Found 30 potential endpoints for rtl_30
+Found 1310 significant paths for node rtl_30
+Generated 5407 path-based contexts
+path generator returned 5407 contexts
+Added 5407 contexts from path, total now: 5417
+Sample path context: PATH ANALYSIS FROM int_wr_data_assignment TO data_nibble_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_wr_data_assignment (assignment) in module baud_gen
+Target: data_nibble_assignment (assignment) in module baud_gen
+
+Relationship chain:
+  int_wr_data_assignment (assignment in baud_gen) part_of baud_gen (module)
+  baud_gen (module) part_of data_nibble_assignment (assignment in baud_gen)
+
+Analysis:
+  • Cross-module path connecting: baud_gen
+
+Pruning 5417 contexts...
+Using LLM-based context pruning
+Pruning 5417 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 8.18 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 7 of type rag
+Selected context 8 of type rag
+Evaluating 5407 contexts of type 'path'
+Pre-filtering 5407 contexts of type 'path' based on score
+LLM evaluation for path took 8.46 seconds
+Selected context 0 of type path
+Selected context 2 of type path
+Selected context 3 of type path
+Selected context 4 of type path
+Selected context 5 of type path
+Selected context 7 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 4, 'path': 6}
+Context distribution plan: {'rag': [2, 1, 1], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 25
+Prompt 1: 4 contexts, 532 tokens
+Prompt 2: 3 contexts, 425 tokens
+Prompt 3: 3 contexts, 425 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_wr_data
+Distributing 34 plans across 3 contexts
+Processing context 1 with 12 plans
+
+Strategy Effectiveness:
+Strategy 1: 12 SVAs extracted
+Strategy 2: 12 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 12
+Generated 12 SVAs from context 1 for signal int_wr_data
+Processing context 2 with 11 plans
+
+Strategy Effectiveness:
+Strategy 1: 11 SVAs extracted
+Strategy 2: 11 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 2 for signal int_wr_data
+Processing context 3 with 11 plans
+
+Strategy Effectiveness:
+Strategy 1: 11 SVAs extracted
+Strategy 2: 11 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 11
+Generated 11 SVAs from context 3 for signal int_wr_data
+Generated 31 unique SVAs for signal int_wr_data from 33 total SVAs
+Processing signal 8/11: int_write
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['int_write']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 	else if (int_gnt && write_req) 
+	begin 
+		// set internal bus write and clear the write request flag 
+		int_write <= 1'b1;
+		write_req <= 1'b0;
+	end 
+	else 
+		int_write <= 1'b0;
+end 
+
+// internal read control 
+always @ (posedge clock or posedge reset)
+begin 
+	if (reset)
+	begin 
+		int_read <= 1'b0;
+		read_req <= 1'b0;
+
+Processing generator: path
+Mapped signal 'int_write' to 20 nodes
+Using 20/20 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_1054
+Found 157 significant paths for node rtl_1054
+  Found 30 potential endpoints for rtl_646
+Found 158 significant paths for node rtl_646
+  Found 30 potential endpoints for rtl_852
+Found 246 significant paths for node rtl_852
+  Found 30 potential endpoints for rtl_228
+Found 210 significant paths for node rtl_228
+  Found 30 potential endpoints for rtl_644
+Found 199 significant paths for node rtl_644
+  Found 30 potential endpoints for rtl_438
+Found 146 significant paths for node rtl_438
+  Found 30 potential endpoints for rtl_638
+Found 169 significant paths for node rtl_638
+  Found 30 potential endpoints for rtl_430
+Found 86 significant paths for node rtl_430
+  Found 30 potential endpoints for rtl_1062
+Found 120 significant paths for node rtl_1062
+  Found 30 potential endpoints for rtl_1262
+Found 44 significant paths for node rtl_1262
+  Found 30 potential endpoints for rtl_846
+Found 221 significant paths for node rtl_846
+  Found 30 potential endpoints for rtl_222
+Found 283 significant paths for node rtl_222
+  Found 30 potential endpoints for rtl_31
+Found 437 significant paths for node rtl_31
+  Found 30 potential endpoints for rtl_1060
+Found 136 significant paths for node rtl_1060
+  Found 30 potential endpoints for rtl_436
+Found 85 significant paths for node rtl_436
+  Found 30 potential endpoints for rtl_1268
+Found 66 significant paths for node rtl_1268
+  Found 30 potential endpoints for rtl_38
+Found 194 significant paths for node rtl_38
+  Found 30 potential endpoints for rtl_230
+Found 208 significant paths for node rtl_230
+  Found 30 potential endpoints for rtl_854
+Found 219 significant paths for node rtl_854
+  Found 30 potential endpoints for rtl_1270
+Found 120 significant paths for node rtl_1270
+Generated 3504 path-based contexts
+path generator returned 3504 contexts
+Added 3504 contexts from path, total now: 3514
+Sample path context: PATH ANALYSIS FROM int_write_assignment TO read_data_s_assignment
+Path length: 3 nodes with clustering 0.00
+Source: int_write_assignment (assignment) in module uart2bus_top
+Target: read_data_s_assignment (assignment) in module uart2bus_top
+
+Relationship chain:
+  int_write_assignment (assignment in uart2bus_top) part_of uart2bus_top (module)
+  uart2bus_top (module) part_of read_data_s_assignment (assignment in uart2bus_top)
+
+Analysis:
+  • Cross-module path connecting: uart2bus_top
+
+Pruning 3514 contexts...
+Using LLM-based context pruning
+Pruning 3514 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 7.96 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 6 of type rag
+Selected context 8 of type rag
+Evaluating 3504 contexts of type 'path'
+Pre-filtering 3504 contexts of type 'path' based on score
+LLM evaluation for path took 7.41 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 2 of type path
+Selected context 5 of type path
+Selected context 7 of type path
+Selected context 9 of type path
+Selected context 11 of type path
+Selected context 19 of type path
+Final selection: 14 contexts
+After pruning: 14 contexts remain
+Selected contexts by type: {'rag': 6, 'path': 8}
+Context distribution plan: {'rag': [2, 2, 2], 'path': [3, 3, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 24
+Prompt 1: 5 contexts, 697 tokens
+Prompt 2: 5 contexts, 697 tokens
+Prompt 3: 4 contexts, 555 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal int_write
+Distributing 28 plans across 3 contexts
+Processing context 1 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 1 for signal int_write
+Processing context 2 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 2 for signal int_write
+Processing context 3 with 9 plans
+
+Strategy Effectiveness:
+Strategy 1: 9 SVAs extracted
+Strategy 2: 9 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 7
+Generated 7 SVAs from context 3 for signal int_write
+Generated 25 unique SVAs for signal int_write from 26 total SVAs
+Processing signal 9/11: reset
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['reset']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: 
+// data buffer shift register 
+always @ (posedge clock or posedge reset)
+begin 
+	if (reset)
+		data_buf <= 8'h0;
+	else if (rx_busy & ce_1_mid)
+		data_buf <= {in_sync[1], data_buf[7:1]};
+end 
+
+// data output and flag 
+always @ (posedge clock or posedge reset)
+begin 
+	if (reset) 
+	begin 
+		rx_data <= 8'h0;
+		new_rx_data <= 1'b0;
+
+Processing generator: path
+No mapping found for 'reset', using as-is
+Using 0/1 valid nodes for path context generation
+No valid nodes found in graph for path analysis
+path generator returned 0 contexts
+
+Pruning 10 contexts...
+Using LLM-based context pruning
+Pruning 10 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 6.95 seconds
+Selected context 0 of type rag
+Selected context 1 of type rag
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 9 of type rag
+Final selection: 6 contexts
+After pruning: 6 contexts remain
+Selected contexts by type: {'rag': 6}
+Context distribution plan: {'rag': [2, 2, 2], 'path': [0, 0, 0], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 23
+Prompt 1: 2 contexts, 318 tokens
+Prompt 2: 2 contexts, 318 tokens
+Prompt 3: 2 contexts, 318 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal reset
+Distributing 30 plans across 3 contexts
+Processing context 1 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 9
+Generated 9 SVAs from context 1 for signal reset
+Processing context 2 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 2 for signal reset
+Processing context 3 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 3 for signal reset
+Generated 24 unique SVAs for signal reset from 29 total SVAs
+Processing signal 10/11: ser_in
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['ser_in']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Compilation batch files are included in the 'verilog\sim\icarus' directory used to simulate the core using Icarus Verilog. The directory inclues two compilation batch files: one for binary mode protocol simulation and the second for text mode protocol simulation. The directory also includes batch file to run the simulation, 'run.bat', and another to call gtkwave to view the simulation VCD output file. Note that for binary mode protocol simulation the test bench reads the commands from 'test.bin' file also included in the directory. The file structure is straight forward and is explained in the respective test bench file. UART to Bus
+
+Processing generator: path
+Mapped signal 'ser_in' to 7 nodes
+Using 7/7 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_140
+Found 144 significant paths for node rtl_140
+  Found 30 potential endpoints for rtl_348
+Found 172 significant paths for node rtl_348
+  Found 30 potential endpoints for rtl_764
+Found 97 significant paths for node rtl_764
+  Found 30 potential endpoints for rtl_1180
+Found 126 significant paths for node rtl_1180
+  Found 30 potential endpoints for rtl_556
+Found 203 significant paths for node rtl_556
+  Found 30 potential endpoints for rtl_972
+Found 59 significant paths for node rtl_972
+  Found 30 potential endpoints for rtl_13
+Found 236 significant paths for node rtl_13
+Generated 1037 path-based contexts
+path generator returned 1037 contexts
+Added 1037 contexts from path, total now: 1047
+Sample path context: PATH ANALYSIS FROM in_sync_assignment TO tx_data
+Path length: 3 nodes with clustering 0.00
+Source: in_sync_assignment (assignment) in module uart_tx
+Target: tx_data (port) in module uart_tx
+
+Relationship chain:
+  in_sync_assignment (assignment in uart_tx) part_of uart_tx (module)
+  uart_tx (module) outputs tx_data (port in uart_tx)
+
+Analysis:
+  • Signal flow path with 1 ports and 1 assignments
+  • Cross-module path connecting: uart_tx
+
+Pruning 1047 contexts...
+Using LLM-based context pruning
+Pruning 1047 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 7.02 seconds
+Selected context 1 of type rag
+Selected context 4 of type rag
+Selected context 5 of type rag
+Selected context 6 of type rag
+Selected context 9 of type rag
+Evaluating 1037 contexts of type 'path'
+Pre-filtering 1037 contexts of type 'path' based on score
+LLM evaluation for path took 8.70 seconds
+Selected context 0 of type path
+Selected context 4 of type path
+Selected context 7 of type path
+Selected context 12 of type path
+Selected context 17 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 5, 'path': 5}
+Context distribution plan: {'rag': [2, 2, 1], 'path': [2, 2, 1], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 24
+Prompt 1: 4 contexts, 513 tokens
+Prompt 2: 4 contexts, 513 tokens
+Prompt 3: 2 contexts, 295 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal ser_in
+Distributing 30 plans across 3 contexts
+Processing context 1 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 1 for signal ser_in
+Processing context 2 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 2 for signal ser_in
+Processing context 3 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 0 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 10 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 3 for signal ser_in
+Generated 30 unique SVAs for signal ser_in from 30 total SVAs
+Processing signal 11/11: ser_out
+Building up to 3 prompts with max 6000 tokens each
+start_nodes=['ser_out']
+
+Processing generator: rag
+RAG generator returned 10 contexts
+Added 10 contexts from rag, total now: 10
+Sample rag context: Scilab script which calculates the above parameters is added under the “scilab” directory with the core files. The interface between the “uart_parser.v” module and the “uart_top.v” is very simple and uses only five signals. For cases where the UART interface is not possible or another interface is preferred, the “uart_parser.v” module can be used as is with a different interface implementation. UART to Bus Core Specifications Page 5 of 10 uart_tx.v uart_rx.v baud_gen.vuart_top.v uart_parser.vuart2bus_top.v ser_out ser_inint_address int_wr_data16 8 int_write int_read int_rd_data 8 clock resetint_req int_gntFebruary 25, 2012 4.Operation This section describes the protocols used to access the internal bus from
+
+Processing generator: path
+Mapped signal 'ser_out' to 21 nodes
+Using 21/21 valid nodes for path context generation
+  Found 30 potential endpoints for rtl_137
+Found 428 significant paths for node rtl_137
+  Found 30 potential endpoints for rtl_553
+Found 588 significant paths for node rtl_553
+  Found 30 potential endpoints for rtl_138
+Found 396 significant paths for node rtl_138
+  Found 30 potential endpoints for rtl_345
+Found 65 significant paths for node rtl_345
+  Found 30 potential endpoints for rtl_20
+Found 708 significant paths for node rtl_20
+  Found 30 potential endpoints for rtl_761
+Found 141 significant paths for node rtl_761
+  Found 30 potential endpoints for rtl_968
+Found 165 significant paths for node rtl_968
+  Found 30 potential endpoints for rtl_36
+Found 353 significant paths for node rtl_36
+  Found 30 potential endpoints for rtl_554
+Found 433 significant paths for node rtl_554
+  Found 30 potential endpoints for rtl_9
+Found 652 significant paths for node rtl_9
+  Found 30 potential endpoints for rtl_970
+Found 221 significant paths for node rtl_970
+  Found 30 potential endpoints for rtl_552
+Found 484 significant paths for node rtl_552
+  Found 30 potential endpoints for rtl_762
+Found 147 significant paths for node rtl_762
+  Found 30 potential endpoints for rtl_969
+Found 221 significant paths for node rtl_969
+  Found 30 potential endpoints for rtl_1176
+Found 51 significant paths for node rtl_1176
+  Found 30 potential endpoints for rtl_344
+Found 83 significant paths for node rtl_344
+  Found 30 potential endpoints for rtl_760
+Found 78 significant paths for node rtl_760
+  Found 30 potential endpoints for rtl_346
+Found 108 significant paths for node rtl_346
+  Found 30 potential endpoints for rtl_136
+Found 394 significant paths for node rtl_136
+  Found 30 potential endpoints for rtl_1177
+Found 67 significant paths for node rtl_1177
+  Found 30 potential endpoints for rtl_1178
+Found 87 significant paths for node rtl_1178
+Generated 5870 path-based contexts
+path generator returned 5870 contexts
+Added 5870 contexts from path, total now: 5880
+Sample path context: PATH ANALYSIS FROM ser_out_assignment TO data_in_hex_range_assignment
+Path length: 3 nodes with clustering 0.00
+Source: ser_out_assignment (assignment) in module uart_tx
+Target: data_in_hex_range_assignment (assignment) in module uart_tx
+
+Relationship chain:
+  ser_out_assignment (assignment in uart_tx) part_of uart_tx (module)
+  uart_tx (module) part_of data_in_hex_range_assignment (assignment in uart_tx)
+
+Analysis:
+  • Cross-module path connecting: uart_tx
+
+Pruning 5880 contexts...
+Using LLM-based context pruning
+Pruning 5880 contexts using tolerant LLM pruner
+Evaluating 10 contexts of type 'rag'
+LLM evaluation for rag took 5.70 seconds
+Selected context 2 of type rag
+Selected context 3 of type rag
+Selected context 4 of type rag
+Selected context 6 of type rag
+Evaluating 5870 contexts of type 'path'
+Pre-filtering 5870 contexts of type 'path' based on score
+LLM evaluation for path took 8.78 seconds
+Selected context 0 of type path
+Selected context 1 of type path
+Selected context 2 of type path
+Selected context 3 of type path
+Selected context 14 of type path
+Selected context 15 of type path
+Final selection: 10 contexts
+After pruning: 10 contexts remain
+Selected contexts by type: {'rag': 4, 'path': 6}
+Context distribution plan: {'rag': [2, 1, 1], 'path': [2, 2, 2], 'motif': [0, 0, 0], 'community': [0, 0, 0], 'local_expansion': [0, 0, 0], 'guided_random_walk': [0, 0, 0]}
+Base prompt token count: 24
+Prompt 1: 4 contexts, 477 tokens
+Prompt 2: 3 contexts, 390 tokens
+Prompt 3: 3 contexts, 390 tokens
+Created 3 final prompts out of maximum 3
+Generated 3 dynamic contexts for signal ser_out
+Distributing 31 plans across 3 contexts
+Processing context 1 with 11 plans
+
+Strategy Effectiveness:
+Strategy 1: 11 SVAs extracted
+Strategy 2: 11 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 11
+Generated 11 SVAs from context 1 for signal ser_out
+Processing context 2 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 2 for signal ser_out
+Processing context 3 with 10 plans
+
+Strategy Effectiveness:
+Strategy 1: 10 SVAs extracted
+Strategy 2: 10 SVAs extracted
+Strategy 3: 0 SVAs extracted
+Strategy 4: 0 SVAs extracted
+Strategy 9: 0 SVAs extracted
+Total unique SVAs after cleaning: 10
+Generated 10 SVAs from context 3 for signal ser_out
+Generated 31 unique SVAs for signal ser_out from 31 total SVAs
+
+Generated SVAs:
+1. @(posedge clock) int_write |-> $stable(int_wr_data);
+2. @(posedge clock) $rose(int_write) |=> $stable(int_address)[*2];
+3. @(posedge clock) $rose(int_gnt) |-> ##[1:5] $fell(int_req);
+4. @(posedge clock) tx_busy |-> $changed(ser_out) throughout (1'b1)[*1];
+5. @(posedge clock) $rose(int_req) |-> ##[1:2] $rose(int_gnt);
+6. @(posedge clock) $rose(int_write) |=> $fell(int_write);
+7. @(posedge clock) $fell(reset) |-> ##[1:5] $stable(ser_out);
+8. @(posedge clock) $rose(int_read) |=> !$isunknown(int_rd_data);
+9. @(posedge clock) reset |=> (ser_out == 0 && int_address == 0 && int_wr_data == 0 && int_write == 0 && int_read == 0);
+10. @(posedge clock) disable iff (reset) $changed(ser_in) |-> ser_in == $past(ser_in);
+11. @(posedge clock) int_write |-> ##1 !int_write;
+12. @(posedge clock) int_read |-> ##1 !int_read;
+13. @(posedge clock) $rose(int_read) |-> ##[1:3] $stable(int_rd_data);
+14. @(posedge clock) reset |-> ser_out == 0 [*2] ##1 ser_out == 0;
+15. @(posedge clock) $rose(ser_in) |-> ##[1:3] $stable(int_rd_data);
+16. @(posedge clock) $fell(tx_busy) |-> ser_out ##1 ser_out ##1 ser_out;
+17. @(posedge clock) $rose(int_write) |-> $past(int_wr_data, 1) == int_wr_data ##1 $future(int_wr_data, 1) == int_wr_data;
+18. @(posedge clock) $changed(int_req) |-> $past(int_req) == int_req;
+19. @(posedge clock) $rose(int_req) |-> $stable(int_address)[*2];
+20. @(posedge clock) $rose(int_read) |=> $fell(int_read);
+21. @(posedge clock) $rose(int_req) |-> ##[1:4] $rose(int_gnt);
+22. @(posedge clock) ($rose(int_write) || $rose(int_read)) |=> $stable(int_address);
+23. @(posedge clock) tx_busy |-> $stable(ser_out) or $rose(ser_out) or $fell(ser_out);
+24. @(posedge clock) $rose(int_write) |=> $stable(int_wr_data);
+25. @(posedge clock) disable iff (reset) (main_sm == `MAIN_ADDR && !new_rx_data) |=> $stable(int_address);
+26. @(posedge clock) $rose(!reset) |=> $stable(int_address) until_with ((main_sm == `MAIN_ADDR && new_rx_data && !data_in_hex_range) || (main_sm == `MAIN_BIN_LEN && new_rx_data) || (addr_auto_inc && ((bin_read_op && tx_end_p && !bin_last_byte) || (bin_write_op && int_write))));
+27. @(posedge clock) disable iff (reset) !( (main_sm == `MAIN_ADDR && new_rx_data && !data_in_hex_range) || (main_sm == `MAIN_BIN_LEN && new_rx_data) || (addr_auto_inc && ((bin_read_op && tx_end_p && !bin_last_byte) || (bin_write_op && int_write))) ) |=> $stable(int_address);
+28. @(posedge clock) disable iff (reset) (addr_auto_inc && bin_read_op && tx_end_p && !bin_last_byte) |=> (int_address == $past(int_address) + 1);
+29. @(posedge clock) reset |=> (int_address == 0);
+30. @(posedge clock) disable iff (reset) (main_sm == `MAIN_ADDR && new_rx_data && !data_in_hex_range) |=> (int_address == $past(addr_param[AW-1:0]));
+31. @(posedge clock) disable iff (reset) (main_sm == `MAIN_BIN_LEN && new_rx_data) |=> (int_address == $past(addr_param[AW-1:0]));
+32. @(posedge clock) disable iff (reset) (main_sm == `MAIN_ADDR && new_rx_data && data_in_hex_range) |=> (int_address == $past(int_address));
+33. @(posedge clock) disable iff (reset) !new_rx_data |=> (int_address == $past(int_address));
+34. @(posedge clock) disable iff (reset) (bin_read_op && !addr_auto_inc && tx_end_p) |=> (int_address == $past(int_address));
+35. @(posedge clock) disable iff (reset) (addr_auto_inc && bin_write_op && int_write) |=> (int_address == $past(int_address) + 1);
+36. @(posedge clock) disable iff (reset) (main_sm != `MAIN_ADDR && main_sm != `MAIN_BIN_LEN && new_rx_data) |=> (int_address == $past(int_address));
+37. @(posedge clock) disable iff (reset) ((main_sm == `MAIN_BIN_LEN) && new_rx_data) |=> (int_address == $past(addr_param[AW-1:0]));
+38. @(posedge clock) $rose(reset) |=> (int_address == 0);
+39. @(posedge clock) disable iff (reset) (bin_write_op && !addr_auto_inc) |=> $stable(int_address);
+40. @(posedge clock) reset |-> (int_address == 0);
+41. @(posedge clock) disable iff (reset) !(reset || ((main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) || ((main_sm == `MAIN_BIN_LEN) && new_rx_data)) |=> $stable(int_address);
+42. @(posedge clock) ((main_sm == `MAIN_BIN_LEN) && new_rx_data) |=> (int_address == addr_param[AW-1:0]);
+43. @(posedge clock) $fell(int_read || int_write) |-> !int_gnt;
+44. @(posedge clock) $stable(int_req) |-> $stable(int_gnt);
+45. @(posedge clock) $fell(int_req) |=> !int_gnt;
+46. @(posedge clock) disable iff (reset) int_req |-> ##[1:2] int_gnt;
+47. @(posedge clock) (int_gnt && (int_read || int_write)) |-> ##[1:2] int_gnt;
+48. @(posedge clock) (int_gnt && int_write && $changed(int_wr_data)) |-> ##[1:2] $stable(int_gnt);
+49. @(posedge clock) (int_wr_data == 0) && !int_req |-> !int_gnt;
+50. @(posedge clock) disable iff (reset) int_req |-> ##[1:3] int_gnt;
+51. @(posedge clock) int_req |-> int_gnt[*1:8];
+52. @(posedge clock) $changed(int_address) |-> !int_gnt;
+53. @(posedge clock) int_gnt |-> (int_req && (int_read || int_write));
+54. @(posedge clock) !(reset && int_gnt);
+55. @(posedge clock) $fell(reset) |=> !int_gnt;
+56. @(posedge clock) reset |-> !int_gnt;
+57. @(posedge clock) disable iff (reset) (int_req && !reset) |-> ##[1:4] int_gnt;
+58. @(posedge clock) $fell(int_req) |-> ##[0:1] !int_gnt;
+59. @(posedge clock) (int_gnt && $changed(int_address)) |=> int_gnt;
+60. @(posedge clock) disable iff (reset) (int_req && !reset) |-> ##[1:3] int_gnt;
+61. @(posedge clock) disable iff (!reset) !(reset && int_gnt);
+62. @(posedge clock) int_gnt |-> (int_write || int_read);
+63. @(posedge clock) disable iff (reset) $fell(int_req) |-> ##1 !int_gnt;
+64. @(posedge clock) disable iff (reset) int_gnt |-> ##[0:7] !int_gnt;
+65. @(posedge clock) disable iff (reset) ($rose(int_req) ##1 int_req[*4]) |-> (int_gnt [*1:5]);
+66. @(posedge clock) disable iff (reset) (int_gnt && int_read) |-> ##[1:3] $stable(int_rd_data);
+67. @(posedge clock) disable iff (reset) $fell(int_req) |-> ##[1:2] $fell(int_gnt);
+68. @(posedge clock) $rose(reset) |-> ##1 !int_gnt;
+69. @(posedge clock) disable iff (reset) (int_read && int_gnt) |-> int_gnt throughout int_read[->1];
+70. @(posedge clock) disable iff (reset) (int_read && int_gnt) |-> (int_rd_data >= 8'h00 && int_rd_data <= 8'hFF);
+71. @(posedge clock) disable iff (reset) (int_read && int_gnt && (int_rd_data == 0)) |=> (int_rd_data != 0);
+72. @(posedge clock) disable iff (reset) $fell(reset) |-> (int_rd_data == 0) until (int_read && int_gnt);
+73. @(posedge clock) disable iff (reset) $fell(reset) |-> ##3 (int_rd_data >= 0 && int_rd_data <= 63);
+74. @(posedge clock) disable iff (reset) !int_gnt |-> $stable(int_rd_data);
+75. @(posedge clock) disable iff (reset) $changed(int_rd_data) |-> (int_read && int_gnt);
+76. @(posedge clock) disable iff (reset) $fell(int_gnt) |-> $stable(int_rd_data)[*1];
+77. @(posedge clock) disable iff (reset) (int_gnt && $past(int_read) && int_read) |-> !$isunknown(int_rd_data);
+78. @(posedge clock) disable iff (reset) (int_read && int_gnt) |-> $changed(int_rd_data);
+79. @(posedge clock) disable iff (reset) $changed(int_rd_data) |-> $past(int_gnt);
+80. @(posedge clock) disable iff (reset) int_read && int_gnt |=> $stable(int_rd_data)[*1];
+81. @(posedge clock) disable iff (reset) !int_read |-> $stable(int_rd_data);
+82. @(posedge clock) disable iff (reset) int_read && !int_gnt |-> $stable(int_rd_data);
+83. @(posedge clock) disable iff (reset) (!int_read || !int_gnt) && ($changed(ser_in) || $changed(ser_out)) |-> $stable(int_rd_data);
+84. @(posedge clock) reset |-> (int_rd_data == 0);
+85. @(posedge clock) disable iff (reset) $fell(int_read && int_gnt) |-> $stable(int_rd_data)[*1];
+86. @(posedge clock) disable iff (reset) ($rose(int_read) && int_gnt) |=> $stable(int_rd_data)[*1];
+87. @(posedge clock) reset |-> $stable(int_rd_data);
+88. @(posedge clock) disable iff (reset) int_write |-> $stable(int_rd_data);
+89. @(posedge clock) disable iff (reset) !int_gnt |-> int_rd_data === 8'bz;
+90. @(posedge clock) disable iff (reset) !int_read && $changed(int_address) |-> $stable(int_rd_data);
+91. @(posedge clock) disable iff (reset) $changed(int_rd_data) |-> $past(int_read && int_gnt);
+92. @(posedge clock) $rose(!reset) |-> (int_rd_data == 0);
+93. @(posedge clock) disable iff (reset) $fell(int_read) |-> $stable(int_rd_data)[*1];
+94. @(posedge clock) disable iff (reset) $fell(int_gnt) |-> $stable(int_rd_data)[*2];
+95. @(posedge clock) disable iff (reset) (!int_read || !int_gnt) && $changed(int_address) |-> $stable(int_rd_data);
+96. @(posedge clock) disable iff (reset) $fell(int_req) && int_gnt |-> $stable(int_rd_data);
+97. @(posedge clock) disable iff (reset) (int_read && int_gnt) |-> ##[1:2] $changed(int_rd_data);
+98. @(posedge clock) disable iff (reset) !reset |-> (int_rd_data >= 0 && int_rd_data <= 255);
+99. @(posedge clock) reset |-> ##1 (int_rd_data == 0);
+100. @(posedge clock) (int_read && int_gnt) |-> ##[1:2] $changed(int_rd_data);
+101. @(posedge clock) $changed(int_rd_data) |-> (int_read && int_gnt && !reset);
+102. @(posedge clock) $rose(reset) |-> $stable(int_rd_data);
+103. @(posedge clock) (!int_read && !int_write) |-> int_rd_data === 'z;
+104. @(posedge clock) !(int_read && int_gnt) |-> int_rd_data === 'z;
+105. @(posedge clock) int_rd_data !== 'z |-> (int_gnt && int_read);
+106. @(posedge clock) (int_read && int_gnt) |=> (int_rd_data >= 0 && int_rd_data <= 255);
+107. @(posedge clock) $changed(int_write) && !int_read |-> $stable(int_rd_data);
+108. @(posedge clock) (int_rd_data >= 128 && int_rd_data <= 255) |=> (int_rd_data >= 64 && int_rd_data <= 255);
+109. @(posedge clock) int_write |-> $stable(int_rd_data);
+110. @(posedge clock) $fell(int_gnt) && int_read |=> $stable(int_rd_data);
+111. @(posedge clock) (int_read && int_gnt) && $changed(ser_out) |-> $stable(int_rd_data);
+112. @(posedge clock) $fell(int_read) |-> $past(int_rd_data) === int_rd_data;
+113. @(posedge clock) int_read && $fell(int_req) && !int_gnt |-> $stable(int_rd_data);
+114. @(posedge clock) ($rose(int_gnt) && int_read) |-> ##[1:3] (int_rd_data != 0);
+115. @(posedge clock) $rose(!reset) |-> (int_rd_data === 8'b0);
+116. @(posedge clock) int_read && !int_gnt |-> $stable(int_rd_data);
+117. @(posedge clock) $changed(ser_out) |-> $stable(int_rd_data);
+118. @(posedge clock) int_gnt && int_read |-> $stable(int_rd_data);
+119. @(posedge clock) int_gnt && $changed(int_read) |-> $stable(int_rd_data);
+120. @(posedge clock) (int_read && int_gnt && $fell(int_req)) |-> $changed(int_rd_data) [->1];
+121. @(posedge clock) (int_rd_data !== 'z) <-> (int_read && int_gnt);
+122. @(posedge clock) (int_read && int_gnt) |-> $changed(int_rd_data) [->1];
+123. @(posedge clock) $changed(int_wr_data) && !int_write |-> $stable(int_rd_data);
+124. @(posedge clock) (int_read && int_gnt) && $changed(int_address) |-> $stable(int_rd_data);
+125. @(posedge clock) (int_read && int_gnt) && $changed(int_wr_data) |-> $stable(int_rd_data);
+126. @(posedge clock) $changed(ser_in) && !(int_read && int_gnt) |-> $stable(int_rd_data);
+127. @(posedge clock) disable iff (reset) $rose(int_write) && !int_read |-> $stable(int_rd_data);
+128. @(posedge clock) disable iff (reset) (int_req && !int_gnt) |=> $stable(int_rd_data);
+129. @(posedge clock) reset |-> !$isunknown(int_rd_data) && int_rd_data == 0;
+130. @(posedge clock) disable iff (reset) $fell(int_gnt) |=> $stable(int_rd_data);
+131. @(posedge clock) disable iff (reset) int_req && !int_gnt |-> $stable(int_rd_data);
+132. @(posedge clock) disable iff (reset) $changed(int_req) && !int_gnt |-> $stable(int_rd_data);
+133. @(posedge clock) disable iff (reset) $fell(int_gnt) && $past(int_read) |-> $stable(int_rd_data);
+134. @(posedge clock) disable iff (reset) !int_gnt |-> !$isunknown(int_rd_data) && $stable(int_rd_data);
+135. @(posedge clock) disable iff (reset) $changed(int_wr_data) && !int_read |-> $stable(int_rd_data);
+136. @(posedge clock) disable iff (reset) !int_read && !int_gnt |-> $stable(int_rd_data);
+137. @(posedge clock) disable iff (reset) $fell(int_read) && int_gnt |-> $stable(int_rd_data);
+138. @(posedge clock) disable iff (reset) $changed(int_wr_data) && !int_write |-> $stable(int_rd_data);
+139. @(posedge clock) disable iff (reset) !int_read && !int_gnt && $changed(ser_out) |-> $stable(int_rd_data);
+140. @(posedge clock) disable iff (reset) $changed(ser_in) && !(int_read && int_gnt) |-> $stable(int_rd_data);
+141. @(posedge clock) disable iff (reset) !$past(int_read) |-> int_rd_data == 0;
+142. @(posedge clock) disable iff (reset) $fell(int_read) |=> $stable(int_rd_data);
+143. @(posedge clock) disable iff (reset) int_read && int_gnt && $changed(ser_out) |-> $stable(int_rd_data);
+144. @(posedge clock) disable iff (reset) (int_rd_data >= 0 && int_rd_data <= 127) |=> (int_rd_data >= 0 && int_rd_data <= 255);
+145. @(posedge clock) disable iff (reset) (int_read && int_gnt) |-> int_rd_data == expected_data(int_address);
+146. @(posedge clock) disable iff (reset) int_gnt && $fell(int_read) |-> $stable(int_rd_data);
+147. @(posedge clock) disable iff (reset) $rose(int_read && int_gnt) |=> $changed(int_rd_data);
+148. @(posedge clock) disable iff (reset) $fell(int_read) |-> ##[0:2] $stable(int_rd_data);
+149. @(posedge clock) disable iff (reset) $changed(int_address) && !(int_read && int_gnt) |-> $stable(int_rd_data);
+150. @(posedge clock) disable iff (reset) int_read && int_gnt |=> $stable(int_rd_data)[*1:$] until $fell(int_read);
+151. @(posedge clock) $fell(reset) |-> ##2 (int_rd_data >= 0 && int_rd_data <= 255);
+152. @(posedge clock) reset |=> int_rd_data == 0;
+153. @(posedge clock) disable iff (reset) $changed(int_req) && !int_gnt |=> $stable(int_rd_data);
+154. @(posedge clock) disable iff (reset) int_req && !int_gnt |-> !$isunknown(int_rd_data);
+155. @(posedge clock) disable iff (reset) !int_gnt |-> !$isunknown(int_rd_data);
+156. @(posedge clock) disable iff (reset) $rose(int_read && int_gnt) |-> ##[1:2] $changed(int_rd_data);
+157. @(posedge clock) reset |-> int_rd_data == 0;
+158. @(posedge clock) (int_read && !int_req) |=> !int_read;
+159. @(posedge clock) int_read |=> !int_read;
+160. @(posedge clock) (int_read && int_req && int_gnt) |=> !int_read;
+161. @(posedge clock) int_read |=> $past(int_rd_data,1) == $past(int_rd_data,2);
+162. @(posedge clock) int_read |-> !$isunknown(int_address);
+163. @(posedge clock) !int_req |-> !int_read;
+164. @(posedge clock) int_read |-> $past(int_address,1) == int_address;
+165. @(posedge clock) int_read |=> $stable(int_rd_data);
+166. @(posedge clock) $stable(int_gnt) && int_gnt |-> !int_read);
+167. @(posedge clock) (int_read && int_req && int_gnt) |=> !int_read);
+168. @(posedge clock) (int_read && int_req && int_gnt) |=> !int_read throughout !(int_req && int_gnt)[->1]);
+169. @(posedge clock) reset |-> !int_read);
+170. @(posedge clock) !(int_read && int_write));
+171. @(posedge clock) int_read |-> $stable(int_address));
+172. @(posedge clock) (int_read && $stable(int_address)) |=> !(int_read && $stable(int_address)));
+173. @(posedge clock) int_read |-> (int_req && int_gnt));
+174. @(posedge clock) $rose(int_read) |-> $stable(int_address)[*1]);
+175. @(posedge clock) $rose(int_read) |-> (int_req throughout ( ##[0:$] $fell(int_req) ));
+176. @(posedge clock) $stable(int_gnt) && int_gnt |-> !int_read;
+177. @(posedge clock) $rose(int_read) |-> $past(int_req);
+178. @(posedge clock) $rose(int_read) |-> (int_req && int_gnt);
+179. @(posedge clock) !(int_read && int_write);
+180. @(posedge clock) reset |-> !int_read;
+181. @(posedge clock) int_read |-> int_gnt;
+182. @(posedge clock) int_read |-> (int_req && int_gnt);
+183. @(posedge clock) disable iff (reset) ($rose(int_req) && !int_gnt [*5]) |-> ##1 !int_req;
+184. @(posedge clock) disable iff (reset) (int_req && (int_write || int_read)) |-> !int_gnt until !(int_write || int_read);
+185. @(posedge clock) (int_req && (int_read || int_write)) |-> int_gnt;
+186. @(posedge clock) $rose(int_req) |-> ##1 int_req;
+187. @(posedge clock) int_req |-> !int_gnt;
+188. @(posedge clock) disable iff (reset) ($fell(int_gnt)) |-> ##[0:2] !int_req;
+189. @(posedge clock) disable iff (reset) (int_req && !int_gnt) |-> ##1 !int_req;
+190. @(posedge clock) disable iff (reset) (int_req && int_gnt) |-> (int_rd_data == int_address || int_wr_data == int_address);
+191. @(posedge clock) !(int_req && int_write);
+192. @(posedge clock) int_req |-> (int_read || int_write);
+193. @(posedge clock) disable iff (reset) int_rd_data |-> !int_req;
+194. @(posedge clock) disable iff (reset) (int_rd_data || int_wr_data) |-> !int_req;
+195. @(posedge clock) $rose(reset) |-> !int_req;
+196. @(posedge clock) disable iff (reset) int_req |-> (int_address != 0);
+197. @(posedge clock) $rose(!reset) |=> !int_req[*2];
+198. @(posedge clock) disable iff (reset) int_req |-> ##[1:3] int_gnt;
+199. @(posedge clock) disable iff (reset) ((int_rd_data && !int_read) || (int_wr_data && !int_write)) |-> !int_req;
+200. @(posedge clock) reset |-> !int_req;
+201. @(posedge clock) disable iff (reset) $rose(int_req) |-> ($stable(int_address) throughout (int_req until int_gnt));
+202. @(posedge clock) $fell(reset) |-> ##2 !int_req;
+203. @(posedge clock) disable iff (reset) $fell(int_req) |-> ##1 !int_gnt;
+204. @(posedge clock) disable iff (reset) (int_req && ser_in) |-> ##[1:2] int_gnt;
+205. @(posedge clock) $rose(reset) |-> ##1 !int_req;
+206. @(posedge clock) disable iff (reset) (int_req && int_read) |-> ##[1:3] int_gnt;
+207. @(posedge clock) disable iff (reset) int_req |=> (int_req throughout int_gnt[->1]) or reset;
+208. @(posedge clock) disable iff (reset) (int_req && !int_gnt) |-> $stable(int_wr_data) throughout (int_req[*1:$] ##0 int_gnt);
+209. @(posedge clock) disable iff (reset) !write_req && !reset |=> $stable(int_wr_data);
+210. @(posedge clock) disable iff (reset) $changed(int_wr_data) |=> ##1 $stable(int_wr_data) or reset;
+211. @(posedge clock) disable iff (reset) (write_op || bin_write_op) && !new_rx_data |=> $stable(int_wr_data);
+212. @(posedge clock) disable iff (reset) (write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) |=> (int_wr_data == $past(data_param));
+213. @(posedge clock) disable iff (reset) write_op && !data_in_hex_range && !bin_write_op |=> (int_wr_data == $past(data_param));
+214. @(posedge clock) reset |-> (int_wr_data == 0) [*1:$] until !reset;
+215. @(posedge clock) disable iff (reset) (bin_write_op && (main_sm == `MAIN_BIN_DATA) && new_rx_data) |=> (int_wr_data == $past(rx_data));
+216. @(posedge clock) disable iff (reset) $changed(int_wr_data) |-> ##[1:$] $stable(int_wr_data)[*1];
+217. @(posedge clock) disable iff (reset) new_rx_data && !(main_sm == `MAIN_ADDR || main_sm == `MAIN_BIN_DATA) |=> $stable(int_wr_data);
+218. @(posedge clock) disable iff (reset) (write_op || bin_write_op) |=> $changed(int_wr_data);
+219. @(posedge clock) disable iff (reset) write_op && !new_rx_data |=> $stable(int_wr_data);
+220. @(posedge clock) disable iff (reset) !(write_op || bin_write_op) && (main_sm == `MAIN_ADDR || main_sm == `MAIN_BIN_DATA) |=> $stable(int_wr_data);
+221. @(posedge clock) disable iff (reset) ($rose(write_op)) ##1 (write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) |=> (int_wr_data == $past(data_param));
+222. @(posedge clock) reset |=> (int_wr_data == 0) and (!reset throughout (write_op || bin_write_op)[->1]) |=> $stable(int_wr_data);
+223. @(posedge clock) disable iff (reset) !reset && !(write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) && !(bin_write_op && (main_sm == `MAIN_BIN_DATA) && new_rx_data) |=> ($stable(int_wr_data));
+224. @(posedge clock) disable iff (reset) ($changed(int_wr_data)) |=> ($stable(int_wr_data)[*1] or (write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) or (bin_write_op && (main_sm == `MAIN_BIN_DATA) && new_rx_data));
+225. @(posedge clock) disable iff (reset) (write_op && (main_sm != `MAIN_ADDR)) |=> ($stable(int_wr_data));
+226. @(posedge clock) disable iff (reset) ($fell(write_req)) |-> ##[1:2] ($stable(int_wr_data));
+227. @(posedge clock) disable iff (reset) ($changed(write_op) || $changed(bin_write_op)) |-> $stable(int_wr_data);
+228. @(posedge clock) disable iff (reset) $rose(write_op || bin_write_op) |-> !$isunknown(int_wr_data);
+229. @(posedge clock) reset |-> (int_wr_data == 0);
+230. @(posedge clock) $changed(int_wr_data) |-> $past(write_op || bin_write_op);
+231. @(posedge clock) disable iff (reset) $changed(int_wr_data) |-> ($past(new_rx_data) && ($past(write_op) || $past(bin_write_op)));
+232. @(posedge clock) $rose(!reset) |=> (int_wr_data == 0) until $rose(write_op);
+233. @(posedge clock) disable iff (reset) $changed(int_wr_data) |-> ($past(write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) || $past(bin_write_op && (main_sm == `MAIN_BIN_DATA) && new_rx_data));
+234. @(posedge clock) (write_op && bin_write_op) |-> if (main_sm == `MAIN_ADDR) (int_wr_data == data_param) else if (main_sm == `MAIN_BIN_DATA) (int_wr_data == rx_data);
+235. @(posedge clock) disable iff (reset) !(write_op || bin_write_op) |=> $stable(int_wr_data);
+236. @(posedge clock) (write_op && (main_sm == `MAIN_ADDR) && new_rx_data && !data_in_hex_range) |=> (int_wr_data == $past(data_param));
+237. @(posedge clock) reset |=> (int_wr_data == 0);
+238. @(posedge clock) disable iff (reset) (bin_write_op && (main_sm != `MAIN_BIN_DATA)) |=> $stable(int_wr_data);
+239. @(posedge clock) $fell(reset) |=> (int_wr_data == 0) until (write_op || bin_write_op);
+240. @(posedge clock) (int_gnt && write_req) |=> int_write;
+241. @(posedge clock) (int_gnt && write_req) |-> (int_write && !write_req);
+242. @(posedge clock) (int_gnt && write_req) |=> int_write ##1 !int_write;
+243. @(posedge clock) (!write_req && int_gnt) |=> !int_write;
+244. @(posedge clock) (int_write && !write_req) |=> !int_write;
+245. @(posedge clock) $stable(int_gnt) && $stable(write_req) |-> $stable(int_write);
+246. @(posedge clock) (!int_gnt && !write_req) |=> !int_write;
+247. @(posedge clock) reset |=> !int_write;
+248. @(posedge clock) (int_gnt && write_req) |=> (int_write && !write_req);
+249. @(posedge clock) (int_write && !(int_gnt && write_req)) |=> !int_write;
+250. @(posedge clock) !write_req |-> !int_write;
+251. @(posedge clock) $rose(int_gnt) && !write_req |-> !int_write;
+252. @(posedge clock) $fell(int_gnt) && write_req |=> !int_write;
+253. @(posedge clock) int_write |-> int_gnt && write_req;
+254. @(posedge clock) int_write |=> (int_gnt && write_req) || !int_write;
+255. @(posedge clock) int_gnt && !write_req |=> !int_write;
+256. @(posedge clock) reset |-> !int_write;
+257. @(posedge clock) write_req && !int_gnt |=> !int_write;
+258. @(posedge clock) disable iff (reset) int_write == (int_gnt && write_req);
+259. @(posedge clock) disable iff (reset) (!int_gnt || !write_req) |=> !int_write;
+260. @(posedge clock) $rose(!reset) |=> (int_write == (int_gnt && write_req));
+261. @(posedge clock) disable iff (reset) (int_gnt && write_req) |=> (int_write && !write_req);
+262. @(posedge clock) disable iff (reset) (!int_gnt && write_req) |=> !int_write;
+263. @(posedge clock) disable iff (reset) (bin_write_op && (main_sm == MAIN_BIN_DATA) && new_rx_data) |=> write_req;
+264. @(posedge clock) (reset && int_gnt && write_req) |=> !int_write;
+265. @(posedge clock) $rose(reset) |=> (rx_data == 8'h0);
+266. @(posedge clock) $fell(reset) |=> $stable(ser_out)[*2];
+267. @(posedge clock) $fell(reset) ##1 (rx_busy && ce_1_mid) |=> (data_buf != $past(data_buf));
+268. @(posedge clock) reset |-> !int_gnt;
+269. @(posedge clock) reset throughout (##[1:$] !reset) |-> $stable(rx_data);
+270. @(posedge clock) $rose(reset) |=> (!int_write && !int_read);
+271. @(posedge clock) $rose(reset) |=> !tx_busy;
+272. @(posedge clock) $rose(reset) |=> (new_rx_data == 1'b0);
+273. @(posedge clock) reset |-> !(rx_busy && ce_1_mid && !reset);
+274. @(posedge clock) $rose(reset) |=> (int_rd_data == '0);
+275. @(posedge clock) $rose(reset) |=> (int_address == '0);
+276. @(posedge clock) disable iff (reset) !new_rx_data throughout (1'b1)[*0:$] until (valid_reception_condition);
+277. @(posedge clock) $rose(reset) |-> (rx_data == 8'h0 && new_rx_data == 1'b0 && data_buf == 8'h0) regardless_of (ser_in);
+278. @(posedge clock) $fell(reset) |=> $stable(rx_data) until (rx_data_change_condition);
+279. @(posedge clock) $rose(reset) |=> (rx_data == 8'h0 && new_rx_data == 1'b0 && data_buf == 8'h0);
+280. @(posedge clock) $rose(reset) |=> !int_req;
+281. @(posedge clock) $fell(reset) |-> ##[1:3] $changed(ser_in);
+282. @(posedge clock) reset |-> (!int_write && !int_read);
+283. @(posedge clock) $rose(reset) |=> (data_buf == 8'h0);
+284. @(posedge clock) $rose(reset) |-> reset[*2];
+285. @(posedge clock) $fell(reset) |=> $stable(rx_data) && $stable(data_buf);
+286. @(posedge clock) $rose(reset) |=> !new_rx_data;
+287. @(posedge clock) $rose(reset) |=> (int_rd_data == 8'h0);
+288. @(posedge clock) $rose(reset) |=> $stable(ser_out) throughout (reset[*1:$]);
+289. @(posedge clock) disable iff (reset) $rose(ser_in) && $fell(ser_in) within [0:$] |-> $stable(ser_out);
+290. @(posedge clock) disable iff (reset) (!tx_busy) |-> ##4 (ser_out == $past(ser_in,4));
+291. @(posedge clock) disable iff (reset || !ce_16) ($fell(ser_in) ##1 !$rose(ser_in)[*10]) |-> !new_rx_data;
+292. @(posedge clock) disable iff (reset) $fell(ser_in) |-> ##[1:16] int_req;
+293. @(posedge clock) disable iff (reset) ($rose(ser_in) && $fell(ser_in) within [0:$]) |-> $stable(int_wr_data);
+294. @(posedge clock) disable iff (reset) (ser_in == 0)[*16] |-> $stable(int_address);
+295. @(posedge clock) disable iff (reset) ($stable(ser_in)[*8] && int_req) |-> ##1 int_gnt;
+296. @(posedge clock) (reset) |-> $stable(ser_in);
+297. @(posedge clock) disable iff (reset) ($fell(ser_in) ##1 $changed(ser_in)[*8]) |-> ##[1:16] int_write;
+298. @(posedge ce_16) $rose(ser_in) && $fell(ser_in) within [0:$] |-> $stable(ser_in);
+299. @(posedge clock) $rose(!reset) |-> $stable(ser_in, 2);
+300. @(posedge clock) reset |-> (ser_out == $past(ser_out,1)) and (!$changed(int_write)) and (!$changed(int_read));
+301. @(posedge clock) disable iff (reset) (int_read && $fell(ser_in)) |=> (int_read throughout !$fell(ser_in))[*1:$] ##1 $fell(ser_in);
+302. @(posedge clock) disable iff (reset) ser_in[*10] |-> !int_read;
+303. @(posedge clock) disable iff (reset) $fell(ser_in) |-> ##[1:3] int_req;
+304. @(posedge clock) disable iff (reset) (ser_in == 0) throughout (ce_16[->24]) |-> framing_error;
+305. @(posedge clock) disable iff (reset) $rose(!reset) ##4 (!reset throughout (($stable(ser_in, 2)) or ($fell(ser_in) ##2 $stable(ser_in))));
+306. @(posedge clock) disable iff (reset) $fell(ser_in) ##[1:$] $rose(ser_in) |-> ##[0:16] int_write [*1] ##1 !int_write;
+307. @(posedge clock) ($fell(reset) && (ser_in == 0)) ##1 (ser_in == 1)[*4] |-> !framing_error;
+308. @(posedge clock) disable iff (reset) (frame_end && ce_16) |-> ##[1:2] new_rx_data;
+309. @(posedge clock) $rose(!reset) |-> strong(##[0:16] $stable(ser_in));
+310. @(posedge clock) disable iff (reset) ($fell(ser_in) ##1 ser_in[*8]) |-> ##[1:24] (int_wr_data == $past(ser_in, 8));
+311. @(posedge clock) disable iff (reset) $fell(ser_in) && ce_16 |-> ##[1:16] $rose(ser_in);
+312. @(posedge clock) disable iff (reset) $fell(ser_in) |-> ##[1:16] (new_rx_data && $stable(ser_out));
+313. @(posedge clock) disable iff (reset) ($countones(ser_in) >= 10) |-> $stable(ser_in) until $fell(ser_in);
+314. @(posedge clock) disable iff (reset) ($countones(ser_in) >= 16) |-> ##[1:16] !int_read;
+315. @(posedge clock) disable iff (reset) (ser_in == 1'b0 ##1 ser_in == 1'b1 ##1 ser_in == 1'b0 ##1 ser_in == 1'b1 ##1 ser_in == 1'b0 ##1 ser_in == 1'b1 ##1 ser_in == 1'b0 ##1 ser_in == 1'b1) && ce_16 |-> (int_address == 8'h55);
+316. @(posedge clock) reset |-> $stable(int_rd_data);
+317. @(posedge clock) disable iff (reset) ($fell(ser_in) && ce_16) |-> ##[1:$] (new_rx_data && $stable(ce_16)[*1:$]);
+318. @(posedge clock) disable iff (reset) ($rose(ser_in) && int_req) |-> ##[1:2] !int_gnt;
+319. @(posedge clock) $rose(int_gnt) |-> ##[1:2] $stable(ser_out);
+320. @(posedge clock) int_write |-> ##[1:2] (ser_out == 0 || ser_out == 1);
+321. @(posedge clock) int_gnt && !int_req |-> $stable(ser_out);
+322. @(posedge clock) (int_req && !int_gnt) |-> ##5 ($stable(ser_out)[*5]);
+323. @(posedge clock) (int_req && !int_gnt) |-> ##[1:10] $changed(ser_out);
+324. @(posedge clock) reset |-> $stable(ser_out);
+325. @(posedge clock) (int_read && int_write) |-> $stable(ser_out);
+326. @(posedge clock) $fell(reset) |-> (ser_out == 0)[*3];
+327. @(posedge clock) (!int_read && !int_write) |-> ##4 ($fell(ser_out) || $rose(ser_out))[*4];
+328. @(posedge clock) $changed(int_address) && !int_write |-> $stable(ser_out);
+329. @(posedge clock) $changed(int_read) || $changed(int_write) |-> ##1 !$isunknown(ser_out) throughout ##[0:1] $stable(ser_out);
+330. @(posedge clock) disable iff (reset) $changed(ser_out) |-> $rose(clock);
+331. @(posedge clock) (int_req && !int_gnt) |-> $stable(ser_out);
+332. @(posedge clock) int_write |-> ser_out == int_wr_data[0];
+333. @(posedge clock) reset |=> $stable(ser_out);
+334. @(posedge clock) $fell(reset) |-> (ser_out == 1'b0);
+335. @(posedge clock) $fell(int_write) |=> (ser_out == 1'b1);
+336. @(posedge clock) ($changed(int_address) && int_write) |-> (ser_out == 1'b1)[->1] ##1 ser_out != 1'b1;
+337. @(posedge clock) disable iff (int_write) (ser_in |-> ##1 ser_out == $past(ser_in));
+338. @(posedge clock) (int_req && int_gnt) |-> ##[1:4] !$stable(ser_out);
+339. @(posedge clock) $rose(int_read) |-> ##[1:10] $changed(ser_out);
+340. @(posedge clock) disable iff (reset) $changed(int_rd_data) |-> ##[1:2] $stable(ser_out);
+341. @(posedge clock) disable iff (reset) int_write |-> (ser_out == int_wr_data[0]);
+342. @(posedge clock) $fell(reset) |-> ##[1:2] (ser_out == 1'b1);
+343. @(posedge clock) $rose(reset) |-> ##[0:2] ($stable(ser_out)) and $fell(reset) |-> ##[0:2] ($stable(ser_out));
+344. @(posedge clock) disable iff (reset) (int_read && $changed(int_rd_data)) |-> ##[1:4] (ser_out == $past(int_rd_data, 4)[7:0]);
+345. @(posedge clock) disable iff (reset) (int_write && int_gnt)[*3] |-> (ser_out == int_wr_data[7:0]);
+346. @(posedge clock) disable iff (reset) $fell(int_read) |-> (ser_out == 1'b1)[*3];
+347. @(posedge clock) disable iff (reset) (int_read && int_gnt) |-> ##[1:3] (ser_out == $past(ser_in, 3));
+348. @(posedge clock) disable iff (reset) ($past(int_address) == 8'h00 && int_address != 8'h00) |-> ##[1:5] (ser_out == 1'b1);
+349. @(posedge clock) disable iff (reset) int_read |-> (ser_out == ^int_rd_data);
+
+Step 7: Writing SVAs to files...
+Test plan generation and coverage evaluation process completed.
+Timer log ***********************************************************
+Total duration 41.000 mins, 35.949 secs
+Read PDF              : 467.655 msecs (0.02%)
+Load and process KG   : 4.936 msecs (0.00%)
+Refine KG with RTL    : 3.810 secs (0.15%)
+Initialize LLM        : 1.025 msecs (0.00%)
+Extract valid signals : 0.000 msecs (0.00%)
+Generate NL plans     : 19.000 mins (45.70%)
+Generate SVAs         : 22.000 mins, 31.029 secs (54.13%)
+Write SVAs to files   : 27.646 msecs (0.00%)
+Timer log ***********************************************************
+Total time: 41.000 mins, 35.962 secs; Total number of files: 6; Total folder size: 275.09 KiB
+C:\Users\huijie\Desktop\AssertionForge\logs\gen_plan_2025-07-08T07-23-26.850440_DESKTOP-4FTGQ55_huijie
+gen_plan_2025-07-08T07-23-26.850440_DESKTOP-4FTGQ55_huijie

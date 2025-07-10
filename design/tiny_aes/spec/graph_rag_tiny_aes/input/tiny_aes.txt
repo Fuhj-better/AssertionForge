@@ -1,0 +1,338 @@
+ 
+ 
+ 
+AES Core 
+Specification  
+ 
+ 
+ 
+Author: Homer Hsing 
+homer. hsing@gmail.com  
+ 
+ 
+ 
+ 
+Rev. 0.1.2 
+February 21, 201 3 
+  
+ OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 ii  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This page has been intentionally left blank.   OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 iii  
+Revision History  
+Rev.  Date  Author  Description   
+0.1 10/18/2012 Homer Hsing First Draft  
+0.1.1  
+ 
+0.1.2 10/30/2012  
+ 
+02/21/2012 Homer Hsing  
+ 
+Homer  Hsing  In section “performance ”, change “128 bytes ” to 
+“128 bits”, change throughput . 
+Explain how to encrypt or decrypt a message  
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 iv  
+Contents  
+INTRODUCTION ................................ ................................ ................................ .............  1 
+ABOUT AES  ................................ ................................ ................................ ................................ ...............  1 
+ABOUT THIS PROJECT  ................................ ................................ ................................ ................................ . 1 
+ARCHITECTURE  ................................ ................................ ................................ ............  3 
+ARCHITECTURE OF THE C ORE ................................ ................................ ................................ .....................  3 
+STATE TRANSFORMATION PIPELINE  ................................ ................................ ................................ ............  4 
+KEY EXPANSION PIPELIN E ................................ ................................ ................................ ...........................  5 
+INTERFACE  ................................ ................................ ................................ .....................  6 
+TIMING  ................................ ................................ ................................ .............................  8 
+USAGE  ................................ ................................ ................................ ...............................  9 
+HOW TO ENCRYPT OR DEC RYPT A MESSAGE  ................................ ................................ ...............................  9 
+FPGA IMPLEMENTATION  ................................ ................................ ........................  10 
+SYNTHESIS RESULTS (BY XILINX ISE VERSION 14.2)  ................................ ................................ ................. 10 
+PERFORMANCE  ................................ ................................ ................................ ................................ .......... 11 
+TESTBENCH  ................................ ................................ ................................ ..................  12 
+REFERENCES  ................................ ................................ ................................ ................  13 
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 1 of 13 
+1  
+Introduction  
+About AES  
+AES (Advance d Encryption Standard) is a specification published by the American 
+National Institute of Standards and Technology in 2001 , as FIPS 197 .[1] 
+AES  describes a symmetric -key algorithm, in which the same key is used for both 
+encrypting and decrypting the data. The block size is restricted to 128 bits. The key size 
+can be  128, 192, or 256 bits. [1] 
+AES operates on a 4× 4 matrix of bytes, called  the state . Some  rounds of transformation 
+converts the plaintext into the final cipher -text. The number of rounds is six plus the key 
+size divided  by 32.  One round reads the state into four 4 -byte variables             ; 
+transforms the variables; xor’s them  by a 16 -byte round key; and puts the result 
+into            .[3] 
+When targeting a variable -length plaintext, the plaintext  must first be partitio ned into 
+separate cipher blocks, and then  be encrypted under some mode of operation, generally 
+using  randomization based on an additional initialization vector .[4] 
+The cipher feedback (CFB) mode, output feedback (OFB) mode are specified in FIPS 81 . 
+The counter (CTR) mode is specified by NIST in  SP800 -38A.[4] The advantage of these 
+modes is only using encryption algorithm for both encryption and decryption. So the AES 
+hardware price  may be reduced by 50% (not need decryption hardware).  
+About th is project  
+This project has implemented AES encryption algorithm.  
+This project provides three cores, doing AES -128, AES -192 and AES -256 encryption 
+separately.  
+The cores can be used in cipher feedback (CFB) mode, output feedback (OFB) mode, and 
+counter (CTR) mode.  
+The maximum frequency is 324.6 MHz . The throughput is 37. 5 G bytes /second if with a 
+300 MHz clock.   OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 2 of 13 
+This project is licensed under the Apache License, version 2.  
+The features are  as follows.  
+ Pipeline architecture  
+ Only one  clock domain in entire core  
+ No latch  
+ Vendor -independent code  
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 3 of 13 
+2  
+Architecture  
+Architecture of the core  
+ 
+Figure 1: Architecture of AES -192 core  
+ OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 4 of 13 
+ 
+Figure 2: Architecture of AES -256 core  
+ 
+AES -128, AES -192, AES -256 cores have the similar architecture. Each of them consists  
+of two pipeline s. The first pipeline  transforms the 16 bytes state. The second one  
+computes the 16 bytes key used in each round.  
+State transformation pipeline  
+The first pipeline  uses two clock cycle for each round of transformation . 
+In the first clock cycle , the pipeline  does three steps, including           – a 
+substitution step where each byte is replaced with another according to a lookup table, 
+           – a transposition step where each row of the state is shifted cyclically by a 
+certain number of bytes, and             – a mixing step which operates on the 
+columns of the state, combining the four bytes in each column.  
+As described in the original AES proposal, the three steps above are merged into 16 table 
+lookups, see [2]. 
+In the second clock cycle, the pipeline does the step of               – where each 
+byte of the state is xor’ed  with the round key . 
+ OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 5 of 13 
+Key expansion pipeline  
+The second pipeline also uses two clock cycle for computing every 16 bytes round key.  
+Different computation methods are used for different AES key size. For brevity, only 
+AES -128 is described here.  
+Denote the 16 byte round  key in the last round as four 4 -byte variables             . 
+Denote the 16 byte round key in the current round as                 . They obey following 
+relation.  
+           (      (  ))                   
+                                               
+AES -128 core does not adopt the relation above, but use its  equivalent relation . 
+                  
+               
+               
+              
+          (      (  ))  
+               
+               
+               
+              
+In the first clock cycle,       are computed.  In the second clock cycle,         are 
+computed.  
+The advantage is th e distribution of  combination logic in the two clock cycles is more 
+uniform . 
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 6 of 13 
+3  
+Interface  
+The AES  cores implement  the signals shown in the table below.  
+Input signals are synchronous and sampled at the rising edge of the clock.  
+Output signals are driven by flip -flops, and not directly connected to input signals by 
+combinational logic.  
+For signals wider than 1 bit, the range is most significant bit down to least significant bit.  
+For example, the first byte of the plaintext is                . The most significant bit of 
+the first byte is            . It is the same for     and    . 
+ 
+Table  1: Interface signals  of AES -128 core  
+Signal name  Width  In/Out  Description  
+    1 In Clock 
+      128 In Plaintext  
+    128 In Key 
+    128 Out Cipher -text. It is valid after 21 clock cycles when       and     
+signals are valid . 
+ 
+ 
+Table  2: Interface signals  of AES -192 core  
+Signal name  Width  In/Out  Description  
+    1 In Clock 
+      128 In Plaintext  
+    192 In Key 
+    128 Out Cipher -text. It is valid after 2 5 clock cycles when       and     
+signals are valid . 
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 7 of 13 
+Table  3: Interface signals  of AES -256 core  
+Signal name  Width  In/Out  Description  
+    1 In Clock 
+      128 In Plaintext  
+    256 In Key 
+    128 Out Cipher -text. It is valid after 2 9 clock cycles when       and     
+signals are valid .  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 8 of 13 
+4  
+Timing  
+The number of clock cycles    for calculating the cipher -text is as follows.  
+Table  4: The value of   for different AES key size  
+Key-size The value of   
+128 bit  21 
+192 bit  25 
+256 bit  29 
+ 
+The signals        and     are valid at the   -th clock cycle, if and only if  
+the value of the signal     at the (    )-th clock cycle is the encryption of 
+plaintext       under the     , for all integer      . 
+ 
+The value of       and     at the   -th clock cycle can be different from the value of 
+      and     at the (    )-th clock cycle , for all integer          . 
+ 
+An example  
+Table  5: The value  of       and     and     
+Clock cycle                
+         Undefined value  
+           Undefined value  
+           Undefined value  
+… … … … 
+     Any value  Any value  Cipher -text of    under the key     
+       Any value  Any value  Cipher -text of    under the key     
+       Any value  Any value  Cipher -text of    under the key      OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 9 of 13 
+5  
+Usage  
+How to encrypt or decrypt a message   
+Suppose you use "aes_256" module, and the operat ion mode is CTR.  
+ 
+To encrypt something, let "aes_256.state" be a successive values of a "counter".  
+  e.g., in clock cy cle    , "aes_256.state ==     "; 
+          in clock cy cle    , "aes_256.state ==     "; 
+          in clock cycle     , "aes_256.state ==     ". 
+Then "aes_256.out" is a binary sequence. Xor the binary sequence to the plain text to get 
+the cipher text.  
+ 
+To decrypt something, let "aes_256.state" be a successive values of the SAME "counter".  
+Then "aes_256.out" is the SAME binary sequence. Xor the binary  sequence to the cipher 
+text to get the plain text.  
+ 
+If it is against  your intuition, please read 
+http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation    OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 10 of 13 
+6  
+FPGA Implementation  
+Synthesis results  (by Xilinx ISE version 14.2 ) 
+AES -128 core  
+Table  6: synthesis result of AES -128 core  
+Device  Xilinx Virtex 6 XC6VLX240T -1FF1156  
+Number of Slice Registers  3,968  
+Number of Slice LUTs  3,536  
+Number of bonded  IOBs  385 
+Number of Block RAM/FIFO  86 
+Number of BUFG/BUFGCTRLs  1 
+Maximum Frequency  324.6MHz  
+ 
+ 
+AES -192 core  
+Table  7: synthesis result of AES -192 core  
+Device  Xilinx Virtex 6 XC6VLX240T -1FF1156  
+Number of Slice Registers  5,280  
+Number of Slice LUTs  4,264  
+Number of bonded  IOBs  449 
+Number of Block RAM/FIFO  100 
+Number of BUFG/BUFGCTRLs  1 
+Maximum Frequency  324.6MHz  
+ 
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 11 of 13 
+AES -256 core  
+Table  8: synthesis result of AES -256 core 
+Device  Xilinx Virtex 6 XC6VLX240T -1FF1156  
+Number of Slice Registers  6,848  
+Number of Slice LUTs  6,503  
+Number of bonded  IOBs  513 
+Number of Block RAM/FIFO  121 
+Number of BUFG/BUFGCTRLs  1 
+Maximum Frequency  324.6MHz  
+Performance  
+The core can encrypt 128 b it per clock cycle.  
+The throughput is      G bit /second (     G bytes/sec) if it is working with a 300 MHz 
+clock.  
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 12 of 13 
+7  
+Testbench  
+The file “testbench /simulation.do”  is a batch file for Model Sim to compile the HDL 
+files, setup the wave file, and begin function simulation. In order to make it work 
+properly, t he working directory of Model Sim must be the directory of “testbench ”. 
+The file s “testbench /test_ aes_128 .v”, “testbench /test_ aes_192 .v”, and 
+“testbench /test_ aes_256 .v” are the main test bench es for the AES  core. The test 
+bench es are self-checked. They  feed input data to the core and compare  the correct result 
+with the output of the core. If the output is wrong, the test bench es will display an error 
+message.  
+Table  9: the object being tested by each test bench  
+File name  the object being tested  
+test_ aes_128 .v the core doing AES -128 encryption  
+test_ aes_192 .v the core doing AES -192 encryption  
+test_ aes_256 .v the core doing AES -256 encryption  
+  OpenCores  AES Core  Specifications  2/21/2013  
+ 
+ 
+www.opencores.org  Rev 0. 1.2 13 of 13 
+8  
+References  
+[1] Advanced Encryption Standard , 
+http://en.wikipedia.org/wiki/Advanced_Encryption_Standard  
+[2] J. Daemen and V. Rijmen. AES proposal: Rijndael. Original AES Submission to 
+NIST, 1999.  
+[3] D. J. Bernstein and P. Schwabe. New AES software speed records. In INDOCRYPT 
+2008, volume 5365 of LNCS, pages 322-336, 2008.  
+[4] Block cipher modes of operation , 
+http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation  
+ 
